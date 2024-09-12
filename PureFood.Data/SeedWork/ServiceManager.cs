@@ -1,0 +1,47 @@
+﻿using AutoMapper;
+using PureFood.Core.SeedWorks;
+using PureFood.Core.Services;
+using PureFood.Data.Service;
+
+namespace PureFood.Data.SeedWork
+{
+    public class ServiceManager : IServiceManager
+    {
+        private readonly Lazy<ICartItemService> _cartItemService;
+        private readonly Lazy<ICartService> _cartService;
+        private readonly Lazy<ICategoryService> _categoryService;
+        private readonly Lazy<IImageService> _imageService;
+        private readonly Lazy<IProductService> _productService;
+        private readonly Lazy<IReviewService> _reviewService;
+        private readonly Lazy<ISupplierService> _supplierService;
+        private readonly Lazy<IUserService> _userService;
+        public ServiceManager(IRepositoryManager repositoryManager, IMapper mapper)
+        {
+            _cartItemService = new Lazy<ICartItemService>(() => new CartItemService(repositoryManager, mapper));
+            _cartService = new Lazy<ICartService>(() => new CartService(repositoryManager, mapper));
+            _categoryService = new Lazy<ICategoryService>(() => new CategoryService(repositoryManager, mapper));
+            _imageService = new Lazy<IImageService>(() => new ImageService(repositoryManager, mapper));
+            _productService = new Lazy<IProductService>(() => new ProductService(repositoryManager, mapper));
+            _reviewService = new Lazy<IReviewService>(() => new ReviewService(repositoryManager, mapper));
+            _supplierService = new Lazy<ISupplierService>(() => new SupplierService(repositoryManager, mapper));
+            _userService = new Lazy<IUserService>(() => new UserService(repositoryManager, mapper));
+        }
+        public ICartItemService CartItemService => _cartItemService.Value;
+
+        public ICartService CartService => _cartService.Value;
+
+        public ICategoryService CategoryService => _categoryService.Value;
+
+        public IImageService ImageService => _imageService.Value;
+
+        public IProductService ProductService => _productService.Value;
+
+        public IReviewService ReviewService => _reviewService.Value;
+
+        public ISupplierService SupplierService => _supplierService.Value;
+
+        public IUserService UserService => _userService.Value;
+
+
+    }
+}
