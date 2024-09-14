@@ -5,5 +5,7 @@ namespace PureFood.Core.Repositories
 {
     public interface IProductRepository : IRepositoryBase<Product, Guid>
     {
+        Task<IEnumerable<Product>> GetAllProductAsync(int page, int limit, string? searchName, string? categoryName);
+        Task<int> GetTotalProductCountAsync(string searchName, string categoryName);
     }
 }

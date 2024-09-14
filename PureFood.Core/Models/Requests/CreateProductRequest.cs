@@ -1,12 +1,15 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using PureFood.Core.Domain.Content;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace PureFood.Core.Domain.Content
+namespace PureFood.Core.Models.Requests
 {
-    public class Product
+    public class CreateProductRequest
     {
-        [Key]
-        public Guid ProductId { get; set; }
         public string ProductName { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
@@ -22,19 +25,7 @@ namespace PureFood.Core.Domain.Content
 
         public DateTime? CreatedAt { get; set; }
         public DateTime? UpdateAt { get; set; }
-        public Guid? CreatedBy { get; set; }
-        public Guid? UpdatedBy { get; set; }
         public Guid CategoryId { get; set; }
-
-        [ForeignKey(nameof(CategoryId))]
-        public Category Category { get; set; }
-
         public Guid SupplierId { get; set; }
-        [ForeignKey(nameof(SupplierId))]
-        public Supplier Supplier { get; set; }
-
-        public ICollection<Review> Reviews { get; set; }
-        public ICollection<Image> Images { get; set; }
-        public ICollection<CartItem> CartItems { get; set; }
     }
 }
