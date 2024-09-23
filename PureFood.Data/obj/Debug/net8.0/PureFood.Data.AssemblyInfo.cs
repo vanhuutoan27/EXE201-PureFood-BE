@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PureFood.Data")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1d7db5c51be909e044decf1908d3e900ad6ce200")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f199b3dc1ee25d8566ff9d051278300565b05df8")]
 [assembly: System.Reflection.AssemblyProductAttribute("PureFood.Data")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PureFood.Data")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

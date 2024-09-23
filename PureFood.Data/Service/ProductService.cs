@@ -5,6 +5,7 @@ using PureFood.Core.Models.Requests;
 using PureFood.Core.Models.Respones;
 using PureFood.Core.SeedWorks;
 using PureFood.Core.Services;
+using System.Text;
 
 namespace PureFood.Data.Service
 {
@@ -18,8 +19,32 @@ namespace PureFood.Data.Service
             _mapper = mapper;
         }
 
-        public async Task<CreateProductRequest> CreateProduct(CreateProductRequest requestProduct)
+        // method
+        private string GenerateRandomString(int length)
         {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            var random = new Random();
+            return new string(Enumerable.Repeat(chars, length)
+              .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
+        private string GenerateSlug(string productName)
+        {
+            // Looai bo dau tieng Viet, thay khoang trang thanh dau -
+            var slug = productName.ToLower()
+                                  .Replace(" ", "-")
+                                  .Normalize(NormalizationForm.FormD)
+                                  .Where(c => char.IsLetterOrDigit(c) || c == '-')
+                                  .ToArray();
+
+            return new string(slug);
+        }
+            public async Task<CreateProductRequest> CreateProduct(CreateProductRequest requestProduct)
+        {
+            // tao 6 ky tu ngau nhien
+            var randomSuffix = GenerateRandomString(6).ToLower();
+            // tao slug
+            var slug = GenerateSlug(requestProduct.ProductName);
+            var resultSlug = $"{slug}-{randomSuffix}";
             try
             {
                 var createProduct = _mapper.Map<Product>(requestProduct);
@@ -27,6 +52,7 @@ namespace PureFood.Data.Service
                 {
                     ProductId = Guid.NewGuid(),
                     ProductName = createProduct.ProductName,
+                    Slug = resultSlug,
                     Description = createProduct.Description,
                     Price = createProduct.Price,
                     Stock = createProduct.Stock,
@@ -34,7 +60,7 @@ namespace PureFood.Data.Service
                     Unit = createProduct.Unit,
                     Origin = createProduct.Origin,
                     Organic = createProduct.Organic,
-                    Status = createProduct.Status,
+                    Status = false,
                     EntryDate = createProduct.EntryDate,
                     ExpiryDate = createProduct.ExpiryDate,
                     CreatedAt = DateTime.Now,
@@ -79,6 +105,66 @@ namespace PureFood.Data.Service
         {
             var product = await _repositoryManager.ProductRepository.GetByIdAsync(productId);
             return _mapper.Map<ProductRespone>(product);
+        }
+
+        public async Task<ProductRespone> GetProductBySlug(string slug)
+        {
+            var product = await _repositoryManager.ProductRepository.GetProductBySlug(slug);
+            var result = _mapper.Map<ProductRespone>(product);
+            return result;
+        }
+
+        public async Task<bool> UpdateProduct(Guid productId, UpdateProductRequest updateProductRequest)
+        {
+            try
+            {
+                var product = await _repositoryManager.ProductRepository.GetByIdAsync(productId);
+                product.ProductName = updateProductRequest.ProductName;
+                product.Description = updateProductRequest.Description;
+                product.Price = updateProductRequest.Price;
+                product.Stock = updateProductRequest.Stock;
+                product.Weight = updateProductRequest.Weight;
+                product.Unit = updateProductRequest.Unit;
+                product.Origin = updateProductRequest.Origin;
+                product.Organic = updateProductRequest.Organic;
+                product.EntryDate = updateProductRequest.EntryDate;
+                product.ExpiryDate = updateProductRequest.ExpiryDate;
+                product.CategoryId = updateProductRequest.CategoryId;
+                product.SupplierId = updateProductRequest.SupplierId;
+                product.UpdateAt = DateTime.Now;
+
+                _repositoryManager.ProductRepository.Update(product);
+                await _repositoryManager.SaveAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error Update product !" + ex.Message);
+            }
+            
+        }
+
+        public async Task<bool> DeleteProduct(Guid productId)
+        {
+            var product = await _repositoryManager.ProductRepository.GetByIdAsync(productId);
+            _repositoryManager.ProductRepository.Remove(product);
+            await _repositoryManager.SaveAsync();
+            return true;
+        }
+
+        public async Task<bool> ChangeStatusProduct(Guid productId)
+        {
+            var product = await _repositoryManager.ProductRepository.GetByIdAsync(productId);
+            if (product.Status == false)
+            {
+                product.Status = true;
+            } else
+            {
+                product.Status = false;
+            }
+            _repositoryManager.ProductRepository.Update(product);
+            await _repositoryManager.SaveAsync();
+            return true;
         }
     }
 }

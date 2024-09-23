@@ -7,5 +7,6 @@ namespace PureFood.Core.Repositories
     {
         Task<IEnumerable<Product>> GetAllProductAsync(int page, int limit, string? searchName, string? categoryName);
         Task<int> GetTotalProductCountAsync(string searchName, string categoryName);
+        Task<Product> GetProductBySlug(string slug);
     }
 }

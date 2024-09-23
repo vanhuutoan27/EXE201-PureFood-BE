@@ -47,7 +47,7 @@ namespace PureFood.API.Controllers
                 Message = "Product added successfully."
             });
         }
-        [HttpGet("{productId}")]
+        [HttpGet("{productId:guid}")]
         public async Task<IActionResult> GetById(Guid productId)
         {
             var product = await _serviceManager.ProductService.GetProductById(productId);
@@ -78,6 +78,90 @@ namespace PureFood.API.Controllers
                 Status = (int)HttpStatusCode.OK,
                 Data = listProduct,
                 Message = "Products retrieved successfully."
+            });
+        }
+        [HttpGet("{slug}")]
+        public async Task<IActionResult> GetBySlug(string slug)
+        {
+            var product = await _serviceManager.ProductService.GetProductBySlug(slug);
+            if(product is null)
+            {
+                return NotFound(_resultModel = new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.NotFound,
+                    Message = "Product not found"
+                });
+            }
+            return Ok(_resultModel = new ResultModel
+            {
+                Success = true,
+                Status = (int)HttpStatusCode.OK,
+                Data = product,
+                Message = "Product retrieved successfully."
+            });
+        }
+        [HttpPut("{productId}")]
+        public async Task<IActionResult> UpdateProduct(Guid productId, [FromBody] UpdateProductRequest updateRequest)
+        {
+            var product = await _serviceManager.ProductService.GetProductById(productId);
+            if(product is null)
+            {
+                return NotFound(_resultModel = new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.NotFound,
+                    Message = "Product not found"
+                });
+            }
+            await _serviceManager.ProductService.UpdateProduct(productId, updateRequest);
+            return Ok(_resultModel = new ResultModel
+            {
+                Success = true,
+                Status = (int)HttpStatusCode.OK,
+                Message = "Product updated successfully."
+            });
+        }
+        [HttpDelete]
+        public async Task<IActionResult> DeleteProduct(Guid productId)
+        {
+            var product = await _serviceManager.ProductService.GetProductById(productId);
+            if (product is null)
+            {
+                return NotFound(_resultModel = new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.NotFound,
+                    Message = "Product not found"
+                });
+            }
+            await _serviceManager.ProductService.DeleteProduct(productId);
+            return Ok(_resultModel = new ResultModel
+            {
+                Success = true,
+                Status = (int)HttpStatusCode.OK,
+                Message = "Product deleted successfully."
+            });
+        }
+        [HttpPatch("{productId}")]
+        public async Task<IActionResult> ChangeStatusProduct(Guid productId)
+        {
+            var product = await _serviceManager.ProductService.GetProductById(productId);
+            if(product is null)
+            {
+                return NotFound(_resultModel = new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.NotFound,
+                    Message = "Product not found"
+                });
+            }
+            await _serviceManager.ProductService.ChangeStatusProduct(productId);
+            return Ok(_resultModel = new ResultModel
+            {
+                Success = true,
+                Status = (int)HttpStatusCode.OK,
+                Message = "Status updated successfully."
             });
         }
     }
