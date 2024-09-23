@@ -811,19 +811,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\quocd\\.nuget\\packages\\": {}
+    "C:\\Users\\wew91\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\GitSource\\PureFood-System\\PureFood.Core\\PureFood.Core.csproj",
+      "projectUniqueName": "D:\\github\\EXE201-PureFood-BE\\PureFood.Core\\PureFood.Core.csproj",
       "projectName": "PureFood.Core",
-      "projectPath": "F:\\GitSource\\PureFood-System\\PureFood.Core\\PureFood.Core.csproj",
-      "packagesPath": "C:\\Users\\quocd\\.nuget\\packages\\",
-      "outputPath": "F:\\GitSource\\PureFood-System\\PureFood.Core\\obj\\",
+      "projectPath": "D:\\github\\EXE201-PureFood-BE\\PureFood.Core\\PureFood.Core.csproj",
+      "packagesPath": "C:\\Users\\wew91\\.nuget\\packages\\",
+      "outputPath": "D:\\github\\EXE201-PureFood-BE\\PureFood.Core\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\quocd\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\wew91\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

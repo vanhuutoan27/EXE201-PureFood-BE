@@ -4641,19 +4641,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\quocd\\.nuget\\packages\\": {}
+    "C:\\Users\\wew91\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\GitSource\\PureFood-System\\PureFood.Data\\PureFood.Data.csproj",
+      "projectUniqueName": "D:\\github\\EXE201-PureFood-BE\\PureFood.Data\\PureFood.Data.csproj",
       "projectName": "PureFood.Data",
-      "projectPath": "F:\\GitSource\\PureFood-System\\PureFood.Data\\PureFood.Data.csproj",
-      "packagesPath": "C:\\Users\\quocd\\.nuget\\packages\\",
-      "outputPath": "F:\\GitSource\\PureFood-System\\PureFood.Data\\obj\\",
+      "projectPath": "D:\\github\\EXE201-PureFood-BE\\PureFood.Data\\PureFood.Data.csproj",
+      "packagesPath": "C:\\Users\\wew91\\.nuget\\packages\\",
+      "outputPath": "D:\\github\\EXE201-PureFood-BE\\PureFood.Data\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\quocd\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\wew91\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4667,8 +4672,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "F:\\GitSource\\PureFood-System\\PureFood.Core\\PureFood.Core.csproj": {
-              "projectPath": "F:\\GitSource\\PureFood-System\\PureFood.Core\\PureFood.Core.csproj"
+            "D:\\github\\EXE201-PureFood-BE\\PureFood.Core\\PureFood.Core.csproj": {
+              "projectPath": "D:\\github\\EXE201-PureFood-BE\\PureFood.Core\\PureFood.Core.csproj"
             }
           }
         }

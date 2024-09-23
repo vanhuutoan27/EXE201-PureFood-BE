@@ -10,3 +10,12 @@ F:\GitSource\PureFood-System\PureFood.Core\obj\Debug\net8.0\PureFood.Core.dll
 F:\GitSource\PureFood-System\PureFood.Core\obj\Debug\net8.0\refint\PureFood.Core.dll
 F:\GitSource\PureFood-System\PureFood.Core\obj\Debug\net8.0\PureFood.Core.pdb
 F:\GitSource\PureFood-System\PureFood.Core\obj\Debug\net8.0\ref\PureFood.Core.dll
+D:\github\EXE201-PureFood-BE\PureFood.Core\obj\Debug\net8.0\PureFood.Core.csproj.AssemblyReference.cache
+D:\github\EXE201-PureFood-BE\PureFood.Core\obj\Debug\net8.0\PureFood.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\github\EXE201-PureFood-BE\PureFood.Core\obj\Debug\net8.0\PureFood.Core.AssemblyInfoInputs.cache
+D:\github\EXE201-PureFood-BE\PureFood.Core\obj\Debug\net8.0\PureFood.Core.AssemblyInfo.cs
+D:\github\EXE201-PureFood-BE\PureFood.Core\obj\Debug\net8.0\PureFood.Core.csproj.CoreCompileInputs.cache
+D:\github\EXE201-PureFood-BE\PureFood.Core\obj\Debug\net8.0\PureFood.Core.sourcelink.json
+D:\github\EXE201-PureFood-BE\PureFood.Core\obj\Debug\net8.0\PureFood.Core.dll
+D:\github\EXE201-PureFood-BE\PureFood.Core\obj\Debug\net8.0\refint\PureFood.Core.dll
+D:\github\EXE201-PureFood-BE\PureFood.Core\obj\Debug\net8.0\PureFood.Core.pdb

@@ -80,3 +80,14 @@ F:\GitSource\PureFood-System\PureFood.API\obj\Debug\net8.0\PureFood.API.genrunti
 F:\GitSource\PureFood-System\PureFood.API\obj\Debug\net8.0\ref\PureFood.API.dll
 F:\GitSource\PureFood-System\PureFood.API\bin\Debug\net8.0\AutoMapper.dll
 F:\GitSource\PureFood-System\PureFood.API\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\github\EXE201-PureFood-BE\PureFood.API\obj\Debug\net8.0\PureFood.API.csproj.AssemblyReference.cache
+D:\github\EXE201-PureFood-BE\PureFood.API\obj\Debug\net8.0\PureFood.API.GeneratedMSBuildEditorConfig.editorconfig
+D:\github\EXE201-PureFood-BE\PureFood.API\obj\Debug\net8.0\PureFood.API.AssemblyInfoInputs.cache
+D:\github\EXE201-PureFood-BE\PureFood.API\obj\Debug\net8.0\PureFood.API.AssemblyInfo.cs
+D:\github\EXE201-PureFood-BE\PureFood.API\obj\Debug\net8.0\PureFood.API.csproj.CoreCompileInputs.cache
+D:\github\EXE201-PureFood-BE\PureFood.API\obj\Debug\net8.0\PureFood.API.MvcApplicationPartsAssemblyInfo.cs
+D:\github\EXE201-PureFood-BE\PureFood.API\obj\Debug\net8.0\PureFood.API.MvcApplicationPartsAssemblyInfo.cache
+D:\github\EXE201-PureFood-BE\PureFood.API\obj\Debug\net8.0\PureFood.API.sourcelink.json
+D:\github\EXE201-PureFood-BE\PureFood.API\obj\Debug\net8.0\PureFood.API.dll
+D:\github\EXE201-PureFood-BE\PureFood.API\obj\Debug\net8.0\refint\PureFood.API.dll
+D:\github\EXE201-PureFood-BE\PureFood.API\obj\Debug\net8.0\PureFood.API.pdb
