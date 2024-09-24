@@ -1,5 +1,5 @@
-﻿using PureFood.Core.Domain.Content.Requests;
-using PureFood.Core.Domain.Content.Responses;
+﻿using PureFood.Core.Models.content.Requests;
+using PureFood.Core.Models.content.Responses;
 
 namespace PureFood.Core.Services
 {
@@ -14,6 +14,7 @@ namespace PureFood.Core.Services
         Task<bool> updateCategory(Guid id,CreateCategoryRequest request);
 
         Task<bool> deleteCategory(Guid id);
+
         
 
 

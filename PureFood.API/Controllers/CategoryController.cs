@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PureFood.Core.Domain.Content.Requests;
 using PureFood.Core.Models;
+using PureFood.Core.Models.content.Requests;
 using PureFood.Core.SeedWorks;
 using System.Net;
 

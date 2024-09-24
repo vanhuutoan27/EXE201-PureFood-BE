@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PureFood.Core.Domain.Content.Responses
+namespace PureFood.Core.Models.content.Responses
 {
     public class CategoryReponses
     {

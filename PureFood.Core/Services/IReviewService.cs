@@ -10,13 +10,15 @@ namespace PureFood.Core.Services
         Task<ReviewReponse> getReviewById(Guid reviewid);
 
         Task<IEnumerable< ReviewReponse>> getReviewByUserId(Guid userId);
-        Task<IEnumerable< ReviewReponse>> getReviewById(int reviewid);
+        Task<IEnumerable< ReviewReponse>> getReviewByProductId(Guid productid);
 
         Task<bool> createReview(CreateReviewRequest review);  
 
         Task<bool> updateReview(Guid id , CreateReviewRequest review);
 
-        Task <bool> deleteReview (Guid id); 
+        Task <bool> deleteReview (Guid id);
+        
+        Task<bool> ChangeFlagAsync( Guid reviewId);
 
 
     }

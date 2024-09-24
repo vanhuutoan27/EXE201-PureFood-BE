@@ -1,4 +1,5 @@
-﻿using PureFood.Core.Domain.Content;
+﻿using Microsoft.EntityFrameworkCore;
+using PureFood.Core.Domain.Content;
 using PureFood.Core.Repositories;
 using PureFood.Data.SeedWork;
 
@@ -9,5 +10,35 @@ namespace PureFood.Data.Repositories
         public ReviewRepository(PureFoodDbContext context) : base(context)
         {
         }
+
+        public async Task<IEnumerable<Review>> GetAllReviewAsync(int page, int limit)
+        {
+            IQueryable <Review> query = _context.Reviews.AsQueryable();
+
+            if (page > 0 && limit > 0)
+            {
+                query = query.Skip((page - 1) * limit).Take(limit);
+            }
+            query = _context.Reviews;
+            return await query.ToListAsync();
+
+        }
+
+        public async Task<IEnumerable<Review>> GetReviewByProductId(Guid productId)
+        {
+            var reviewRepository = await _context.Reviews.AsQueryable().Include(p => p.Product).Where( p=> p.ProductId == productId).ToListAsync();
+            return reviewRepository;
+
+        }
+
+        public async Task<IEnumerable<Review>> GetReviewByUserId(Guid userId)
+        {
+            return await _context.Reviews.AsQueryable().Where(p=> p.UserId == userId).ToListAsync();
+        }
+
+        /*public async Task<IEnumerable<Review>> GetReviewByUserId(Guid userId)
+        {
+            var reviewRepository = await _context.Reviews.AsQueryable().Include(p => p.User)
+        }*/
     }
 }

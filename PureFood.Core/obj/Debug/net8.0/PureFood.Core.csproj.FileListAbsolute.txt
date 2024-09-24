@@ -19,3 +19,7 @@ D:\github\EXE201-PureFood-BE\PureFood.Core\obj\Debug\net8.0\PureFood.Core.source
 D:\github\EXE201-PureFood-BE\PureFood.Core\obj\Debug\net8.0\PureFood.Core.dll
 D:\github\EXE201-PureFood-BE\PureFood.Core\obj\Debug\net8.0\refint\PureFood.Core.dll
 D:\github\EXE201-PureFood-BE\PureFood.Core\obj\Debug\net8.0\PureFood.Core.pdb
+D:\github\EXE201-PureFood-BE\PureFood.Core\bin\Debug\net8.0\PureFood.Core.deps.json
+D:\github\EXE201-PureFood-BE\PureFood.Core\bin\Debug\net8.0\PureFood.Core.dll
+D:\github\EXE201-PureFood-BE\PureFood.Core\bin\Debug\net8.0\PureFood.Core.pdb
+D:\github\EXE201-PureFood-BE\PureFood.Core\obj\Debug\net8.0\ref\PureFood.Core.dll

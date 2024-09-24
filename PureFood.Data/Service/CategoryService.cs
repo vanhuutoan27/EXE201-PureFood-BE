@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using Microsoft.VisualBasic;
 using PureFood.Core.Domain.Content;
-using PureFood.Core.Domain.Content.Requests;
-using PureFood.Core.Domain.Content.Responses;
+using PureFood.Core.Models.content.Requests;
+using PureFood.Core.Models.content.Responses;
 using PureFood.Core.SeedWorks;
 using PureFood.Core.Services;
 
@@ -75,7 +75,6 @@ namespace PureFood.Data.Service
             _repositoryManager.CategoryRepository.Update(getCategory);
             await _repositoryManager.SaveAsync();
             return true;
-
 
 
         }
