@@ -6,6 +6,8 @@ using System.Net;
 
 namespace PureFood.API.Controllers
 {
+    [Route("api/v1/Category")]
+    [ApiController]
     public class CategoryController : ControllerBase
     {
         private readonly IServiceManager _serviceManager;
@@ -16,7 +18,7 @@ namespace PureFood.API.Controllers
             _resultModel = new ResultModel();
         }
 
-        [HttpGet]
+        [HttpGet("getAll")]
         public async Task<ActionResult<ResultModel>> GetAll()
         {
 
@@ -31,7 +33,7 @@ namespace PureFood.API.Controllers
             _resultModel.Success = true;
             _resultModel.Status = (int)HttpStatusCode.OK;
             _resultModel.Data = categoryList;
-            _resultModel.Message = "Car category retrieved successfully.";
+            _resultModel.Message = " category retrieved successfully.";
             return _resultModel;
         }
 
@@ -50,11 +52,40 @@ namespace PureFood.API.Controllers
             _resultModel.Success = true;
             _resultModel.Status = (int)HttpStatusCode.OK;
             _resultModel.Data = getCategory;
-            _resultModel.Message = "Car category retrieved successfully.";
+            _resultModel.Message = " category retrieved successfully.";
             return _resultModel;
         }
+
         [HttpPut]
-        [Route("{id}")]
+        [Route("Add")]
+        public async Task<ActionResult<ResultModel>> AddCategory( CreateCategoryRequest request)
+        {
+            var updateSuccess = await _serviceManager.CategoryService.createCategory( request);
+
+            if (!updateSuccess)
+            {
+                _resultModel = new ResultModel
+                {
+                    Status = (int)HttpStatusCode.BadRequest,
+                    Success = false,
+                    Message = "Failed to create categpry."
+                };
+                return BadRequest(_resultModel);
+            }
+
+            _resultModel = new ResultModel
+            {
+                Status = (int)HttpStatusCode.OK,
+                Success = true,
+                Message = "Category create successfully.",
+            };
+
+            return Ok(_resultModel);
+        }
+
+            [HttpPatch]
+          [Route("Update/{id}")]
+
         public async Task<ActionResult<ResultModel>> UpdateCategory(Guid id, CreateCategoryRequest request)
         {
             var updateSuccess = await _serviceManager.CategoryService.updateCategory(id, request);
@@ -81,7 +112,7 @@ namespace PureFood.API.Controllers
         }
 
         [HttpDelete]
-        [Route("{id}")]
+        [Route("Delete/{id}")]
         public async Task<ActionResult<ResultModel>> DeleteCategory(Guid id)
         {
             var Category = await _serviceManager.CategoryService.deleteCategory(id);
