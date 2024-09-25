@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PureFood.Core.Models.content.Requests;
+using PureFood.Core.Models.content.Responses;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +8,18 @@ using System.Threading.Tasks;
 
 namespace PureFood.Core.Services
 {
-    public class IPromotionService
+    public interface IPromotionService
     {
+
+        Task<PageResult<PromotionReponse>> getAll(int page, int limit);
+
+        Task<PromotionReponse> getPromotionById(Guid promotionId);
+
+
+        Task<bool> createPromotion(CreatePromotionRequest request);
+
+        Task<bool> updatePromotion(Guid id, CreatePromotionRequest request);
+
+        Task<bool> deletePromotion(Guid id);
     }
 }

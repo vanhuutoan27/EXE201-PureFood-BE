@@ -10,5 +10,6 @@ namespace PureFood.Core.Repositories
 {
     public interface IPromotionRepository : IRepositoryBase<Promotion, Guid>
     {
+        Task<IEnumerable<Promotion>> GetAllPromotionAsync(int page, int limit);
     }
 }
