@@ -42,7 +42,7 @@ namespace PureFood.Data.SeedWork
 
         public IReviewRepository ReviewRepository => _reviewRepository.Value;
 
-        public ISupplierRepository SuppliewReRepository => _supplierRepository.Value;
+        public ISupplierRepository SupplierRepository => _supplierRepository.Value;
 
         public IUserRepository UserRepository => _userRepository.Value;
 
