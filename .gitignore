@@ -94,3 +94,10 @@ MoncatiCar.Data/obj
 Moncati-Car-API/obj/Debug
 Moncati-Car-API/obj
 MoncatiCar.Data/appsettings.json
+PureFood.API/bin
+PureFood.API/obj
+PureFood.Core/bin
+PureFood.Data/bin
+PureFood.Data/obj
+PureFood.Core/obj
+.vscode

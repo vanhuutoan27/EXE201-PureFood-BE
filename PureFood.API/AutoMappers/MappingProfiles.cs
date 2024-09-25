@@ -11,6 +11,8 @@ namespace PureFood.API.AutoMappers
         {
             CreateMap<Product, CreateProductRequest>().ReverseMap();
             CreateMap<Product, ProductRespone>().ReverseMap();
+            CreateMap<Cart,CreateCartRequest>().ReverseMap();
+            CreateMap<CartItem,CreateCartItemsRequest>().ReverseMap();
         }
     }
 }

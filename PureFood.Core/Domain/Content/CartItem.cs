@@ -19,6 +19,6 @@ namespace PureFood.Core.Domain.Content
         [ForeignKey(nameof(ProductId))]
         public Product Product { get; set; }
 
-
+     
     }
 }
