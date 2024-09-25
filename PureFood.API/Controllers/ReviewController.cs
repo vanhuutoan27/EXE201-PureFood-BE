@@ -6,7 +6,7 @@ using System.Net;
 
 namespace PureFood.API.Controllers
 {
-    [Route("api/v1/Review")]
+    [Route("api/v1/reviews")]
     [ApiController]
     public class ReviewController : ControllerBase
     {
@@ -19,7 +19,7 @@ namespace PureFood.API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAll(int page = 1, int limit = 10, string? search = null)
+        public async Task<ActionResult<ResultModel>> GetAll(int page = 1, int limit = 10)
         {
             var brands = await _serviceManager.ReviewService.getAll(page, limit);
             if (brands == null)
@@ -76,7 +76,7 @@ namespace PureFood.API.Controllers
 
         }
         [HttpGet]
-        [Route("car/{productId:guid}")]
+        [Route("prodyct{productId:guid}")]
         public async Task<ActionResult<ResultModel>> GetReviewsByProduct(Guid productId)
         {
 
@@ -140,7 +140,7 @@ namespace PureFood.API.Controllers
 
 
         [HttpPost]
-        [Route("add")]
+      //  [Route()]
         public async Task<ActionResult<ResultModel>> AddReview(CreateReviewRequest request)
         {
             var addReview = await _serviceManager.ReviewService.createReview(request);

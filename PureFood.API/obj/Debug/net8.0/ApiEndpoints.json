@@ -2,7 +2,7 @@
   {
     "ContainingType": "PureFood.API.Controllers.CategoryController",
     "Method": "AddCategory",
-    "RelativePath": "api/v1/Category/Add",
+    "RelativePath": "api/v1/category/add",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -28,7 +28,7 @@
   {
     "ContainingType": "PureFood.API.Controllers.CategoryController",
     "Method": "DeleteCategory",
-    "RelativePath": "api/v1/Category/Delete/{id}",
+    "RelativePath": "api/v1/category/delete/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -54,7 +54,7 @@
   {
     "ContainingType": "PureFood.API.Controllers.CategoryController",
     "Method": "GetById",
-    "RelativePath": "api/v1/Category/get-category-by-id/{id}",
+    "RelativePath": "api/v1/category/get-supplier-by-id/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -80,7 +80,7 @@
   {
     "ContainingType": "PureFood.API.Controllers.CategoryController",
     "Method": "GetAll",
-    "RelativePath": "api/v1/Category/getAll",
+    "RelativePath": "api/v1/category/getAll",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -100,7 +100,7 @@
   {
     "ContainingType": "PureFood.API.Controllers.CategoryController",
     "Method": "UpdateCategory",
-    "RelativePath": "api/v1/Category/Update/{id}",
+    "RelativePath": "api/v1/category/update/{id}",
     "HttpMethod": "PATCH",
     "IsController": true,
     "Order": 0,
@@ -131,7 +131,7 @@
   {
     "ContainingType": "PureFood.API.Controllers.ReviewController",
     "Method": "GetAll",
-    "RelativePath": "api/v1/Review",
+    "RelativePath": "api/v1/reviews",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -144,11 +144,6 @@
       {
         "Name": "limit",
         "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "search",
-        "Type": "System.String",
         "IsRequired": false
       }
     ],
@@ -166,8 +161,34 @@
   },
   {
     "ContainingType": "PureFood.API.Controllers.ReviewController",
+    "Method": "AddReview",
+    "RelativePath": "api/v1/reviews",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "PureFood.Core.Models.content.Requests.CreateReviewRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "PureFood.Core.Models.ResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PureFood.API.Controllers.ReviewController",
     "Method": "GetReviewById",
-    "RelativePath": "api/v1/Review/{reviewId}",
+    "RelativePath": "api/v1/reviews/{reviewId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -193,7 +214,7 @@
   {
     "ContainingType": "PureFood.API.Controllers.ReviewController",
     "Method": "UdpdateReview",
-    "RelativePath": "api/v1/Review/{reviewId}",
+    "RelativePath": "api/v1/reviews/{reviewId}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -224,7 +245,7 @@
   {
     "ContainingType": "PureFood.API.Controllers.ReviewController",
     "Method": "Delete",
-    "RelativePath": "api/v1/Review/{reviewId}",
+    "RelativePath": "api/v1/reviews/{reviewId}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -250,7 +271,7 @@
   {
     "ContainingType": "PureFood.API.Controllers.ReviewController",
     "Method": "ChangeFlag",
-    "RelativePath": "api/v1/Review/{reviewId}/flag",
+    "RelativePath": "api/v1/reviews/{reviewId}/flag",
     "HttpMethod": "PATCH",
     "IsController": true,
     "Order": 0,
@@ -275,34 +296,8 @@
   },
   {
     "ContainingType": "PureFood.API.Controllers.ReviewController",
-    "Method": "AddReview",
-    "RelativePath": "api/v1/Review/add",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "request",
-        "Type": "PureFood.Core.Models.content.Requests.CreateReviewRequest",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "PureFood.Core.Models.ResultModel",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "PureFood.API.Controllers.ReviewController",
     "Method": "GetReviewsByProduct",
-    "RelativePath": "api/v1/Review/car/{productId}",
+    "RelativePath": "api/v1/reviews/prodyct{productId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -328,13 +323,153 @@
   {
     "ContainingType": "PureFood.API.Controllers.ReviewController",
     "Method": "GetReviewByUserId",
-    "RelativePath": "api/v1/Review/user/{userId}",
+    "RelativePath": "api/v1/reviews/user/{userId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "userId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "PureFood.Core.Models.ResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PureFood.API.Controllers.SupplierController",
+    "Method": "GetAll",
+    "RelativePath": "api/v1/suppliers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "limit",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "PureFood.Core.Models.ResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PureFood.API.Controllers.SupplierController",
+    "Method": "AddReview",
+    "RelativePath": "api/v1/suppliers",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "PureFood.Core.Models.content.Requests.CreateSupplierRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "PureFood.Core.Models.ResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PureFood.API.Controllers.SupplierController",
+    "Method": "GetReviewById",
+    "RelativePath": "api/v1/suppliers/{SupplierId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "SupplierId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "PureFood.Core.Models.ResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PureFood.API.Controllers.SupplierController",
+    "Method": "UdpdateReview",
+    "RelativePath": "api/v1/suppliers/{SupplierId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "SupplierId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "PureFood.Core.Models.content.Requests.CreateSupplierRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "PureFood.Core.Models.ResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PureFood.API.Controllers.SupplierController",
+    "Method": "Delete",
+    "RelativePath": "api/v1/suppliers/{SupplierId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "SupplierId",
         "Type": "System.Guid",
         "IsRequired": true
       }

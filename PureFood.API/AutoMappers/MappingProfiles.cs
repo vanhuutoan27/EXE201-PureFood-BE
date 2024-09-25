@@ -13,6 +13,8 @@ namespace PureFood.API.AutoMappers
             CreateMap<Category, CategoryReponses>().ReverseMap();
             CreateMap<Review, ReviewReponse>().ReverseMap();
             CreateMap<Review, CreateReviewRequest>().ReverseMap();
+            CreateMap<Supplier, SupplierReponse>().ReverseMap();
+            CreateMap<Supplier, CreateSupplierRequest>().ReverseMap();
 
 
 

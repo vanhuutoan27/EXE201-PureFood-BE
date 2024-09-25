@@ -5,6 +5,7 @@ namespace PureFood.Core.Repositories
 {
     public interface ISupplierRepository : IRepositoryBase<Supplier, Guid>
     {
+        Task<IEnumerable<Supplier>> GetAllSupplierAsync(int page, int limit);
 
     }
 }

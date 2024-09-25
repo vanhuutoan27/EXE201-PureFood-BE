@@ -6,7 +6,7 @@ using System.Net;
 
 namespace PureFood.API.Controllers
 {
-    [Route("api/v1/Category")]
+    [Route("api/v1/category")]
     [ApiController]
     public class CategoryController : ControllerBase
     {
@@ -37,7 +37,7 @@ namespace PureFood.API.Controllers
             return _resultModel;
         }
 
-        [HttpGet("get-category-by-id/{id}")]
+        [HttpGet("get-supplier-by-id/{id}")]
         public async Task<ActionResult<ResultModel>> GetById(Guid id)
         {
 
@@ -57,7 +57,7 @@ namespace PureFood.API.Controllers
         }
 
         [HttpPut]
-        [Route("Add")]
+        [Route("add")]
         public async Task<ActionResult<ResultModel>> AddCategory( CreateCategoryRequest request)
         {
             var updateSuccess = await _serviceManager.CategoryService.createCategory( request);
@@ -84,7 +84,7 @@ namespace PureFood.API.Controllers
         }
 
             [HttpPatch]
-          [Route("Update/{id}")]
+          [Route("update/{id}")]
 
         public async Task<ActionResult<ResultModel>> UpdateCategory(Guid id, CreateCategoryRequest request)
         {
@@ -112,7 +112,7 @@ namespace PureFood.API.Controllers
         }
 
         [HttpDelete]
-        [Route("Delete/{id}")]
+        [Route("delete/{id}")]
         public async Task<ActionResult<ResultModel>> DeleteCategory(Guid id)
         {
             var Category = await _serviceManager.CategoryService.deleteCategory(id);

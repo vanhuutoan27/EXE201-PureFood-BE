@@ -10,7 +10,7 @@ namespace PureFood.Core.SeedWorks
         IImageRepository ImageRepository { get; }
         IProductRepository ProductRepository { get; }
         IReviewRepository ReviewRepository { get; }
-        ISupplierRepository SuppliewReRepository { get; }
+        ISupplierRepository SupplierRepository { get; }
         IUserRepository UserRepository { get; }
         Task SaveAsync();
     }
