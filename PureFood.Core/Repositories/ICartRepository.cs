@@ -7,5 +7,6 @@ namespace PureFood.Core.Repositories
     public interface ICartRepository : IRepositoryBase<Cart, Guid>
     {
         Task<PaginatedResult<Cart>> GetAllCartByuserAsync(int page, int limit ,Guid userId);
+        Task<Cart>GetCartByUser(Guid userId);
     }
 }

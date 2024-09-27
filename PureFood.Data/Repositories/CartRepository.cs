@@ -30,5 +30,10 @@ namespace PureFood.Data.Repositories
                 TotalCount = totalItems,
             };
         }
+
+        public async Task<Cart> GetCartByUser(Guid userId)
+        {
+           return await _context.Carts.FirstOrDefaultAsync(c => c.UserId == userId);
+        }
     }
 }

@@ -51,46 +51,46 @@ namespace PureFood.API.Controllers
                 Message = "Cart added successfully."
             });
         }
-        [HttpGet]
-        [Route("{userId:guid}")]
-        public async Task<ActionResult<ResultModel>> GetAll(int page = 1, int limit = 10, Guid userId = default)
-        {
-            // Ensure userId is passed
-            if (userId == Guid.Empty)
-            {
-                _resultModel = new ResultModel
-                {
-                    Success = false,
-                    Message = "UserId is required.",
-                    Status = (int)HttpStatusCode.BadRequest
-                };
-                return BadRequest(_resultModel);
-            }
+        // [HttpGet]
+        // [Route("{userId:guid}")]
+        // public async Task<ActionResult<ResultModel>> GetAll(int page = 1, int limit = 10, Guid userId = default)
+        // {
+        //     // Ensure userId is passed
+        //     if (userId == Guid.Empty)
+        //     {
+        //         _resultModel = new ResultModel
+        //         {
+        //             Success = false,
+        //             Message = "UserId is required.",
+        //             Status = (int)HttpStatusCode.BadRequest
+        //         };
+        //         return BadRequest(_resultModel);
+        //     }
 
-            // Fetch carts with paginated cart items
-            var carts = await _serviceManager.CartService.GetAllCartsByUser(userId, page , limit);
+        //     // Fetch carts with paginated cart items
+        //     var carts = await _serviceManager.CartService.GetAllCartsByUser(userId, page , limit);
 
-            if (carts == null )
-            {
-                _resultModel = new ResultModel
-                {
-                    Success = false,
-                    Message = "No carts found.",
-                    Status = (int)HttpStatusCode.NotFound
-                };
-                return NotFound(_resultModel);
-            }
+        //     if (carts == null )
+        //     {
+        //         _resultModel = new ResultModel
+        //         {
+        //             Success = false,
+        //             Message = "No carts found.",
+        //             Status = (int)HttpStatusCode.NotFound
+        //         };
+        //         return NotFound(_resultModel);
+        //     }
 
-            _resultModel = new ResultModel
-            {
-                Success = true,
-                Status = (int)HttpStatusCode.OK,
-                Data = carts,
-                Message = "Carts retrieved successfully."
-            };
+        //     _resultModel = new ResultModel
+        //     {
+        //         Success = true,
+        //         Status = (int)HttpStatusCode.OK,
+        //         Data = carts,
+        //         Message = "Carts retrieved successfully."
+        //     };
 
-            return Ok(_resultModel);
-        }
+        //     return Ok(_resultModel);
+        // }
 
     }
 
