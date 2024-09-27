@@ -12,8 +12,8 @@ using PureFood.Data;
 namespace PureFood.Data.Migrations
 {
     [DbContext(typeof(PureFoodDbContext))]
-    [Migration("20240925060428_updateDB")]
-    partial class updateDB
+    [Migration("20240927015136_InitalDb")]
+    partial class InitalDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -321,6 +321,53 @@ namespace PureFood.Data.Migrations
                     b.ToTable("Products");
                 });
 
+            modelBuilder.Entity("PureFood.Core.Domain.Content.Promotion", b =>
+                {
+                    b.Property<Guid>("PromotionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("CreatedBy")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DiscountCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DiscountPercentage")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("PromotionName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("UpdateAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("UpdatedBy")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("PromotionId");
+
+                    b.ToTable("Promotions");
+                });
+
             modelBuilder.Entity("PureFood.Core.Domain.Content.Review", b =>
                 {
                     b.Property<Guid>("ReviewId")
@@ -340,9 +387,8 @@ namespace PureFood.Data.Migrations
                     b.Property<Guid>("ProductId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Rating")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
@@ -352,6 +398,9 @@ namespace PureFood.Data.Migrations
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("flag")
+                        .HasColumnType("bit");
 
                     b.HasKey("ReviewId");
 
