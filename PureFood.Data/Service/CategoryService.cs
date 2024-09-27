@@ -28,7 +28,7 @@ namespace PureFood.Data.Service
                 Description = request.Description,
             };
 
-             _repositoryManager.CategoryRepository.Add(newCategory);
+            _repositoryManager.CategoryRepository.Add(newCategory);
             await _repositoryManager.SaveAsync();
 
             return true;
@@ -39,7 +39,7 @@ namespace PureFood.Data.Service
             var getCategory = await _repositoryManager.CategoryRepository.GetByIdAsync(id);
             if (getCategory == null)
             {
-                throw new Exception("not Found");
+                throw new Exception("Category not found.");
             }
             _repositoryManager.CategoryRepository.Remove(getCategory);
 
@@ -50,28 +50,32 @@ namespace PureFood.Data.Service
 
         public async Task<IEnumerable<CategoryReponses>> getAll()
         {
-            var categoryRepository=  await _repositoryManager.CategoryRepository.GetAllAsync();
+            var categoryRepository = await _repositoryManager.CategoryRepository.GetAllAsync();
 
-            return  _mapper.Map<IEnumerable<CategoryReponses>>(categoryRepository); 
+            return _mapper.Map<IEnumerable<CategoryReponses>>(categoryRepository);
 
         }
 
         public async Task<CategoryReponses> getById(Guid id)
         {
-            var categoryRepository =await _repositoryManager.CategoryRepository.GetByIdAsync(id);
-
-            return  _mapper.Map<CategoryReponses>(categoryRepository);
+            var categoryRepository = await _repositoryManager.CategoryRepository.GetByIdAsync(id);
+            if (categoryRepository == null)
+            {
+                throw new Exception("Category not found.");
+            }
+            return _mapper.Map<CategoryReponses>(categoryRepository);
         }
 
         public async Task<bool> updateCategory(Guid id, CreateCategoryRequest request)
         {
             var getCategory = await _repositoryManager.CategoryRepository.GetByIdAsync(id);
-            if(getCategory == null) {
-                throw new Exception("not Found");
+            if (getCategory == null)
+            {
+                throw new Exception("Category not found.");
             }
             getCategory.UpdateAt = DateTime.Now;
-            getCategory.Description= request.Description;   
-            getCategory.CategoryName = request.CategoryName;    
+            getCategory.Description = request.Description;
+            getCategory.CategoryName = request.CategoryName;
             _repositoryManager.CategoryRepository.Update(getCategory);
             await _repositoryManager.SaveAsync();
             return true;

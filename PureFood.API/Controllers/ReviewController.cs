@@ -28,7 +28,7 @@ namespace PureFood.API.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "No Review found."
+                    Message = "No Reviews found."
                 };
                 return NotFound(_resultModel);
             }
@@ -47,8 +47,6 @@ namespace PureFood.API.Controllers
         [Route("{reviewId:guid}")]
         public async Task<ActionResult<ResultModel>> GetReviewById(Guid reviewId)
         {
-
-
             var reviews = await _serviceManager.ReviewService.getReviewById(reviewId);
 
             if (reviews == null)
@@ -58,8 +56,7 @@ namespace PureFood.API.Controllers
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null,
-                    Message = "Id does not exist!."
-
+                    Message = "Review not found."
                 };
             }
             else
@@ -72,11 +69,10 @@ namespace PureFood.API.Controllers
                 };
 
             return Ok(_resultModel);
-
-
         }
+
         [HttpGet]
-        [Route("prodyct{productId:guid}")]
+        [Route("products{productId:guid}")]
         public async Task<ActionResult<ResultModel>> GetReviewsByProduct(Guid productId)
         {
 
@@ -89,8 +85,7 @@ namespace PureFood.API.Controllers
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null,
-                    Message = "Id does not exist!."
-
+                    Message = "Reviews not found."
                 };
             }
             else
@@ -99,11 +94,9 @@ namespace PureFood.API.Controllers
                     Success = true,
                     Status = (int)HttpStatusCode.OK,
                     Data = reviews,
-                    Message = "Review retrieved successfully."
+                    Message = "Reviews retrieved successfully."
                 };
-
             return Ok(_resultModel);
-
         }
 
         [HttpGet]
@@ -119,7 +112,7 @@ namespace PureFood.API.Controllers
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null,
-                    Message = "Id does not exist!"
+                    Message = "Review not found."
                 };
             }
             else
@@ -136,11 +129,7 @@ namespace PureFood.API.Controllers
             return Ok(_resultModel);
         }
 
-
-
-
         [HttpPost]
-      //  [Route()]
         public async Task<ActionResult<ResultModel>> AddReview(CreateReviewRequest request)
         {
             var addReview = await _serviceManager.ReviewService.createReview(request);
@@ -150,7 +139,7 @@ namespace PureFood.API.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.BadRequest,
-                    Message = "Unable to add review. Please try again."
+                    Message = "Unable to create review. Please try again."
                 };
             }
             _resultModel = new ResultModel
@@ -158,7 +147,7 @@ namespace PureFood.API.Controllers
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
 
-                Message = "Review added successfully."
+                Message = "Review crated successfully."
             };
             return Ok(_resultModel);
         }
@@ -186,6 +175,7 @@ namespace PureFood.API.Controllers
             };
             return Ok(_resultModel);
         }
+
         [HttpDelete]
         [Route("{reviewId:guid}")]
         public async Task<ActionResult<ResultModel>> Delete(Guid reviewId)
@@ -198,7 +188,6 @@ namespace PureFood.API.Controllers
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
                     Message = "Review not found."
-
                 };
             }
             _resultModel = new ResultModel
@@ -209,6 +198,7 @@ namespace PureFood.API.Controllers
             };
             return Ok(_resultModel);
         }
+        
         [HttpPatch]
         [Route("{reviewId}/flag")]
         public async Task<ActionResult<ResultModel>> ChangeFlag(Guid reviewId)
@@ -232,10 +222,8 @@ namespace PureFood.API.Controllers
                 Status = (int)HttpStatusCode.OK,
                 Message = "Review flagged successfully."
             };
-
             return Ok(_resultModel);
         }
-
 
     }
 }

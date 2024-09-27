@@ -44,12 +44,10 @@ namespace PureFood.API.Controllers
         }
 
         [HttpGet]
-        [Route("{SupplierId:guid}")]
-        public async Task<ActionResult<ResultModel>> GetReviewById(Guid SupplierId)
+        [Route("{supplierId:guid}")]
+        public async Task<ActionResult<ResultModel>> GetReviewById(Guid supplierId)
         {
-
-
-            var getSupplier = await _serviceManager.SupplierService.getSupplierById(SupplierId);
+            var getSupplier = await _serviceManager.SupplierService.getSupplierById(supplierId);
 
             if (getSupplier == null)
             {
@@ -72,13 +70,9 @@ namespace PureFood.API.Controllers
                 };
 
             return Ok(_resultModel);
-
-
         }
 
-
         [HttpPost]
-        //[Route("")]
         public async Task<ActionResult<ResultModel>> AddReview(CreateSupplierRequest request)
         {
             var Supplier = await _serviceManager.SupplierService.createSupplier(request);
@@ -100,11 +94,12 @@ namespace PureFood.API.Controllers
             };
             return Ok(_resultModel);
         }
+
         [HttpPut]
-        [Route("{SupplierId:guid}")]
-        public async Task<ActionResult<ResultModel>> UdpdateReview(Guid SupplierId, CreateSupplierRequest request)
+        [Route("{supplierId:guid}")]
+        public async Task<ActionResult<ResultModel>> UdpdateReview(Guid supplierId, CreateSupplierRequest request)
         {
-            var getSupplier = await _serviceManager.SupplierService.updateSupplier(SupplierId, request);
+            var getSupplier = await _serviceManager.SupplierService.updateSupplier(supplierId, request);
             if (getSupplier == null)
             {
                 _resultModel = new ResultModel
@@ -124,11 +119,12 @@ namespace PureFood.API.Controllers
             };
             return Ok(_resultModel);
         }
+
         [HttpDelete]
-        [Route("{SupplierId:guid}")]
-        public async Task<ActionResult<ResultModel>> Delete(Guid SupplierId)
+        [Route("{supplierId:guid}")]
+        public async Task<ActionResult<ResultModel>> Delete(Guid supplierId)
         {
-            var getSupplier = await _serviceManager.SupplierService.deleteSupplier(SupplierId);
+            var getSupplier = await _serviceManager.SupplierService.deleteSupplier(supplierId);
             if (getSupplier == null)
             {
                 _resultModel = new ResultModel
@@ -147,6 +143,5 @@ namespace PureFood.API.Controllers
             };
             return Ok(_resultModel);
         }
-
     }
 }
