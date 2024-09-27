@@ -13,11 +13,11 @@ namespace PureFood.Data.Repositories
 
         }
 
-        public async Task<PaginatedResult<CartItem>> GetAllCartItemByUserAsync(int page, int limit , Guid userId)
+        public async Task<PaginatedResult<CartItem>> GetAllCartItemByUserAsync(int page, int limit, Guid userId)
         {
-           IQueryable<CartItem> query = _context.CartItems.Include(c => c.Cart)
-           .Include(p => p.Product).Where(c => c.Cart.UserId == userId);
-                  int totalItems = await query.CountAsync();
+            IQueryable<CartItem> query = _context.CartItems.Include(c => c.Cart)
+            .Include(p => p.Product).Where(c => c.Cart.UserId == userId);
+            int totalItems = await query.CountAsync();
 
             // Apply pagination
             if (page > 0 && limit > 0)
@@ -30,8 +30,15 @@ namespace PureFood.Data.Repositories
             {
                 Items = carts,
                 TotalCount = totalItems,
-            };                      
+            };
 
+        }
+
+        public async Task<CartItem> GetByCartIdandProductId(Guid cartId, Guid productId)
+        {
+            return await _context.CartItems.Where
+            (ct => ct.CartId == cartId && ct.ProductId == productId)
+            .FirstOrDefaultAsync();
         }
     }
 }

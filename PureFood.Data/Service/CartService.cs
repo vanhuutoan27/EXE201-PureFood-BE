@@ -20,22 +20,43 @@ namespace PureFood.Data.Service
 
         public async Task<CreateCartRequest> CreateCartAsync(CreateCartRequest request)
         {
-            var model = new Cart
+            var existingcart = await _repositoryManager.CartRepository.GetCartByUser(request.UserId);
+            Cart model;
+            if (existingcart != null)
             {
-                UserId = request.UserId
-            };
-            _repositoryManager.CartRepository.Add(model);
+                model = existingcart;
+            }
+            else
+            {
+                model = new Cart
+                {
+                    UserId = request.UserId
+                };
+                _repositoryManager.CartRepository.Add(model);
+            }
+
+
 
             foreach (var cartItem in request.CartItems)
             {
-
-                var cartItems = new CartItem
+                var existingcartItem = await _repositoryManager.CartItemRepository.GetByCartIdandProductId(model.CartId, cartItem.ProductId);
+                if (existingcartItem != null)
                 {
-                    CartId = model.CartId,
-                    ProductId = cartItem.ProductId,
-                    Quantity = cartItem.Quantity
-                };
-                _repositoryManager.CartItemRepository.Add(cartItems);
+                    existingcartItem.Quantity += cartItem.Quantity;
+                    _repositoryManager.CartItemRepository.Update(existingcartItem);
+
+                }
+                else
+                {
+                    var newcartItems = new CartItem
+                    {
+                        CartId = model.CartId,
+                        ProductId = cartItem.ProductId,
+                        Quantity = cartItem.Quantity
+                    };
+                    _repositoryManager.CartItemRepository.Add(newcartItems);
+                }
+
             }
             await _repositoryManager.SaveAsync();
             var result = _mapper.Map<CreateCartRequest>(model);
@@ -85,10 +106,10 @@ namespace PureFood.Data.Service
                         Origin = item.Product?.Origin,
                         Price = item.Product?.Price ?? 0,
                         ProductName = item.Product?.ProductName,
-                        Status = item.Product?.Status  ,
+                        Status = item.Product?.Status,
                         Stock = item.Product?.Stock ?? 0,
                         Unit = item.Product?.Unit,
-                        Organic = item.Product?.Organic  ,
+                        Organic = item.Product?.Organic,
                         Weight = item.Product?.Weight ?? 0
                     });
                 }
