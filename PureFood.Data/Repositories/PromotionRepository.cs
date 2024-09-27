@@ -11,6 +11,16 @@ namespace PureFood.Data.Repositories
         {
         }
 
+        public async Task<IEnumerable<Promotion>> GetAllPromotionAsync(int page, int limit)
+        {
+            IQueryable<Promotion> query = _context.Promotions.AsQueryable();
+            if (page > 0 && limit > 0)
+            {
+                query = query.Skip((page - 1)).Take(limit);
+            }
+            return await query.ToListAsync();
+        }
+
         public async Task<IEnumerable<Promotion>> GetAllSupplierAsync(int page, int limit)
         {
             IQueryable<Promotion> query = _context.Promotions.AsQueryable();
@@ -22,8 +32,6 @@ namespace PureFood.Data.Repositories
             query = _context.Promotions;
             return await query.ToListAsync();
         }
-    public class PromotionRepository(PureFoodDbContext context) : RepositoryBase<Promotion, Guid>(context), IPromotionRepository
-    {
 
     }
 }

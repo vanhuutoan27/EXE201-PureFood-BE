@@ -8,7 +8,7 @@ namespace PureFood.Core.SeedWorks
         ICartRepository CartRepository { get; }
         ICategoryRepository CategoryRepository { get; }
         IImageRepository ImageRepository { get; }
-        IPromotionRepository ProductRepository { get; }
+        IProductRepository ProductRepository { get; }
         IReviewRepository ReviewRepository { get; }
         ISupplierRepository SupplierRepository { get; }
         IUserRepository UserRepository { get; }

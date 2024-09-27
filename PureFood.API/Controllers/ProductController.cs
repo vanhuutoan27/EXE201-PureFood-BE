@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using PureFood.Core.Models;
 using PureFood.Core.Models.Requests;
 using PureFood.Core.SeedWorks;

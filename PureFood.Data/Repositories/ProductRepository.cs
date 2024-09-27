@@ -1,13 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PureFood.Core.Domain.Content;
 using PureFood.Core.Repositories;
-using PureFood.Core.Services;
 using PureFood.Data.SeedWork;
-using System.ComponentModel.Design;
 
 namespace PureFood.Data.Repositories
 {
-    public class ProductRepository : RepositoryBase<Product, Guid> , IProductRepository
+    public class ProductRepository : RepositoryBase<Product, Guid>, IProductRepository
     {
         public ProductRepository(PureFoodDbContext context) : base(context)
         {
@@ -65,8 +63,8 @@ namespace PureFood.Data.Repositories
             {
                 return await _context.Products
                     .Where(s => s.Category.CategoryName.ToLower().Contains(categoryName.ToLower().Trim())).CountAsync();
-            } 
-            else if(!string.IsNullOrEmpty(searchName) && !string.IsNullOrEmpty(categoryName))
+            }
+            else if (!string.IsNullOrEmpty(searchName) && !string.IsNullOrEmpty(categoryName))
             {
                 return await _context.Products
                     .Where(s => s.ProductName.ToLower().Contains(searchName.ToLower()) &&

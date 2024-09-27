@@ -11,7 +11,7 @@ namespace PureFood.Data.SeedWork
         private readonly Lazy<ICartRepository> _cartRepository;
         private readonly Lazy<ICategoryRepository> _categoryRepository;
         private readonly Lazy<IImageRepository> _imageRepository;
-        private readonly Lazy<IPromotionRepository> _productRepository;
+        private readonly Lazy<IProductRepository> _productRepository;
         private readonly Lazy<IReviewRepository> _reviewRepository;
         private readonly Lazy<ISupplierRepository> _supplierRepository;
         private readonly Lazy<IUserRepository> _userRepository;
@@ -25,7 +25,7 @@ namespace PureFood.Data.SeedWork
             _cartRepository = new Lazy<ICartRepository>(() => new CartRepository(dbContext));
             _categoryRepository = new Lazy<ICategoryRepository>(() => new CategoryRepository(dbContext));
             _imageRepository = new Lazy<IImageRepository>(() => new ImageRepository(dbContext));
-            _productRepository = new Lazy<IPromotionRepository>(() => new ProductRepository(dbContext));
+            _productRepository = new Lazy<IProductRepository>(() => new ProductRepository(dbContext));
             _reviewRepository = new Lazy<IReviewRepository>(() => new ReviewRepository(dbContext));
             _supplierRepository = new Lazy<ISupplierRepository>(() => new SupplierRepository(dbContext));
             _userRepository = new Lazy<IUserRepository>(() => new UserRepository(dbContext));
@@ -42,7 +42,7 @@ namespace PureFood.Data.SeedWork
 
         public IImageRepository ImageRepository => _imageRepository.Value;
 
-        public IPromotionRepository ProductRepository => _productRepository.Value;
+        public IProductRepository ProductRepository => _productRepository.Value;
 
         public IReviewRepository ReviewRepository => _reviewRepository.Value;
 
