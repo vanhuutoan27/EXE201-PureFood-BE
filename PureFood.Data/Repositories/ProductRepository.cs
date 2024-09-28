@@ -53,6 +53,11 @@ namespace PureFood.Data.Repositories
             return _context.Products.FirstOrDefaultAsync(s => s.Slug == slug);
         }
 
+        public async Task<IEnumerable<Product>> GetProductBySupplierId(Guid supplierId)
+        {
+            return await _context.Products.Where(s => s.SupplierId == supplierId).ToListAsync();
+        }
+
         public async Task<int> GetTotalProductCountAsync(string? searchName, string? categoryName)
         {
             if (!string.IsNullOrEmpty(searchName) && string.IsNullOrEmpty(categoryName))

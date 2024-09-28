@@ -1,4 +1,5 @@
-﻿using PureFood.Core.Models;
+﻿using PureFood.Core.Domain.Content;
+using PureFood.Core.Models;
 using PureFood.Core.Models.Requests;
 using PureFood.Core.Models.Respones;
 
@@ -13,5 +14,6 @@ namespace PureFood.Core.Services
         Task<bool> UpdateProduct(Guid productId, UpdateProductRequest updateProductRequest);
         Task<bool> DeleteProduct(Guid productId);
         Task<bool> ChangeStatusProduct(Guid productId);
+        Task<IEnumerable<ProductRespone>> GetProductBySupplierId(Guid supplierId);
     }
 }

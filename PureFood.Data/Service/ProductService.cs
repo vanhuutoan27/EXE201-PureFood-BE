@@ -166,5 +166,12 @@ namespace PureFood.Data.Service
             await _repositoryManager.SaveAsync();
             return true;
         }
+
+        public async Task<IEnumerable<ProductRespone>> GetProductBySupplierId(Guid supplierId)
+        {
+            var product = await _repositoryManager.ProductRepository.GetProductBySupplierId(supplierId);
+            var result = _mapper.Map<IEnumerable<ProductRespone>>(product);
+            return result;
+        }
     }
 }
