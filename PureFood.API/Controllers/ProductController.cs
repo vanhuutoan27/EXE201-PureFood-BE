@@ -3,6 +3,7 @@ using PureFood.Core.Models;
 using PureFood.Core.Models.Requests;
 using PureFood.Core.SeedWorks;
 using System.Net;
+using System.Reflection.Metadata.Ecma335;
 
 namespace PureFood.API.Controllers
 {
@@ -95,6 +96,29 @@ namespace PureFood.API.Controllers
                     Message = "Product not found"
                 });
             }
+            return Ok(_resultModel = new ResultModel
+            {
+                Success = true,
+                Status = (int)HttpStatusCode.OK,
+                Data = product,
+                Message = "Product retrieved successfully."
+            });
+        }
+        [HttpGet("suppliers/{supplierId}")]
+        public async Task<IActionResult> GetProductBySupplierId(Guid supplierId)
+        {
+            // kiem tra supplier
+            var supplier = await _serviceManager.SupplierService.getSupplierById(supplierId);
+            if (supplier is null)
+            {
+                return NotFound(_resultModel = new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.NotFound,
+                    Message = "SupplierId not found"
+                });
+            }
+            var product = await _serviceManager.ProductService.GetProductBySupplierId(supplierId);
             return Ok(_resultModel = new ResultModel
             {
                 Success = true,
