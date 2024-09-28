@@ -59,10 +59,6 @@ namespace PureFood.Data.Service
         public async Task<CategoryReponses> getById(Guid id)
         {
             var categoryRepository = await _repositoryManager.CategoryRepository.GetByIdAsync(id);
-            if (categoryRepository == null)
-            {
-                throw new Exception("Category not found.");
-            }
             return _mapper.Map<CategoryReponses>(categoryRepository);
         }
 
