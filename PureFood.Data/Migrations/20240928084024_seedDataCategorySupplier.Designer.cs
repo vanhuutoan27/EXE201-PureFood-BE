@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PureFood.Data;
 
@@ -11,9 +12,11 @@ using PureFood.Data;
 namespace PureFood.Data.Migrations
 {
     [DbContext(typeof(PureFoodDbContext))]
-    partial class PureFoodDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240928084024_seedDataCategorySupplier")]
+    partial class seedDataCategorySupplier
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -215,18 +218,18 @@ namespace PureFood.Data.Migrations
                         new
                         {
                             CategoryId = new Guid("2d482271-9605-4d43-9ca8-d479d6ef9687"),
-                            CategoryName = "rau-cu",
-                            CreatedAt = new DateTime(2024, 9, 28, 16, 44, 6, 108, DateTimeKind.Local).AddTicks(44),
+                            CategoryName = "Rau củ",
+                            CreatedAt = new DateTime(2024, 9, 28, 15, 40, 23, 665, DateTimeKind.Local).AddTicks(8626),
                             Description = "Rau củ quả ngon lành",
-                            UpdateAt = new DateTime(2024, 9, 28, 16, 44, 6, 108, DateTimeKind.Local).AddTicks(55)
+                            UpdateAt = new DateTime(2024, 9, 28, 15, 40, 23, 665, DateTimeKind.Local).AddTicks(8637)
                         },
                         new
                         {
                             CategoryId = new Guid("6b5f6458-3791-4303-8ee7-e20707e4cf3e"),
-                            CategoryName = "trai-cay",
-                            CreatedAt = new DateTime(2024, 9, 28, 16, 44, 6, 108, DateTimeKind.Local).AddTicks(60),
+                            CategoryName = "Trái cây",
+                            CreatedAt = new DateTime(2024, 9, 28, 15, 40, 23, 665, DateTimeKind.Local).AddTicks(8641),
                             Description = "Trái cây tươi mới",
-                            UpdateAt = new DateTime(2024, 9, 28, 16, 44, 6, 108, DateTimeKind.Local).AddTicks(60)
+                            UpdateAt = new DateTime(2024, 9, 28, 15, 40, 23, 665, DateTimeKind.Local).AddTicks(8642)
                         });
                 });
 
@@ -466,21 +469,11 @@ namespace PureFood.Data.Migrations
                         {
                             SupplierId = new Guid("5a0b659d-884a-446a-8b77-9b84ed6e2bf2"),
                             Address = "Quận 9, Thành phố Hồ Chí Minh",
-                            CreatedAt = new DateTime(2024, 9, 28, 16, 44, 6, 108, DateTimeKind.Local).AddTicks(693),
+                            CreatedAt = new DateTime(2024, 9, 28, 15, 40, 23, 665, DateTimeKind.Local).AddTicks(8743),
                             Description = "Chúng tôi cung cấp rau củ quả sạch, tươi ngon từ nông trại đến bàn ăn, đảm bảo an toàn sức khỏe cho gia đình bạn.",
                             PhoneNumber = "0937056922",
                             SuplierName = "PureFood",
-                            UpdatedAt = new DateTime(2024, 9, 28, 16, 44, 6, 108, DateTimeKind.Local).AddTicks(696)
-                        },
-                        new
-                        {
-                            SupplierId = new Guid("9b8bc0ba-e6af-4445-8509-390f404c1ea6"),
-                            Address = "FPT Quận 9, Thành phố Hồ Chí Minh",
-                            CreatedAt = new DateTime(2024, 9, 28, 16, 44, 6, 108, DateTimeKind.Local).AddTicks(700),
-                            Description = "Moncati cung cấp rau củ quả sạch, tươi ngon từ nông trại địa phương, cam kết mang đến sản phẩm an toàn và chất lượng cho sức khỏe gia đình bạn.",
-                            PhoneNumber = "0937056922",
-                            SuplierName = "Moncati",
-                            UpdatedAt = new DateTime(2024, 9, 28, 16, 44, 6, 108, DateTimeKind.Local).AddTicks(700)
+                            UpdatedAt = new DateTime(2024, 9, 28, 15, 40, 23, 665, DateTimeKind.Local).AddTicks(8744)
                         });
                 });
 
