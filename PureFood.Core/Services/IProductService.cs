@@ -14,6 +14,7 @@ namespace PureFood.Core.Services
         Task<bool> UpdateProduct(Guid productId, UpdateProductRequest updateProductRequest);
         Task<bool> DeleteProduct(Guid productId);
         Task<bool> ChangeStatusProduct(Guid productId);
+        Task<IEnumerable<ProductRespone>> GetProductByCategoryId(Guid categoryId);
         Task<IEnumerable<ProductRespone>> GetProductBySupplierId(Guid supplierId);
     }
 }

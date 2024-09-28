@@ -128,6 +128,29 @@ namespace PureFood.API.Controllers
             });
         }
 
+        [HttpGet("category/{categoryId}")]
+        public async Task<IActionResult> GetProductByCategoryId(Guid categoryId)
+        {
+            // kiem tra category
+            var category = await _serviceManager.CategoryService.getById(categoryId);
+            if (category is null)
+            {
+                return NotFound(_resultModel = new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.NotFound,
+                    Message = "No category found."
+                });
+            }
+            var product = await _serviceManager.ProductService.GetProductByCategoryId(categoryId);
+            return Ok(_resultModel = new ResultModel
+            {
+                Success = true,
+                Status= (int)HttpStatusCode.OK,
+                Data = product,
+                Message = "Products retrieved successfully."
+            });
+        }
         [HttpPut("{productId}")]
         public async Task<IActionResult> UpdateProduct(Guid productId, [FromBody] UpdateProductRequest updateRequest)
         {
