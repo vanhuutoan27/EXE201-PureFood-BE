@@ -105,6 +105,18 @@ namespace PureFood.API.Controllers
             });
         }
 
+        [HttpGet("category/{categoryId}")]
+        public async Task<IActionResult> GetProductByCategoryId(Guid categoryId)
+        {
+            var product = await _serviceManager.ProductService.GetProductByCategoryId(categoryId);
+            return Ok(_resultModel = new ResultModel
+            {
+                Success = true,
+                Status= (int)HttpStatusCode.OK,
+                Data = product,
+                Message = "Products retrieved successfully."
+            });
+        }
         [HttpPut("{productId}")]
         public async Task<IActionResult> UpdateProduct(Guid productId, [FromBody] UpdateProductRequest updateRequest)
         {
