@@ -38,7 +38,7 @@ namespace PureFood.Data.Service
 
             return new string(slug);
         }
-            public async Task<CreateProductRequest> CreateProduct(CreateProductRequest requestProduct)
+        public async Task<CreateProductRequest> CreateProduct(CreateProductRequest requestProduct)
         {
             // tao 6 ky tu ngau nhien
             var randomSuffix = GenerateRandomString(6).ToLower();
@@ -77,7 +77,7 @@ namespace PureFood.Data.Service
             {
                 throw new Exception("Add Error!" + ex.Message);
             }
-            
+
         }
 
         public async Task<PageResult<ProductRespone>> GetAllProduct(int page, int limit, string? searchName, string? categoryName)
@@ -98,7 +98,7 @@ namespace PureFood.Data.Service
             catch (Exception ex)
             {
                 throw new Exception("Error!" + ex.Message);
-            }       
+            }
         }
 
         public async Task<ProductRespone> GetProductById(Guid productId)
@@ -141,7 +141,7 @@ namespace PureFood.Data.Service
             {
                 throw new Exception("Error Update product !" + ex.Message);
             }
-            
+
         }
 
         public async Task<bool> DeleteProduct(Guid productId)
@@ -158,7 +158,8 @@ namespace PureFood.Data.Service
             if (product.Status == false)
             {
                 product.Status = true;
-            } else
+            }
+            else
             {
                 product.Status = false;
             }
@@ -170,6 +171,13 @@ namespace PureFood.Data.Service
         public async Task<IEnumerable<ProductRespone>> GetProductByCategoryId(Guid categoryId)
         {
             var product = await _repositoryManager.ProductRepository.GetProductByCategoryid(categoryId);
+            var result = _mapper.Map<IEnumerable<ProductRespone>>(product);
+            return result;
+        }
+
+        public async Task<IEnumerable<ProductRespone>> GetProductBySupplierId(Guid supplierId)
+        {
+            var product = await _repositoryManager.ProductRepository.GetProductBySupplierId(supplierId);
             var result = _mapper.Map<IEnumerable<ProductRespone>>(product);
             return result;
         }
