@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using PureFood.API.Services;
 using PureFood.Core.Domain.Identity;
+using PureFood.Core.Models.auth;
 using PureFood.Core.SeedWorks;
 using PureFood.Data;
 using PureFood.Data.SeedWork;
@@ -26,7 +28,15 @@ namespace PureFood.API.Extensions
         public static void ConfigureSqlContext(this IServiceCollection services, IConfiguration configuration) =>
               services.AddDbContext<PureFoodDbContext>(opts =>
                   opts.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
-
+        public static void ConfigureJwtSetting(this IServiceCollection services, IConfiguration configuration)
+                  => services.Configure<JwtTokenSettings>(configuration.GetSection(nameof(JwtTokenSettings)));
+        public static void ConfigureTokenAndManagerIdentity(this IServiceCollection services)
+        {
+            services.AddScoped<SignInManager<AppUser>, SignInManager<AppUser>>();
+            services.AddScoped<UserManager<AppUser>, UserManager<AppUser>>();
+            services.AddScoped<ITokenService, TokenService>();
+            services.AddScoped<RoleManager<AppRole>, RoleManager<AppRole>>();
+        }
         public static void ConfigureIdentity(this IServiceCollection services)
         {
             services.AddIdentity<AppUser, AppRole>(options => options.SignIn.RequireConfirmedAccount = false)

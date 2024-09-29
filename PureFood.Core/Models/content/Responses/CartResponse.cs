@@ -4,11 +4,20 @@ using System.Linq;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace PureFood.Core.Models.Respones
+namespace PureFood.Core.Models.content.Responses
 {
-    public class CartItemResponee
+    public class CartResponse
     {
-        
+
+        public Guid CartId { get; set; }
+        [JsonPropertyName("user")]
+        public Guid UserId { get; set; }
+        public ICollection<CartItemRespone> CartItems { get; set; }
+
+    }
+    public class CartItemRespone
+    {
+
         public Guid CartItemId { get; set; }
         [JsonPropertyName("product")]
         public Guid ProductId { get; set; }

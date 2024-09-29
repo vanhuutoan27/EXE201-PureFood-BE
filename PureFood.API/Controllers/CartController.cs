@@ -4,7 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using PureFood.Core.Models;
+using PureFood.Core.Models.content;
 using PureFood.Core.Models.Requests;
 using PureFood.Core.SeedWorks;
 

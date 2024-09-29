@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 
-namespace PureFood.Core.Models
+namespace PureFood.Core.Models.content
 {
     public class ResultModel
     {

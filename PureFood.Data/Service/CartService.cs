@@ -1,8 +1,9 @@
 ﻿using AutoMapper;
 using PureFood.Core.Domain.Content;
-using PureFood.Core.Models;
+
+using PureFood.Core.Models.content.Responses;
 using PureFood.Core.Models.Requests;
-using PureFood.Core.Models.Respones;
+
 using PureFood.Core.SeedWorks;
 using PureFood.Core.Services;
 
@@ -54,25 +55,17 @@ namespace PureFood.Data.Service
             }
 
             var cartResponses = new List<CartResponse>();
-
-
             int totalCartItemsCount = 0;
-
 
             foreach (var cart in paginatedCarts.Items)
             {
-
                 totalCartItemsCount += cart.CartItems.Count;
-
-
                 var paginatedCartItems = cart.CartItems
                     .Skip((itemPage - 1) * itemLimit)
                     .Take(itemLimit)
                     .ToList();
 
-
                 var cartItemsResponse = new List<CartItemRespone>();
-
 
                 foreach (var item in paginatedCartItems)
                 {
@@ -85,15 +78,14 @@ namespace PureFood.Data.Service
                         Origin = item.Product?.Origin,
                         Price = item.Product?.Price ?? 0,
                         ProductName = item.Product?.ProductName,
-                        Status = item.Product?.Status  ,
+                        Status = item.Product?.Status,
                         Stock = item.Product?.Stock ?? 0,
                         Unit = item.Product?.Unit,
-                        Organic = item.Product?.Organic  ,
+                        Organic = item.Product?.Organic,
                         Weight = item.Product?.Weight ?? 0
                     });
                 }
 
-                // Map the cart to CartResponse, including paginated cartItemsResponse
                 cartResponses.Add(new CartResponse
                 {
                     CartId = cart.CartId,
@@ -102,16 +94,15 @@ namespace PureFood.Data.Service
                 });
             }
 
-            // Return the paginated CartItems within CartResponse
             return new PageResult<CartResponse>
             {
-                CurrentPage = itemPage,  // Reflect the current page for cart items
-                TotalPages = (int)Math.Ceiling(totalCartItemsCount / (double)itemLimit),  // Total pages for cart items
-                TotalItems = totalCartItemsCount,  // Total cart items across all carts
-                Items = cartResponses // The carts with paginated items
+                CurrentPage = itemPage,
+                TotalPages = (int)Math.Ceiling(totalCartItemsCount / (double)itemLimit),
+                TotalItems = totalCartItemsCount,
+                Items = cartResponses
             };
         }
 
-
+       
     }
 }
