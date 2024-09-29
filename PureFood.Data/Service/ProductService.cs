@@ -80,19 +80,46 @@ namespace PureFood.Data.Service
 
         }
 
-        public async Task<PageResult<ProductRespone>> GetAllProduct(int page, int limit, string? searchName, string? categoryName)
+        public async Task<PageResult<ProductRespone>> GetAllProduct(int page, int limit, string? searchName, string? categoryName,
+            double? minWeight, double? maxWeight, string? unit, decimal? minPrice, decimal? maxPrice, string? origin, bool? organic)
         {
             try
             {
-                var listProduct = await _repositoryManager.ProductRepository.GetAllProductAsync(page, limit, searchName, categoryName);
-                var listResult = _mapper.Map<IEnumerable<ProductRespone>>(listProduct);
-                var totalProduct = await _repositoryManager.ProductRepository.GetTotalProductCountAsync(searchName, categoryName);
+                var listProduct = await _repositoryManager.ProductRepository.GetAllProductAsync(page, limit, searchName, categoryName, 
+                    minWeight, maxWeight, unit, minPrice, maxPrice, origin, organic);
+                var productRespone = new List<ProductRespone>();
+                foreach (var product in listProduct.Items)
+                {
+                    productRespone.Add(new ProductRespone
+                    {
+                        ProductId = product.ProductId,
+                        ProductName = product.ProductName,
+                        Slug = product.Slug,
+                        Description = product.Description,
+                        Price = product.Price,
+                        Stock = product.Stock,
+                        Weight = product.Weight,
+                        Unit = product.Unit,
+                        Origin = product.Origin,
+                        Organic = product.Organic,
+                        Status = product.Status,
+                        EntryDate = product.EntryDate,
+                        ExpiryDate = product.ExpiryDate,
+                        Category = product.Category.CategoryName,
+                        Supplier = product.Supplier.SuplierName,
+                        CreatedAt = product.CreatedAt,
+                        UpdateAt = product.UpdateAt,
+                        CreatedBy = product.CreatedBy,
+                        UpdatedBy = product.UpdatedBy,
+                    });
+                }
+
                 return new PageResult<ProductRespone>
                 {
                     CurrentPage = page,
-                    TotalItems = totalProduct,
-                    TotalPages = (int)Math.Ceiling(totalProduct / (double)limit),
-                    Items = listResult
+                    TotalItems = listProduct.TotalItems,
+                    TotalPages = (int)Math.Ceiling(listProduct.TotalItems / (double)limit),
+                    Items = productRespone
                 };
             }
             catch (Exception ex)

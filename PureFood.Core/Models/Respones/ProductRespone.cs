@@ -29,7 +29,7 @@ namespace PureFood.Core.Models.Respones
         public DateTime? UpdateAt { get; set; }
         public Guid? CreatedBy { get; set; }
         public Guid? UpdatedBy { get; set; }
-        public Guid CategoryId { get; set; }
-        public Guid SupplierId { get; set; }
+        public string Category { get; set; }
+        public string Supplier { get; set; }
     }
 }

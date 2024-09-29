@@ -71,9 +71,11 @@ namespace PureFood.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllProduct(int page = 1, int limit = 10, string searchName = null, string categoryName = null)
+        public async Task<IActionResult> GetAllProduct(int page = 1, int limit = 10, string? searchName = null, string? categoryName = null,
+            double? minWeight = null, double? maxWeight = null, string? unit = null, decimal? minPrice = null, decimal? maxPrice = null, string? origin = null, bool? organic = null)
         {
-            var listProduct = await _serviceManager.ProductService.GetAllProduct(page, limit, searchName, categoryName);
+            var listProduct = await _serviceManager.ProductService.GetAllProduct(page, limit, searchName, categoryName, minWeight, maxWeight, unit, minPrice, maxPrice,
+                origin, organic);
             return Ok(_resultModel = new ResultModel
             {
                 Success = true,
