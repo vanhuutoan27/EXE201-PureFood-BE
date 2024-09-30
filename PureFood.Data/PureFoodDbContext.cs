@@ -39,6 +39,7 @@ namespace PureFood.Data
                .HasKey(x => new { x.UserId });
             builder.ApplyConfiguration(new CategoryConfiguration());
             builder.ApplyConfiguration(new SupplierConfiguration());
+            builder.ApplyConfiguration(new ProductConfiguration());
         }
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {

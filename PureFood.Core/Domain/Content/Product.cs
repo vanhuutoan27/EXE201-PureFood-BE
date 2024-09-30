@@ -17,7 +17,7 @@ namespace PureFood.Core.Domain.Content
         public string Origin { get; set; }
         public bool Organic { get; set; }
         public bool Status { get; set; }
-
+        public string FoodName { get; set; }
         public DateTime EntryDate { get; set; }
         public DateTime ExpiryDate { get; set; }
 
