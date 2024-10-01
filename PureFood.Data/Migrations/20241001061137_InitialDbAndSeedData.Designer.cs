@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PureFood.Data;
 
@@ -11,9 +12,11 @@ using PureFood.Data;
 namespace PureFood.Data.Migrations
 {
     [DbContext(typeof(PureFoodDbContext))]
-    partial class PureFoodDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241001061137_InitialDbAndSeedData")]
+    partial class InitialDbAndSeedData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -216,17 +219,17 @@ namespace PureFood.Data.Migrations
                         {
                             CategoryId = new Guid("2d482271-9605-4d43-9ca8-d479d6ef9687"),
                             CategoryName = "rau-cu",
-                            CreatedAt = new DateTime(2024, 10, 1, 13, 14, 28, 908, DateTimeKind.Local).AddTicks(8725),
+                            CreatedAt = new DateTime(2024, 10, 1, 13, 11, 36, 638, DateTimeKind.Local).AddTicks(2382),
                             Description = "Rau củ quả ngon lành",
-                            UpdateAt = new DateTime(2024, 10, 1, 13, 14, 28, 908, DateTimeKind.Local).AddTicks(8738)
+                            UpdateAt = new DateTime(2024, 10, 1, 13, 11, 36, 638, DateTimeKind.Local).AddTicks(2398)
                         },
                         new
                         {
                             CategoryId = new Guid("6b5f6458-3791-4303-8ee7-e20707e4cf3e"),
                             CategoryName = "trai-cay",
-                            CreatedAt = new DateTime(2024, 10, 1, 13, 14, 28, 908, DateTimeKind.Local).AddTicks(8741),
+                            CreatedAt = new DateTime(2024, 10, 1, 13, 11, 36, 638, DateTimeKind.Local).AddTicks(2402),
                             Description = "Trái cây tươi mới",
-                            UpdateAt = new DateTime(2024, 10, 1, 13, 14, 28, 908, DateTimeKind.Local).AddTicks(8742)
+                            UpdateAt = new DateTime(2024, 10, 1, 13, 11, 36, 638, DateTimeKind.Local).AddTicks(2402)
                         });
                 });
 
@@ -852,21 +855,21 @@ namespace PureFood.Data.Migrations
                         {
                             SupplierId = new Guid("5a0b659d-884a-446a-8b77-9b84ed6e2bf2"),
                             Address = "Quận 9, Thành phố Hồ Chí Minh",
-                            CreatedAt = new DateTime(2024, 10, 1, 13, 14, 28, 908, DateTimeKind.Local).AddTicks(8824),
+                            CreatedAt = new DateTime(2024, 10, 1, 13, 11, 36, 638, DateTimeKind.Local).AddTicks(2505),
                             Description = "Chúng tôi cung cấp rau củ quả sạch, tươi ngon từ nông trại đến bàn ăn, đảm bảo an toàn sức khỏe cho gia đình bạn.",
                             PhoneNumber = "0937056922",
                             SuplierName = "PureFood",
-                            UpdatedAt = new DateTime(2024, 10, 1, 13, 14, 28, 908, DateTimeKind.Local).AddTicks(8826)
+                            UpdatedAt = new DateTime(2024, 10, 1, 13, 11, 36, 638, DateTimeKind.Local).AddTicks(2507)
                         },
                         new
                         {
                             SupplierId = new Guid("9b8bc0ba-e6af-4445-8509-390f404c1ea6"),
                             Address = "FPT Quận 9, Thành phố Hồ Chí Minh",
-                            CreatedAt = new DateTime(2024, 10, 1, 13, 14, 28, 908, DateTimeKind.Local).AddTicks(8830),
+                            CreatedAt = new DateTime(2024, 10, 1, 13, 11, 36, 638, DateTimeKind.Local).AddTicks(2512),
                             Description = "Moncati cung cấp rau củ quả sạch, tươi ngon từ nông trại địa phương, cam kết mang đến sản phẩm an toàn và chất lượng cho sức khỏe gia đình bạn.",
                             PhoneNumber = "0937056922",
                             SuplierName = "Moncati",
-                            UpdatedAt = new DateTime(2024, 10, 1, 13, 14, 28, 908, DateTimeKind.Local).AddTicks(8830)
+                            UpdatedAt = new DateTime(2024, 10, 1, 13, 11, 36, 638, DateTimeKind.Local).AddTicks(2513)
                         });
                 });
 
@@ -893,22 +896,6 @@ namespace PureFood.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Roles");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("322488f9-7aa9-49b0-b2b8-fd98b7b260fc"),
-                            DisplayName = "Khách Hàng",
-                            Name = "Customer",
-                            NormalizedName = "CUSTOMER"
-                        },
-                        new
-                        {
-                            Id = new Guid("c0278115-8549-4fad-890a-44f8e8fcc022"),
-                            DisplayName = "Quản Lí",
-                            Name = "Manager",
-                            NormalizedName = "MANAGER"
-                        });
                 });
 
             modelBuilder.Entity("PureFood.Core.Domain.Identity.AppUser", b =>

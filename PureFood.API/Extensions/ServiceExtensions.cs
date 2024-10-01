@@ -1,11 +1,14 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using PureFood.API.Services;
 using PureFood.Core.Domain.Identity;
 using PureFood.Core.Models.auth;
 using PureFood.Core.SeedWorks;
 using PureFood.Data;
 using PureFood.Data.SeedWork;
+using System.Text;
 
 namespace PureFood.API.Extensions
 {
@@ -64,6 +67,29 @@ namespace PureFood.API.Extensions
                 options.User.RequireUniqueEmail = true;
                 options.SignIn.RequireConfirmedEmail = false;
             });
+        }
+        public static IServiceCollection AddCustomJwtAuthentication(this IServiceCollection services, IConfiguration configuration)
+        {
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(cfg =>
+            {
+                cfg.RequireHttpsMetadata = true;
+                cfg.SaveToken = true;
+                cfg.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateLifetime = true,
+                    ClockSkew = TimeSpan.FromSeconds(0),
+                    ValidIssuer = configuration["JwtTokenSettings:Issuer"],
+                    ValidAudience = configuration["JwtTokenSettings:Issuer"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JwtTokenSettings:Key"]))
+                };
+            });
+
+            return services;
         }
 
     }

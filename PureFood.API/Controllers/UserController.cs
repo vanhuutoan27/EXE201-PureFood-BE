@@ -1,9 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Security.Claims;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -11,6 +5,8 @@ using PureFood.Core.Domain.Identity;
 using PureFood.Core.Models.content;
 using PureFood.Core.Models.content.Requests;
 using PureFood.Core.SeedWorks;
+using System.Net;
+using System.Security.Claims;
 
 namespace PureFood.API.Controllers
 {
@@ -31,9 +27,9 @@ namespace PureFood.API.Controllers
             _resultModel = new ResultModel();
         }
 
-       [HttpGet]
+        [HttpGet]
         [Authorize]
-        public async Task<ActionResult<ResultModel>> GetAll(int page = 1, int limit = 10, string search = null, [FromQuery] bool? status = null)
+        public async Task<ActionResult<ResultModel>> GetAll(int page = 1, int limit = 10, string search = null, bool? status = null)
         {
             var userEmail = User.FindFirst(ClaimTypes.Email)?.Value;
             var user = await _userManager.FindByEmailAsync(userEmail);
@@ -85,6 +81,7 @@ namespace PureFood.API.Controllers
         }
 
         [HttpGet("{username}")]
+        [Authorize]
         public async Task<ActionResult<ResultModel>> GetUserByUsername(string username)
         {
             var user = await _serviceManager.UserService.GetUserName(username);

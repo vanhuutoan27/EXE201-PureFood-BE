@@ -14,18 +14,19 @@ builder.Services.ConfigureCors();
 builder.Services.ConfigureRepositoryManager();
 builder.Services.ConfigureServiceManager();
 builder.Services.ConfigureJwtSetting(builder.Configuration);
-builder.Services.AddScoped<ITokenService,TokenService>();
+builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.ConfigureTokenAndManagerIdentity();
+builder.Services.AddCustomJwtAuthentication(configuration);
 builder.Services.AddSwaggerGen(option =>
 {
 
-   
+
     option.AddSecurityDefinition(name: "Bearer", securityScheme: new OpenApiSecurityScheme
     {
         Name = "Authorization",
         Description = "Enter the Bearer Authorization string as following: `Bearer Generated-JWT-Token`",
         In = ParameterLocation.Header,
-        Type = SecuritySchemeType.Http,
+        Type = SecuritySchemeType.ApiKey,
         BearerFormat = "JWT",
         Scheme = "Bearer"
     });
@@ -40,6 +41,10 @@ builder.Services.AddSwaggerGen(option =>
             Type = ReferenceType.SecurityScheme,
             Id = "Bearer"
           },
+            In = ParameterLocation.Header,
+                Scheme = "Bearer",
+                Name = "Authorization",
+                BearerFormat = "JWT"
         },
         Array.Empty<string>()
       }

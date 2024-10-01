@@ -40,6 +40,7 @@ namespace PureFood.Data
             builder.ApplyConfiguration(new CategoryConfiguration());
             builder.ApplyConfiguration(new SupplierConfiguration());
             builder.ApplyConfiguration(new ProductConfiguration());
+            builder.ApplyConfiguration(new RoleConfiguration());
         }
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {

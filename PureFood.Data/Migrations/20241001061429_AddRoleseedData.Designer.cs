@@ -12,8 +12,8 @@ using PureFood.Data;
 namespace PureFood.Data.Migrations
 {
     [DbContext(typeof(PureFoodDbContext))]
-    [Migration("20240930141230_AddProductData")]
-    partial class AddProductData
+    [Migration("20241001061429_AddRoleseedData")]
+    partial class AddRoleseedData
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -219,17 +219,17 @@ namespace PureFood.Data.Migrations
                         {
                             CategoryId = new Guid("2d482271-9605-4d43-9ca8-d479d6ef9687"),
                             CategoryName = "rau-cu",
-                            CreatedAt = new DateTime(2024, 9, 30, 21, 12, 29, 884, DateTimeKind.Local).AddTicks(9035),
+                            CreatedAt = new DateTime(2024, 10, 1, 13, 14, 28, 908, DateTimeKind.Local).AddTicks(8725),
                             Description = "Rau củ quả ngon lành",
-                            UpdateAt = new DateTime(2024, 9, 30, 21, 12, 29, 884, DateTimeKind.Local).AddTicks(9048)
+                            UpdateAt = new DateTime(2024, 10, 1, 13, 14, 28, 908, DateTimeKind.Local).AddTicks(8738)
                         },
                         new
                         {
                             CategoryId = new Guid("6b5f6458-3791-4303-8ee7-e20707e4cf3e"),
                             CategoryName = "trai-cay",
-                            CreatedAt = new DateTime(2024, 9, 30, 21, 12, 29, 884, DateTimeKind.Local).AddTicks(9057),
+                            CreatedAt = new DateTime(2024, 10, 1, 13, 14, 28, 908, DateTimeKind.Local).AddTicks(8741),
                             Description = "Trái cây tươi mới",
-                            UpdateAt = new DateTime(2024, 9, 30, 21, 12, 29, 884, DateTimeKind.Local).AddTicks(9058)
+                            UpdateAt = new DateTime(2024, 10, 1, 13, 14, 28, 908, DateTimeKind.Local).AddTicks(8742)
                         });
                 });
 
@@ -855,21 +855,21 @@ namespace PureFood.Data.Migrations
                         {
                             SupplierId = new Guid("5a0b659d-884a-446a-8b77-9b84ed6e2bf2"),
                             Address = "Quận 9, Thành phố Hồ Chí Minh",
-                            CreatedAt = new DateTime(2024, 9, 30, 21, 12, 29, 884, DateTimeKind.Local).AddTicks(9216),
+                            CreatedAt = new DateTime(2024, 10, 1, 13, 14, 28, 908, DateTimeKind.Local).AddTicks(8824),
                             Description = "Chúng tôi cung cấp rau củ quả sạch, tươi ngon từ nông trại đến bàn ăn, đảm bảo an toàn sức khỏe cho gia đình bạn.",
                             PhoneNumber = "0937056922",
                             SuplierName = "PureFood",
-                            UpdatedAt = new DateTime(2024, 9, 30, 21, 12, 29, 884, DateTimeKind.Local).AddTicks(9216)
+                            UpdatedAt = new DateTime(2024, 10, 1, 13, 14, 28, 908, DateTimeKind.Local).AddTicks(8826)
                         },
                         new
                         {
                             SupplierId = new Guid("9b8bc0ba-e6af-4445-8509-390f404c1ea6"),
                             Address = "FPT Quận 9, Thành phố Hồ Chí Minh",
-                            CreatedAt = new DateTime(2024, 9, 30, 21, 12, 29, 884, DateTimeKind.Local).AddTicks(9221),
+                            CreatedAt = new DateTime(2024, 10, 1, 13, 14, 28, 908, DateTimeKind.Local).AddTicks(8830),
                             Description = "Moncati cung cấp rau củ quả sạch, tươi ngon từ nông trại địa phương, cam kết mang đến sản phẩm an toàn và chất lượng cho sức khỏe gia đình bạn.",
                             PhoneNumber = "0937056922",
                             SuplierName = "Moncati",
-                            UpdatedAt = new DateTime(2024, 9, 30, 21, 12, 29, 884, DateTimeKind.Local).AddTicks(9221)
+                            UpdatedAt = new DateTime(2024, 10, 1, 13, 14, 28, 908, DateTimeKind.Local).AddTicks(8830)
                         });
                 });
 
@@ -896,6 +896,22 @@ namespace PureFood.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Roles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("322488f9-7aa9-49b0-b2b8-fd98b7b260fc"),
+                            DisplayName = "Khách Hàng",
+                            Name = "Customer",
+                            NormalizedName = "CUSTOMER"
+                        },
+                        new
+                        {
+                            Id = new Guid("c0278115-8549-4fad-890a-44f8e8fcc022"),
+                            DisplayName = "Quản Lí",
+                            Name = "Manager",
+                            NormalizedName = "MANAGER"
+                        });
                 });
 
             modelBuilder.Entity("PureFood.Core.Domain.Identity.AppUser", b =>
@@ -935,8 +951,8 @@ namespace PureFood.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("Gender")
-                        .HasColumnType("int");
+                    b.Property<string>("Gender")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");

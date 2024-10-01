@@ -1,5 +1,5 @@
 ﻿using PureFood.Core.Domain.Content;
-using PureFood.Core.Models;
+using PureFood.Core.Models.content;
 using PureFood.Core.SeedWorks;
 
 namespace PureFood.Core.Repositories
