@@ -1,10 +1,4 @@
-﻿using PureFood.Core.Domain.Content;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text.Json.Serialization;
 
 namespace PureFood.Core.Models.Requests
 {
@@ -18,14 +12,9 @@ namespace PureFood.Core.Models.Requests
         public string Unit { get; set; }
         public string Origin { get; set; }
         public bool Organic { get; set; }
-        public bool Status { get; set; }
-
-        public DateTime EntryDate { get; set; }
-        public DateTime ExpiryDate { get; set; }
-
-        public DateTime? CreatedAt { get; set; }
-        public DateTime? UpdateAt { get; set; }
-        public Guid CategoryId { get; set; }
-        public Guid SupplierId { get; set; }
+        [JsonPropertyName("category")]
+        public string CategoryName { get; set; }
+        [JsonPropertyName("supplier")]
+        public string SupplierName { get; set; }
     }
 }

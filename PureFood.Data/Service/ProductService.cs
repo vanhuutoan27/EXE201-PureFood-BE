@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using PureFood.Core.Domain.Content;
-using PureFood.Core.Models;
 using PureFood.Core.Models.content.Responses;
 using PureFood.Core.Models.Requests;
 
@@ -46,6 +45,11 @@ namespace PureFood.Data.Service
             // tao slug
             var slug = GenerateSlug(requestProduct.ProductName);
             var resultSlug = $"{slug}-{randomSuffix}";
+            var category = await _repositoryManager.CategoryRepository.GetCategoryByName(requestProduct.CategoryName);
+            if (category == null) { throw new Exception("Not Found Category Name"); }
+            var supplier = await _repositoryManager.SupplierRepository.GetSupplierByName(requestProduct.SupplierName);
+            if (supplier == null) { throw new Exception("Not Found Supplier Name"); }
+
             try
             {
                 var createProduct = _mapper.Map<Product>(requestProduct);
@@ -66,8 +70,9 @@ namespace PureFood.Data.Service
                     ExpiryDate = createProduct.ExpiryDate,
                     CreatedAt = DateTime.Now,
                     UpdateAt = DateTime.Now,
-                    CategoryId = createProduct.CategoryId,
-                    SupplierId = createProduct.SupplierId
+                    CategoryId = category.CategoryId,
+                    SupplierId = supplier.SupplierId,
+
                 };
                 _repositoryManager.ProductRepository.Add(newProduct);
                 await _repositoryManager.SaveAsync();
@@ -86,7 +91,7 @@ namespace PureFood.Data.Service
         {
             try
             {
-                var listProduct = await _repositoryManager.ProductRepository.GetAllProductAsync(page, limit, searchName, categoryName, 
+                var listProduct = await _repositoryManager.ProductRepository.GetAllProductAsync(page, limit, searchName, categoryName,
                     minWeight, maxWeight, unit, minPrice, maxPrice, origin, organic);
                 var productRespone = new List<ProductRespone>();
                 foreach (var product in listProduct.Items)

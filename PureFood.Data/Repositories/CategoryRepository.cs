@@ -16,9 +16,14 @@ namespace PureFood.Data.Repositories
             return await _context.Categories.FindAsync(id);
         }
 
-        public async Task<IEnumerable< Category>> getAll()
+        public async Task<IEnumerable<Category>> getAll()
         {
-            return await _context.Categories.ToListAsync(); 
+            return await _context.Categories.ToListAsync();
+        }
+
+        public async Task<Category> GetCategoryByName(string name)
+        {
+            return await _context.Categories.SingleOrDefaultAsync(c => c.CategoryName.ToLower() == name.ToLower());
         }
     }
 }

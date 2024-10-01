@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PureFood.Core.Domain.Identity;
-using PureFood.Core.Models.content.Requests;
 using PureFood.Core.Repositories;
 using PureFood.Data.SeedWork;
 
@@ -19,7 +18,7 @@ namespace PureFood.Data.Repositories
 
         public async Task<AppUser> GetUserbyId(Guid id)
         {
-            return await _context.Users.FirstOrDefaultAsync(u => u.UserId == id);
+            return await _context.Users.FirstOrDefaultAsync(u => u.Id == id);
         }
 
         public async Task<AppUser> GetUserByPhoneAsync(string phone)

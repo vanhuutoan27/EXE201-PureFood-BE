@@ -37,5 +37,6 @@ namespace PureFood.Core.Domain.Content
         public ICollection<Review> Reviews { get; set; }
         public ICollection<Image> Images { get; set; }
         public ICollection<CartItem> CartItems { get; set; }
+        public ICollection<OrderItem> OrderItems { get; set; }
     }
 }

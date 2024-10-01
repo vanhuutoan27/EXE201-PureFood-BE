@@ -1,11 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
-using PureFood.Core.Models.content;
 ﻿using Microsoft.AspNetCore.Mvc;
-using PureFood.Core.Models;
+using PureFood.Core.Models.content;
 using PureFood.Core.Models.Requests;
 using PureFood.Core.SeedWorks;
 using System.Net;
-using System.Reflection.Metadata.Ecma335;
 
 namespace PureFood.API.Controllers
 {
@@ -150,7 +147,7 @@ namespace PureFood.API.Controllers
             return Ok(_resultModel = new ResultModel
             {
                 Success = true,
-                Status= (int)HttpStatusCode.OK,
+                Status = (int)HttpStatusCode.OK,
                 Data = product,
                 Message = "Products retrieved successfully."
             });

@@ -1,14 +1,10 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using PureFood.Core.Domain.Content;
-using PureFood.Core.SeedWorks.Enums;
-using System.ComponentModel.DataAnnotations;
 
 namespace PureFood.Core.Domain.Identity
 {
     public class AppUser : IdentityUser<Guid>
     {
-        [Key]
-        public Guid UserId { get; set; }
         public string FullName { get; set; }
         public string? RefreshToken { get; set; }
         public DateTime? RefreshTokenExpiryTime { get; set; }

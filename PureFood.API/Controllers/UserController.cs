@@ -33,7 +33,7 @@ namespace PureFood.API.Controllers
         {
             var userEmail = User.FindFirst(ClaimTypes.Email)?.Value;
             var user = await _userManager.FindByEmailAsync(userEmail);
-            var listusers = await _serviceManager.UserService.GetUsersAsync(page, limit, search, user.UserId.ToString(), status);
+            var listusers = await _serviceManager.UserService.GetUsersAsync(page, limit, search, user.Id.ToString(), status);
             if (listusers == null)
             {
                 _resultModel = new ResultModel
