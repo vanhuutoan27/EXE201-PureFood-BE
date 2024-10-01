@@ -11,6 +11,7 @@ namespace PureFood.Core.Models.Requests
         public double Weight { get; set; }
         public string Unit { get; set; }
         public string Origin { get; set; }
+        public string FoodName { get; set; }
         public bool Organic { get; set; }
         [JsonPropertyName("category")]
         public string CategoryName { get; set; }

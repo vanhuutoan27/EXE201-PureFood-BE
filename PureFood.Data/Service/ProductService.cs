@@ -70,6 +70,7 @@ namespace PureFood.Data.Service
                     ExpiryDate = createProduct.ExpiryDate,
                     CreatedAt = DateTime.Now,
                     UpdateAt = DateTime.Now,
+                    FoodName = createProduct.FoodName,
                     CategoryId = category.CategoryId,
                     SupplierId = supplier.SupplierId,
 
