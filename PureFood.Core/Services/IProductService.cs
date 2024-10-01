@@ -1,7 +1,7 @@
+﻿using PureFood.Core.Models.content.Responses;
 ﻿using PureFood.Core.Domain.Content;
 using PureFood.Core.Models;
 using PureFood.Core.Models.Requests;
-using PureFood.Core.Models.Respones;
 
 namespace PureFood.Core.Services
 {

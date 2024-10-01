@@ -1,7 +1,8 @@
 ﻿using AutoMapper;
 using PureFood.Core.Models;
+using PureFood.Core.Models.content.Responses;
 using PureFood.Core.Models.Requests;
-using PureFood.Core.Models.Respones;
+
 using PureFood.Core.SeedWorks;
 using PureFood.Core.Services;
 

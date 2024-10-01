@@ -1,3 +1,5 @@
+﻿using Microsoft.AspNetCore.Http;
+using PureFood.Core.Models.content;
 ﻿using Microsoft.AspNetCore.Mvc;
 using PureFood.Core.Models;
 using PureFood.Core.Models.Requests;

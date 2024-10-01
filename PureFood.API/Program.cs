@@ -1,8 +1,10 @@
 using AutoMapper;
 using AutoMapper.Internal;
+using Microsoft.OpenApi.Models;
 using PureFood.API;
 using PureFood.API.AutoMappers;
 using PureFood.API.Extensions;
+using PureFood.API.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
@@ -11,6 +13,38 @@ builder.Services.ConfigureIdentity();
 builder.Services.ConfigureCors();
 builder.Services.ConfigureRepositoryManager();
 builder.Services.ConfigureServiceManager();
+builder.Services.ConfigureJwtSetting(builder.Configuration);
+builder.Services.AddScoped<ITokenService,TokenService>();
+builder.Services.ConfigureTokenAndManagerIdentity();
+builder.Services.AddSwaggerGen(option =>
+{
+
+   
+    option.AddSecurityDefinition(name: "Bearer", securityScheme: new OpenApiSecurityScheme
+    {
+        Name = "Authorization",
+        Description = "Enter the Bearer Authorization string as following: `Bearer Generated-JWT-Token`",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.Http,
+        BearerFormat = "JWT",
+        Scheme = "Bearer"
+    });
+
+    option.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+      {
+        new OpenApiSecurityScheme
+        {
+          Reference = new OpenApiReference
+          {
+            Type = ReferenceType.SecurityScheme,
+            Id = "Bearer"
+          },
+        },
+        Array.Empty<string>()
+      }
+    });
+});
 var mapperConfig = new MapperConfiguration(mc =>
 {
     mc.Internal().MethodMappingEnabled = false;

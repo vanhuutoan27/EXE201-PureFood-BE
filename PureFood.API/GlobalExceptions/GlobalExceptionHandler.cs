@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Diagnostics;
-using PureFood.Core.Models;
+using PureFood.Core.Models.content;
 using PureFood.Core.Models.error;
 using System.Net;
 using System.Text.Json;

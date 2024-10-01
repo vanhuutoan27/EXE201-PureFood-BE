@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Identity;
+using PureFood.Core.Domain.Identity;
 using PureFood.Core.SeedWorks;
 using PureFood.Core.Services;
 using PureFood.Data.Service;
@@ -17,7 +19,7 @@ namespace PureFood.Data.SeedWork
         private readonly Lazy<IUserService> _userService;
         private readonly Lazy<IPromotionService> _promotionService;
 
-        public ServiceManager(IRepositoryManager repositoryManager, IMapper mapper)
+        public ServiceManager(IRepositoryManager repositoryManager, IMapper mapper , UserManager<AppUser> userManager)
         {
             _cartItemService = new Lazy<ICartItemService>(() => new CartItemService(repositoryManager, mapper));
             _cartService = new Lazy<ICartService>(() => new CartService(repositoryManager, mapper));
@@ -26,7 +28,7 @@ namespace PureFood.Data.SeedWork
             _productService = new Lazy<IProductService>(() => new ProductService(repositoryManager, mapper));
             _reviewService = new Lazy<IReviewService>(() => new ReviewService(repositoryManager, mapper));
             _supplierService = new Lazy<ISupplierService>(() => new SupplierService(repositoryManager, mapper));
-            _userService = new Lazy<IUserService>(() => new UserService(repositoryManager, mapper));
+            _userService = new Lazy<IUserService>(() => new UserService( userManager ,repositoryManager, mapper  ));
             _promotionService = new Lazy<IPromotionService>(() => new PromotionService(repositoryManager, mapper));
 
         }
