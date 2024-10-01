@@ -70,14 +70,14 @@ namespace PureFood.Data.Service
         }
 
 
-        public async Task<bool> UpdateCartItem(UpdateCartItemRequest request, Guid cartItemId)
+        public async Task<bool> UpdateCartItem( Guid cartItemId , int Quantity)
         {
             var cartItem = await _repositoryManager.CartItemRepository.GetByIdAsync(cartItemId);
             if (cartItem == null)
             {
                 throw new Exception("CartItem does not found.");
             }
-            cartItem.Quantity = request.Quantity;
+            cartItem.Quantity = Quantity;
             _repositoryManager.CartItemRepository.Update(cartItem);
             await _repositoryManager.SaveAsync();
             return true;
