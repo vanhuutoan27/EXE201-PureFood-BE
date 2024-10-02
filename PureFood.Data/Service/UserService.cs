@@ -56,7 +56,7 @@ namespace PureFood.Data.Service
             if (!result.Succeeded)
             {
                 var errorMessages = string.Join("; ", result.Errors.Select(e => e.Description));
-                throw new Exception($"Failed to create user: {errorMessages}");
+                throw new Exception($"Tạo người dùng thất bại: {errorMessages}");
             }
             await _userManager.AddToRoleAsync(newUserRequest, User.Role);
             var UserResponse = _mapper.Map<UserReponse>(newUserRequest);
@@ -66,7 +66,7 @@ namespace PureFood.Data.Service
         public async Task<bool> ChangeAvatar(Guid userId, ChangeAvatarRequest request)
         {
             var user = await _userManager.FindByIdAsync(userId.ToString());
-            if (user == null) throw new Exception("Not Found User");
+            if (user == null) throw new Exception("Không tìm thấy người dùng.");
             user.Avatar = request.Avatar;
             var identiyResult = await _userManager.UpdateAsync(user);
             return identiyResult.Succeeded;
@@ -77,22 +77,22 @@ namespace PureFood.Data.Service
             var user = await _userManager.FindByIdAsync(id.ToString());
             if (currentPassword == newPassword)
             {
-                throw new Exception("Current password is equal with new password");
+                throw new Exception("Mật khẩu hiện tại trùng với mật khẩu mới.");
             }
             if (user == null)
             {
-                throw new Exception("User not found.");
+                throw new Exception("Không tìm thấy người dùng.");
             }
             var isPasswordValid = await _userManager.CheckPasswordAsync(user, currentPassword);
             if (!isPasswordValid)
             {
-                throw new Exception("Current password is incorrect.");
+                throw new Exception("Mật khẩu hiện tại không đúng.");
             }
 
             var result = await _userManager.ChangePasswordAsync(user, currentPassword, newPassword);
             if (!result.Succeeded)
             {
-                throw new Exception("Fail to change password");
+                throw new Exception("Cập nhật mật khẩu thất bại.");
             }
             return true;
 
@@ -103,7 +103,7 @@ namespace PureFood.Data.Service
             var getUser = await _repositoryManager.UserRepository.GetUserbyId(id);
             if (getUser == null)
             {
-                throw new Exception("User not found.");
+                throw new Exception("Không tìm thấy người dùng.");
             }
 
             if (getUser.Status)
@@ -123,7 +123,7 @@ namespace PureFood.Data.Service
             var getUser = await _repositoryManager.UserRepository.GetUserbyId(id);
             if (getUser == null)
             {
-                throw new Exception("User not found.");
+                throw new Exception("Không tìm thấy người dùng.");
 
             }
             var userResponse = _mapper.Map<UserReponse>(getUser);
@@ -137,7 +137,7 @@ namespace PureFood.Data.Service
             var getUsers = await _repositoryManager.UserRepository.GetUserName(name);
             if (getUsers == null)
             {
-                throw new Exception("User not found.");
+                throw new Exception("Không tìm thấy người dùng.");
             }
             var user = _mapper.Map<UserReponse>(getUsers);
             var roles = await _userManager.GetRolesAsync(getUsers);
@@ -151,7 +151,7 @@ namespace PureFood.Data.Service
             var currentUser = await _userManager.FindByIdAsync(currentUserId);
             if (currentUser == null)
             {
-                throw new ArgumentNullException(nameof(currentUser), "Current user cannot be null.");
+                throw new ArgumentNullException(nameof(currentUser), "Người dùng hiện tại không được bỏ trống.");
             }
 
             // Lấy role của người dùng hiện tại
@@ -220,10 +220,10 @@ namespace PureFood.Data.Service
 
         public async Task<bool> RemoveUser(Guid id)
         {
-            if (id == null) throw new Exception("User not found.");
+            if (id == null) throw new Exception("Không tìm thấy người dùng.");
             var user = await _userManager.FindByIdAsync(id.ToString());
 
-            if (user == null) throw new Exception("User not found.");
+            if (user == null) throw new Exception("Không tìm thấy người dùng.");
 
             user.LockoutEnabled = true;
 
@@ -239,7 +239,7 @@ namespace PureFood.Data.Service
         public async Task<UserReponse> UpdateUser(Guid id, UpdateUserRequest User)
         {
             var UserToEdit = await _userManager.FindByIdAsync(id.ToString());
-            if (UserToEdit == null) throw new Exception("User not found.");
+            if (UserToEdit == null) throw new Exception("Không tìm thấy người dùng.");
             var roles = await _userManager.GetRolesAsync(UserToEdit);
 
             // Neu Roles thay doi
@@ -296,26 +296,26 @@ namespace PureFood.Data.Service
             var user = await _userManager.FindByIdAsync(userId.ToString());
             if (user == null)
             {
-                throw new Exception("User not found");
+                throw new Exception("Không tìm thấy người dùng.");
             }
             // kiem tra role cua nguoi dung
             var roleUser = await _userManager.GetRolesAsync(user);
             if (!roleUser.Contains("Customer"))
             {
-                throw new Exception("Only customers can update profile.");
+                throw new Exception("Chỉ khách hàng được cập nhật thông tin.");
             }
 
             // check email exist
             var existingEmail = await _userManager.FindByEmailAsync(updateCustomer.Email);
             if (existingEmail != null && existingEmail.Id != user.Id)
             {
-                throw new Exception("Email already exists.");
+                throw new Exception("Email đã tồn tại.");
             }
             // check phone exist
             var existingPhone = await _userManager.Users.FirstOrDefaultAsync(u => u.PhoneNumber == updateCustomer.PhoneNumber);
             if (existingPhone != null && existingPhone.PhoneNumber != user.PhoneNumber)
             {
-                throw new Exception("Phone number already exists.");
+                throw new Exception("Số điện thoại đã tồn tại.");
             }
             user.FullName = updateCustomer.FullName;
             user.Email = updateCustomer.Email;

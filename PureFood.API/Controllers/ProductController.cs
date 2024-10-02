@@ -27,7 +27,7 @@ namespace PureFood.API.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.BadRequest,
-                    Message = "Invalid data."
+                    Message = "Dữ liệu không hợp lệ."
                 });
             }
             var result = await _serviceManager.ProductService.CreateProduct(createProductRequest);
@@ -37,14 +37,14 @@ namespace PureFood.API.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Failed to create product."
+                    Message = "Tạo sản phẩm không thành công."
                 });
             }
             return Ok(_resultModel = new ResultModel
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Product created successfully."
+                Message = "Tạo sản phẩm thành công."
             });
         }
 
@@ -58,7 +58,7 @@ namespace PureFood.API.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Product not found."
+                    Message = "Không tìm thấy sản phẩm."
                 });
             }
             return Ok(_resultModel = new ResultModel
@@ -66,7 +66,7 @@ namespace PureFood.API.Controllers
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
                 Data = product,
-                Message = "Product retrieved successfully."
+                Message = "Lấy sản phẩm thành công."
             });
         }
 
@@ -81,7 +81,7 @@ namespace PureFood.API.Controllers
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
                 Data = listProduct,
-                Message = "Products retrieved successfully."
+                Message = "Lấy sản phẩm thành công."
             });
         }
 
@@ -95,7 +95,7 @@ namespace PureFood.API.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Product not found"
+                    Message = "Không tìm thấy sản phẩm."
                 });
             }
             return Ok(_resultModel = new ResultModel
@@ -103,7 +103,7 @@ namespace PureFood.API.Controllers
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
                 Data = product,
-                Message = "Product retrieved successfully."
+                Message = "Lấy sản phẩm thành công."
             });
         }
         [HttpGet("supplier/{supplierName}")]
@@ -121,7 +121,7 @@ namespace PureFood.API.Controllers
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
                 Data = product,
-                Message = "Product retrieved successfully."
+                Message = "Lấy sản phẩm thành công."
             });
         }
 
@@ -140,7 +140,7 @@ namespace PureFood.API.Controllers
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
                 Data = product,
-                Message = "Products retrieved successfully."
+                Message = "Lấy sản phẩm thành công."
             });
         }
         [HttpPut("{productId}")]
@@ -153,7 +153,7 @@ namespace PureFood.API.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Product not found"
+                    Message = "Không tìm thấy sản phẩm."
                 });
             }
             await _serviceManager.ProductService.UpdateProduct(productId, updateRequest);
@@ -161,7 +161,7 @@ namespace PureFood.API.Controllers
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Product updated successfully."
+                Message = "Cập nhật sản phẩm thành công."
             });
         }
 
@@ -176,7 +176,7 @@ namespace PureFood.API.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Product not found"
+                    Message = "Không tìm thấy sản phẩm."
                 });
             }
             await _serviceManager.ProductService.DeleteProduct(productId);
@@ -184,7 +184,7 @@ namespace PureFood.API.Controllers
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Product deleted successfully."
+                Message = "Xóa sản phẩm thành công."
             });
         }
 
@@ -198,7 +198,7 @@ namespace PureFood.API.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Product not found"
+                    Message = "Không tìm thấy sản phẩm."
                 });
             }
             await _serviceManager.ProductService.ChangeStatusProduct(productId);
@@ -206,7 +206,7 @@ namespace PureFood.API.Controllers
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Product status updated successfully."
+                Message = "Cập nhật trạng thái sản phẩm thành công."
             });
         }
     }

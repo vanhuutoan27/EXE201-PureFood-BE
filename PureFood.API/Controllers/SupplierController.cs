@@ -29,7 +29,7 @@ namespace PureFood.API.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "No suppliers found."
+                    Message = "Không tìm thấy nhà cung cấp."
                 };
                 return NotFound(_resultModel);
             }
@@ -38,7 +38,7 @@ namespace PureFood.API.Controllers
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
                 Data = suppliers,
-                Message = "suppliers retrieved successfully."
+                Message = "Lấy nhà cung cấp thành công."
             };
 
             return Ok(_resultModel);
@@ -57,7 +57,7 @@ namespace PureFood.API.Controllers
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null,
-                    Message = "Id does not exist!."
+                    Message = "ID không tồn tại."
 
                 };
             }
@@ -67,7 +67,7 @@ namespace PureFood.API.Controllers
                     Success = true,
                     Status = (int)HttpStatusCode.OK,
                     Data = getSupplier,
-                    Message = "supplier retrieved successfully."
+                    Message = "Lấy nhà cung cấp thành công."
                 };
 
             return Ok(_resultModel);
@@ -83,15 +83,14 @@ namespace PureFood.API.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.BadRequest,
-                    Message = "Unable to add supplier. Please try again."
+                    Message = "Không thể thêm nhà cung cấp."
                 };
             }
             _resultModel = new ResultModel
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-
-                Message = "supplier added successfully."
+                Message = "Thêm nhà cung cấp thành công."
             };
             return Ok(_resultModel);
         }
@@ -107,7 +106,7 @@ namespace PureFood.API.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "supplier not found."
+                    Message = "Không tìm thấy nhà cung cấp."
                 };
                 return BadRequest(_resultModel);
             }
@@ -115,8 +114,7 @@ namespace PureFood.API.Controllers
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-
-                Message = "supplier updated successfully."
+                Message = "Cập nhật nhà cung cấp thành công."
             };
             return Ok(_resultModel);
         }
@@ -132,7 +130,7 @@ namespace PureFood.API.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "supplier not found."
+                    Message = "Không tìm thấy nhà cung cấp."
 
                 };
             }
@@ -140,7 +138,7 @@ namespace PureFood.API.Controllers
             {
                 Success = true,
                 Status = (int)HttpStatusCode.NoContent,
-                Message = "supplier deleted successfully."
+                Message = "Xóa nhà cung cấp thành công."
             };
             return Ok(_resultModel);
         }

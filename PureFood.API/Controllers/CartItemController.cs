@@ -31,7 +31,7 @@ namespace PureFood.API.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Cart item not found."
+                    Message = "Không tìm thấy sản phẩm giỏ hàng."
                 };
                 return _resultModel;
             }
@@ -40,7 +40,7 @@ namespace PureFood.API.Controllers
             {
                 Success = true,
                 Status = (int)HttpStatusCode.NoContent,
-                Message = "Cart item deleted successfully.",
+                Message = "Xóa sản phẩm giỏ hàng thành công.",
             };
         }
         [HttpPatch("{cartItemId}")]
@@ -52,7 +52,7 @@ namespace PureFood.API.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Cart item not found."
+                    Message = "Không tìm thấy sản phẩm giỏ hàng."
                 };
                 return NotFound(_resultModel);
             }
@@ -65,7 +65,7 @@ namespace PureFood.API.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.InternalServerError,
-                    Message = "Failed to add cart item."
+                    Message = "Cập nhật giỏ hàng thất bại."
                 };
                 return StatusCode((int)HttpStatusCode.InternalServerError, _resultModel);
             }
@@ -74,7 +74,7 @@ namespace PureFood.API.Controllers
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Update cart item successfully.",
+                Message = "Cập nhật giỏ hàng thành công.",
                 Data = result
             };
 
@@ -92,14 +92,14 @@ namespace PureFood.API.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Cart item not found."
+                    Message = "Không tìm thấy sản phẩm giỏ hàng."
                 });
             }
             return Ok(_resultModel = new ResultModel
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Cart ttem retrieved successfully.",
+                Message = "Lấy sản phẩm giỏ hàng thành công.",
                 Data = query
             });
         }

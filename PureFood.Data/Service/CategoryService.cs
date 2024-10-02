@@ -39,7 +39,7 @@ namespace PureFood.Data.Service
             var getCategory = await _repositoryManager.CategoryRepository.GetByIdAsync(id);
             if (getCategory == null)
             {
-                throw new Exception("Category not found.");
+                throw new Exception("Không tìm thấy danh mục.");
             }
             _repositoryManager.CategoryRepository.Remove(getCategory);
 
@@ -67,7 +67,7 @@ namespace PureFood.Data.Service
             var getCategory = await _repositoryManager.CategoryRepository.GetByIdAsync(id);
             if (getCategory == null)
             {
-                throw new Exception("Category not found.");
+                throw new Exception("Không tìm thấy danh mục.");
             }
             getCategory.UpdatedAt = DateTime.Now;
             getCategory.Description = request.Description;

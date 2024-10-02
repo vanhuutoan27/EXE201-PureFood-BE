@@ -29,7 +29,7 @@ namespace PureFood.API.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "No promotions found."
+                    Message = "Không tìm thấy khuyến mãi."
                 };
                 return NotFound(_resultModel);
             }
@@ -38,7 +38,7 @@ namespace PureFood.API.Controllers
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
                 Data = promotions,
-                Message = "promotions retrieved successfully."
+                Message = "Lấy khuyến mãi thành công."
             };
 
             return Ok(_resultModel);
@@ -59,7 +59,7 @@ namespace PureFood.API.Controllers
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null,
-                    Message = "Id does not exist!."
+                    Message = "ID không tồn tại."
 
                 };
             }
@@ -69,7 +69,7 @@ namespace PureFood.API.Controllers
                     Success = true,
                     Status = (int)HttpStatusCode.OK,
                     Data = getPromotion,
-                    Message = "promotion retrieved successfully."
+                    Message = "Lấy khuyến mãi thành công."
                 };
 
             return Ok(_resultModel);
@@ -89,15 +89,14 @@ namespace PureFood.API.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.BadRequest,
-                    Message = "Unable to add promotion. Please try again."
+                    Message = "Không thể thêm khuyến mãi."
                 };
             }
             _resultModel = new ResultModel
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-
-                Message = "promotion added successfully."
+                Message = "Thêm khuyến mãi thành công."
             };
             return Ok(_resultModel);
         }
@@ -112,7 +111,7 @@ namespace PureFood.API.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "promotion not found."
+                    Message = "Không tìm thấy khuyến mãi."
                 };
                 return BadRequest(_resultModel);
             }
@@ -120,8 +119,7 @@ namespace PureFood.API.Controllers
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-
-                Message = "promotion updated successfully."
+                Message = "Cập nhật khuyến mãi thành công."
             };
             return Ok(_resultModel);
         }
@@ -136,7 +134,7 @@ namespace PureFood.API.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Promotion not found."
+                    Message = "Không tìm thấy khuyến mãi."
 
                 };
             }
@@ -144,7 +142,7 @@ namespace PureFood.API.Controllers
             {
                 Success = true,
                 Status = (int)HttpStatusCode.NoContent,
-                Message = "Promotion deleted successfully."
+                Message = "Xóa khuyến mãi thành công."
             };
             return Ok(_resultModel);
         }

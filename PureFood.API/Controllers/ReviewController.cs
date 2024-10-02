@@ -29,7 +29,7 @@ namespace PureFood.API.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "No Reviews found."
+                    Message = "Không tìm thấy đánh giá."
                 };
                 return NotFound(_resultModel);
             }
@@ -38,7 +38,7 @@ namespace PureFood.API.Controllers
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
                 Data = brands,
-                Message = "Reviews retrieved successfully."
+                Message = "Lấy đánh giá thành công."
             };
 
             return Ok(_resultModel);
@@ -57,7 +57,7 @@ namespace PureFood.API.Controllers
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null,
-                    Message = "Review not found."
+                    Message = "Không tìm thấy đánh giá."
                 };
             }
             else
@@ -66,7 +66,7 @@ namespace PureFood.API.Controllers
                     Success = true,
                     Status = (int)HttpStatusCode.OK,
                     Data = reviews,
-                    Message = "Review retrieved successfully."
+                    Message = "Lấy đánh giá thành công."
                 };
 
             return Ok(_resultModel);
@@ -86,7 +86,7 @@ namespace PureFood.API.Controllers
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null,
-                    Message = "Reviews not found."
+                    Message = "Không tìm thấy đánh giá."
                 };
             }
             else
@@ -95,7 +95,7 @@ namespace PureFood.API.Controllers
                     Success = true,
                     Status = (int)HttpStatusCode.OK,
                     Data = reviews,
-                    Message = "Reviews retrieved successfully."
+                    Message = "Lấy đánh giá thành công."
                 };
             return Ok(_resultModel);
         }
@@ -113,7 +113,7 @@ namespace PureFood.API.Controllers
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null,
-                    Message = "Review not found."
+                    Message = "Không tìm thấy đánh giá."
                 };
             }
             else
@@ -123,7 +123,7 @@ namespace PureFood.API.Controllers
                     Success = true,
                     Status = (int)HttpStatusCode.OK,
                     Data = reviews,
-                    Message = "Review retrieved successfully."
+                    Message = "Lấy đánh giá thành công."
                 };
             }
 
@@ -140,7 +140,7 @@ namespace PureFood.API.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.BadRequest,
-                    Message = "Unable to create review. Please try again."
+                    Message = "Không thể tạo đánh giá."
                 };
             }
             _resultModel = new ResultModel
@@ -148,7 +148,7 @@ namespace PureFood.API.Controllers
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
 
-                Message = "Review crated successfully."
+                Message = "Tạo đánh giá thành công."
             };
             return Ok(_resultModel);
         }
@@ -163,7 +163,7 @@ namespace PureFood.API.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Review not found."
+                    Message = "Không tìm thấy đánh giá."
                 };
                 return BadRequest(_resultModel);
             }
@@ -172,7 +172,7 @@ namespace PureFood.API.Controllers
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
 
-                Message = "Review updated successfully."
+                Message = "Cập nhật đánh giá thành công."
             };
             return Ok(_resultModel);
         }
@@ -188,18 +188,18 @@ namespace PureFood.API.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Review not found."
+                    Message = "Không tìm thấy đánh giá."
                 };
             }
             _resultModel = new ResultModel
             {
                 Success = true,
                 Status = (int)HttpStatusCode.NoContent,
-                Message = "Review deleted successfully."
+                Message = "Xóa đánh giá thành công."
             };
             return Ok(_resultModel);
         }
-        
+
         [HttpPatch]
         [Route("{reviewId}/flag")]
         public async Task<ActionResult<ResultModel>> ChangeFlag(Guid reviewId)
@@ -212,7 +212,7 @@ namespace PureFood.API.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Failed to flag review."
+                    Message = "Không thể gắn cờ cho đánh giá."
                 };
                 return NotFound(_resultModel);
             }
@@ -221,7 +221,7 @@ namespace PureFood.API.Controllers
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Review flagged successfully."
+                Message = "Gắn cờ cho đánh giá thành công."
             };
             return Ok(_resultModel);
         }
