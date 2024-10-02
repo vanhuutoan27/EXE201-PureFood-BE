@@ -7,7 +7,7 @@ namespace PureFood.Core.Domain.Content
     {
         [Key]
         public Guid OrderItemId { get; set; }
-        public Guid ProductId { get; set; }
+        public Guid ProductId { get; set; } //res product 
         public Guid OrderId { get; set; }
         public int Quantity { get; set; }
         [ForeignKey(nameof(ProductId))]

@@ -5,8 +5,8 @@ namespace PureFood.Core.Domain.Content
     public class Order
     {
         [Key]
-        public Guid OrderId { get; set; }
-        public Guid UserId { get; set; }
+        public Guid OrderId { get; set; } //
+        public Guid UserId { get; set; } //response user
         public decimal Price { get; set; }
         public string FullName { get; set; }
         public string PhoneNumber { get; set; }
@@ -16,7 +16,7 @@ namespace PureFood.Core.Domain.Content
         public string District { get; set; }
         public string Province { get; set; }
         public string PaymentMethod { get; set; }
-
+        //public decimal totalAmount { get; set; }
         public string OrderStatus { get; set; }
         public DateTime CreateAt { get; set; }
         public DateTime UpdatedAt { get; set; }

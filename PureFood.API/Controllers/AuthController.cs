@@ -1,11 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
-using System.Net;
-using System.Security.Claims;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -17,6 +9,10 @@ using PureFood.Core.Models.content;
 using PureFood.Core.SeedWorks;
 using PureFood.Core.SeedWorks.Constants;
 using PureFood.Data;
+using System.IdentityModel.Tokens.Jwt;
+using System.Net;
+using System.Security.Claims;
+using System.Text.RegularExpressions;
 
 namespace PureFood.API.Controllers
 {
@@ -138,6 +134,7 @@ namespace PureFood.API.Controllers
                 Email = request.Email,
                 PhoneNumber = request.PhoneNumber,
                 Status = true,
+                UserName = request.Email,
                 SecurityStamp = Guid.NewGuid().ToString(),
                 LockoutEnabled = false,
                 CreatedAt = DateTime.Now,
