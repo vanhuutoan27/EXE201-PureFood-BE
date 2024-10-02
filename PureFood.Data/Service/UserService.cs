@@ -41,6 +41,7 @@ namespace PureFood.Data.Service
             {
                 Id = Guid.NewGuid(),
                 FullName = User.FullName,
+                UserName = User.Email,
                 Status = false,
                 Email = User.Email,
                 PhoneNumber = User.PhoneNumber,

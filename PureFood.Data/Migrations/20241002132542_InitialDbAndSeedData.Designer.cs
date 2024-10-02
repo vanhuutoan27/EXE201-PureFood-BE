@@ -12,7 +12,7 @@ using PureFood.Data;
 namespace PureFood.Data.Migrations
 {
     [DbContext(typeof(PureFoodDbContext))]
-    [Migration("20241001061137_InitialDbAndSeedData")]
+    [Migration("20241002132542_InitialDbAndSeedData")]
     partial class InitialDbAndSeedData
     {
         /// <inheritdoc />
@@ -219,17 +219,17 @@ namespace PureFood.Data.Migrations
                         {
                             CategoryId = new Guid("2d482271-9605-4d43-9ca8-d479d6ef9687"),
                             CategoryName = "rau-cu",
-                            CreatedAt = new DateTime(2024, 10, 1, 13, 11, 36, 638, DateTimeKind.Local).AddTicks(2382),
+                            CreatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Rau củ quả ngon lành",
-                            UpdatedAt = new DateTime(2024, 10, 1, 13, 11, 36, 638, DateTimeKind.Local).AddTicks(2398)
+                            UpdatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             CategoryId = new Guid("6b5f6458-3791-4303-8ee7-e20707e4cf3e"),
                             CategoryName = "trai-cay",
-                            CreatedAt = new DateTime(2024, 10, 1, 13, 11, 36, 638, DateTimeKind.Local).AddTicks(2402),
+                            CreatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Trái cây tươi mới",
-                            UpdatedAt = new DateTime(2024, 10, 1, 13, 11, 36, 638, DateTimeKind.Local).AddTicks(2402)
+                            UpdatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
@@ -263,6 +263,89 @@ namespace PureFood.Data.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("Images");
+                });
+
+            modelBuilder.Entity("PureFood.Core.Domain.Content.Order", b =>
+                {
+                    b.Property<Guid>("OrderId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Commune")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreateAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("District")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OrderStatus")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PaymentMethod")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Province")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("OrderId");
+
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("PureFood.Core.Domain.Content.OrderItem", b =>
+                {
+                    b.Property<Guid>("OrderItemId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("OrderId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ProductId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.HasKey("OrderItemId");
+
+                    b.HasIndex("OrderId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("OrderItems");
                 });
 
             modelBuilder.Entity("PureFood.Core.Domain.Content.Product", b =>
@@ -347,12 +430,13 @@ namespace PureFood.Data.Migrations
                         {
                             ProductId = new Guid("0e758eaa-331b-409a-b09a-335cdb16a1f5"),
                             CategoryId = new Guid("2d482271-9605-4d43-9ca8-d479d6ef9687"),
+                            CreatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "<p>Rau muống tươi ngon, giàu chất xơ, sản phẩm sạch từ nông trại, có nhiều giá trị dinh dưỡng.</p><br>   <ul><br>      <li>Giàu chất xơ, tốt cho hệ tiêu hóa</li><br>      <li>Giàu vitamin A và C</li><br>      <li>Không thuốc bảo vệ thực vật</li><br>      <li>Thích hợp chế biến các món xào, nấu canh</li><br>      <li>Được trồng tại các nông trại xanh</li><br>    </ul>",
                             EntryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ExpiryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodName = "Water spinach",
                             Organic = true,
-                            Origin = "Long An",
+                            Origin = "Tỉnh Long An",
                             Price = 8000m,
                             ProductName = "Rau muống",
                             Slug = "rau-muong-400-gr-zk7dwx",
@@ -360,18 +444,20 @@ namespace PureFood.Data.Migrations
                             Stock = 100,
                             SupplierId = new Guid("5a0b659d-884a-446a-8b77-9b84ed6e2bf2"),
                             Unit = "Gr",
+                            UpdatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Weight = 400.0
                         },
                         new
                         {
                             ProductId = new Guid("487ca896-ab72-4735-bee9-1b6a42ec3be6"),
                             CategoryId = new Guid("2d482271-9605-4d43-9ca8-d479d6ef9687"),
+                            CreatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "<p>Bắp cải tươi ngon, giòn ngọt, sản phẩm hữu cơ giàu vitamin và chất xơ.</p><br><ul><br>  <li>Giàu vitamin K và C, tốt cho sức khỏe xương và hệ miễn dịch</li><br>  <li>Hàm lượng chất chống oxy hóa cao</li><br> <li>Không sử dụng thuốc trừ sâu</li><br>  <li>Thích hợp chế biến món luộc, xào và salad</li><br>  <li>Trồng tại các nông trại hữu cơ</li><br></ul>",
                             EntryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ExpiryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodName = "Cabbage",
                             Organic = true,
-                            Origin = "Lâm Đồng",
+                            Origin = "Tỉnh Lâm Đồng",
                             Price = 12500m,
                             ProductName = "Bắp cải",
                             Slug = "bap-cai-500-gr-rkwi1a",
@@ -379,18 +465,20 @@ namespace PureFood.Data.Migrations
                             Stock = 100,
                             SupplierId = new Guid("5a0b659d-884a-446a-8b77-9b84ed6e2bf2"),
                             Unit = "Gr",
+                            UpdatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Weight = 500.0
                         },
                         new
                         {
                             ProductId = new Guid("30cfb1b3-da69-4a84-b94c-07ffe79597e0"),
                             CategoryId = new Guid("2d482271-9605-4d43-9ca8-d479d6ef9687"),
+                            CreatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "<p>Giá sống tươi mát, giàu dinh dưỡng, sản phẩm sạch từ nông trại.</p><br><ul><br>  <li>Giàu chất xơ và vitamin E</li><br>  <li>Tốt cho hệ tiêu hóa và làn da</li><br>  <li>Không thuốc bảo vệ thực vật</li><br>  <li>Dùng trong các món gỏi, xào, và phở</li><br>  <li>Được trồng tại các nông trại xanh</li><br></ul>",
                             EntryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ExpiryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodName = "Bean sprouts",
                             Organic = true,
-                            Origin = "Tiền Giang",
+                            Origin = "Tỉnh Tiền Giang",
                             Price = 6800m,
                             ProductName = "Giá sống",
                             Slug = "gia-song-200-gr-fb1ihn",
@@ -398,37 +486,41 @@ namespace PureFood.Data.Migrations
                             Stock = 100,
                             SupplierId = new Guid("5a0b659d-884a-446a-8b77-9b84ed6e2bf2"),
                             Unit = "Gr",
+                            UpdatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Weight = 200.0
                         },
                         new
                         {
                             ProductId = new Guid("e4cdecb7-84f2-4c28-be13-76b4f771b6f5"),
                             CategoryId = new Guid("2d482271-9605-4d43-9ca8-d479d6ef9687"),
+                            CreatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "<p>Nấm kim châm tươi ngon, giàu protein và vitamin, sản phẩm sạch từ nông trại.</p><br><ul><br>  <li>Giàu protein, tốt cho sức khỏe tổng thể</li><br>  <li>Chứa nhiều vitamin B và chất chống oxy hóa</li><br>  <li>Không chứa chất hóa học</li><br>  <li>Thích hợp dùng trong lẩu, xào, và món súp</li><br> <li>Trồng tại các nông trại sạch</li><br></ul>",
                             EntryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ExpiryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodName = "Enoki mushrooms",
                             Organic = true,
-                            Origin = "Tp.Hồ Chí Minh",
+                            Origin = "Thành phố Hồ Chí Minh",
                             Price = 11000m,
-                            ProductName = "Giá sống",
+                            ProductName = "Nấm kim châm",
                             Slug = "nam-kim-cham-150-gr-edwynx",
                             Status = true,
                             Stock = 100,
                             SupplierId = new Guid("5a0b659d-884a-446a-8b77-9b84ed6e2bf2"),
                             Unit = "Gr",
+                            UpdatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Weight = 150.0
                         },
                         new
                         {
                             ProductId = new Guid("d3fd8b9e-ff11-4c14-a453-edfd58f05135"),
                             CategoryId = new Guid("2d482271-9605-4d43-9ca8-d479d6ef9687"),
+                            CreatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "<p>Cà rốt tươi ngon, ngọt lành, giàu vitamin A và chất chống oxy hóa.</p><br><ul><br>  <li>Giàu vitamin A, tốt cho mắt</li><br>  <li>Hàm lượng chất chống oxy hóa cao</li><br>  <li>Không dùng hóa chất bảo vệ thực vật</li><br>  <li>Thích hợp cho món nước ép, nấu canh và xào</li><br>  <li>Được trồng tại nông trại hữu cơ</li><br></ul>",
                             EntryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ExpiryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodName = "Carrot",
                             Organic = true,
-                            Origin = "Lâm Đồng",
+                            Origin = "Tỉnh Lâm Đồng",
                             Price = 11500m,
                             ProductName = "Cà rốt",
                             Slug = "ca-rot-500-gr-xhj7ec",
@@ -436,18 +528,20 @@ namespace PureFood.Data.Migrations
                             Stock = 100,
                             SupplierId = new Guid("5a0b659d-884a-446a-8b77-9b84ed6e2bf2"),
                             Unit = "Gr",
+                            UpdatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Weight = 500.0
                         },
                         new
                         {
                             ProductId = new Guid("6eeb6843-acf8-4760-b1b3-7ff01e5d3e8f"),
                             CategoryId = new Guid("2d482271-9605-4d43-9ca8-d479d6ef9687"),
+                            CreatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "<p>Củ dền tươi, giàu vitamin và khoáng chất, thích hợp cho các món ăn bổ dưỡng.</p><br><ul><br>  <li>Giàu folate và chất sắt, tốt cho máu</li><br>  <li>Chứa nhiều chất chống oxy hóa</li><br>  <li>Không thuốc bảo vệ thực vật</li><br>  <li>Thích hợp cho nước ép, nấu canh và salad</li><br>  <li>Trồng tại các nông trại hữu cơ</li><br></ul>",
                             EntryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ExpiryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodName = "Beetroot",
                             Organic = true,
-                            Origin = "Lâm Đồng",
+                            Origin = "Tỉnh Lâm Đồng",
                             Price = 22500m,
                             ProductName = "Củ dền",
                             Slug = "cu-den-500-gr-wxels8",
@@ -455,18 +549,20 @@ namespace PureFood.Data.Migrations
                             Stock = 100,
                             SupplierId = new Guid("5a0b659d-884a-446a-8b77-9b84ed6e2bf2"),
                             Unit = "Gr",
+                            UpdatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Weight = 500.0
                         },
                         new
                         {
                             ProductId = new Guid("a5c11a08-497c-4846-b922-bb8a95078dd1"),
                             CategoryId = new Guid("2d482271-9605-4d43-9ca8-d479d6ef9687"),
+                            CreatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "<p>Hành tím tươi, vị thơm nồng, giàu dinh dưỡng, sản phẩm sạch từ nông trại.</p><br><ul><br>  <li>Giàu vitamin C và chất xơ</li><br>  <li>Có tính kháng viêm tự nhiên</li><br> <li>Không dùng hóa chất bảo vệ thực vật</li><br>  <li>Thích hợp làm gia vị trong nhiều món ăn</li><br>  <li>Được trồng tại nông trại sạch</li><br></ul>",
                             EntryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ExpiryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodName = "Red onion",
                             Organic = true,
-                            Origin = "Sóc Trăng",
+                            Origin = "Tỉnh Sóc Trăng",
                             Price = 15000m,
                             ProductName = "Hành tím",
                             Slug = "hanh-tim-200-gr-aw4230",
@@ -474,18 +570,20 @@ namespace PureFood.Data.Migrations
                             Stock = 100,
                             SupplierId = new Guid("5a0b659d-884a-446a-8b77-9b84ed6e2bf2"),
                             Unit = "Gr",
+                            UpdatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Weight = 200.0
                         },
                         new
                         {
                             ProductId = new Guid("25134650-be13-43de-bc40-22a9ea54b543"),
                             CategoryId = new Guid("2d482271-9605-4d43-9ca8-d479d6ef9687"),
+                            CreatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "<p>Hành tây tươi, giòn ngọt, giàu vitamin và khoáng chất, thích hợp cho nhiều món ăn.</p><br><ul><br>  <li>Giàu vitamin C và chất chống oxy hóa</li>\r\n  <li>Có tác dụng kháng viêm, tốt cho sức khỏe</li><br>  <li>Không thuốc trừ sâu</li><br>  <li>Thích hợp nấu canh, xào và làm salad</li><br>  <li>Trồng tại các nông trại hữu cơ</li><br></ul>",
                             EntryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ExpiryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodName = "Onion",
                             Organic = true,
-                            Origin = "Lâm Đồng",
+                            Origin = "Tỉnh Lâm Đồng",
                             Price = 8750m,
                             ProductName = "Hành tây",
                             Slug = "hanh-tay-500-gr-xowt5w",
@@ -493,18 +591,20 @@ namespace PureFood.Data.Migrations
                             Stock = 100,
                             SupplierId = new Guid("5a0b659d-884a-446a-8b77-9b84ed6e2bf2"),
                             Unit = "Gr",
+                            UpdatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Weight = 500.0
                         },
                         new
                         {
                             ProductId = new Guid("8b23df0f-ed33-48c5-9bfa-b2f15a6e6d0f"),
                             CategoryId = new Guid("2d482271-9605-4d43-9ca8-d479d6ef9687"),
+                            CreatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "<p>Tỏi tươi, vị cay nồng, giàu chất chống oxy hóa, sản phẩm sạch từ nông trại.</p><br><ul><br>  <li>Giàu chất chống oxy hóa và kháng khuẩn</li><br>  <li>Giúp tăng cường hệ miễn dịch</li><br>  <li>Không thuốc bảo vệ thực vật</li><br>  <li>Thích hợp làm gia vị trong các món ăn</li><br>  <li>Trồng tại các nông trại sạch</li><br></ul>",
                             EntryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ExpiryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodName = "Garlic",
                             Organic = true,
-                            Origin = "Kiên Giang",
+                            Origin = "Tỉnh Kiên Giang",
                             Price = 32000m,
                             ProductName = "Tỏi cô đơn",
                             Slug = "toi-co-don-200-gr-9rmr8t",
@@ -512,18 +612,20 @@ namespace PureFood.Data.Migrations
                             Stock = 100,
                             SupplierId = new Guid("5a0b659d-884a-446a-8b77-9b84ed6e2bf2"),
                             Unit = "Gr",
+                            UpdatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Weight = 200.0
                         },
                         new
                         {
                             ProductId = new Guid("8212e748-fe88-40af-894e-708a376f4fa7"),
                             CategoryId = new Guid("2d482271-9605-4d43-9ca8-d479d6ef9687"),
+                            CreatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "<p>Khoai môn tươi ngon, giàu dinh dưỡng, sản phẩm sạch từ nông trại.</p><br><ul>\r\n  <li>Giàu chất xơ và vitamin B6</li><br>  <li>Tốt cho hệ tiêu hóa và tim mạch</li><br>  <li>Không dùng hóa chất bảo vệ thực vật</li><br>  <li>Thích hợp cho các món nấu, chiên, và hầm</li><br>  <li>Được trồng tại các nông trại hữu cơ</li><br></ul>",
                             EntryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ExpiryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodName = "Taro",
                             Organic = true,
-                            Origin = "Bạc Liêu",
+                            Origin = "Thành phố Bạc Liêu",
                             Price = 26000m,
                             ProductName = "Khoai môn",
                             Slug = "khoai-mon-500-gr-8q8nq9",
@@ -531,18 +633,20 @@ namespace PureFood.Data.Migrations
                             Stock = 100,
                             SupplierId = new Guid("5a0b659d-884a-446a-8b77-9b84ed6e2bf2"),
                             Unit = "Gr",
+                            UpdatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Weight = 500.0
                         },
                         new
                         {
                             ProductId = new Guid("6404ba59-9c63-4192-889b-3448cd7c9ba0"),
                             CategoryId = new Guid("2d482271-9605-4d43-9ca8-d479d6ef9687"),
+                            CreatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "<p>Khoai tây tươi, giàu dinh dưỡng, thích hợp cho nhiều món ăn.</p><br><ul><br>  <li>Giàu vitamin C và chất xơ</li><br>  <li>Hàm lượng chất chống oxy hóa cao</li><br>  <li>Không thuốc bảo vệ thực vật</li><br>  <li>Thích hợp cho các món chiên, nướng, và hầm</li><br>  <li>Được trồng tại nông trại sạch</li><br></ul>",
                             EntryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ExpiryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodName = "Potato",
                             Organic = true,
-                            Origin = "Lâm Đồng",
+                            Origin = "Tỉnh Lâm Đồng",
                             Price = 30000m,
                             ProductName = "Khoai tây",
                             Slug = "khoai-tay-1-kg-0sls2y",
@@ -550,18 +654,20 @@ namespace PureFood.Data.Migrations
                             Stock = 100,
                             SupplierId = new Guid("5a0b659d-884a-446a-8b77-9b84ed6e2bf2"),
                             Unit = "Kg",
+                            UpdatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Weight = 1.0
                         },
                         new
                         {
                             ProductId = new Guid("7a684d3b-8e9f-4f06-a767-d59c1953f249"),
                             CategoryId = new Guid("2d482271-9605-4d43-9ca8-d479d6ef9687"),
+                            CreatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "<p>Khoai lang ngọt lành, giàu dinh dưỡng, sản phẩm sạch từ nông trại.</p><br><ul>\r\n  <li>Giàu vitamin A và chất xơ</li>\r\n  <li>Tốt cho hệ tiêu hóa và sức khỏe mắt</li>\r\n  <li>Không dùng hóa chất bảo vệ thực vật</li><br>  <li>Thích hợp nướng, luộc và làm súp</li><br>  <li>Được trồng tại nông trại hữu cơ</li><br></ul>",
                             EntryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ExpiryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodName = "Sweet potato",
                             Organic = true,
-                            Origin = "Vĩnh Long",
+                            Origin = "Thành phố Vĩnh Long",
                             Price = 34000m,
                             ProductName = "Khoai lang",
                             Slug = "khoai-lang-1-kg-hu8kgx",
@@ -569,18 +675,20 @@ namespace PureFood.Data.Migrations
                             Stock = 100,
                             SupplierId = new Guid("5a0b659d-884a-446a-8b77-9b84ed6e2bf2"),
                             Unit = "Kg",
+                            UpdatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Weight = 1.0
                         },
                         new
                         {
                             ProductId = new Guid("74bc7dde-d01e-46ca-8fa6-e7cb7a70bb31"),
                             CategoryId = new Guid("2d482271-9605-4d43-9ca8-d479d6ef9687"),
+                            CreatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "<p>Gừng tươi, thơm nồng, giàu chất chống oxy hóa, sản phẩm sạch từ nông trại.</p><br><ul><br>  <li>Giàu chất chống viêm và kháng khuẩn</li><br>  <li>Giúp tăng cường hệ miễn dịch và hỗ trợ tiêu hóa</li><br>  <li>Không thuốc bảo vệ thực vật</li><br>  <li>Thích hợp làm gia vị cho nhiều món ăn</li><br>  <li>Được trồng tại nông trại hữu cơ</li><br></ul>",
                             EntryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ExpiryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodName = "Ginger",
                             Organic = true,
-                            Origin = "Lâm Đồng",
+                            Origin = "Tỉnh Lâm Đồng",
                             Price = 4250m,
                             ProductName = "Gừng",
                             Slug = "gung-50-gr-vc4465",
@@ -588,18 +696,20 @@ namespace PureFood.Data.Migrations
                             Stock = 100,
                             SupplierId = new Guid("5a0b659d-884a-446a-8b77-9b84ed6e2bf2"),
                             Unit = "Kg",
+                            UpdatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Weight = 50.0
                         },
                         new
                         {
                             ProductId = new Guid("2adef94c-fa06-4369-89ab-34e71052368e"),
                             CategoryId = new Guid("2d482271-9605-4d43-9ca8-d479d6ef9687"),
+                            CreatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "<p>Củ cải trắng tươi ngon, giòn ngọt, giàu vitamin và khoáng chất.</p><br><ul><br>  <li>Giàu vitamin C, tốt cho sức khỏe tổng thể</li><br>  <li>Chứa nhiều chất chống oxy hóa</li><br>  <li>Không thuốc bảo vệ thực vật</li><br>  <li>Thích hợp làm nộm, nấu canh và xào</li><br>  <li>Trồng tại các nông trại sạch</li><br></ul>",
                             EntryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ExpiryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodName = "Daikon radish",
                             Organic = true,
-                            Origin = "Lâm Đồng",
+                            Origin = "Tỉnh Lâm Đồng",
                             Price = 10450m,
                             ProductName = "Củ cải trắng",
                             Slug = "cu-cai-trang-500-gr-8irui7",
@@ -607,18 +717,20 @@ namespace PureFood.Data.Migrations
                             Stock = 100,
                             SupplierId = new Guid("5a0b659d-884a-446a-8b77-9b84ed6e2bf2"),
                             Unit = "Gr",
+                            UpdatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Weight = 500.0
                         },
                         new
                         {
                             ProductId = new Guid("6b821109-b650-4fa6-be2a-36dc8d5fbb4d"),
                             CategoryId = new Guid("2d482271-9605-4d43-9ca8-d479d6ef9687"),
+                            CreatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "<p>Củ sắn tươi, ngọt lành, giàu dinh dưỡng, sản phẩm sạch từ nông trại.</p>\r\n<ul>\r\n  <li>Giàu vitamin C và chất xơ</li><br>  <li>Tốt cho hệ tiêu hóa</li><br>  <li>Không thuốc bảo vệ thực vật</li><br>  <li>Thích hợp nấu canh, xào và làm salad</li><br>  <li>Được trồng tại nông trại hữu cơ</li><br></ul>",
                             EntryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ExpiryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodName = "Jicama",
                             Organic = true,
-                            Origin = "Tây Ninh",
+                            Origin = "Thành phố Tây Ninh",
                             Price = 11500m,
                             ProductName = "Củ sắn",
                             Slug = "cu-san-500-gr-uv72km",
@@ -626,18 +738,20 @@ namespace PureFood.Data.Migrations
                             Stock = 100,
                             SupplierId = new Guid("5a0b659d-884a-446a-8b77-9b84ed6e2bf2"),
                             Unit = "Gr",
+                            UpdatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Weight = 500.0
                         },
                         new
                         {
                             ProductId = new Guid("fc727800-963c-4305-93a0-3b27dfb1d734"),
                             CategoryId = new Guid("2d482271-9605-4d43-9ca8-d479d6ef9687"),
+                            CreatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "<p>Bơ Booth tươi ngon, giàu dinh dưỡng, chứa nhiều chất béo lành mạnh.</p><br><ul><br>  <li>Giàu chất béo không bão hòa, tốt cho tim mạch</li><br>  <li>Chứa nhiều vitamin E và chất xơ</li><br>  <li>Không hóa chất bảo quản</li><br>  <li>Thích hợp làm sinh tố, salad và ăn trực tiếp</li><br>  <li>Trồng tại các nông trại hữu cơ</li><br></ul>",
                             EntryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ExpiryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodName = "Avocado",
                             Organic = true,
-                            Origin = "Lâm Đồng",
+                            Origin = "Tỉnh Lâm Đồng",
                             Price = 26000m,
                             ProductName = "Bơ Booth",
                             Slug = "bo-booth-1-kg-n0390m",
@@ -645,18 +759,20 @@ namespace PureFood.Data.Migrations
                             Stock = 100,
                             SupplierId = new Guid("5a0b659d-884a-446a-8b77-9b84ed6e2bf2"),
                             Unit = "Kg",
+                            UpdatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Weight = 1.0
                         },
                         new
                         {
                             ProductId = new Guid("ba9968e6-4ad4-406c-9268-28acd686f73c"),
                             CategoryId = new Guid("2d482271-9605-4d43-9ca8-d479d6ef9687"),
+                            CreatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "<p>Hành lá tươi, xanh non, giàu vitamin và khoáng chất, sản phẩm sạch từ nông trại.</p><br><ul><br> <li>Giàu vitamin A và C</li><br>  <li>Tốt cho sức khỏe mắt và hệ miễn dịch</li><br>  <li>Không thuốc bảo vệ thực vật</li><br>  <li>Thích hợp làm gia vị cho nhiều món ăn</li><br> <li>Trồng tại các nông trại xanh</li><br></ul>",
                             EntryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ExpiryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodName = "Green onion",
                             Organic = true,
-                            Origin = "TP. Hồ Chí Minh",
+                            Origin = "Thành phố Hồ Chí Minh",
                             Price = 7900m,
                             ProductName = "Hành lá",
                             Slug = "hanh-la-100-gr-hx03dw",
@@ -664,18 +780,20 @@ namespace PureFood.Data.Migrations
                             Stock = 100,
                             SupplierId = new Guid("5a0b659d-884a-446a-8b77-9b84ed6e2bf2"),
                             Unit = "Kg",
+                            UpdatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Weight = 100.0
                         },
                         new
                         {
                             ProductId = new Guid("576aa3a9-49ff-486c-8efc-a0548ee90ee7"),
                             CategoryId = new Guid("2d482271-9605-4d43-9ca8-d479d6ef9687"),
+                            CreatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "<p>Dưa hấu ngọt mát, tươi ngon, sản phẩm sạch từ nông trại.</p><br><ul><br>  <li>Giàu nước, giúp giải khát hiệu quả</li><br>  <li>Chứa nhiều vitamin A và C</li><br> <li>Không hóa chất bảo quản</li><br>  <li>Thích hợp ăn trực tiếp và làm nước ép</li>\r\n  <li>Trồng tại các nông trại hữu cơ</li><br></ul>",
                             EntryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ExpiryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FoodName = "Watermelon",
+                            FoodName = "Melon",
                             Organic = true,
-                            Origin = "Long An",
+                            Origin = "Tỉnh Long An",
                             Price = 35400m,
                             ProductName = "Dưa hấu",
                             Slug = "dua-hau-2-kg-im862u",
@@ -683,37 +801,41 @@ namespace PureFood.Data.Migrations
                             Stock = 100,
                             SupplierId = new Guid("5a0b659d-884a-446a-8b77-9b84ed6e2bf2"),
                             Unit = "Kg",
+                            UpdatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Weight = 2.0
                         },
                         new
                         {
                             ProductId = new Guid("a69cd06b-8762-49cc-9228-1fc88956fb3c"),
                             CategoryId = new Guid("2d482271-9605-4d43-9ca8-d479d6ef9687"),
+                            CreatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "<p>Dưa lưới tươi ngon, ngọt mát, giàu dinh dưỡng, sản phẩm sạch từ nông trại.</p><br><ul><br>  <li>Giàu vitamin A và C, tốt cho sức khỏe</li><br>  <li>Chứa nhiều nước, giúp giải khát</li><br>  <li>Không dùng hóa chất bảo quản</li><br>  <li>Thích hợp ăn trực tiếp và làm sinh tố</li><br>  <li>Trồng tại các nông trại xanh</li><br></ul>",
                             EntryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ExpiryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodName = "Melon",
                             Organic = true,
-                            Origin = "Tiền Giang",
+                            Origin = "Tỉnh Tiền Giang",
                             Price = 38000m,
-                            ProductName = "Melon",
+                            ProductName = "Dưa lưới",
                             Slug = "dua-luoi-1-kg-vhw1l0",
                             Status = true,
                             Stock = 100,
                             SupplierId = new Guid("5a0b659d-884a-446a-8b77-9b84ed6e2bf2"),
                             Unit = "Kg",
+                            UpdatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Weight = 1.0
                         },
                         new
                         {
                             ProductId = new Guid("b39c0722-44aa-49e5-8ff9-b9ad9a9594fc"),
                             CategoryId = new Guid("2d482271-9605-4d43-9ca8-d479d6ef9687"),
+                            CreatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "<p>Dưa gang tươi mát, ngọt lành, giàu vitamin và khoáng chất.</p>\r\n<ul>\r\n  <li>Giàu nước và vitamin C</li>\r\n  <li>Giúp giải nhiệt, tốt cho hệ tiêu hóa</li>\r\n  <li>Không hóa chất bảo quản</li>\r\n  <li>Thích hợp ăn trực tiếp và làm nước ép</li>\r\n  <li>Trồng tại các nông trại sạch</li>\r\n</ul>",
                             EntryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ExpiryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodName = "Winter melon",
                             Organic = true,
-                            Origin = "Long An",
+                            Origin = "Tỉnh Long An",
                             Price = 9000m,
                             ProductName = "Dưa gang",
                             Slug = "dua-gang-1-kg-t0055v",
@@ -721,6 +843,7 @@ namespace PureFood.Data.Migrations
                             Stock = 100,
                             SupplierId = new Guid("5a0b659d-884a-446a-8b77-9b84ed6e2bf2"),
                             Unit = "Kg",
+                            UpdatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Weight = 1.0
                         });
                 });
@@ -855,21 +978,21 @@ namespace PureFood.Data.Migrations
                         {
                             SupplierId = new Guid("5a0b659d-884a-446a-8b77-9b84ed6e2bf2"),
                             Address = "Quận 9, Thành phố Hồ Chí Minh",
-                            CreatedAt = new DateTime(2024, 10, 1, 13, 11, 36, 638, DateTimeKind.Local).AddTicks(2505),
+                            CreatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chúng tôi cung cấp rau củ quả sạch, tươi ngon từ nông trại đến bàn ăn, đảm bảo an toàn sức khỏe cho gia đình bạn.",
                             PhoneNumber = "0937056922",
                             SupplierName = "PureFood",
-                            UpdatedAt = new DateTime(2024, 10, 1, 13, 11, 36, 638, DateTimeKind.Local).AddTicks(2507)
+                            UpdatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             SupplierId = new Guid("9b8bc0ba-e6af-4445-8509-390f404c1ea6"),
                             Address = "FPT Quận 9, Thành phố Hồ Chí Minh",
-                            CreatedAt = new DateTime(2024, 10, 1, 13, 11, 36, 638, DateTimeKind.Local).AddTicks(2512),
+                            CreatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Moncati cung cấp rau củ quả sạch, tươi ngon từ nông trại địa phương, cam kết mang đến sản phẩm an toàn và chất lượng cho sức khỏe gia đình bạn.",
-                            PhoneNumber = "0937056922",
+                            PhoneNumber = "0792766979",
                             SupplierName = "Moncati",
-                            UpdatedAt = new DateTime(2024, 10, 1, 13, 11, 36, 638, DateTimeKind.Local).AddTicks(2513)
+                            UpdatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
@@ -896,11 +1019,27 @@ namespace PureFood.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Roles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("322488f9-7aa9-49b0-b2b8-fd98b7b260fc"),
+                            DisplayName = "Khách Hàng",
+                            Name = "Customer",
+                            NormalizedName = "CUSTOMER"
+                        },
+                        new
+                        {
+                            Id = new Guid("c0278115-8549-4fad-890a-44f8e8fcc022"),
+                            DisplayName = "Quản Lý",
+                            Name = "Manager",
+                            NormalizedName = "MANAGER"
+                        });
                 });
 
             modelBuilder.Entity("PureFood.Core.Domain.Identity.AppUser", b =>
                 {
-                    b.Property<Guid>("UserId")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -937,9 +1076,6 @@ namespace PureFood.Data.Migrations
 
                     b.Property<string>("Gender")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("Id")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime?>("LastLoginDate")
                         .HasColumnType("datetime2");
@@ -995,7 +1131,7 @@ namespace PureFood.Data.Migrations
                     b.Property<DateTime?>("VipStartDate")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("UserId");
+                    b.HasKey("Id");
 
                     b.ToTable("Users");
                 });
@@ -1041,6 +1177,25 @@ namespace PureFood.Data.Migrations
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("PureFood.Core.Domain.Content.OrderItem", b =>
+                {
+                    b.HasOne("PureFood.Core.Domain.Content.Order", "Order")
+                        .WithMany("OrderItems")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PureFood.Core.Domain.Content.Product", "Product")
+                        .WithMany("OrderItems")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Order");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("PureFood.Core.Domain.Content.Product", b =>
                 {
                     b.HasOne("PureFood.Core.Domain.Content.Category", "Category")
@@ -1081,11 +1236,18 @@ namespace PureFood.Data.Migrations
                     b.Navigation("Products");
                 });
 
+            modelBuilder.Entity("PureFood.Core.Domain.Content.Order", b =>
+                {
+                    b.Navigation("OrderItems");
+                });
+
             modelBuilder.Entity("PureFood.Core.Domain.Content.Product", b =>
                 {
                     b.Navigation("CartItems");
 
                     b.Navigation("Images");
+
+                    b.Navigation("OrderItems");
 
                     b.Navigation("Reviews");
                 });
