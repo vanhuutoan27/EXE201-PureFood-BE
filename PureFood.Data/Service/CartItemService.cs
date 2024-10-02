@@ -46,13 +46,16 @@ namespace PureFood.Data.Service
                     ProductId = item.ProductId,
                     Quantity = item.Quantity,
                     ProductName = item.Product?.ProductName,
-                    Description = item.Product?.ProductName,
                     Price = item.Product?.Price ?? 0,
                     Weight = item.Product?.Weight ?? 0,
-                    Unit = item.Product.Unit,
+                    Unit = item.Product?.Unit,
                     Origin = item.Product?.Origin,
                     Status = item.Product?.Status,
-                    Organic = item.Product?.Organic
+                    Organic = item.Product?.Organic,
+                    Category = item.Product?.Category.CategoryName,
+                    Images = new List<string> { item.Product?.Images.Select(u => u.Url).FirstOrDefault() ?? string.Empty },
+                    Slug = item.Product?.Slug
+                    
                 });
             }
 
@@ -69,7 +72,7 @@ namespace PureFood.Data.Service
         }
 
 
-        public async Task<bool> UpdateCartItem( Guid cartItemId , int Quantity)
+        public async Task<bool> UpdateCartItem(Guid cartItemId, int Quantity)
         {
             var cartItem = await _repositoryManager.CartItemRepository.GetByIdAsync(cartItemId);
             if (cartItem == null)
