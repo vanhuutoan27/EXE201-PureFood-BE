@@ -107,11 +107,11 @@ namespace PureFood.API.Controllers
             });
         }
         [HttpGet("supplier/{supplierName}")]
-        public async Task<IActionResult> GetProductBySupplier(string supplierName)
+        public async Task<IActionResult> GetProductBySupplier(string supplierName, int page = 1, int limit = 10)
         {
             // kiem tra supplier
 
-            var product = await _serviceManager.ProductService.GetProductBySupplierName(page,limit, supplierName);
+            var product = await _serviceManager.ProductService.GetProductBySupplierName(page, limit, supplierName);
             if (product == null)
             {
                 return NotFound(product);
@@ -126,11 +126,10 @@ namespace PureFood.API.Controllers
         }
 
         [HttpGet("category/{categoryName}")]
-        public async Task<IActionResult> GetProductByCategory(string categoryName, int page =1 , int limit= 10)
+        public async Task<IActionResult> GetProductByCategory(string categoryName, int page = 1, int limit = 10)
         {
             // kiem tra category
-
-            var product = await _serviceManager.ProductService.GetProductByCategoryName(page,limit,categoryName);
+            var product = await _serviceManager.ProductService.GetProductByCategoryName(page, limit, categoryName);
             if (product == null)
             {
                 return NotFound(product);
