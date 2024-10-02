@@ -189,9 +189,9 @@ namespace PureFood.API.Controllers
             // Kiểm tra nếu người dùng không tồn tại
             if (user == null)
             {
-                _resp.Status = (int)HttpStatusCode.InternalServerError;
+                _resp.Status = (int)HttpStatusCode.OK;
                 _resp.Message = "User not found.";
-                _resp.Success = false;
+                _resp.Success = true;
                 return _resp;
             }
 
