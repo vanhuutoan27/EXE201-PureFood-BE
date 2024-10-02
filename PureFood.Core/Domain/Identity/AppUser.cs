@@ -15,6 +15,7 @@ namespace PureFood.Core.Domain.Identity
         public DateTime? VipExpireDate { get; set; }
         public DateTime? LastLoginDate { get; set; }
         public string? Gender { get; set; }
+        public bool Supplier{get ; set;}
         public bool Status { get; set; }
         public DateTime? CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }

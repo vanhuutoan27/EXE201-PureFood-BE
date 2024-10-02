@@ -13,5 +13,6 @@ namespace PureFood.Core.Models.auth
         public string PhoneNumber { get; set; }
         public string Avatar { get; set; }
         public string Role { get; set; }
+        public bool Supplier { get; set; }
     }
 }
