@@ -67,7 +67,7 @@ namespace PureFood.Data.Service
         {
             if (user == Guid.Empty)
             {
-                throw new ArgumentNullException(nameof(user), "UserId cannot be empty");
+                throw new ArgumentNullException(nameof(user), "ID không được bỏ trống.");
             }
             var paginatedCarts = await _repositoryManager.CartRepository.GetAllCartByuserAsync(0, 0, user); // No cart pagination
             if (paginatedCarts == null || !paginatedCarts.Items.Any())
@@ -123,6 +123,6 @@ namespace PureFood.Data.Service
             };
         }
 
-       
+
     }
 }

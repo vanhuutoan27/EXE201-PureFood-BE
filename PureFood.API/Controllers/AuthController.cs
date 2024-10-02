@@ -57,14 +57,14 @@ namespace PureFood.API.Controllers
                 user = await _context.Users.FirstOrDefaultAsync(u => u.PhoneNumber == request.Email);
                 if (user == null)
                 {
-                    throw new Exception("Incorrect phone number.");
+                    throw new Exception("Số điện thoại không hợp lệ.");
                 }
             }
 
             if (user == null || !user.Status || user.LockoutEnabled)
             {
                 _resp.Status = (int)HttpStatusCode.InternalServerError;
-                _resp.Message = "Invalid Email.";
+                _resp.Message = "Email không hợp lệ.";
                 _resp.Success = false;
                 return _resp;
             }
@@ -73,7 +73,7 @@ namespace PureFood.API.Controllers
             if (!result.Succeeded)
             {
                 _resp.Status = (int)HttpStatusCode.Unauthorized;
-                _resp.Message = "Incorrect Password. Please try again.";
+                 _resp.Message = "Mật khẩu không chính xác. Vui lòng thử lại.";
                 _resp.Success = false;
                 return _resp;
             }
@@ -105,7 +105,7 @@ namespace PureFood.API.Controllers
                 ExpiredAt = user.RefreshTokenExpiryTime
             };
             _resp.Status = (int)HttpStatusCode.OK;
-            _resp.Message = "Login successfully.";
+          _resp.Message = "Đăng nhập thành công.";
             return _resp;
         }
         [HttpPost]
@@ -124,7 +124,7 @@ namespace PureFood.API.Controllers
                 return new ResultModel
                 {
                     Status = (int)HttpStatusCode.BadRequest,
-                    Message = "Phone number already in use.",
+                    Message = "Số điện thoại đã tồn tại.",
                     Success = false
                 };
             }
@@ -153,7 +153,7 @@ namespace PureFood.API.Controllers
 
                 await _userManager.AddToRoleAsync(users, Roles.Customer);
                 _resp.Status = (int)HttpStatusCode.OK;
-                _resp.Message = "Register successfully.";
+                _resp.Message = "Đăng ký thành công.";
                 _resp.Success = true;
 
                 return _resp;
@@ -175,7 +175,7 @@ namespace PureFood.API.Controllers
             if (string.IsNullOrEmpty(userEmail))
             {
                 _resp.Status = (int)HttpStatusCode.InternalServerError;
-                _resp.Message = "Email claim not found.";
+                _resp.Message = "Không tìm thấy email.";
                 _resp.Success = false;
                 return _resp;
             }
@@ -187,7 +187,7 @@ namespace PureFood.API.Controllers
             if (user == null)
             {
                 _resp.Status = (int)HttpStatusCode.OK;
-                _resp.Message = "User not found.";
+               _resp.Message = "Không tìm thấy người dùng.";
                 _resp.Success = true;
                 return _resp;
             }
@@ -197,7 +197,7 @@ namespace PureFood.API.Controllers
 
             // Kiểm tra và xử lý nếu bất kỳ thuộc tính nào của user có thể là null
             _resp.Status = (int)HttpStatusCode.OK;
-            _resp.Message = "MONCATI";
+            _resp.Message = "PUREFOOD";
             _resp.Success = true;
             _resp.Data = new MeResponse()
             {

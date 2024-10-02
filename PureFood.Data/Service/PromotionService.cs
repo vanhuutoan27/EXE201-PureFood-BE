@@ -54,7 +54,7 @@ namespace PureFood.Data.Service
                 var getPromotion = await _repositoryManager.PromotionRepository.GetByIdAsync(id);
                 if (getPromotion == null)
                 {
-                    throw new Exception("Not Found");
+                    throw new Exception("Không tìm thấy khuyến mãi.");
                 }
                 _repositoryManager.PromotionRepository.Remove(getPromotion);
                 _repositoryManager.SaveAsync();
@@ -93,7 +93,7 @@ namespace PureFood.Data.Service
 
             if (getPromotion == null)
             {
-                throw new Exception("Not Found");
+                throw new Exception("Không tìm thấy khuyến mãi.");
             }
             try
             {

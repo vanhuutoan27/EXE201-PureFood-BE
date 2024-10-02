@@ -62,7 +62,7 @@ namespace PureFood.Data.Service
                 var getSupplier = await _repositoryManager.SupplierRepository.GetByIdAsync(id);
                 if (getSupplier == null)
                 {
-                    throw new Exception("Not Found");
+                    throw new Exception("Không tìm thấy nhà cung cấp");
                 }
                 _repositoryManager.SupplierRepository.Remove(getSupplier);
                 _repositoryManager.SaveAsync();
@@ -102,7 +102,7 @@ namespace PureFood.Data.Service
 
             if (review == null)
             {
-                throw new Exception("Not Found");
+                throw new Exception("Không tìm thấy nhà cung cấp.");
             }
             try
             {

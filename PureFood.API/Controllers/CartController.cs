@@ -31,7 +31,7 @@ namespace PureFood.API.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.BadRequest,
-                    Message = "Invalid data."
+                     Message = "Dữ liệu không hợp lệ."
                 });
             }
             var result = await _serviceManager.CartService.CreateCartAsync(request);
@@ -41,14 +41,14 @@ namespace PureFood.API.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Failed to add cart."
+                  Message = "Thêm giỏ hàng không thành công."
                 });
             }
             return Ok(_resultModel = new ResultModel
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Cart added successfully."
+                Message = "Thêm giỏ hàng thành công."
             });
         }
         // [HttpGet]

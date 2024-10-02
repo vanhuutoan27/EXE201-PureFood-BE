@@ -47,11 +47,11 @@ namespace PureFood.Data.Service
         {
             var getProduct = await _repositoryManager.ReviewRepository.GetReviewByProductId(review.ProductId);
             if (getProduct == null) {
-                throw new Exception("Not found product");
+                throw new Exception("Không tìm thấy sản phẩm.");
             }
             var getUser = await _repositoryManager.ReviewRepository.GetReviewByUserId(review.UserId);
             if (getUser == null) {
-                throw new Exception("Not Found User");
+                throw new Exception("Không tìm thấy người dùng.");
             }
             try { 
             var newReview = new Review
@@ -82,7 +82,7 @@ namespace PureFood.Data.Service
             var getReview = await _repositoryManager.ReviewRepository.GetByIdAsync(id);
             if (getReview == null)
             {
-                throw new Exception("Not Found");
+                throw new Exception("Không tìm thấy đánh giá.");
             }
              _repositoryManager.ReviewRepository.Remove(getReview);
                 _repositoryManager.SaveAsync();
@@ -134,7 +134,7 @@ namespace PureFood.Data.Service
             var getReview = await _repositoryManager.ReviewRepository.GetByIdAsync(id);
 
             if (review == null) {
-                throw new Exception("Not Found");
+                throw new Exception("Không tìm thấy đánh giá.");
             }
             try { 
             getReview.Comment = review.Comment;

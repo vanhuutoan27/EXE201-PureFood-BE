@@ -27,13 +27,13 @@ namespace PureFood.API.Controllers
             {
                 _resultModel.Success = false;
                 _resultModel.Status = (int)HttpStatusCode.InternalServerError;
-                _resultModel.Message = "No categories found.";
+                _resultModel.Message = "Không tìm thấy danh mục.";
                 return _resultModel;
             }
             _resultModel.Success = true;
             _resultModel.Status = (int)HttpStatusCode.OK;
             _resultModel.Data = categoryList;
-            _resultModel.Message = "Categories retrieved successfully.";
+            _resultModel.Message = "Lấy danh mục thành công.";
             return _resultModel;
         }
 
@@ -46,13 +46,13 @@ namespace PureFood.API.Controllers
             {
                 _resultModel.Success = false;
                 _resultModel.Status = (int)HttpStatusCode.InternalServerError;
-                _resultModel.Message = "No category found.";
+                _resultModel.Message = "Không tìm thấy danh mục.";
                 return _resultModel;
             }
             _resultModel.Success = true;
             _resultModel.Status = (int)HttpStatusCode.OK;
             _resultModel.Data = getCategory;
-            _resultModel.Message = "Category retrieved successfully.";
+            _resultModel.Message = "Lấy danh mục thành công.";
             return _resultModel;
         }
 
@@ -67,7 +67,7 @@ namespace PureFood.API.Controllers
                 {
                     Status = (int)HttpStatusCode.BadRequest,
                     Success = false,
-                    Message = "Failed to create category."
+                    Message = "Tạo danh mục không thành công."
                 };
                 return BadRequest(_resultModel);
             }
@@ -76,7 +76,7 @@ namespace PureFood.API.Controllers
             {
                 Status = (int)HttpStatusCode.OK,
                 Success = true,
-                Message = "Category created successfully.",
+                Message = "Tạo danh mục thành công.",
             };
 
             return Ok(_resultModel);
@@ -94,7 +94,7 @@ namespace PureFood.API.Controllers
                 {
                     Status = (int)HttpStatusCode.BadRequest,
                     Success = false,
-                    Message = "Failed to update category."
+                    Message = "Cập nhật danh mục không thành công."
                 };
                 return BadRequest(_resultModel);
             }
@@ -103,7 +103,7 @@ namespace PureFood.API.Controllers
             {
                 Status = (int)HttpStatusCode.OK,
                 Success = true,
-                Message = "Category updated successfully.",
+                Message = "Cập nhật danh mục thành công.",
             };
 
             return Ok(_resultModel);
@@ -120,14 +120,14 @@ namespace PureFood.API.Controllers
                 {
                     Status = (int)HttpStatusCode.BadRequest,
                     Success = false,
-                    Message = "Failed to delete category."
+                    Message = "Xóa danh mục không thành công."
 
                 };
                 _resultModel = new ResultModel
                 {
                     Status = (int)HttpStatusCode.OK,
                     Success = true,
-                    Message = "Category deleted successfully.",
+                    Message = "Xóa danh mục thành công.",
                 };
 
             }

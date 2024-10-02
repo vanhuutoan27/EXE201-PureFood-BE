@@ -46,9 +46,9 @@ namespace PureFood.Data.Service
             var slug = GenerateSlug(requestProduct.ProductName);
             var resultSlug = $"{slug}-{randomSuffix}";
             var category = await _repositoryManager.CategoryRepository.GetCategoryByName(requestProduct.CategoryName);
-            if (category == null) { throw new Exception("Not Found Category Name"); }
+            if (category == null) { throw new Exception("Không tìm thấy danh mục."); }
             var supplier = await _repositoryManager.SupplierRepository.GetSupplierByName(requestProduct.SupplierName);
-            if (supplier == null) { throw new Exception("Not Found Supplier Name"); }
+            if (supplier == null) { throw new Exception("Không tìm thấy nhà cung cấp."); }
 
             try
             {
@@ -82,7 +82,7 @@ namespace PureFood.Data.Service
             }
             catch (Exception ex)
             {
-                throw new Exception("Add Error!" + ex.Message);
+                throw new Exception("Thêm thất bại" + ex.Message);
             }
 
         }
@@ -133,7 +133,7 @@ namespace PureFood.Data.Service
             }
             catch (Exception ex)
             {
-                throw new Exception("Error!" + ex.Message);
+                throw new Exception("Lỗi" + ex.Message);
             }
         }
 
@@ -175,7 +175,7 @@ namespace PureFood.Data.Service
             }
             catch (Exception ex)
             {
-                throw new Exception("Error Update product !" + ex.Message);
+                throw new Exception("Cập nhật sản phẩm thất bại" + ex.Message);
             }
 
         }
@@ -207,8 +207,9 @@ namespace PureFood.Data.Service
         public async Task<IEnumerable<ProductRespone>> GetProductByCategoryName(string categoryId)
         {
             var product = await _repositoryManager.ProductRepository.GetProductByCategoryName(categoryId);
-            if(product == null){
-                throw new Exception("Category not found.");
+            if (product == null)
+            {
+                throw new Exception("Không tìm thấy danh mục.");
             }
             var result = _mapper.Map<IEnumerable<ProductRespone>>(product);
             return result;
@@ -217,8 +218,9 @@ namespace PureFood.Data.Service
         public async Task<IEnumerable<ProductRespone>> GetProductBySupplierName(string supplierId)
         {
             var product = await _repositoryManager.ProductRepository.GetProductBySupplierName(supplierId);
-              if(product == null){
-                throw new Exception("Supplier not found.");
+            if (product == null)
+            {
+                throw new Exception("Không tìm thấy nhà cung cấp.");
             }
             var result = _mapper.Map<IEnumerable<ProductRespone>>(product);
             return result;

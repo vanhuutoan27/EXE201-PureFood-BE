@@ -31,7 +31,7 @@ namespace PureFood.API.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "CartItem not found."
+                    Message = "Không tìm thấy sản phẩm giỏ hàng."
                 };
                 return _resultModel;
             }
@@ -40,11 +40,11 @@ namespace PureFood.API.Controllers
             {
                 Success = true,
                 Status = (int)HttpStatusCode.NoContent,
-                Message = "CartItem deleted successfully.",
+                Message = "Xóa sản phẩm giỏ hàng thành công.",
             };
         }
         [HttpPatch("{cartItemId}")]
-        public async Task<ActionResult<ResultModel>> UpdateCartItem( Guid cartItemId , int quantity)
+        public async Task<ActionResult<ResultModel>> UpdateCartItem(Guid cartItemId, int quantity)
         {
             if (cartItemId == Guid.Empty)
             {
@@ -52,12 +52,12 @@ namespace PureFood.API.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Cart Item not found."
+                    Message = "Không tìm thấy sản phẩm giỏ hàng."
                 };
                 return NotFound(_resultModel);
             }
 
-            var result = await _serviceManager.CartItemService.UpdateCartItem(cartItemId , quantity);
+            var result = await _serviceManager.CartItemService.UpdateCartItem(cartItemId, quantity);
 
             if (!result)
             {
@@ -65,7 +65,7 @@ namespace PureFood.API.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.InternalServerError,
-                    Message = "Failed to Up Cart Item."
+                    Message = "Cập nhật giỏ hàng thất bại."
                 };
                 return StatusCode((int)HttpStatusCode.InternalServerError, _resultModel);
             }
@@ -74,32 +74,32 @@ namespace PureFood.API.Controllers
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Update Cart Item successfully.",
+                Message = "Cập nhật giỏ hàng thành công.",
                 Data = result
             };
 
             return Ok(_resultModel);
         }
-        
+
         [HttpGet]
         [Route("{userId:guid}")]
-        public async Task<ActionResult<ResultModel>> GetCartbyUserId(int page = 1, int limit = 10 ,Guid userId = default)
+        public async Task<ActionResult<ResultModel>> GetCartbyUserId(int page = 1, int limit = 10, Guid userId = default)
         {
-            var query = await _serviceManager.CartItemService.GetAllCartItemByUser(page , limit ,userId);
+            var query = await _serviceManager.CartItemService.GetAllCartItemByUser(page, limit, userId);
             if (query == null)
             {
                 return NotFound(_resultModel = new ResultModel
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Cart Item not found."
+                    Message = "Không tìm thấy sản phẩm giỏ hàng."
                 });
             }
             return Ok(_resultModel = new ResultModel
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Cart Item retrieved successfully.",
+                Message = "Lấy sản phẩm giỏ hàng thành công.",
                 Data = query
             });
         }
