@@ -11,8 +11,10 @@ namespace PureFood.Core.Models.content.Responses
     public class ProductRespone
     {
         public Guid ProductId { get; set; }
-        public string Category { get; set; }
-        public string Supplier { get; set; }
+        public string CategoryName { get; set; }
+        public string SupplierName { get; set; }
+              //  public string SupplierName { get; set; }
+
         public string ProductName { get; set; }
         public string FoodName { get; set; }
         public string Slug { get; set; }
@@ -23,7 +25,7 @@ namespace PureFood.Core.Models.content.Responses
         public string Unit { get; set; }
         public string Origin { get; set; }
         public bool Organic { get; set; }
-        public List<string> Images { get; set; }
+        public ICollection<ImageResponse> Images { get; set; }
         public bool Status { get; set; }
         public DateTime EntryDate { get; set; }
         public DateTime ExpiryDate { get; set; }
@@ -32,4 +34,8 @@ namespace PureFood.Core.Models.content.Responses
         public Guid? CreatedBy { get; set; }
         public Guid? UpdatedBy { get; set; }
     }
+    public class ImageResponse
+{
+    public string Url { get; set; }
+}
 }

@@ -130,9 +130,15 @@ namespace PureFood.Data.Repositories
             return await _context.Products.Where(c => c.Category.CategoryName == categoryName).ToListAsync();
         }
 
-        public Task<Product> GetProductBySlug(string slug)
+        public async Task<Product> GetProductbyId(Guid id)
         {
-            return _context.Products.FirstOrDefaultAsync(s => s.Slug == slug);
+            return await _context.Products.Include(p => p.Images).Include(p => p.Category).Include(p => p.Supplier).FirstOrDefaultAsync(p => p.ProductId ==id);
+        }
+
+        public async Task<Product> GetProductBySlug(string slug)
+        {
+            return await _context.Products.Include(p => p.Images).Include(p => p.Category).Include(p => p.Supplier).FirstOrDefaultAsync(p => p.Slug ==slug);
+
         }
 
         public async Task<IEnumerable<Product>> GetProductBySupplierName(string supplierName)

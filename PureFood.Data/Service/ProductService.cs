@@ -94,35 +94,36 @@ namespace PureFood.Data.Service
             {
                 var listProduct = await _repositoryManager.ProductRepository.GetAllProductAsync(page, limit, searchName, categoryName,
                     minWeight, maxWeight, unit, minPrice, maxPrice, origin, organic);
-                var productRespone = new List<ProductRespone>();
-                foreach (var product in listProduct.Items)
-                {
-                    productRespone.Add(new ProductRespone
-                    {
-                        ProductId = product.ProductId,
-                        ProductName = product.ProductName,
-                        FoodName = product.FoodName,
-                        Slug = product.Slug,
-                        Description = product.Description,
-                        Price = product.Price,
-                        Stock = product.Stock,
-                        Weight = product.Weight,
-                        Unit = product.Unit,
-                        Origin = product.Origin,
-                        Organic = product.Organic,
-                        Images = product.Images?.OrderBy(img => img.ImageId).Select(img => img.Url).ToList() ?? new List<string>(),
-                        Status = product.Status,
-                        EntryDate = product.EntryDate,
-                        ExpiryDate = product.ExpiryDate,
-                        Category = product.Category.CategoryName,
-                        Supplier = product.Supplier.SupplierName,
-                        CreatedAt = product.CreatedAt,
-                        UpdatedAt = product.UpdatedAt,
-                        CreatedBy = product.CreatedBy,
-                        UpdatedBy = product.UpdatedBy,
-                    });
-                }
-
+           //     var productRespone = new List<ProductRespone>();
+                // foreach (var product in listProduct.Items)
+                // {
+                //     productRespone.Add(new ProductRespone
+                //     {
+                //         ProductId = product.ProductId,
+                //         ProductName = product.ProductName,
+                //         FoodName = product.FoodName,
+                //         Slug = product.Slug,
+                //         Description = product.Description,
+                //         Price = product.Price,
+                //         Stock = product.Stock,
+                //         Weight = product.Weight,
+                //         Unit = product.Unit,
+                //         Origin = product.Origin,
+                //         Organic = product.Organic,
+                  
+                //         Images= product.Images,
+                //         Status = product.Status,
+                //         EntryDate = product.EntryDate,
+                //         ExpiryDate = product.ExpiryDate,
+                //         CategoryName = product.Category.CategoryName,
+                //         SupplierName = product.Supplier.SupplierName,
+                //         CreatedAt = product.CreatedAt,
+                //         UpdatedAt = product.UpdatedAt,
+                //         CreatedBy = product.CreatedBy,
+                //         UpdatedBy = product.UpdatedBy,
+                //     });
+                // }
+        var productRespone = _mapper.Map<IEnumerable<ProductRespone>>(listProduct.Items).ToList();
                 return new PageResult<ProductRespone>
                 {
                     CurrentPage = page,
@@ -139,7 +140,7 @@ namespace PureFood.Data.Service
 
         public async Task<ProductRespone> GetProductById(Guid productId)
         {
-            var product = await _repositoryManager.ProductRepository.GetByIdAsync(productId);
+            var product = await _repositoryManager.ProductRepository.GetProductbyId(productId);
             return _mapper.Map<ProductRespone>(product);
         }
 
@@ -207,7 +208,8 @@ namespace PureFood.Data.Service
         public async Task<IEnumerable<ProductRespone>> GetProductByCategoryName(string categoryId)
         {
             var product = await _repositoryManager.ProductRepository.GetProductByCategoryName(categoryId);
-            if(product == null){
+            if (product == null)
+            {
                 throw new Exception("Category not found.");
             }
             var result = _mapper.Map<IEnumerable<ProductRespone>>(product);
@@ -217,7 +219,8 @@ namespace PureFood.Data.Service
         public async Task<IEnumerable<ProductRespone>> GetProductBySupplierName(string supplierId)
         {
             var product = await _repositoryManager.ProductRepository.GetProductBySupplierName(supplierId);
-              if(product == null){
+            if (product == null)
+            {
                 throw new Exception("Supplier not found.");
             }
             var result = _mapper.Map<IEnumerable<ProductRespone>>(product);
