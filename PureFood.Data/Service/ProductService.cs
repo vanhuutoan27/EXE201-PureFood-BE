@@ -204,16 +204,22 @@ namespace PureFood.Data.Service
             return true;
         }
 
-        public async Task<IEnumerable<ProductRespone>> GetProductByCategoryId(Guid categoryId)
+        public async Task<IEnumerable<ProductRespone>> GetProductByCategoryName(string categoryId)
         {
-            var product = await _repositoryManager.ProductRepository.GetProductByCategoryid(categoryId);
+            var product = await _repositoryManager.ProductRepository.GetProductByCategoryName(categoryId);
+            if(product == null){
+                throw new Exception("Category not found.");
+            }
             var result = _mapper.Map<IEnumerable<ProductRespone>>(product);
             return result;
         }
 
-        public async Task<IEnumerable<ProductRespone>> GetProductBySupplierId(Guid supplierId)
+        public async Task<IEnumerable<ProductRespone>> GetProductBySupplierName(string supplierId)
         {
-            var product = await _repositoryManager.ProductRepository.GetProductBySupplierId(supplierId);
+            var product = await _repositoryManager.ProductRepository.GetProductBySupplierName(supplierId);
+              if(product == null){
+                throw new Exception("Supplier not found.");
+            }
             var result = _mapper.Map<IEnumerable<ProductRespone>>(product);
             return result;
         }
