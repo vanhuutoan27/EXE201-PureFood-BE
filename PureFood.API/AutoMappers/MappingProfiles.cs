@@ -5,6 +5,7 @@ using PureFood.Core.Models.Requests;
 using PureFood.Core.Models.content.Requests;
 using PureFood.Core.Models.content.Responses;
 using PureFood.Core.Domain.Identity;
+using Microsoft.OpenApi.Any;
 
 namespace PureFood.API.AutoMappers
 {
@@ -13,7 +14,11 @@ namespace PureFood.API.AutoMappers
         public MappingProfiles()
         {
             CreateMap<Product, CreateProductRequest>().ReverseMap();
-            CreateMap<Product, ProductRespone>().ReverseMap();
+            CreateMap<Product, ProductRespone>()
+        .ForMember(dest => dest.SupplierName, opt => opt.MapFrom(src => src.Supplier.SupplierName)) 
+        .ForMember( dest => dest.CategoryName, ost => ost.MapFrom(src => src.Category.CategoryName))
+       .ForMember(dest => dest.Images, opt => opt.MapFrom(src => 
+        src.Images.Select(img => new ImageResponse { Url = img.Url }).ToList()));
             CreateMap<Cart, CreateCartRequest>().ReverseMap();
             CreateMap<CartItem, CreateCartItemsRequest>().ReverseMap();
             CreateMap<Category, CreateCategoryRequest>().ReverseMap();
