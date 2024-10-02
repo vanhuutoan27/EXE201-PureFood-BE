@@ -3,6 +3,7 @@ using PureFood.Core.Models.content;
 using PureFood.Core.Models.Requests;
 using PureFood.Core.SeedWorks;
 using System.Net;
+using System.Reflection.Metadata.Ecma335;
 
 namespace PureFood.API.Controllers
 {
@@ -106,11 +107,11 @@ namespace PureFood.API.Controllers
             });
         }
         [HttpGet("suppliers/{supplierName}")]
-        public async Task<IActionResult> GetProductBySupplier(string supplierName)
+        public async Task<IActionResult> GetProductBySupplier( string supplierName,int page =1,int limit = 10)
         {
             // kiem tra supplier
 
-            var product = await _serviceManager.ProductService.GetProductBySupplierName(supplierName);
+            var product = await _serviceManager.ProductService.GetProductBySupplierName(page,limit, supplierName);
             if (product == null)
             {
                 return NotFound(product);
@@ -125,11 +126,11 @@ namespace PureFood.API.Controllers
         }
 
         [HttpGet("category/{categoryName}")]
-        public async Task<IActionResult> GetProductByCategory(String categoryName)
+        public async Task<IActionResult> GetProductByCategory(string categoryName, int page =1 , int limit= 10)
         {
             // kiem tra category
 
-            var product = await _serviceManager.ProductService.GetProductByCategoryName(categoryName);
+            var product = await _serviceManager.ProductService.GetProductByCategoryName(page,limit,categoryName);
             if (product == null)
             {
                 return NotFound(product);

@@ -87,49 +87,33 @@ namespace PureFood.Data.Service
 
         }
 
-        public async Task<PageResult<ProductRespone>> GetAllProduct(int page, int limit, string? searchName, string? categoryName,
-            double? minWeight, double? maxWeight, string? unit, decimal? minPrice, decimal? maxPrice, string? origin, bool? organic)
+        public async Task<PageResult<ProductRespone>> GetAllProduct(
+     int page,
+     int limit,
+     string? searchName,
+     string? categoryName,
+     double? minWeight,
+     double? maxWeight,
+     string? unit,
+     decimal? minPrice,
+     decimal? maxPrice,
+     string? origin,
+     bool? organic)
         {
             try
             {
-                var listProduct = await _repositoryManager.ProductRepository.GetAllProductAsync(page, limit, searchName, categoryName,
-                    minWeight, maxWeight, unit, minPrice, maxPrice, origin, organic);
-           //     var productRespone = new List<ProductRespone>();
-                // foreach (var product in listProduct.Items)
-                // {
-                //     productRespone.Add(new ProductRespone
-                //     {
-                //         ProductId = product.ProductId,
-                //         ProductName = product.ProductName,
-                //         FoodName = product.FoodName,
-                //         Slug = product.Slug,
-                //         Description = product.Description,
-                //         Price = product.Price,
-                //         Stock = product.Stock,
-                //         Weight = product.Weight,
-                //         Unit = product.Unit,
-                //         Origin = product.Origin,
-                //         Organic = product.Organic,
-                  
-                //         Images= product.Images,
-                //         Status = product.Status,
-                //         EntryDate = product.EntryDate,
-                //         ExpiryDate = product.ExpiryDate,
-                //         CategoryName = product.Category.CategoryName,
-                //         SupplierName = product.Supplier.SupplierName,
-                //         CreatedAt = product.CreatedAt,
-                //         UpdatedAt = product.UpdatedAt,
-                //         CreatedBy = product.CreatedBy,
-                //         UpdatedBy = product.UpdatedBy,
-                //     });
-                // }
-        var productRespone = _mapper.Map<IEnumerable<ProductRespone>>(listProduct.Items).ToList();
+                var listProduct = await _repositoryManager.ProductRepository.GetAllProductAsync(
+                    page, limit, searchName, categoryName, minWeight, maxWeight, unit, minPrice, maxPrice, origin, organic);
+
+                // Map the list of products to ProductRespone
+                var productResponse = _mapper.Map<IEnumerable<ProductRespone>>(listProduct.Items).ToList();
+
                 return new PageResult<ProductRespone>
                 {
                     CurrentPage = page,
                     TotalItems = listProduct.TotalItems,
                     TotalPages = (int)Math.Ceiling(listProduct.TotalItems / (double)limit),
-                    Items = productRespone
+                    Items = productResponse // Ensure it's a list
                 };
             }
             catch (Exception ex)
@@ -205,26 +189,40 @@ namespace PureFood.Data.Service
             return true;
         }
 
-        public async Task<IEnumerable<ProductRespone>> GetProductByCategoryName(string categoryId)
+        public async Task<PageResult<ProductRespone>> GetProductByCategoryName(int page, int limit, string categoryId)
         {
-            var product = await _repositoryManager.ProductRepository.GetProductByCategoryName(categoryId);
+            var product = await _repositoryManager.ProductRepository.GetProductByCategoryName(page, limit, categoryId);
             if (product == null)
             {
                 throw new Exception("Category not found.");
             }
-            var result = _mapper.Map<IEnumerable<ProductRespone>>(product);
-            return result;
+            var result = _mapper.Map<IEnumerable<ProductRespone>>(product.Items);
+
+            return new PageResult<ProductRespone>
+            {
+                CurrentPage = page,
+                TotalItems = product.TotalItems,
+                TotalPages = (int)Math.Ceiling(product.TotalItems / (double)limit),
+                Items = result
+            };
         }
 
-        public async Task<IEnumerable<ProductRespone>> GetProductBySupplierName(string supplierId)
+        public async Task<PageResult<ProductRespone>> GetProductBySupplierName(int page, int limit, string supplierId)
         {
-            var product = await _repositoryManager.ProductRepository.GetProductBySupplierName(supplierId);
+            var product = await _repositoryManager.ProductRepository.GetProductBySupplierName(page, limit, supplierId);
             if (product == null)
             {
                 throw new Exception("Supplier not found.");
             }
-            var result = _mapper.Map<IEnumerable<ProductRespone>>(product);
-            return result;
+            var result = _mapper.Map<IEnumerable<ProductRespone>>(product.Items);
+
+            return new PageResult<ProductRespone>
+            {
+                CurrentPage = page,
+                TotalItems = product.TotalItems,
+                TotalPages = (int)Math.Ceiling(product.TotalItems / (double)limit),
+                Items = result.ToList()
+            };
         }
     }
 }

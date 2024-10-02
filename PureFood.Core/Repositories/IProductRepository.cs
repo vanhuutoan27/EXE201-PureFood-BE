@@ -12,7 +12,7 @@ namespace PureFood.Core.Repositories
         Task<Product> GetProductbyId(Guid id);
         
         Task<Product> GetProductBySlug(string slug);
-        Task<IEnumerable<Product>> GetProductBySupplierName(string supplierName);
-        Task<IEnumerable<Product>> GetProductByCategoryName(string categoryName);
+        Task<PageResult<Product>> GetProductBySupplierName(int page, int limit, string supplierName);
+        Task<PageResult<Product>> GetProductByCategoryName(int page, int limit,string categoryName);
     }
 }
