@@ -28,8 +28,8 @@ namespace PureFood.Data.Configurations
                     Origin = "Tỉnh Long An",
                     Organic = true,
                     Status = true,
-                    CreatedAt =  DateTime.Parse("2024-10-02"),
-                    UpdatedAt =  DateTime.Parse("2024-10-02"),
+                    CreatedAt = DateTime.Parse("2024-10-02"),
+                    UpdatedAt = DateTime.Parse("2024-10-02"),
                 },
 
                 new Product()
@@ -48,8 +48,8 @@ namespace PureFood.Data.Configurations
                     Origin = "Tỉnh Lâm Đồng",
                     Organic = true,
                     Status = true,
-                    CreatedAt =  DateTime.Parse("2024-10-02"),
-                    UpdatedAt =  DateTime.Parse("2024-10-02"),
+                    CreatedAt = DateTime.Parse("2024-10-02"),
+                    UpdatedAt = DateTime.Parse("2024-10-02"),
                 },
 
                 new Product()
@@ -68,8 +68,8 @@ namespace PureFood.Data.Configurations
                     Origin = "Tỉnh Tiền Giang",
                     Organic = true,
                     Status = true,
-                    CreatedAt =  DateTime.Parse("2024-10-02"),
-                    UpdatedAt =  DateTime.Parse("2024-10-02"),
+                    CreatedAt = DateTime.Parse("2024-10-02"),
+                    UpdatedAt = DateTime.Parse("2024-10-02"),
                 },
 
                 new Product()
@@ -88,8 +88,8 @@ namespace PureFood.Data.Configurations
                     Origin = "Thành phố Hồ Chí Minh",
                     Organic = true,
                     Status = true,
-                    CreatedAt =  DateTime.Parse("2024-10-02"),
-                    UpdatedAt =  DateTime.Parse("2024-10-02"),
+                    CreatedAt = DateTime.Parse("2024-10-02"),
+                    UpdatedAt = DateTime.Parse("2024-10-02"),
                 },
 
                 new Product()
@@ -108,8 +108,8 @@ namespace PureFood.Data.Configurations
                     Origin = "Tỉnh Lâm Đồng",
                     Organic = true,
                     Status = true,
-                    CreatedAt =  DateTime.Parse("2024-10-02"),
-                    UpdatedAt =  DateTime.Parse("2024-10-02"),
+                    CreatedAt = DateTime.Parse("2024-10-02"),
+                    UpdatedAt = DateTime.Parse("2024-10-02"),
                 },
 
                 new Product()
@@ -128,8 +128,8 @@ namespace PureFood.Data.Configurations
                     Origin = "Tỉnh Lâm Đồng",
                     Organic = true,
                     Status = true,
-                    CreatedAt =  DateTime.Parse("2024-10-02"),
-                    UpdatedAt =  DateTime.Parse("2024-10-02"),
+                    CreatedAt = DateTime.Parse("2024-10-02"),
+                    UpdatedAt = DateTime.Parse("2024-10-02"),
                 },
 
                 new Product()
@@ -148,8 +148,8 @@ namespace PureFood.Data.Configurations
                     Origin = "Tỉnh Sóc Trăng",
                     Organic = true,
                     Status = true,
-                    CreatedAt =  DateTime.Parse("2024-10-02"),
-                    UpdatedAt =  DateTime.Parse("2024-10-02"),
+                    CreatedAt = DateTime.Parse("2024-10-02"),
+                    UpdatedAt = DateTime.Parse("2024-10-02"),
                 },
 
                 new Product()
@@ -168,8 +168,8 @@ namespace PureFood.Data.Configurations
                     Origin = "Tỉnh Lâm Đồng",
                     Organic = true,
                     Status = true,
-                    CreatedAt =  DateTime.Parse("2024-10-02"),
-                    UpdatedAt =  DateTime.Parse("2024-10-02"),
+                    CreatedAt = DateTime.Parse("2024-10-02"),
+                    UpdatedAt = DateTime.Parse("2024-10-02"),
                 },
 
                 new Product()
@@ -188,8 +188,8 @@ namespace PureFood.Data.Configurations
                     Origin = "Tỉnh Kiên Giang",
                     Organic = true,
                     Status = true,
-                    CreatedAt =  DateTime.Parse("2024-10-02"),
-                    UpdatedAt =  DateTime.Parse("2024-10-02"),
+                    CreatedAt = DateTime.Parse("2024-10-02"),
+                    UpdatedAt = DateTime.Parse("2024-10-02"),
                 },
 
                 new Product()
@@ -208,8 +208,8 @@ namespace PureFood.Data.Configurations
                     Origin = "Thành phố Bạc Liêu",
                     Organic = true,
                     Status = true,
-                    CreatedAt =  DateTime.Parse("2024-10-02"),
-                    UpdatedAt =  DateTime.Parse("2024-10-02"),
+                    CreatedAt = DateTime.Parse("2024-10-02"),
+                    UpdatedAt = DateTime.Parse("2024-10-02"),
                 },
 
                 new Product()
@@ -228,8 +228,8 @@ namespace PureFood.Data.Configurations
                     Origin = "Tỉnh Lâm Đồng",
                     Organic = true,
                     Status = true,
-                    CreatedAt =  DateTime.Parse("2024-10-02"),
-                    UpdatedAt =  DateTime.Parse("2024-10-02"),
+                    CreatedAt = DateTime.Parse("2024-10-02"),
+                    UpdatedAt = DateTime.Parse("2024-10-02"),
                 },
 
                 new Product()
@@ -248,8 +248,8 @@ namespace PureFood.Data.Configurations
                     Origin = "Thành phố Vĩnh Long",
                     Organic = true,
                     Status = true,
-                    CreatedAt =  DateTime.Parse("2024-10-02"),
-                    UpdatedAt =  DateTime.Parse("2024-10-02"),
+                    CreatedAt = DateTime.Parse("2024-10-02"),
+                    UpdatedAt = DateTime.Parse("2024-10-02"),
                 },
 
                 new Product()
@@ -268,8 +268,8 @@ namespace PureFood.Data.Configurations
                     Origin = "Tỉnh Lâm Đồng",
                     Organic = true,
                     Status = true,
-                    CreatedAt =  DateTime.Parse("2024-10-02"),
-                    UpdatedAt =  DateTime.Parse("2024-10-02"),
+                    CreatedAt = DateTime.Parse("2024-10-02"),
+                    UpdatedAt = DateTime.Parse("2024-10-02"),
                 },
 
                 new Product()
@@ -288,8 +288,8 @@ namespace PureFood.Data.Configurations
                     Origin = "Tỉnh Lâm Đồng",
                     Organic = true,
                     Status = true,
-                    CreatedAt =  DateTime.Parse("2024-10-02"),
-                    UpdatedAt =  DateTime.Parse("2024-10-02"),
+                    CreatedAt = DateTime.Parse("2024-10-02"),
+                    UpdatedAt = DateTime.Parse("2024-10-02"),
                 },
 
                 new Product()
@@ -308,8 +308,8 @@ namespace PureFood.Data.Configurations
                     Origin = "Thành phố Tây Ninh",
                     Organic = true,
                     Status = true,
-                    CreatedAt =  DateTime.Parse("2024-10-02"),
-                    UpdatedAt =  DateTime.Parse("2024-10-02"),
+                    CreatedAt = DateTime.Parse("2024-10-02"),
+                    UpdatedAt = DateTime.Parse("2024-10-02"),
                 },
 
                 new Product()
@@ -328,8 +328,8 @@ namespace PureFood.Data.Configurations
                     Origin = "Tỉnh Lâm Đồng",
                     Organic = true,
                     Status = true,
-                    CreatedAt =  DateTime.Parse("2024-10-02"),
-                    UpdatedAt =  DateTime.Parse("2024-10-02"),
+                    CreatedAt = DateTime.Parse("2024-10-02"),
+                    UpdatedAt = DateTime.Parse("2024-10-02"),
                 },
 
                 new Product()
@@ -348,8 +348,8 @@ namespace PureFood.Data.Configurations
                     Origin = "Thành phố Hồ Chí Minh",
                     Organic = true,
                     Status = true,
-                    CreatedAt =  DateTime.Parse("2024-10-02"),
-                    UpdatedAt =  DateTime.Parse("2024-10-02"),
+                    CreatedAt = DateTime.Parse("2024-10-02"),
+                    UpdatedAt = DateTime.Parse("2024-10-02"),
                 },
 
                 new Product()
@@ -368,8 +368,8 @@ namespace PureFood.Data.Configurations
                     Origin = "Tỉnh Long An",
                     Organic = true,
                     Status = true,
-                    CreatedAt =  DateTime.Parse("2024-10-02"),
-                    UpdatedAt =  DateTime.Parse("2024-10-02"),
+                    CreatedAt = DateTime.Parse("2024-10-02"),
+                    UpdatedAt = DateTime.Parse("2024-10-02"),
                 },
 
                 new Product()
@@ -388,8 +388,8 @@ namespace PureFood.Data.Configurations
                     Origin = "Tỉnh Tiền Giang",
                     Organic = true,
                     Status = true,
-                    CreatedAt =  DateTime.Parse("2024-10-02"),
-                    UpdatedAt =  DateTime.Parse("2024-10-02"),
+                    CreatedAt = DateTime.Parse("2024-10-02"),
+                    UpdatedAt = DateTime.Parse("2024-10-02"),
                 },
 
                 new Product()
@@ -408,8 +408,8 @@ namespace PureFood.Data.Configurations
                     Origin = "Tỉnh Long An",
                     Organic = true,
                     Status = true,
-                    CreatedAt =  DateTime.Parse("2024-10-02"),
-                    UpdatedAt =  DateTime.Parse("2024-10-02"),
+                    CreatedAt = DateTime.Parse("2024-10-02"),
+                    UpdatedAt = DateTime.Parse("2024-10-02"),
                 },
             });
         }

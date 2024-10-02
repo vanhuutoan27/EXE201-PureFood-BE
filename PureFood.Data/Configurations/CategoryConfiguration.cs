@@ -20,16 +20,16 @@ namespace PureFood.Data.Configurations
                     CategoryId = Guid.Parse("2d482271-9605-4d43-9ca8-d479d6ef9687"),
                     CategoryName = "rau-cu",
                     Description = "Rau củ quả ngon lành",
-                    CreatedAt = DateTime.Now,
-                    UpdateAt = DateTime.Now,
+                    CreatedAt = DateTime.Parse("2024-10-02"),
+                    UpdatedAt = DateTime.Parse("2024-10-02"),
                 },
                 new Category
                 {
                     CategoryId = Guid.Parse("6b5f6458-3791-4303-8ee7-e20707e4cf3e"),
                     CategoryName = "trai-cay",
                     Description = "Trái cây tươi mới",
-                    CreatedAt = DateTime.Now,
-                    UpdateAt = DateTime.Now,
+                    CreatedAt = DateTime.Parse("2024-10-02"),
+                    UpdatedAt = DateTime.Parse("2024-10-02"),
                 }
             });
         }

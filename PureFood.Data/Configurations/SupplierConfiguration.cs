@@ -22,8 +22,8 @@ namespace PureFood.Data.Configurations
                     Address = "Quận 9, Thành phố Hồ Chí Minh",
                     Description = "Chúng tôi cung cấp rau củ quả sạch, tươi ngon từ nông trại đến bàn ăn, đảm bảo an toàn sức khỏe cho gia đình bạn.",
                     PhoneNumber = "0937056922",
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now
+                    CreatedAt =  DateTime.Parse("2024-10-02"),
+                    UpdatedAt =  DateTime.Parse("2024-10-02"),
                 },
                 new Supplier
                 {
@@ -31,9 +31,9 @@ namespace PureFood.Data.Configurations
                     SupplierName = "Moncati",
                     Address = "FPT Quận 9, Thành phố Hồ Chí Minh",
                     Description = "Moncati cung cấp rau củ quả sạch, tươi ngon từ nông trại địa phương, cam kết mang đến sản phẩm an toàn và chất lượng cho sức khỏe gia đình bạn.",
-                    PhoneNumber = "0937056922",
-                    CreatedAt = DateTime.Now,
-                    UpdatedAt = DateTime.Now
+                    PhoneNumber = "0792766979",
+                    CreatedAt =  DateTime.Parse("2024-10-02"),
+                    UpdatedAt =  DateTime.Parse("2024-10-02"),
                 }
             });
         }

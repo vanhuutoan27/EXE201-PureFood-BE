@@ -21,15 +21,8 @@ namespace PureFood.Data.Configurations
                                      Id = new Guid("C0278115-8549-4FAD-890A-44F8E8FCC022"),
                                      Name = "Manager",
                                      NormalizedName = "MANAGER",
-                                     DisplayName = "Quản Lí"
+                                     DisplayName = "Quản Lý"
                                  }
-                                 //new AppRole
-                                 //{
-                                 //    Id = new Guid("AB8E4032-2D95-45CC-89C1-C039E9E8BC39"),
-                                 //    Name = "Owner",
-                                 //    NormalizedName = "CarOwener",
-                                 //    DisplayName = "Chủ Xe"
-                                 //}
                        );
         }
     }
