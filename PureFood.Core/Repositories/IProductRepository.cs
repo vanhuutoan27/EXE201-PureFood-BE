@@ -10,7 +10,7 @@ namespace PureFood.Core.Repositories
             double? minWeight, double? maxWeight, string? unit, decimal? minPrice, decimal? maxPrice, string? origin, bool? organic);
         Task<int> GetTotalProductCountAsync(string searchName, string categoryName);
         Task<Product> GetProductBySlug(string slug);
-        Task<IEnumerable<Product>> GetProductBySupplierId(Guid supplierId);
-        Task<IEnumerable<Product>> GetProductByCategoryid(Guid categoryId);
+        Task<IEnumerable<Product>> GetProductBySupplierName(string supplierName);
+        Task<IEnumerable<Product>> GetProductByCategoryName(string categoryName);
     }
 }

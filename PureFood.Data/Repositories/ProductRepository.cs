@@ -125,9 +125,9 @@ namespace PureFood.Data.Repositories
             };
         }
 
-        public async Task<IEnumerable<Product>> GetProductByCategoryid(Guid categoryId)
+        public async  Task<IEnumerable<Product>> GetProductByCategoryName(string categoryName)
         {
-            return await _context.Products.Where(c => c.CategoryId == categoryId).ToListAsync();
+            return await _context.Products.Where(c => c.Category.CategoryName == categoryName).ToListAsync();
         }
 
         public Task<Product> GetProductBySlug(string slug)
@@ -135,9 +135,9 @@ namespace PureFood.Data.Repositories
             return _context.Products.FirstOrDefaultAsync(s => s.Slug == slug);
         }
 
-        public async Task<IEnumerable<Product>> GetProductBySupplierId(Guid supplierId)
+        public async Task<IEnumerable<Product>> GetProductBySupplierName(string supplierName)
         {
-            return await _context.Products.Where(s => s.SupplierId == supplierId).ToListAsync();
+            return await _context.Products.Where(s => s.Supplier.SupplierName == supplierName).ToListAsync();
         }
 
         public async Task<int> GetTotalProductCountAsync(string? searchName, string? categoryName)

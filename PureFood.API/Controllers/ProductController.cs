@@ -105,21 +105,16 @@ namespace PureFood.API.Controllers
                 Message = "Product retrieved successfully."
             });
         }
-        [HttpGet("suppliers/{supplierId}")]
-        public async Task<IActionResult> GetProductBySupplierId(Guid supplierId)
+        [HttpGet("suppliers/{supplierName}")]
+        public async Task<IActionResult> GetProductBySupplier(string supplierName)
         {
             // kiem tra supplier
-            var supplier = await _serviceManager.SupplierService.getSupplierById(supplierId);
-            if (supplier is null)
+
+            var product = await _serviceManager.ProductService.GetProductBySupplierName(supplierName);
+            if (product == null)
             {
-                return NotFound(_resultModel = new ResultModel
-                {
-                    Success = false,
-                    Status = (int)HttpStatusCode.NotFound,
-                    Message = "SupplierId not found"
-                });
+                return NotFound(product);
             }
-            var product = await _serviceManager.ProductService.GetProductBySupplierId(supplierId);
             return Ok(_resultModel = new ResultModel
             {
                 Success = true,
@@ -129,21 +124,16 @@ namespace PureFood.API.Controllers
             });
         }
 
-        [HttpGet("category/{categoryId}")]
-        public async Task<IActionResult> GetProductByCategoryId(Guid categoryId)
+        [HttpGet("category/{categoryName}")]
+        public async Task<IActionResult> GetProductByCategory(String categoryName)
         {
             // kiem tra category
-            var category = await _serviceManager.CategoryService.getById(categoryId);
-            if (category is null)
+
+            var product = await _serviceManager.ProductService.GetProductByCategoryName(categoryName);
+            if (product == null)
             {
-                return NotFound(_resultModel = new ResultModel
-                {
-                    Success = false,
-                    Status = (int)HttpStatusCode.NotFound,
-                    Message = "No category found."
-                });
+                return NotFound(product);
             }
-            var product = await _serviceManager.ProductService.GetProductByCategoryId(categoryId);
             return Ok(_resultModel = new ResultModel
             {
                 Success = true,
