@@ -204,7 +204,7 @@ namespace PureFood.Data.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("UpdateAt")
+                    b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<Guid?>("UpdatedBy")
@@ -221,7 +221,7 @@ namespace PureFood.Data.Migrations
                             CategoryName = "rau-cu",
                             CreatedAt = new DateTime(2024, 10, 1, 13, 11, 36, 638, DateTimeKind.Local).AddTicks(2382),
                             Description = "Rau củ quả ngon lành",
-                            UpdateAt = new DateTime(2024, 10, 1, 13, 11, 36, 638, DateTimeKind.Local).AddTicks(2398)
+                            UpdatedAt = new DateTime(2024, 10, 1, 13, 11, 36, 638, DateTimeKind.Local).AddTicks(2398)
                         },
                         new
                         {
@@ -229,7 +229,7 @@ namespace PureFood.Data.Migrations
                             CategoryName = "trai-cay",
                             CreatedAt = new DateTime(2024, 10, 1, 13, 11, 36, 638, DateTimeKind.Local).AddTicks(2402),
                             Description = "Trái cây tươi mới",
-                            UpdateAt = new DateTime(2024, 10, 1, 13, 11, 36, 638, DateTimeKind.Local).AddTicks(2402)
+                            UpdatedAt = new DateTime(2024, 10, 1, 13, 11, 36, 638, DateTimeKind.Local).AddTicks(2402)
                         });
                 });
 
@@ -325,7 +325,7 @@ namespace PureFood.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("UpdateAt")
+                    b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<Guid?>("UpdatedBy")
@@ -761,7 +761,7 @@ namespace PureFood.Data.Migrations
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime?>("UpdateAt")
+                    b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("UpdatedBy")

@@ -91,7 +91,7 @@ namespace PureFood.Data.Migrations
                     CategoryName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdateAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     UpdatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
@@ -113,7 +113,7 @@ namespace PureFood.Data.Migrations
                     StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     EndDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdateAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     CreatedBy = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedBy = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
@@ -216,7 +216,7 @@ namespace PureFood.Data.Migrations
                     EntryDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ExpiryDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdateAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     CreatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     UpdatedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     CategoryId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -340,7 +340,7 @@ namespace PureFood.Data.Migrations
 
             migrationBuilder.InsertData(
                 table: "Categories",
-                columns: new[] { "CategoryId", "CategoryName", "CreatedAt", "CreatedBy", "Description", "UpdateAt", "UpdatedBy" },
+                columns: new[] { "CategoryId", "CategoryName", "CreatedAt", "CreatedBy", "Description", "UpdatedAt", "UpdatedBy" },
                 values: new object[,]
                 {
                     { new Guid("2d482271-9605-4d43-9ca8-d479d6ef9687"), "rau-cu", new DateTime(2024, 10, 1, 13, 11, 36, 638, DateTimeKind.Local).AddTicks(2382), null, "Rau củ quả ngon lành", new DateTime(2024, 10, 1, 13, 11, 36, 638, DateTimeKind.Local).AddTicks(2398), null },
@@ -358,7 +358,7 @@ namespace PureFood.Data.Migrations
 
             migrationBuilder.InsertData(
                 table: "Products",
-                columns: new[] { "ProductId", "CategoryId", "CreatedAt", "CreatedBy", "Description", "EntryDate", "ExpiryDate", "FoodName", "Organic", "Origin", "Price", "ProductName", "Slug", "Status", "Stock", "SupplierId", "Unit", "UpdateAt", "UpdatedBy", "Weight" },
+                columns: new[] { "ProductId", "CategoryId", "CreatedAt", "CreatedBy", "Description", "EntryDate", "ExpiryDate", "FoodName", "Organic", "Origin", "Price", "ProductName", "Slug", "Status", "Stock", "SupplierId", "Unit", "UpdatedAt", "UpdatedBy", "Weight" },
                 values: new object[,]
                 {
                     { new Guid("0e758eaa-331b-409a-b09a-335cdb16a1f5"), new Guid("2d482271-9605-4d43-9ca8-d479d6ef9687"), null, null, "<p>Rau muống tươi ngon, giàu chất xơ, sản phẩm sạch từ nông trại, có nhiều giá trị dinh dưỡng.</p><br>   <ul><br>      <li>Giàu chất xơ, tốt cho hệ tiêu hóa</li><br>      <li>Giàu vitamin A và C</li><br>      <li>Không thuốc bảo vệ thực vật</li><br>      <li>Thích hợp chế biến các món xào, nấu canh</li><br>      <li>Được trồng tại các nông trại xanh</li><br>    </ul>", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Water spinach", true, "Long An", 8000m, "Rau muống", "rau-muong-400-gr-zk7dwx", true, 100, new Guid("5a0b659d-884a-446a-8b77-9b84ed6e2bf2"), "Gr", null, null, 400.0 },

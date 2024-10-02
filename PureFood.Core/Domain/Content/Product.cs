@@ -22,7 +22,7 @@ namespace PureFood.Core.Domain.Content
         public DateTime ExpiryDate { get; set; }
 
         public DateTime? CreatedAt { get; set; }
-        public DateTime? UpdateAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
         public Guid? CreatedBy { get; set; }
         public Guid? UpdatedBy { get; set; }
         public Guid CategoryId { get; set; }

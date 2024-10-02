@@ -14,7 +14,7 @@ namespace PureFood.Core.Models.content.Responses
         public string Address { get; set; }
         public string PhoneNumber { get; set; }
         public DateTime? CreatedAt { get; set; }
-        public DateTime? UpdateAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
         public Guid? CreatedBy { get; set; }
         public Guid? UpdatedBy { get; set; }
     }

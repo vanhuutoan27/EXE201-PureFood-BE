@@ -69,7 +69,7 @@ namespace PureFood.Data.Service
                     EntryDate = createProduct.EntryDate,
                     ExpiryDate = createProduct.ExpiryDate,
                     CreatedAt = DateTime.Now,
-                    UpdateAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
                     FoodName = createProduct.FoodName,
                     CategoryId = category.CategoryId,
                     SupplierId = supplier.SupplierId,
@@ -117,7 +117,7 @@ namespace PureFood.Data.Service
                         Category = product.Category.CategoryName,
                         Supplier = product.Supplier.SupplierName,
                         CreatedAt = product.CreatedAt,
-                        UpdateAt = product.UpdateAt,
+                        UpdatedAt = product.UpdatedAt,
                         CreatedBy = product.CreatedBy,
                         UpdatedBy = product.UpdatedBy,
                     });
@@ -167,7 +167,7 @@ namespace PureFood.Data.Service
                 product.ExpiryDate = updateProductRequest.ExpiryDate;
                 product.CategoryId = updateProductRequest.CategoryId;
                 product.SupplierId = updateProductRequest.SupplierId;
-                product.UpdateAt = DateTime.Now;
+                product.UpdatedAt = DateTime.Now;
 
                 _repositoryManager.ProductRepository.Update(product);
                 await _repositoryManager.SaveAsync();

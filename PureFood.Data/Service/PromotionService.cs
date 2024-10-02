@@ -24,16 +24,16 @@ namespace PureFood.Data.Service
             {
                 var newPromotion = new Promotion
                 {
-                   
-                 CreatedAt = DateTime.Now,
-                 Description =request.Description,  
-                  DiscountCode = request.DiscountCode, 
-                    DiscountPercentage = request.DiscountPercentage,  
+
+                    CreatedAt = DateTime.Now,
+                    Description = request.Description,
+                    DiscountCode = request.DiscountCode,
+                    DiscountPercentage = request.DiscountPercentage,
                     EndDate = request.EndDate,
-                    PromotionId =Guid.NewGuid(),
-                    PromotionName = request.PromotionName, 
-                    StartDate = request.StartDate   ,
-                    Status = request.Status,   
+                    PromotionId = Guid.NewGuid(),
+                    PromotionName = request.PromotionName,
+                    StartDate = request.StartDate,
+                    Status = request.Status,
 
                 };
                 _repositoryManager.PromotionRepository.Add(newPromotion);
@@ -99,10 +99,10 @@ namespace PureFood.Data.Service
             {
                 getPromotion.StartDate = request.StartDate;
                 getPromotion.EndDate = request.EndDate;
-                getPromotion.UpdateAt = DateTime.Now;
+                getPromotion.UpdatedAt = DateTime.Now;
                 getPromotion.Description = request.Description;
                 getPromotion.DiscountCode = request.DiscountCode;
-                getPromotion.DiscountPercentage = request.DiscountPercentage;   
+                getPromotion.DiscountPercentage = request.DiscountPercentage;
                 getPromotion.PromotionName = request.PromotionName;
                 getPromotion.Status = request.Status;
 

@@ -21,7 +21,7 @@ namespace PureFood.Core.Models.Requests
         public DateTime ExpiryDate { get; set; }
 
         public DateTime? CreatedAt { get; set; }
-        public DateTime? UpdateAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
         public Guid CategoryId { get; set; }
         public Guid SupplierId { get; set; }
     }

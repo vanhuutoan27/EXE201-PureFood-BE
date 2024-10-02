@@ -69,7 +69,7 @@ namespace PureFood.Data.Service
             {
                 throw new Exception("Category not found.");
             }
-            getCategory.UpdateAt = DateTime.Now;
+            getCategory.UpdatedAt = DateTime.Now;
             getCategory.Description = request.Description;
             getCategory.CategoryName = request.CategoryName;
             _repositoryManager.CategoryRepository.Update(getCategory);

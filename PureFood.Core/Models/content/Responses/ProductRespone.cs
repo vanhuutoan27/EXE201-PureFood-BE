@@ -28,7 +28,7 @@ namespace PureFood.Core.Models.content.Responses
         public DateTime EntryDate { get; set; }
         public DateTime ExpiryDate { get; set; }
         public DateTime? CreatedAt { get; set; }
-        public DateTime? UpdateAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
         public Guid? CreatedBy { get; set; }
         public Guid? UpdatedBy { get; set; }
     }

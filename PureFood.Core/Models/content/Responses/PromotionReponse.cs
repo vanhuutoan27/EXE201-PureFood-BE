@@ -8,7 +8,7 @@ namespace PureFood.Core.Models.content.Responses
 {
     public class PromotionReponse
     {
-      
+
         public Guid PromotionId { get; set; }
         public string PromotionName { get; set; }
         public string? Description { get; set; }
@@ -20,7 +20,7 @@ namespace PureFood.Core.Models.content.Responses
         public DateTime EndDate { get; set; }
 
         public DateTime? CreatedAt { get; set; }
-        public DateTime? UpdateAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
         public DateTime? CreatedBy { get; set; }
         public DateTime? UpdatedBy { get; set; }
 

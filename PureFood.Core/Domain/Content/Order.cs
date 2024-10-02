@@ -19,7 +19,7 @@ namespace PureFood.Core.Domain.Content
 
         public string OrderStatus { get; set; }
         public DateTime CreateAt { get; set; }
-        public DateTime UpdateAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
 
         public ICollection<OrderItem> OrderItems { get; set; }
 

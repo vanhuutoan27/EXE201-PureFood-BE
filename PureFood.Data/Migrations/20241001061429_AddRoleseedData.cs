@@ -17,14 +17,14 @@ namespace PureFood.Data.Migrations
                 table: "Categories",
                 keyColumn: "CategoryId",
                 keyValue: new Guid("2d482271-9605-4d43-9ca8-d479d6ef9687"),
-                columns: new[] { "CreatedAt", "UpdateAt" },
+                columns: new[] { "CreatedAt", "UpdatedAt" },
                 values: new object[] { new DateTime(2024, 10, 1, 13, 14, 28, 908, DateTimeKind.Local).AddTicks(8725), new DateTime(2024, 10, 1, 13, 14, 28, 908, DateTimeKind.Local).AddTicks(8738) });
 
             migrationBuilder.UpdateData(
                 table: "Categories",
                 keyColumn: "CategoryId",
                 keyValue: new Guid("6b5f6458-3791-4303-8ee7-e20707e4cf3e"),
-                columns: new[] { "CreatedAt", "UpdateAt" },
+                columns: new[] { "CreatedAt", "UpdatedAt" },
                 values: new object[] { new DateTime(2024, 10, 1, 13, 14, 28, 908, DateTimeKind.Local).AddTicks(8741), new DateTime(2024, 10, 1, 13, 14, 28, 908, DateTimeKind.Local).AddTicks(8742) });
 
             migrationBuilder.InsertData(
@@ -68,14 +68,14 @@ namespace PureFood.Data.Migrations
                 table: "Categories",
                 keyColumn: "CategoryId",
                 keyValue: new Guid("2d482271-9605-4d43-9ca8-d479d6ef9687"),
-                columns: new[] { "CreatedAt", "UpdateAt" },
+                columns: new[] { "CreatedAt", "UpdatedAt" },
                 values: new object[] { new DateTime(2024, 10, 1, 13, 11, 36, 638, DateTimeKind.Local).AddTicks(2382), new DateTime(2024, 10, 1, 13, 11, 36, 638, DateTimeKind.Local).AddTicks(2398) });
 
             migrationBuilder.UpdateData(
                 table: "Categories",
                 keyColumn: "CategoryId",
                 keyValue: new Guid("6b5f6458-3791-4303-8ee7-e20707e4cf3e"),
-                columns: new[] { "CreatedAt", "UpdateAt" },
+                columns: new[] { "CreatedAt", "UpdatedAt" },
                 values: new object[] { new DateTime(2024, 10, 1, 13, 11, 36, 638, DateTimeKind.Local).AddTicks(2402), new DateTime(2024, 10, 1, 13, 11, 36, 638, DateTimeKind.Local).AddTicks(2402) });
 
             migrationBuilder.UpdateData(
