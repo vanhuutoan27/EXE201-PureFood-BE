@@ -315,7 +315,7 @@ namespace PureFood.Data.Configurations
                 new Product()
                 {
                     ProductId = Guid.Parse("fc727800-963c-4305-93a0-3b27dfb1d734"),
-                    CategoryId = Guid.Parse("2d482271-9605-4d43-9ca8-d479d6ef9687"),
+                    CategoryId = Guid.Parse("6b5f6458-3791-4303-8ee7-e20707e4cf3e"),
                     SupplierId =  Guid.Parse("5a0b659d-884a-446a-8b77-9b84ed6e2bf2"),
                     ProductName = "Bơ Booth",
                     FoodName = "Avocado",
@@ -355,10 +355,10 @@ namespace PureFood.Data.Configurations
                 new Product()
                 {
                     ProductId = Guid.Parse("576aa3a9-49ff-486c-8efc-a0548ee90ee7"),
-                    CategoryId = Guid.Parse("2d482271-9605-4d43-9ca8-d479d6ef9687"),
+                    CategoryId = Guid.Parse("6b5f6458-3791-4303-8ee7-e20707e4cf3e"),
                     SupplierId =  Guid.Parse("5a0b659d-884a-446a-8b77-9b84ed6e2bf2"),
                     ProductName = "Dưa hấu",
-                    FoodName = "Melon",
+                    FoodName = "Watermelon",
                     Slug = "dua-hau-2-kg-im862u",
                     Description = "<p>Dưa hấu ngọt mát, tươi ngon, sản phẩm sạch từ nông trại.</p><br><ul><br>  <li>Giàu nước, giúp giải khát hiệu quả</li><br>  <li>Chứa nhiều vitamin A và C</li><br> <li>Không hóa chất bảo quản</li><br>  <li>Thích hợp ăn trực tiếp và làm nước ép</li>\r\n  <li>Trồng tại các nông trại hữu cơ</li><br></ul>",
                     Price = 35400,
@@ -375,7 +375,7 @@ namespace PureFood.Data.Configurations
                 new Product()
                 {
                     ProductId = Guid.Parse("a69cd06b-8762-49cc-9228-1fc88956fb3c"),
-                    CategoryId = Guid.Parse("2d482271-9605-4d43-9ca8-d479d6ef9687"),
+                    CategoryId = Guid.Parse("6b5f6458-3791-4303-8ee7-e20707e4cf3e"),
                     SupplierId =  Guid.Parse("5a0b659d-884a-446a-8b77-9b84ed6e2bf2"),
                     ProductName = "Dưa lưới",
                     FoodName = "Melon",
@@ -395,7 +395,7 @@ namespace PureFood.Data.Configurations
                 new Product()
                 {
                     ProductId = Guid.Parse("b39c0722-44aa-49e5-8ff9-b9ad9a9594fc"),
-                    CategoryId = Guid.Parse("2d482271-9605-4d43-9ca8-d479d6ef9687"),
+                    CategoryId = Guid.Parse("6b5f6458-3791-4303-8ee7-e20707e4cf3e"),
                     SupplierId =  Guid.Parse("5a0b659d-884a-446a-8b77-9b84ed6e2bf2"),
                     ProductName = "Dưa gang",
                     FoodName = "Winter melon",
