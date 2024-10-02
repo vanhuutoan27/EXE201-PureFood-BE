@@ -16,7 +16,7 @@ namespace PureFood.Data.Repositories
         public async Task<PaginatedResult<CartItem>> GetAllCartItemByUserAsync(int page, int limit, Guid userId)
         {
             IQueryable<CartItem> query = _context.CartItems.Include(c => c.Cart)
-            .Include(p => p.Product).Where(c => c.Cart.UserId == userId);
+            .Include(p => p.Product).ThenInclude( c => c.Category).Include(p =>p.Product.Images).Where(c => c.Cart.UserId == userId);
             int totalItems = await query.CountAsync();
 
             // Apply pagination
