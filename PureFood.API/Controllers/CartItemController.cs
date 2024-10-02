@@ -44,7 +44,7 @@ namespace PureFood.API.Controllers
             };
         }
         [HttpPatch("{cartItemId}")]
-        public async Task<ActionResult<ResultModel>> UpdateCartItem(UpdateCartItemRequest request, Guid cartItemId)
+        public async Task<ActionResult<ResultModel>> UpdateCartItem( Guid cartItemId , int quantity)
         {
             if (cartItemId == Guid.Empty)
             {
@@ -57,7 +57,7 @@ namespace PureFood.API.Controllers
                 return NotFound(_resultModel);
             }
 
-            var result = await _serviceManager.CartItemService.UpdateCartItem(request, cartItemId);
+            var result = await _serviceManager.CartItemService.UpdateCartItem(cartItemId , quantity);
 
             if (!result)
             {
