@@ -142,7 +142,7 @@ namespace PureFood.Data.Migrations
                 columns: table => new
                 {
                     SupplierId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    SuplierName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SupplierName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -349,7 +349,7 @@ namespace PureFood.Data.Migrations
 
             migrationBuilder.InsertData(
                 table: "Suppliers",
-                columns: new[] { "SupplierId", "Address", "CreatedAt", "CreatedBy", "Description", "PhoneNumber", "SuplierName", "UpdatedAt", "UpdatedBy" },
+                columns: new[] { "SupplierId", "Address", "CreatedAt", "CreatedBy", "Description", "PhoneNumber", "SupplierName", "UpdatedAt", "UpdatedBy" },
                 values: new object[,]
                 {
                     { new Guid("5a0b659d-884a-446a-8b77-9b84ed6e2bf2"), "Quận 9, Thành phố Hồ Chí Minh", new DateTime(2024, 10, 1, 13, 11, 36, 638, DateTimeKind.Local).AddTicks(2505), null, "Chúng tôi cung cấp rau củ quả sạch, tươi ngon từ nông trại đến bàn ăn, đảm bảo an toàn sức khỏe cho gia đình bạn.", "0937056922", "PureFood", new DateTime(2024, 10, 1, 13, 11, 36, 638, DateTimeKind.Local).AddTicks(2507), null },

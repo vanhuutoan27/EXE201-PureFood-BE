@@ -833,7 +833,7 @@ namespace PureFood.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("SuplierName")
+                    b.Property<string>("SupplierName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -855,7 +855,7 @@ namespace PureFood.Data.Migrations
                             CreatedAt = new DateTime(2024, 10, 1, 13, 14, 28, 908, DateTimeKind.Local).AddTicks(8824),
                             Description = "Chúng tôi cung cấp rau củ quả sạch, tươi ngon từ nông trại đến bàn ăn, đảm bảo an toàn sức khỏe cho gia đình bạn.",
                             PhoneNumber = "0937056922",
-                            SuplierName = "PureFood",
+                            SupplierName = "PureFood",
                             UpdatedAt = new DateTime(2024, 10, 1, 13, 14, 28, 908, DateTimeKind.Local).AddTicks(8826)
                         },
                         new
@@ -865,7 +865,7 @@ namespace PureFood.Data.Migrations
                             CreatedAt = new DateTime(2024, 10, 1, 13, 14, 28, 908, DateTimeKind.Local).AddTicks(8830),
                             Description = "Moncati cung cấp rau củ quả sạch, tươi ngon từ nông trại địa phương, cam kết mang đến sản phẩm an toàn và chất lượng cho sức khỏe gia đình bạn.",
                             PhoneNumber = "0937056922",
-                            SuplierName = "Moncati",
+                            SupplierName = "Moncati",
                             UpdatedAt = new DateTime(2024, 10, 1, 13, 14, 28, 908, DateTimeKind.Local).AddTicks(8830)
                         });
                 });

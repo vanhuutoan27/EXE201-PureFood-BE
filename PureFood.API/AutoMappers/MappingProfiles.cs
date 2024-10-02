@@ -25,15 +25,10 @@ namespace PureFood.API.AutoMappers
             CreateMap<AppUser, UserReponse>()
                         .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.Email))
                         .ForMember(dest => dest.UserId, opt => opt.MapFrom(src => src.Id))
-
-                        .ForMember(dest => dest.Username, opt => opt.MapFrom(src => src.UserName))
                         .ForMember(dest => dest.FullName, opt => opt.MapFrom(src => src.FullName))
                         .ForMember(dest => dest.Avatar, opt => opt.MapFrom(src => src.Avatar))
                         .ForMember(dest => dest.Dob, opt => opt.MapFrom(src => src.Dob))
                         .ForMember(dest => dest.Gender, opt => opt.MapFrom(src => src.Gender)).ReverseMap();
-
-
-
         }
     }
 }

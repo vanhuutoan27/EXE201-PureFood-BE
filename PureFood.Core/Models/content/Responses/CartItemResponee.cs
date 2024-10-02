@@ -8,7 +8,7 @@ namespace PureFood.Core.Models.content.Responses
 {
     public class CartItemResponee
     {
-        
+
         public Guid CartItemId { get; set; }
         [JsonPropertyName("product")]
         public Guid ProductId { get; set; }
@@ -16,7 +16,6 @@ namespace PureFood.Core.Models.content.Responses
         public string? ProductName { get; set; }
         public string? Description { get; set; }
         public decimal Price { get; set; }
-        public int Stock { get; set; }
         public double Weight { get; set; }
         public string? Unit { get; set; }
         public string? Origin { get; set; }

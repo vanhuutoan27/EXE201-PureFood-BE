@@ -43,7 +43,6 @@ namespace PureFood.Data.Service
                 FullName = User.FullName,
                 Status = false,
                 Email = User.Email,
-                UserName = User.Username,
                 PhoneNumber = User.PhoneNumber,
                 LockoutEnabled = false,
                 EmailConfirmed = true,
@@ -268,10 +267,6 @@ namespace PureFood.Data.Service
             {
                 UserToEdit.FullName = User.FullName;
             }
-            if (UserToEdit.UserName != User.Username)
-            {
-                UserToEdit.UserName = User.Username;
-            }
 
             if (UserToEdit.PhoneNumber != User.PhoneNumber)
                 UserToEdit.PhoneNumber = User.PhoneNumber;
@@ -309,12 +304,6 @@ namespace PureFood.Data.Service
                 throw new Exception("Only customers can update profile.");
             }
 
-            // check username exist
-            var existingUserByUsername = await _userManager.FindByNameAsync(updateCustomer.Username);
-            if (existingUserByUsername != null && existingUserByUsername.Id != user.Id)
-            {
-                throw new Exception("Username already exists.");
-            }
             // check email exist
             var existingEmail = await _userManager.FindByEmailAsync(updateCustomer.Email);
             if (existingEmail != null && existingEmail.Id != user.Id)
@@ -328,8 +317,6 @@ namespace PureFood.Data.Service
                 throw new Exception("Phone number already exists.");
             }
             user.FullName = updateCustomer.FullName;
-            user.UserName = updateCustomer.Username;
-            user.NormalizedUserName = updateCustomer.Username.ToUpper();
             user.Email = updateCustomer.Email;
             user.NormalizedEmail = updateCustomer.Email.ToUpper();
             user.PhoneNumber = updateCustomer.PhoneNumber;

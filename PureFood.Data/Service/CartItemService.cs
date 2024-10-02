@@ -48,7 +48,6 @@ namespace PureFood.Data.Service
                     ProductName = item.Product?.ProductName,
                     Description = item.Product?.ProductName,
                     Price = item.Product?.Price ?? 0,
-                    Stock = item.Product.Stock,
                     Weight = item.Product?.Weight ?? 0,
                     Unit = item.Product.Unit,
                     Origin = item.Product?.Origin,

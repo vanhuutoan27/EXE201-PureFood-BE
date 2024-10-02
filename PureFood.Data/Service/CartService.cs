@@ -100,7 +100,6 @@ namespace PureFood.Data.Service
                         Price = item.Product?.Price ?? 0,
                         ProductName = item.Product?.ProductName,
                         Status = item.Product?.Status,
-                        Stock = item.Product?.Stock ?? 0,
                         Unit = item.Product?.Unit,
                         Organic = item.Product?.Organic,
                         Weight = item.Product?.Weight ?? 0

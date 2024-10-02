@@ -25,7 +25,7 @@ namespace PureFood.Data.Repositories
 
         public async Task<Supplier> GetSupplierByName(string name)
         {
-            return await _context.Suppliers.FirstOrDefaultAsync(s => s.SuplierName.ToLower() == name);
+            return await _context.Suppliers.FirstOrDefaultAsync(s => s.SupplierName.ToLower() == name);
         }
     }
 }

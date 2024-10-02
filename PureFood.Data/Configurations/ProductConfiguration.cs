@@ -28,7 +28,6 @@ namespace PureFood.Data.Configurations
                     Origin = "Long An",
                     Organic = true,
                     Status = true
-
                 },
                 new Product()
                 {
@@ -64,7 +63,6 @@ namespace PureFood.Data.Configurations
                     Origin = "Tiền Giang",
                     Organic = true,
                     Status = true
-
                 },
                 new Product()
                 {

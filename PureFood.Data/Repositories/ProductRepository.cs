@@ -58,7 +58,7 @@ namespace PureFood.Data.Repositories
             unit = unit?.Trim();
             origin = origin?.Trim();
 
-            IQueryable<Product> query = _context.Products.Include(c => c.Category).Include(s => s.Supplier);
+            IQueryable<Product> query = _context.Products.Include(c => c.Category).Include(s => s.Supplier).Include(p => p.Images);
 
             // filter weight
             if (minWeight.HasValue)

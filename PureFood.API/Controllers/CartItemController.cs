@@ -11,7 +11,7 @@ using PureFood.Core.SeedWorks;
 namespace PureFood.API.Controllers
 {
     [ApiController]
-    [Route("api/v1/cartItems")]
+    [Route("api/v1/cart-items")]
     public class CartItemController : ControllerBase
     {
         private readonly IServiceManager _serviceManager;

@@ -41,7 +41,7 @@ namespace PureFood.Data.Service
                     CreatedAt= DateTime.UtcNow,
                     Description= review.Description,
                     PhoneNumber= review.PhoneNumber,
-                    SuplierName= review.SupplierName, 
+                    SupplierName= review.SupplierName, 
                     
                 };
                 _repositoryManager.SupplierRepository.Add(newReview);
@@ -106,7 +106,7 @@ namespace PureFood.Data.Service
             }
             try
             {
-                getSupplier.SuplierName = review.SupplierName;
+                getSupplier.SupplierName = review.SupplierName;
                 getSupplier.Description = review.Description;
                 getSupplier.Address = review.Address;
                 getSupplier.PhoneNumber = review.PhoneNumber;

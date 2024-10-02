@@ -31,7 +31,7 @@ namespace PureFood.API.Controllers
         private readonly ResultModel _resp;
         private readonly PureFoodDbContext _context;
         private readonly IServiceManager _serviceManager;
-        public AuthController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, 
+        public AuthController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager,
         RoleManager<AppRole> roleManager, ITokenService tokenService, PureFoodDbContext context, IServiceManager serviceManager)
         {
             _userManager = userManager;
@@ -135,15 +135,13 @@ namespace PureFood.API.Controllers
             var users = new AppUser
             {
                 FullName = request.FullName,
-                UserName = request.Username,
                 Email = request.Email,
-                Status = true,
                 PhoneNumber = request.PhoneNumber,
+                Status = true,
                 SecurityStamp = Guid.NewGuid().ToString(),
                 LockoutEnabled = false,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now
-                
             };
             var result = await _userManager.CreateAsync(users, request.Password);
 
@@ -169,55 +167,54 @@ namespace PureFood.API.Controllers
             }
             return BadRequest(ModelState);
         }
-       [HttpGet]
-[Route("me")]
-[Authorize]
-public async Task<ActionResult<ResultModel>> GetInformationOfUser()
-{
-    var userEmail = User.FindFirst(ClaimTypes.Email)?.Value;
+        [HttpGet]
+        [Route("me")]
+        [Authorize]
+        public async Task<ActionResult<ResultModel>> GetInformationOfUser()
+        {
+            var userEmail = User.FindFirst(ClaimTypes.Email)?.Value;
 
-    // Kiểm tra xem email có tồn tại hay không
-    if (string.IsNullOrEmpty(userEmail))
-    {
-        _resp.Status = (int)HttpStatusCode.InternalServerError;
-        _resp.Message = "Email claim not found.";
-        _resp.Success = false;
-        return _resp;
-    }
+            // Kiểm tra xem email có tồn tại hay không
+            if (string.IsNullOrEmpty(userEmail))
+            {
+                _resp.Status = (int)HttpStatusCode.InternalServerError;
+                _resp.Message = "Email claim not found.";
+                _resp.Success = false;
+                return _resp;
+            }
 
-    // Tìm kiếm người dùng dựa trên email
-    var user = await _serviceManager.UserService.GetUserByEmail(userEmail);
+            // Tìm kiếm người dùng dựa trên email
+            var user = await _serviceManager.UserService.GetUserByEmail(userEmail);
 
-    // Kiểm tra nếu người dùng không tồn tại
-    if (user == null)
-    {
-        _resp.Status = (int)HttpStatusCode.InternalServerError;
-        _resp.Message = "User not found.";
-        _resp.Success = false;
-        return _resp;
-    }
+            // Kiểm tra nếu người dùng không tồn tại
+            if (user == null)
+            {
+                _resp.Status = (int)HttpStatusCode.InternalServerError;
+                _resp.Message = "User not found.";
+                _resp.Success = false;
+                return _resp;
+            }
 
-    // Lấy danh sách các roles của người dùng
-    var roles = await _userManager.GetRolesAsync(user);
+            // Lấy danh sách các roles của người dùng
+            var roles = await _userManager.GetRolesAsync(user);
 
-    // Kiểm tra và xử lý nếu bất kỳ thuộc tính nào của user có thể là null
-    _resp.Status = (int)HttpStatusCode.OK;
-    _resp.Message = "MONCATI";
-    _resp.Success = true;
-    _resp.Data = new MeResponse()
-    {
-        UserId = user.Id,
-        Email = user.Email,
-        Username = user.UserName,
-        Avatar = user.Avatar ?? string.Empty,  // Kiểm tra null cho Avatar
-        FullName = user.FullName ?? string.Empty,  // Kiểm tra null cho FullName
-        Role = roles.FirstOrDefault() ?? "No Role",  // Đảm bảo role không bị null
-       
-        PhoneNumber = user.PhoneNumber ?? string.Empty  // Kiểm tra null cho PhoneNumber
-    };
+            // Kiểm tra và xử lý nếu bất kỳ thuộc tính nào của user có thể là null
+            _resp.Status = (int)HttpStatusCode.OK;
+            _resp.Message = "MONCATI";
+            _resp.Success = true;
+            _resp.Data = new MeResponse()
+            {
+                UserId = user.Id,
+                Email = user.Email,
+                Avatar = user.Avatar ?? string.Empty,  // Kiểm tra null cho Avatar
+                FullName = user.FullName ?? string.Empty,  // Kiểm tra null cho FullName
+                Role = roles.FirstOrDefault() ?? "No Role",  // Đảm bảo role không bị null
 
-    return _resp;
-}
+                PhoneNumber = user.PhoneNumber ?? string.Empty  // Kiểm tra null cho PhoneNumber
+            };
+
+            return _resp;
+        }
 
         private bool IsEmail(string input)
         {
@@ -226,5 +223,5 @@ public async Task<ActionResult<ResultModel>> GetInformationOfUser()
         }
     }
 
-    
+
 }
