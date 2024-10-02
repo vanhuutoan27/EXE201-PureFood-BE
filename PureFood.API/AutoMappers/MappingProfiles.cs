@@ -11,14 +11,14 @@ namespace PureFood.API.AutoMappers
 {
     public class MappingProfiles : Profile
     {
-        public MappingProfiles()
+      public MappingProfiles()
         {
             CreateMap<Product, CreateProductRequest>().ReverseMap();
             CreateMap<Product, ProductRespone>()
-        .ForMember(dest => dest.SupplierName, opt => opt.MapFrom(src => src.Supplier.SupplierName)) 
-        .ForMember( dest => dest.CategoryName, ost => ost.MapFrom(src => src.Category.CategoryName))
-       .ForMember(dest => dest.Images, opt => opt.MapFrom(src => 
-        src.Images.Select(img => new ImageResponse { Url = img.Url }).ToList()));
+        .ForMember(dest => dest.SupplierName, opt => opt.MapFrom(src => src.Supplier.SupplierName))
+        .ForMember(dest => dest.CategoryName, ost => ost.MapFrom(src => src.Category.CategoryName))
+       .ForMember(dest => dest.Images, opt => opt.MapFrom(src =>
+        src.Images.Select(img => img.Url).ToList()));
             CreateMap<Cart, CreateCartRequest>().ReverseMap();
             CreateMap<CartItem, CreateCartItemsRequest>().ReverseMap();
             CreateMap<Category, CreateCategoryRequest>().ReverseMap();
@@ -35,5 +35,4 @@ namespace PureFood.API.AutoMappers
                         .ForMember(dest => dest.Dob, opt => opt.MapFrom(src => src.Dob))
                         .ForMember(dest => dest.Gender, opt => opt.MapFrom(src => src.Gender)).ReverseMap();
         }
-    }
-}
+}}

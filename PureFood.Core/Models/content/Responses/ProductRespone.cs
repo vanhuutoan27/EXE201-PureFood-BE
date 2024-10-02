@@ -25,7 +25,7 @@ namespace PureFood.Core.Models.content.Responses
         public string Unit { get; set; }
         public string Origin { get; set; }
         public bool Organic { get; set; }
-        public ICollection<ImageResponse> Images { get; set; }
+        public List<string> Images { get; set; }
         public bool Status { get; set; }
         public DateTime EntryDate { get; set; }
         public DateTime ExpiryDate { get; set; }

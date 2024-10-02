@@ -125,25 +125,61 @@ namespace PureFood.Data.Repositories
             };
         }
 
-        public async  Task<IEnumerable<Product>> GetProductByCategoryName(string categoryName)
+        public async Task<PageResult<Product>> GetProductByCategoryName(int page, int limit,string categoryName)
         {
-            return await _context.Products.Where(c => c.Category.CategoryName == categoryName).ToListAsync();
+
+                IQueryable<Product> query =  _context.Products.Include(c => c.Category).Include(s => s.Supplier).Include(p => p.Images).Where(c => c.Category.CategoryName == categoryName);
+
+            int totalItems = await query.CountAsync();
+            if (page > 0 && limit > 0)
+            {
+                query = query.Skip((page - 1) * limit).Take(limit);
+            }
+
+            // Execute the query and get the products
+            var products = await query.ToListAsync();
+
+            return new PageResult<Product>
+            {
+                Items = products,
+                TotalItems = totalItems,
+                TotalPages = (int)Math.Ceiling(totalItems / (double)limit), // Calculate total pages
+                CurrentPage = page // Set current page
+            };
         }
 
         public async Task<Product> GetProductbyId(Guid id)
         {
-            return await _context.Products.Include(p => p.Images).Include(p => p.Category).Include(p => p.Supplier).FirstOrDefaultAsync(p => p.ProductId ==id);
+            return await _context.Products.Include(p => p.Images).Include(p => p.Category).Include(p => p.Supplier).FirstOrDefaultAsync(p => p.ProductId == id);
         }
 
         public async Task<Product> GetProductBySlug(string slug)
         {
-            return await _context.Products.Include(p => p.Images).Include(p => p.Category).Include(p => p.Supplier).FirstOrDefaultAsync(p => p.Slug ==slug);
+            return await _context.Products.Include(p => p.Images).Include(p => p.Category).Include(p => p.Supplier).FirstOrDefaultAsync(p => p.Slug == slug);
 
         }
 
-        public async Task<IEnumerable<Product>> GetProductBySupplierName(string supplierName)
+        public async Task<PageResult<Product>> GetProductBySupplierName(int page, int limit,string supplierName)
         {
-            return await _context.Products.Where(s => s.Supplier.SupplierName == supplierName).ToListAsync();
+            // return await _context.Products.Where(s => s.Supplier.SupplierName == supplierName).ToListAsync();
+            IQueryable<Product> query = _context.Products.Include(c => c.Category).Include(s => s.Supplier).Include(p => p.Images).Where(s => s.Supplier.SupplierName == supplierName);
+
+            int totalItems = await query.CountAsync();
+            if (page > 0 && limit > 0)
+            {
+                query = query.Skip((page - 1) * limit).Take(limit);
+            }
+
+            // Execute the query and get the products
+            var products = await query.ToListAsync();
+
+            return new PageResult<Product>
+            {
+                Items = products,
+                TotalItems = totalItems,
+                TotalPages = (int)Math.Ceiling(totalItems / (double)limit), // Calculate total pages
+                CurrentPage = page // Set current page
+            };
         }
 
         public async Task<int> GetTotalProductCountAsync(string? searchName, string? categoryName)
