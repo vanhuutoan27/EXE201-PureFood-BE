@@ -42,7 +42,12 @@ namespace PureFood.Data
             builder.ApplyConfiguration(new CategoryConfiguration());
             builder.ApplyConfiguration(new SupplierConfiguration());
             builder.ApplyConfiguration(new ProductConfiguration());
+            builder.ApplyConfiguration(new ImageConfigurration());
             builder.ApplyConfiguration(new RoleConfiguration());
+        }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.EnableSensitiveDataLogging();
         }
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {

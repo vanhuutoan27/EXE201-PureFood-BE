@@ -130,7 +130,7 @@ namespace PureFood.Data.Configurations
                 },
                 new Image
                 {
-                    ImageId = Guid.Parse("9a6b98af-6603-4ad6-ae62-b82389c5d8bd"),
+                    ImageId = Guid.Parse("4c1a249c-a716-4ba3-9647-167c0a2e2d13"),
                     ProductId = Guid.Parse("d3fd8b9e-ff11-4c14-a453-edfd58f05135"),
                     Url = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/PureFood%2FProductEx%2F5.4.jpg?alt=media&token=36b36199-cec7-4421-bb43-1be5d9f90560"
                 },
