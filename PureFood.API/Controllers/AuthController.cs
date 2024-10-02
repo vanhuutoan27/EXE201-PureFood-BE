@@ -209,7 +209,7 @@ namespace PureFood.API.Controllers
                 Avatar = user.Avatar ?? string.Empty,  // Kiểm tra null cho Avatar
                 FullName = user.FullName ?? string.Empty,  // Kiểm tra null cho FullName
                 Role = roles.FirstOrDefault() ?? "No Role",  // Đảm bảo role không bị null
-
+                Supplier = user.Supplier, 
                 PhoneNumber = user.PhoneNumber ?? string.Empty  // Kiểm tra null cho PhoneNumber
             };
 
