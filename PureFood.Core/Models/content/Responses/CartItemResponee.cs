@@ -12,17 +12,16 @@ namespace PureFood.Core.Models.content.Responses
         public Guid CartItemId { get; set; }
         [JsonPropertyName("product")]
         public Guid ProductId { get; set; }
-        public string? Category { get; set; } //new
+        public string? Category { get; set; }
         public int Quantity { get; set; }
         public string? ProductName { get; set; }
-        public string? Slug { get; set; } //new
+        public string? Slug { get; set; }
         public decimal Price { get; set; }
         public double Weight { get; set; }
         public string? Unit { get; set; }
         public string? Origin { get; set; }
         public bool? Organic { get; set; }
-        public List<string> Images { get; set; }//new
+        public List<string> Images { get; set; }
         public bool? Status { get; set; }
-
     }
 }

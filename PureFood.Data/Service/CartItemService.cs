@@ -29,7 +29,7 @@ namespace PureFood.Data.Service
             await _repositoryManager.SaveAsync();
             return true;
         }
-        public async Task<PageResult<CartItemResponee>> GetAllCartItemByUser(int page, int limit, Guid UserId)
+        public async Task<PageResult<CartItemResponee>> GetAllCartItemByUser(Guid UserId, int page, int limit)
         {
             // Retrieve paginated cart items from the repository
             var paginatedCar = await _repositoryManager.CartItemRepository.GetAllCartItemByUserAsync(page, limit, UserId);

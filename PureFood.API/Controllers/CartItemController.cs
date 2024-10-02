@@ -31,7 +31,7 @@ namespace PureFood.API.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "CartItem not found."
+                    Message = "Cart item not found."
                 };
                 return _resultModel;
             }
@@ -40,11 +40,11 @@ namespace PureFood.API.Controllers
             {
                 Success = true,
                 Status = (int)HttpStatusCode.NoContent,
-                Message = "CartItem deleted successfully.",
+                Message = "Cart item deleted successfully.",
             };
         }
         [HttpPatch("{cartItemId}")]
-        public async Task<ActionResult<ResultModel>> UpdateCartItem( Guid cartItemId , int quantity)
+        public async Task<ActionResult<ResultModel>> UpdateCartItem(Guid cartItemId, int quantity)
         {
             if (cartItemId == Guid.Empty)
             {
@@ -52,12 +52,12 @@ namespace PureFood.API.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Cart Item not found."
+                    Message = "Cart item not found."
                 };
                 return NotFound(_resultModel);
             }
 
-            var result = await _serviceManager.CartItemService.UpdateCartItem(cartItemId , quantity);
+            var result = await _serviceManager.CartItemService.UpdateCartItem(cartItemId, quantity);
 
             if (!result)
             {
@@ -65,7 +65,7 @@ namespace PureFood.API.Controllers
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.InternalServerError,
-                    Message = "Failed to Up Cart Item."
+                    Message = "Failed to add cart item."
                 };
                 return StatusCode((int)HttpStatusCode.InternalServerError, _resultModel);
             }
@@ -74,32 +74,32 @@ namespace PureFood.API.Controllers
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Update Cart Item successfully.",
+                Message = "Update cart item successfully.",
                 Data = result
             };
 
             return Ok(_resultModel);
         }
-        
+
         [HttpGet]
         [Route("{userId:guid}")]
-        public async Task<ActionResult<ResultModel>> GetCartbyUserId(int page = 1, int limit = 10 ,Guid userId = default)
+        public async Task<ActionResult<ResultModel>> GetCartbyUserId(Guid userId = default, int page = 1, int limit = 10)
         {
-            var query = await _serviceManager.CartItemService.GetAllCartItemByUser(page , limit ,userId);
+            var query = await _serviceManager.CartItemService.GetAllCartItemByUser(userId, page, limit);
             if (query == null)
             {
                 return NotFound(_resultModel = new ResultModel
                 {
                     Success = false,
                     Status = (int)HttpStatusCode.NotFound,
-                    Message = "Cart Item not found."
+                    Message = "Cart item not found."
                 });
             }
             return Ok(_resultModel = new ResultModel
             {
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
-                Message = "Cart Item retrieved successfully.",
+                Message = "Cart ttem retrieved successfully.",
                 Data = query
             });
         }

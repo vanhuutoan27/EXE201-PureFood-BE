@@ -106,8 +106,8 @@ namespace PureFood.API.Controllers
                 Message = "Product retrieved successfully."
             });
         }
-        [HttpGet("suppliers/{supplierName}")]
-        public async Task<IActionResult> GetProductBySupplier( string supplierName,int page =1,int limit = 10)
+        [HttpGet("supplier/{supplierName}")]
+        public async Task<IActionResult> GetProductBySupplier(string supplierName)
         {
             // kiem tra supplier
 
