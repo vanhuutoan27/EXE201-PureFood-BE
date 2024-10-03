@@ -3,6 +3,8 @@ using PureFood.Core.Domain.Content;
 using PureFood.Core.Domain.Identity;
 using PureFood.Core.Models.content.Requests;
 using PureFood.Core.Models.content.Responses;
+using PureFood.Core.Domain.Identity;
+using Microsoft.OpenApi.Any;
 using PureFood.Core.Models.Requests;
 
 namespace PureFood.API.AutoMappers
