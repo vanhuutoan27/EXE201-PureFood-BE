@@ -12,8 +12,8 @@ using PureFood.Data;
 namespace PureFood.Data.Migrations
 {
     [DbContext(typeof(PureFoodDbContext))]
-    [Migration("20241002142041_AddSeedDataForImage")]
-    partial class AddSeedDataForImage
+    [Migration("20241003071930_InitialDB")]
+    partial class InitialDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -696,6 +696,216 @@ namespace PureFood.Data.Migrations
                             ImageId = new Guid("fd927a8e-a6f5-4d22-b593-e9aec49d6fd7"),
                             ProductId = new Guid("b39c0722-44aa-49e5-8ff9-b9ad9a9594fc"),
                             Url = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/PureFood%2FProductEx%2F20.4.jpg?alt=media&token=0fb153d2-b1b5-4ae7-a823-f802cd9bc952"
+                        },
+                        new
+                        {
+                            ImageId = new Guid("c967abff-64b4-4f94-8c17-e77030c079ef"),
+                            ProductId = new Guid("557ff79b-b169-409f-aada-9c921c0a69d2"),
+                            Url = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/PureFood%2FProductEx%2F21.1.jpg?alt=media&token=34a71077-247f-4055-b904-e83ff313149b"
+                        },
+                        new
+                        {
+                            ImageId = new Guid("a4c1308e-4825-429b-8a92-b39872aeb632"),
+                            ProductId = new Guid("557ff79b-b169-409f-aada-9c921c0a69d2"),
+                            Url = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/PureFood%2FProductEx%2F21.2.jpg?alt=media&token=1c808bf8-28b8-45cb-bbcc-9e76e190d756"
+                        },
+                        new
+                        {
+                            ImageId = new Guid("5cbbc62b-f328-4789-8c4b-bcac23488f9a"),
+                            ProductId = new Guid("557ff79b-b169-409f-aada-9c921c0a69d2"),
+                            Url = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/PureFood%2FProductEx%2F21.3.jpg?alt=media&token=5064bef3-b49e-4e6b-b7cc-fdc0f0b9d2c0"
+                        },
+                        new
+                        {
+                            ImageId = new Guid("c86a9368-330f-45e0-b8c1-ce6fc0bd69a5"),
+                            ProductId = new Guid("557ff79b-b169-409f-aada-9c921c0a69d2"),
+                            Url = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/PureFood%2FProductEx%2F21.4.jpg?alt=media&token=715716b8-f6e2-43ad-a99d-dcd4af118f65"
+                        },
+                        new
+                        {
+                            ImageId = new Guid("804570c3-50c4-49f4-8ea4-942e5e2a2e4c"),
+                            ProductId = new Guid("ca15b94b-bebb-4d86-bcbd-29993bf68183"),
+                            Url = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/PureFood%2FProductEx%2F22.1.jpg?alt=media&token=30359a88-5ef4-421a-b325-882162b89d55"
+                        },
+                        new
+                        {
+                            ImageId = new Guid("2d0634bd-8b5c-4e60-88dc-a2136994ada6"),
+                            ProductId = new Guid("ca15b94b-bebb-4d86-bcbd-29993bf68183"),
+                            Url = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/PureFood%2FProductEx%2F22.2.jpg?alt=media&token=8c77d9ef-ceae-4d97-a280-8b9cf664f667"
+                        },
+                        new
+                        {
+                            ImageId = new Guid("26fcf3ed-6285-4844-88d1-905b5697dc29"),
+                            ProductId = new Guid("ca15b94b-bebb-4d86-bcbd-29993bf68183"),
+                            Url = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/PureFood%2FProductEx%2F22.3.jpg?alt=media&token=a1bd9ef9-fa13-459c-a702-6b621c6ef679"
+                        },
+                        new
+                        {
+                            ImageId = new Guid("d2d09122-d518-4a57-9dbe-f34c5486f54e"),
+                            ProductId = new Guid("a9249592-6bb8-4996-ad0b-0f3cd3c0b335"),
+                            Url = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/PureFood%2FProductEx%2F23.1.jpg?alt=media&token=89866b0d-5eec-4f5a-8c9b-9eaa2459926b"
+                        },
+                        new
+                        {
+                            ImageId = new Guid("ef6eac44-2380-4ff0-aa3c-22388b440b2e"),
+                            ProductId = new Guid("a9249592-6bb8-4996-ad0b-0f3cd3c0b335"),
+                            Url = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/PureFood%2FProductEx%2F23.2.jpg?alt=media&token=f79a61d0-2bdb-4b50-a006-044fe1478ec9"
+                        },
+                        new
+                        {
+                            ImageId = new Guid("ba1c8207-42ac-41c3-a4b8-c5cf7e1e0b84"),
+                            ProductId = new Guid("a9249592-6bb8-4996-ad0b-0f3cd3c0b335"),
+                            Url = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/PureFood%2FProductEx%2F23.3.jpg?alt=media&token=0eea1393-015c-4899-85c7-229a48b5c95c"
+                        },
+                        new
+                        {
+                            ImageId = new Guid("20e00706-46c4-4377-ada6-63e4da568ba1"),
+                            ProductId = new Guid("a9249592-6bb8-4996-ad0b-0f3cd3c0b335"),
+                            Url = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/PureFood%2FProductEx%2F23.4.jpg?alt=media&token=57094db9-01f0-41ab-9b32-f528a469fe59"
+                        },
+                        new
+                        {
+                            ImageId = new Guid("18e60ffc-12b9-4dc1-8b59-4512b6d5767e"),
+                            ProductId = new Guid("5c70e6fd-c1bd-48f3-b9d8-0b4c2907916c"),
+                            Url = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/PureFood%2FProductEx%2F24.1.jpg?alt=media&token=0b13c635-589d-4d9d-bc42-30a7d542666e"
+                        },
+                        new
+                        {
+                            ImageId = new Guid("20e53d51-ee14-4c74-8ce6-55bf97de4d4b"),
+                            ProductId = new Guid("5c70e6fd-c1bd-48f3-b9d8-0b4c2907916c"),
+                            Url = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/PureFood%2FProductEx%2F24.2.jpg?alt=media&token=ae894c3f-27a4-46ca-a926-383d2a60e06e"
+                        },
+                        new
+                        {
+                            ImageId = new Guid("37f28f35-fc0b-4501-890d-06419d282d21"),
+                            ProductId = new Guid("5c70e6fd-c1bd-48f3-b9d8-0b4c2907916c"),
+                            Url = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/PureFood%2FProductEx%2F24.3.jpg?alt=media&token=29836c7e-983f-4d60-ab37-562d09fe7c81"
+                        },
+                        new
+                        {
+                            ImageId = new Guid("9b1cbb0b-d8b3-4d81-ab32-d877eac08181"),
+                            ProductId = new Guid("6287df0b-b4ff-49e1-9b50-25cbc88a93a2"),
+                            Url = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/PureFood%2FProductEx%2F25.1.jpg?alt=media&token=9e2cffd4-db3e-4fe8-b41e-86d8adef2851"
+                        },
+                        new
+                        {
+                            ImageId = new Guid("8c2ca84e-490d-4275-b4f7-a6b3648d90b4"),
+                            ProductId = new Guid("6287df0b-b4ff-49e1-9b50-25cbc88a93a2"),
+                            Url = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/PureFood%2FProductEx%2F25.2.jpg?alt=media&token=3304d126-2853-4e16-9bb4-34ed6caeb36b"
+                        },
+                        new
+                        {
+                            ImageId = new Guid("7a68e2f2-6e50-4cf4-b5a5-e9d57a64c090"),
+                            ProductId = new Guid("6287df0b-b4ff-49e1-9b50-25cbc88a93a2"),
+                            Url = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/PureFood%2FProductEx%2F25.3.jpg?alt=media&token=ca1d9049-39df-4d89-8cc9-2eff45d87792"
+                        },
+                        new
+                        {
+                            ImageId = new Guid("8f2ee0a0-9020-4d31-9023-6a989d4a6c27"),
+                            ProductId = new Guid("88d089ad-0259-4b91-aba6-be6cf69a3117"),
+                            Url = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/PureFood%2FProductEx%2F26.1.jpg?alt=media&token=bb335379-6993-423e-8705-b454bc238c36"
+                        },
+                        new
+                        {
+                            ImageId = new Guid("2680dadb-277e-49d1-8476-9bb9b57639b2"),
+                            ProductId = new Guid("88d089ad-0259-4b91-aba6-be6cf69a3117"),
+                            Url = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/PureFood%2FProductEx%2F26.2.jpg?alt=media&token=4a91fffc-d70b-4c73-9df0-fe6b82dc1a97"
+                        },
+                        new
+                        {
+                            ImageId = new Guid("8343259c-e9e4-487d-b99e-d87ffc722876"),
+                            ProductId = new Guid("88d089ad-0259-4b91-aba6-be6cf69a3117"),
+                            Url = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/PureFood%2FProductEx%2F26.3.jpg?alt=media&token=a689a7fb-a271-42fa-a98f-532fbca1c71b"
+                        },
+                        new
+                        {
+                            ImageId = new Guid("e8c72f17-ee56-4417-adbd-c03780914cf3"),
+                            ProductId = new Guid("ec4b9041-b1f3-4852-82f5-ca357250ab3b"),
+                            Url = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/PureFood%2FProductEx%2F27.1.jpg?alt=media&token=d954ccd7-d969-463f-a80a-4da254da10ec"
+                        },
+                        new
+                        {
+                            ImageId = new Guid("7c3a7376-0d8a-42d8-86ba-00f3fea43b77"),
+                            ProductId = new Guid("ec4b9041-b1f3-4852-82f5-ca357250ab3b"),
+                            Url = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/PureFood%2FProductEx%2F27.3.jpg?alt=media&token=3f7ebe66-c153-4b50-bc7d-405100655377"
+                        },
+                        new
+                        {
+                            ImageId = new Guid("4be2e1cb-8502-4cd9-92f2-50fce7150af9"),
+                            ProductId = new Guid("ec4b9041-b1f3-4852-82f5-ca357250ab3b"),
+                            Url = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/PureFood%2FProductEx%2F27.5.jpg?alt=media&token=d547bde3-c871-4788-a63a-3d25c1b44b2f"
+                        },
+                        new
+                        {
+                            ImageId = new Guid("5b12c8f3-3a8e-436c-9c03-a6bdfa7d9e26"),
+                            ProductId = new Guid("ec4b9041-b1f3-4852-82f5-ca357250ab3b"),
+                            Url = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/PureFood%2FProductEx%2F27.6.jpg?alt=media&token=244e0070-c373-4833-a87c-25d11cb513a1"
+                        },
+                        new
+                        {
+                            ImageId = new Guid("35ea08b1-191b-4fb6-b6e1-8acf76f5785d"),
+                            ProductId = new Guid("e4ebe279-a787-406a-bab5-7ae8f99748e4"),
+                            Url = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/PureFood%2FProductEx%2F28.1.jpg?alt=media&token=3eb98a98-2398-4d0b-93a3-89b67bdd2e84"
+                        },
+                        new
+                        {
+                            ImageId = new Guid("faefcbb4-37d7-4175-ba5e-610b09283a2c"),
+                            ProductId = new Guid("e4ebe279-a787-406a-bab5-7ae8f99748e4"),
+                            Url = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/PureFood%2FProductEx%2F28.2.jpg?alt=media&token=89c90c2d-8d09-417f-9391-dad2c97b25ee"
+                        },
+                        new
+                        {
+                            ImageId = new Guid("57e82ced-a474-4685-9cfb-ad4dad660e3b"),
+                            ProductId = new Guid("e4ebe279-a787-406a-bab5-7ae8f99748e4"),
+                            Url = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/PureFood%2FProductEx%2F28.3.jpg?alt=media&token=66352262-c0aa-4b17-b4b2-e018a2c6aa34"
+                        },
+                        new
+                        {
+                            ImageId = new Guid("78451019-0a26-4c82-a556-8ebdab944d35"),
+                            ProductId = new Guid("e4ebe279-a787-406a-bab5-7ae8f99748e4"),
+                            Url = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/PureFood%2FProductEx%2F28.4.jpg?alt=media&token=6eb34cbd-e2da-445e-9f49-24a06fca8432"
+                        },
+                        new
+                        {
+                            ImageId = new Guid("8fe30c3d-845e-4ff3-b31d-2d58438c9f48"),
+                            ProductId = new Guid("fc8f443e-8f0e-46bf-8061-0a14074c8313"),
+                            Url = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/PureFood%2FProductEx%2F29.2.jpg?alt=media&token=63890240-9346-48a8-a9be-94a51eaa0d99"
+                        },
+                        new
+                        {
+                            ImageId = new Guid("9104c42b-bf99-4135-a8f6-631038505d77"),
+                            ProductId = new Guid("fc8f443e-8f0e-46bf-8061-0a14074c8313"),
+                            Url = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/PureFood%2FProductEx%2F29.3.jpg?alt=media&token=f29aab3f-c366-4aba-bd48-01ed611fad13"
+                        },
+                        new
+                        {
+                            ImageId = new Guid("87274e3d-fe6a-43a9-abb2-e6ab21e2a619"),
+                            ProductId = new Guid("fc8f443e-8f0e-46bf-8061-0a14074c8313"),
+                            Url = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/PureFood%2FProductEx%2F29.4.jpg?alt=media&token=de9a1f46-7c46-47e0-aa5f-33e10b2c8314"
+                        },
+                        new
+                        {
+                            ImageId = new Guid("7ac6747c-4efd-41fb-88fe-f123808aa245"),
+                            ProductId = new Guid("4e31b4e9-0eab-4bbe-b11b-ca52b02b60d5"),
+                            Url = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/PureFood%2FProductEx%2F30.1.jpg?alt=media&token=824933bd-8ef6-4449-9eca-5e7427231c1b"
+                        },
+                        new
+                        {
+                            ImageId = new Guid("fcdf373d-62f8-4bc2-a6cb-fb57e984ce1b"),
+                            ProductId = new Guid("4e31b4e9-0eab-4bbe-b11b-ca52b02b60d5"),
+                            Url = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/PureFood%2FProductEx%2F30.2.jpg?alt=media&token=9c7bc3be-28d5-4219-9b04-756058aafc25"
+                        },
+                        new
+                        {
+                            ImageId = new Guid("021754a2-9862-48bd-88eb-55ae9574f6b5"),
+                            ProductId = new Guid("4e31b4e9-0eab-4bbe-b11b-ca52b02b60d5"),
+                            Url = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/PureFood%2FProductEx%2F30.3.jpg?alt=media&token=c17f2e96-bc02-4cb0-84e2-8a005f35df14"
+                        },
+                        new
+                        {
+                            ImageId = new Guid("8178c865-b35f-42a1-97e2-dbe31e72d5f2"),
+                            ProductId = new Guid("4e31b4e9-0eab-4bbe-b11b-ca52b02b60d5"),
+                            Url = "https://firebasestorage.googleapis.com/v0/b/diamoondb-1412.appspot.com/o/PureFood%2FProductEx%2F30.4.jpg?alt=media&token=a2489348-e804-4c69-a530-42b4a78646dc"
                         });
                 });
 
@@ -740,12 +950,12 @@ namespace PureFood.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
-
                     b.Property<string>("Province")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("TotalAmount")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
@@ -1178,7 +1388,7 @@ namespace PureFood.Data.Migrations
                         new
                         {
                             ProductId = new Guid("fc727800-963c-4305-93a0-3b27dfb1d734"),
-                            CategoryId = new Guid("2d482271-9605-4d43-9ca8-d479d6ef9687"),
+                            CategoryId = new Guid("6b5f6458-3791-4303-8ee7-e20707e4cf3e"),
                             CreatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "<p>Bơ Booth tươi ngon, giàu dinh dưỡng, chứa nhiều chất béo lành mạnh.</p><br><ul><br>  <li>Giàu chất béo không bão hòa, tốt cho tim mạch</li><br>  <li>Chứa nhiều vitamin E và chất xơ</li><br>  <li>Không hóa chất bảo quản</li><br>  <li>Thích hợp làm sinh tố, salad và ăn trực tiếp</li><br>  <li>Trồng tại các nông trại hữu cơ</li><br></ul>",
                             EntryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -1220,12 +1430,12 @@ namespace PureFood.Data.Migrations
                         new
                         {
                             ProductId = new Guid("576aa3a9-49ff-486c-8efc-a0548ee90ee7"),
-                            CategoryId = new Guid("2d482271-9605-4d43-9ca8-d479d6ef9687"),
+                            CategoryId = new Guid("6b5f6458-3791-4303-8ee7-e20707e4cf3e"),
                             CreatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "<p>Dưa hấu ngọt mát, tươi ngon, sản phẩm sạch từ nông trại.</p><br><ul><br>  <li>Giàu nước, giúp giải khát hiệu quả</li><br>  <li>Chứa nhiều vitamin A và C</li><br> <li>Không hóa chất bảo quản</li><br>  <li>Thích hợp ăn trực tiếp và làm nước ép</li>\r\n  <li>Trồng tại các nông trại hữu cơ</li><br></ul>",
                             EntryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ExpiryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FoodName = "Melon",
+                            FoodName = "Watermelon",
                             Organic = true,
                             Origin = "Tỉnh Long An",
                             Price = 35400m,
@@ -1241,7 +1451,7 @@ namespace PureFood.Data.Migrations
                         new
                         {
                             ProductId = new Guid("a69cd06b-8762-49cc-9228-1fc88956fb3c"),
-                            CategoryId = new Guid("2d482271-9605-4d43-9ca8-d479d6ef9687"),
+                            CategoryId = new Guid("6b5f6458-3791-4303-8ee7-e20707e4cf3e"),
                             CreatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "<p>Dưa lưới tươi ngon, ngọt mát, giàu dinh dưỡng, sản phẩm sạch từ nông trại.</p><br><ul><br>  <li>Giàu vitamin A và C, tốt cho sức khỏe</li><br>  <li>Chứa nhiều nước, giúp giải khát</li><br>  <li>Không dùng hóa chất bảo quản</li><br>  <li>Thích hợp ăn trực tiếp và làm sinh tố</li><br>  <li>Trồng tại các nông trại xanh</li><br></ul>",
                             EntryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -1262,7 +1472,7 @@ namespace PureFood.Data.Migrations
                         new
                         {
                             ProductId = new Guid("b39c0722-44aa-49e5-8ff9-b9ad9a9594fc"),
-                            CategoryId = new Guid("2d482271-9605-4d43-9ca8-d479d6ef9687"),
+                            CategoryId = new Guid("6b5f6458-3791-4303-8ee7-e20707e4cf3e"),
                             CreatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "<p>Dưa gang tươi mát, ngọt lành, giàu vitamin và khoáng chất.</p>\r\n<ul>\r\n  <li>Giàu nước và vitamin C</li>\r\n  <li>Giúp giải nhiệt, tốt cho hệ tiêu hóa</li>\r\n  <li>Không hóa chất bảo quản</li>\r\n  <li>Thích hợp ăn trực tiếp và làm nước ép</li>\r\n  <li>Trồng tại các nông trại sạch</li>\r\n</ul>",
                             EntryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -1273,6 +1483,216 @@ namespace PureFood.Data.Migrations
                             Price = 9000m,
                             ProductName = "Dưa gang",
                             Slug = "dua-gang-1-kg-t0055v",
+                            Status = true,
+                            Stock = 100,
+                            SupplierId = new Guid("5a0b659d-884a-446a-8b77-9b84ed6e2bf2"),
+                            Unit = "Kg",
+                            UpdatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Weight = 1.0
+                        },
+                        new
+                        {
+                            ProductId = new Guid("557ff79b-b169-409f-aada-9c921c0a69d2"),
+                            CategoryId = new Guid("6b5f6458-3791-4303-8ee7-e20707e4cf3e"),
+                            CreatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "\"<p>Chuối già Nam Mỹ tươi ngon, giàu dinh dưỡng, sản phẩm nhập khẩu chất lượng cao.</p>\r\n<ul>\r\n  <li>Giàu kali, tốt cho hệ tim mạch</li>\r\n  <li>Chứa nhiều chất xơ, tốt cho hệ tiêu hóa</li>\r\n  <li>Không hóa chất bảo quản</li>\r\n  <li>Thích hợp ăn trực tiếp, làm sinh tố và bánh</li>\r\n  <li>Nhập khẩu từ các trang trại sạch tại Nam Mỹ</li>\r\n</ul>\"",
+                            EntryDate = new DateTime(2024, 11, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ExpiryDate = new DateTime(2024, 12, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodName = "Banana",
+                            Organic = true,
+                            Origin = "Tỉnh Đồng Nai",
+                            Price = 22540m,
+                            ProductName = "Chuối già Nam Mỹ",
+                            Slug = "chuoi-gia-nam-my-1-kg-2ukdtl",
+                            Status = true,
+                            Stock = 100,
+                            SupplierId = new Guid("5a0b659d-884a-446a-8b77-9b84ed6e2bf2"),
+                            Unit = "Kg",
+                            UpdatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Weight = 1.0
+                        },
+                        new
+                        {
+                            ProductId = new Guid("ca15b94b-bebb-4d86-bcbd-29993bf68183"),
+                            CategoryId = new Guid("6b5f6458-3791-4303-8ee7-e20707e4cf3e"),
+                            CreatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "\"<p>Xoài tứ quý tươi ngon, ngọt thơm, giàu vitamin và khoáng chất.</p>\r\n<ul>\r\n  <li>Giàu vitamin C và chất chống oxy hóa</li>\r\n  <li>Hương vị ngọt thơm, thịt quả vàng ươm</li>\r\n  <li>Không thuốc bảo vệ thực vật</li>\r\n  <li>Thích hợp ăn trực tiếp, làm sinh tố và salad</li>\r\n  <li>Trồng tại các nông trại hữu cơ</li>\r\n</ul>\r\n\"",
+                            EntryDate = new DateTime(2024, 11, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ExpiryDate = new DateTime(2024, 12, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodName = "Mango",
+                            Organic = true,
+                            Origin = "Tỉnh Đồng Tháp",
+                            Price = 37400m,
+                            ProductName = "Xoài tứ quý",
+                            Slug = "xoai-tu-quy-1-kg-4lsic0",
+                            Status = true,
+                            Stock = 100,
+                            SupplierId = new Guid("5a0b659d-884a-446a-8b77-9b84ed6e2bf2"),
+                            Unit = "Kg",
+                            UpdatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Weight = 1.0
+                        },
+                        new
+                        {
+                            ProductId = new Guid("a9249592-6bb8-4996-ad0b-0f3cd3c0b335"),
+                            CategoryId = new Guid("6b5f6458-3791-4303-8ee7-e20707e4cf3e"),
+                            CreatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "\"<p>Táo Gala mini tươi ngon, giòn ngọt, sản phẩm nhập khẩu chất lượng cao.</p>\r\n<ul>\r\n  <li>Giàu chất chống oxy hóa và vitamin C</li>\r\n  <li>Hương vị ngọt thơm, giòn tan</li>\r\n  <li>Không hóa chất bảo quản</li>\r\n  <li>Thích hợp ăn trực tiếp, làm salad và nước ép</li>\r\n  <li>Nhập khẩu từ các trang trại hữu cơ</li>\r\n</ul>\"",
+                            EntryDate = new DateTime(2024, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ExpiryDate = new DateTime(2024, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodName = "Apple",
+                            Organic = true,
+                            Origin = "Tỉnh Lâm Đồng",
+                            Price = 44000m,
+                            ProductName = "Táo Gala mini nhập khẩu",
+                            Slug = "tao-gala-mini-nhap-khau-1-kg-1dyi04",
+                            Status = true,
+                            Stock = 100,
+                            SupplierId = new Guid("5a0b659d-884a-446a-8b77-9b84ed6e2bf2"),
+                            Unit = "Kg",
+                            UpdatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Weight = 1.0
+                        },
+                        new
+                        {
+                            ProductId = new Guid("5c70e6fd-c1bd-48f3-b9d8-0b4c2907916c"),
+                            CategoryId = new Guid("6b5f6458-3791-4303-8ee7-e20707e4cf3e"),
+                            CreatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "\"<p>Chuối cau tươi ngon, ngọt lành, giàu dinh dưỡng, sản phẩm sạch từ nông trại.</p>\r\n<ul>\r\n  <li>Giàu kali và chất xơ, tốt cho hệ tiêu hóa</li>\r\n  <li>Chứa nhiều vitamin C và B6</li>\r\n  <li>Không hóa chất bảo quản</li>\r\n  <li>Thích hợp ăn trực tiếp, làm sinh tố và món tráng miệng</li>\r\n  <li>Trồng tại các nông trại hữu cơ</li>\r\n</ul>\r\n\"",
+                            EntryDate = new DateTime(2024, 11, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ExpiryDate = new DateTime(2024, 12, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodName = "Banana",
+                            Organic = true,
+                            Origin = "Tỉnh Đồng Nai",
+                            Price = 24600m,
+                            ProductName = "Chuối cau",
+                            Slug = "chuoi-cau-1-kg-oa64o3",
+                            Status = true,
+                            Stock = 100,
+                            SupplierId = new Guid("5a0b659d-884a-446a-8b77-9b84ed6e2bf2"),
+                            Unit = "Kg",
+                            UpdatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Weight = 1.0
+                        },
+                        new
+                        {
+                            ProductId = new Guid("6287df0b-b4ff-49e1-9b50-25cbc88a93a2"),
+                            CategoryId = new Guid("6b5f6458-3791-4303-8ee7-e20707e4cf3e"),
+                            CreatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "\"<p>Dừa xiêm tươi mát, ngọt lành, giàu nước và khoáng chất, sản phẩm sạch từ nông trại.</p>\r\n<ul>\r\n  <li>Giàu nước và điện giải, giúp giải nhiệt</li>\r\n  <li>Chứa nhiều khoáng chất có lợi cho sức khỏe</li>\r\n  <li>Không hóa chất bảo quản</li>\r\n  <li>Thích hợp uống trực tiếp, làm nước giải khát</li>\r\n  <li>Trồng tại các nông trại hữu cơ</li>\r\n</ul>\r\n\"",
+                            EntryDate = new DateTime(2024, 11, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ExpiryDate = new DateTime(2024, 12, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodName = "Coconut",
+                            Organic = true,
+                            Origin = "Tỉnh Bến Tre",
+                            Price = 32000m,
+                            ProductName = "Dừa xiêm",
+                            Slug = "dua-xiem-1-kg-m5hs6q",
+                            Status = true,
+                            Stock = 100,
+                            SupplierId = new Guid("5a0b659d-884a-446a-8b77-9b84ed6e2bf2"),
+                            Unit = "Kg",
+                            UpdatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Weight = 1.0
+                        },
+                        new
+                        {
+                            ProductId = new Guid("88d089ad-0259-4b91-aba6-be6cf69a3117"),
+                            CategoryId = new Guid("6b5f6458-3791-4303-8ee7-e20707e4cf3e"),
+                            CreatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "\"<p>Lựu ngọt tươi ngon, giàu dinh dưỡng, sản phẩm sạch từ nông trại.</p>\r\n<ul>\r\n  <li>Giàu vitamin C và chất chống oxy hóa</li>\r\n  <li>Tốt cho sức khỏe tim mạch và hệ miễn dịch</li>\r\n  <li>Không thuốc bảo vệ thực vật</li>\r\n  <li>Thích hợp ăn trực tiếp, làm nước ép và salad</li>\r\n  <li>Trồng tại các nông trại hữu cơ</li>\r\n</ul>\r\n\"",
+                            EntryDate = new DateTime(2024, 11, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ExpiryDate = new DateTime(2024, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodName = "Pomegranate",
+                            Organic = true,
+                            Origin = "Tỉnh Tiền Giang",
+                            Price = 53000m,
+                            ProductName = "Lựu ngọt",
+                            Slug = "luu-ngot-1-kg-ft8zwd",
+                            Status = true,
+                            Stock = 100,
+                            SupplierId = new Guid("5a0b659d-884a-446a-8b77-9b84ed6e2bf2"),
+                            Unit = "Kg",
+                            UpdatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Weight = 1.0
+                        },
+                        new
+                        {
+                            ProductId = new Guid("ec4b9041-b1f3-4852-82f5-ca357250ab3b"),
+                            CategoryId = new Guid("6b5f6458-3791-4303-8ee7-e20707e4cf3e"),
+                            CreatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "\"<p>Kiwi xanh tươi ngon, giàu vitamin và chất xơ, sản phẩm nhập khẩu chất lượng cao.</p>\r\n<ul>\r\n  <li>Giàu vitamin C và chất xơ, tốt cho hệ miễn dịch</li>\r\n  <li>Chứa nhiều chất chống oxy hóa</li>\r\n  <li>Không hóa chất bảo quản</li>\r\n  <li>Thích hợp ăn trực tiếp, làm salad và sinh tố</li>\r\n  <li>Nhập khẩu từ các trang trại hữu cơ</li>\r\n</ul>\r\n\"",
+                            EntryDate = new DateTime(2024, 11, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ExpiryDate = new DateTime(2024, 12, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodName = "Green kiwi",
+                            Organic = true,
+                            Origin = "Tỉnh Lâm Đồng",
+                            Price = 39000m,
+                            ProductName = "Kiwi xanh",
+                            Slug = "kiwi-xanh-250-gr-6kodf3",
+                            Status = true,
+                            Stock = 100,
+                            SupplierId = new Guid("5a0b659d-884a-446a-8b77-9b84ed6e2bf2"),
+                            Unit = "Gr",
+                            UpdatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Weight = 250.0
+                        },
+                        new
+                        {
+                            ProductId = new Guid("e4ebe279-a787-406a-bab5-7ae8f99748e4"),
+                            CategoryId = new Guid("6b5f6458-3791-4303-8ee7-e20707e4cf3e"),
+                            CreatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "\"<p>Cam sành tươi ngon, mọng nước, giàu vitamin C, sản phẩm sạch từ nông trại.</p>\r\n<ul>\r\n  <li>Giàu vitamin C, tốt cho sức khỏe tổng thể</li>\r\n  <li>Hương vị ngọt mát, nhiều nước</li>\r\n  <li>Không thuốc bảo vệ thực vật</li>\r\n  <li>Thích hợp ăn trực tiếp và làm nước ép</li>\r\n  <li>Trồng tại các nông trại hữu cơ</li>\r\n</ul>\r\n\"",
+                            EntryDate = new DateTime(2024, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ExpiryDate = new DateTime(2024, 12, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodName = "Orange",
+                            Organic = true,
+                            Origin = "Tỉnh Vĩnh Long",
+                            Price = 17900m,
+                            ProductName = "Cam sành",
+                            Slug = "cam-sanh-1-kg-3tqshu",
+                            Status = true,
+                            Stock = 100,
+                            SupplierId = new Guid("5a0b659d-884a-446a-8b77-9b84ed6e2bf2"),
+                            Unit = "Kg",
+                            UpdatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Weight = 1.0
+                        },
+                        new
+                        {
+                            ProductId = new Guid("fc8f443e-8f0e-46bf-8061-0a14074c8313"),
+                            CategoryId = new Guid("6b5f6458-3791-4303-8ee7-e20707e4cf3e"),
+                            CreatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "\"<p>Cam vàng ngọt thơm, giàu vitamin và khoáng chất, sản phẩm sạch từ nông trại.</p>\r\n<ul>\r\n  <li>Giàu vitamin C, tốt cho hệ miễn dịch</li>\r\n  <li>Chứa nhiều chất chống oxy hóa</li>\r\n  <li>Không dùng hóa chất bảo quản</li>\r\n  <li>Thích hợp làm nước ép, ăn trực tiếp và salad</li>\r\n  <li>Trồng tại các nông trại xanh</li>\r\n</ul>\r\n\"",
+                            EntryDate = new DateTime(2024, 11, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ExpiryDate = new DateTime(2024, 12, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodName = "Orange",
+                            Organic = true,
+                            Origin = "Tỉnh Đồng Nai",
+                            Price = 65000m,
+                            ProductName = "Cam vàng",
+                            Slug = "cam-vang-1-kg-gwctdn",
+                            Status = true,
+                            Stock = 100,
+                            SupplierId = new Guid("5a0b659d-884a-446a-8b77-9b84ed6e2bf2"),
+                            Unit = "Kg",
+                            UpdatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Weight = 1.0
+                        },
+                        new
+                        {
+                            ProductId = new Guid("4e31b4e9-0eab-4bbe-b11b-ca52b02b60d5"),
+                            CategoryId = new Guid("6b5f6458-3791-4303-8ee7-e20707e4cf3e"),
+                            CreatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "\"<p>Ổi nữ hoàng tươi ngon, giòn ngọt, giàu dinh dưỡng, sản phẩm sạch từ nông trại.</p>\r\n<ul>\r\n  <li>Giàu vitamin C và chất chống oxy hóa</li>\r\n  <li>Hương vị ngọt mát, thịt quả giòn</li>\r\n  <li>Không dùng thuốc bảo vệ thực vật</li>\r\n  <li>Thích hợp ăn trực tiếp và làm sinh tố</li>\r\n  <li>Trồng tại các nông trại hữu cơ</li>\r\n</ul>\r\n\"",
+                            EntryDate = new DateTime(2024, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ExpiryDate = new DateTime(2024, 12, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FoodName = "Guava",
+                            Organic = true,
+                            Origin = "Tỉnh Tiền Giang",
+                            Price = 23300m,
+                            ProductName = "Ổi nữ hoàng",
+                            Slug = "oi-nu-hoang-1-kg-0mbfz5",
                             Status = true,
                             Stock = 100,
                             SupplierId = new Guid("5a0b659d-884a-446a-8b77-9b84ed6e2bf2"),
@@ -1545,6 +1965,9 @@ namespace PureFood.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Supplier")
                         .HasColumnType("bit");
 
                     b.Property<bool>("TwoFactorEnabled")
