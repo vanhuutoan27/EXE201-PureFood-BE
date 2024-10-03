@@ -16,6 +16,8 @@ namespace PureFood.Data.SeedWork
         private readonly Lazy<ISupplierRepository> _supplierRepository;
         private readonly Lazy<IUserRepository> _userRepository;
         private readonly Lazy<IPromotionRepository> _promotionRepository;
+        private readonly Lazy<IOrderRepository> _orderRepository;
+        private readonly Lazy<IOrderItemRepository> _orderItemRepository;
 
 
         public RepositoryManager(PureFoodDbContext dbContext)
@@ -30,7 +32,8 @@ namespace PureFood.Data.SeedWork
             _supplierRepository = new Lazy<ISupplierRepository>(() => new SupplierRepository(dbContext));
             _userRepository = new Lazy<IUserRepository>(() => new UserRepository(dbContext));
             _promotionRepository = new Lazy<IPromotionRepository>(() => new PromotionRepository(dbContext));
-
+            _orderRepository = new Lazy<IOrderRepository>(() => new OrderRepository(dbContext));
+            _orderItemRepository = new Lazy<IOrderItemRepository>(() => new OrderItemRepository(dbContext));
 
 
         }
@@ -51,6 +54,9 @@ namespace PureFood.Data.SeedWork
         public IUserRepository UserRepository => _userRepository.Value;
         public IPromotionRepository PromotionRepository => _promotionRepository.Value;
 
+        public IOrderRepository OrderRepository => _orderRepository.Value;
+
+        public IOrderItemRepository OrderItemRepository => _orderItemRepository.Value;
 
         public async Task SaveAsync()
         {

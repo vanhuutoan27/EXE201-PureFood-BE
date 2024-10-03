@@ -1,0 +1,34 @@
+﻿using Microsoft.EntityFrameworkCore;
+using PureFood.Core.Domain.Content;
+using PureFood.Core.Models.content;
+using PureFood.Core.Repositories;
+using PureFood.Data.SeedWork;
+
+namespace PureFood.Data.Repositories
+{
+    public class OrderRepository : RepositoryBase<Order, Guid>, IOrderRepository
+    {
+        public OrderRepository(PureFoodDbContext context) : base(context)
+        {
+
+        }
+
+        public async Task<PageResult<Order>> GetAllOrders(int page, int limit)
+        {
+            IQueryable<Order> query = _context.Orders.Include(o => o.OrderItems).ThenInclude(oi => oi.Product).ThenInclude(p => p.Images).AsQueryable();
+
+            // get total count
+            int totalItems = await query.CountAsync();
+            if (page > 0 && limit > 0)
+            {
+                query = query.Skip((page - 1) * limit).Take(limit);
+            }
+
+            return new PageResult<Order>
+            {
+                TotalItems = totalItems,
+                Items = query.ToList()
+            };
+        }
+    }
+}

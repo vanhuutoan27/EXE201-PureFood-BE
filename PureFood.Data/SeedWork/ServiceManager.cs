@@ -18,8 +18,9 @@ namespace PureFood.Data.SeedWork
         private readonly Lazy<ISupplierService> _supplierService;
         private readonly Lazy<IUserService> _userService;
         private readonly Lazy<IPromotionService> _promotionService;
+        private readonly Lazy<IOrderService> _orderService;
 
-        public ServiceManager(IRepositoryManager repositoryManager, IMapper mapper , UserManager<AppUser> userManager)
+        public ServiceManager(IRepositoryManager repositoryManager, IMapper mapper, UserManager<AppUser> userManager)
         {
             _cartItemService = new Lazy<ICartItemService>(() => new CartItemService(repositoryManager, mapper));
             _cartService = new Lazy<ICartService>(() => new CartService(repositoryManager, mapper));
@@ -28,8 +29,9 @@ namespace PureFood.Data.SeedWork
             _productService = new Lazy<IProductService>(() => new ProductService(repositoryManager, mapper));
             _reviewService = new Lazy<IReviewService>(() => new ReviewService(repositoryManager, mapper));
             _supplierService = new Lazy<ISupplierService>(() => new SupplierService(repositoryManager, mapper));
-            _userService = new Lazy<IUserService>(() => new UserService( userManager ,repositoryManager, mapper  ));
+            _userService = new Lazy<IUserService>(() => new UserService(userManager, repositoryManager, mapper));
             _promotionService = new Lazy<IPromotionService>(() => new PromotionService(repositoryManager, mapper));
+            _orderService = new Lazy<IOrderService>(() => new OrderService(repositoryManager, mapper));
 
         }
         public ICartItemService CartItemService => _cartItemService.Value;
@@ -50,6 +52,6 @@ namespace PureFood.Data.SeedWork
 
         public IPromotionService PromotionService => _promotionService.Value;
 
-
+        public IOrderService OrderService => _orderService.Value;
     }
 }

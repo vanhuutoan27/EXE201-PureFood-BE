@@ -1,11 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Text.Json.Serialization;
 
-namespace PureFood.Core.Domain.Content
+namespace PureFood.Core.Models.content.Responses
 {
-    public class Order
+    public class OrderResponse
     {
-        [Key]
         public Guid OrderId { get; set; } //
+        [JsonPropertyName("user")]
         public Guid UserId { get; set; } //response user
         public string FullName { get; set; }
         public string PhoneNumber { get; set; }
@@ -15,12 +15,11 @@ namespace PureFood.Core.Domain.Content
         public string District { get; set; }
         public string Province { get; set; }
         public string PaymentMethod { get; set; }
-        public decimal TotalAmount { get; set; }
+        //public decimal totalAmount { get; set; }
         public string OrderStatus { get; set; }
         public DateTime CreateAt { get; set; }
         public DateTime UpdatedAt { get; set; }
-
-        public ICollection<OrderItem> OrderItems { get; set; }
-
+        public List<OrderItemResponse> orderSummary { get; set; }
+        public decimal TotalAmount { get; set; }
     }
 }
