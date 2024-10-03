@@ -65,6 +65,18 @@ namespace PureFood.Data.Service
             return _mapper.Map<OrderResponse>(order);
         }
 
+        public async Task<bool> DeleteOrder(Guid orderId)
+        {
+            var order = await _repositoryManager.OrderRepository.GetOrderById(orderId);
+            if (order == null)
+            {
+                return false;
+            }
+            _repositoryManager.OrderRepository.Remove(order);
+            await _repositoryManager.SaveAsync();
+            return true;
+        }
+
         public async Task<PageResult<OrderResponse>> GetAllOrder(int page, int limit)
         {
             var orderList = await _repositoryManager.OrderRepository.GetAllOrders(page, limit);

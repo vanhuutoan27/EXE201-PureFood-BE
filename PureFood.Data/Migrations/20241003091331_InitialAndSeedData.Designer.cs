@@ -12,13 +12,8 @@ using PureFood.Data;
 namespace PureFood.Data.Migrations
 {
     [DbContext(typeof(PureFoodDbContext))]
-<<<<<<<< HEAD:PureFood.Data/Migrations/20241003072154_InitalAndSeedData.Designer.cs
-    [Migration("20241003072154_InitalAndSeedData")]
-    partial class InitalAndSeedData
-========
-    [Migration("20241003071930_InitialDB")]
-    partial class InitialDB
->>>>>>>> origin/seed-data-product:PureFood.Data/Migrations/20241003071930_InitialDB.Designer.cs
+    [Migration("20241003091331_InitialAndSeedData")]
+    partial class InitialAndSeedData
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

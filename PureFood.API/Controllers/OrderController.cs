@@ -86,6 +86,26 @@ namespace PureFood.API.Controllers
                 Message = "Updated successfully.",
             };
         }
+        [HttpDelete("{orderId}")]
+        public async Task<ActionResult<ResultModel>> DeleteOrder(Guid orderId)
+        {
+            var result = await _serviceManager.OrderService.DeleteOrder(orderId);
+            if (!result)
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Status = 400,
+                    Message = "Deleted fail.",
+                };
+            }
+            return new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Message = "Deleted successfully.",
+            };
+        }
 
     }
 }
