@@ -16,6 +16,18 @@ namespace PureFood.Data.Service
             _repositoryManager = repositoryManager;
             _mapper = mapper;
         }
+
+        public async Task<bool> ChangeStatusOrder(Guid orderId, UpdateOrderRequest request)
+        {
+            var order = await _repositoryManager.OrderRepository.GetByIdAsync(orderId);
+            if (order == null) { return false; }
+            order.OrderStatus = request.OrderStatus;
+            _repositoryManager.OrderRepository.Update(order);
+            await _repositoryManager.SaveAsync();
+
+            return true;
+        }
+
         public async Task<OrderResponse> CreateOrder(CreateOrderRequest request)
         {
             var order = new Order
@@ -67,7 +79,7 @@ namespace PureFood.Data.Service
                     ProductName = item.Product.ProductName,
                     Quantity = item.Quantity,
                     Price = item.Product.Price,
-                    Image = item.Product.Images.Select(i => i.Url).FirstOrDefault()
+                    Image = item.Product?.Images?.Select(i => i.Url).FirstOrDefault()
 
                 }).ToList();
 
@@ -100,6 +112,39 @@ namespace PureFood.Data.Service
                 TotalPages = (int)Math.Ceiling(orderList.TotalItems / (double)limit),
                 Items = orderResponse
             };
+        }
+
+        public async Task<OrderResponse> GetOrderById(Guid OrderId)
+        {
+            var result = await _repositoryManager.OrderRepository.GetOrderById(OrderId);
+            var orderRes = new OrderResponse
+            {
+                OrderId = result.OrderId,
+                UserId = result.UserId,
+                FullName = result.FullName,
+                PhoneNumber = result.PhoneNumber,
+                Email = result.Email,
+                Address = result.Address,
+                Commune = result.Commune,
+                District = result.District,
+                Province = result.Province,
+                PaymentMethod = result.PaymentMethod,
+                OrderStatus = result.OrderStatus,
+                CreateAt = result.CreateAt,
+                UpdatedAt = result.UpdatedAt,
+                orderSummary = result.OrderItems?.Select(oi => new OrderItemResponse
+                {
+                    ProductId = oi.ProductId,
+                    ProductName = oi.Product.ProductName,
+                    Quantity = oi.Quantity,
+                    Price = oi.Product.Price,
+                    Image = oi.Product?.Images?.OrderBy(i => i.ImageId).Select(i => i.Url).FirstOrDefault()
+                }).ToList(),
+                TotalAmount = result.TotalAmount,
+
+
+            };
+            return orderRes;
         }
     }
 }

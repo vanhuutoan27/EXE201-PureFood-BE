@@ -9,9 +9,6 @@ namespace PureFood.Core.Models.content.Responses
         public decimal Price { get; set; }
         public string Image { get; set; }
 
-        public static implicit operator List<object>(OrderItemResponse v)
-        {
-            throw new NotImplementedException();
-        }
+
     }
 }

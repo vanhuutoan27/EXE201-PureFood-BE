@@ -7,5 +7,6 @@ namespace PureFood.Core.Repositories
     public interface IOrderRepository : IRepositoryBase<Order, Guid>
     {
         public Task<PageResult<Order>> GetAllOrders(int page, int limit);
+        public Task<Order> GetOrderById(Guid id);
     }
 }

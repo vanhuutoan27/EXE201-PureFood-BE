@@ -51,5 +51,41 @@ namespace PureFood.API.Controllers
                 Data = result
             };
         }
+        [HttpGet]
+        [Route("{orderId:guid}")]
+
+        public async Task<ActionResult<ResultModel>> GetOrderById(Guid orderId)
+        {
+            var result = await _serviceManager.OrderService.GetOrderById(orderId);
+            return new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Message = "Order retrieved successfully.",
+                Data = result
+            };
+        }
+
+        [HttpPatch("{orderId}/status")]
+        public async Task<ActionResult<ResultModel>> UpdateOrderStatus(Guid orderId, [FromBody] UpdateOrderRequest request)
+        {
+            var result = await _serviceManager.OrderService.ChangeStatusOrder(orderId, request);
+            if (!result)
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Status = 400,
+                    Message = "Updated fail.",
+                };
+            }
+            return new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Message = "Updated successfully.",
+            };
+        }
+
     }
 }

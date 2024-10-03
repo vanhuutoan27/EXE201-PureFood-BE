@@ -30,5 +30,11 @@ namespace PureFood.Data.Repositories
                 Items = query.ToList()
             };
         }
+
+        public async Task<Order> GetOrderById(Guid id)
+        {
+            return await _context.Orders.Include(o => o.OrderItems).ThenInclude(oi => oi.Product).ThenInclude(p => p.Images)
+                .FirstOrDefaultAsync(o => o.OrderId == id);
+        }
     }
 }

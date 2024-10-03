@@ -1175,7 +1175,7 @@ namespace PureFood.Data.Migrations
                         new
                         {
                             ProductId = new Guid("fc727800-963c-4305-93a0-3b27dfb1d734"),
-                            CategoryId = new Guid("2d482271-9605-4d43-9ca8-d479d6ef9687"),
+                            CategoryId = new Guid("6b5f6458-3791-4303-8ee7-e20707e4cf3e"),
                             CreatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "<p>Bơ Booth tươi ngon, giàu dinh dưỡng, chứa nhiều chất béo lành mạnh.</p><br><ul><br>  <li>Giàu chất béo không bão hòa, tốt cho tim mạch</li><br>  <li>Chứa nhiều vitamin E và chất xơ</li><br>  <li>Không hóa chất bảo quản</li><br>  <li>Thích hợp làm sinh tố, salad và ăn trực tiếp</li><br>  <li>Trồng tại các nông trại hữu cơ</li><br></ul>",
                             EntryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -1217,12 +1217,12 @@ namespace PureFood.Data.Migrations
                         new
                         {
                             ProductId = new Guid("576aa3a9-49ff-486c-8efc-a0548ee90ee7"),
-                            CategoryId = new Guid("2d482271-9605-4d43-9ca8-d479d6ef9687"),
+                            CategoryId = new Guid("6b5f6458-3791-4303-8ee7-e20707e4cf3e"),
                             CreatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "<p>Dưa hấu ngọt mát, tươi ngon, sản phẩm sạch từ nông trại.</p><br><ul><br>  <li>Giàu nước, giúp giải khát hiệu quả</li><br>  <li>Chứa nhiều vitamin A và C</li><br> <li>Không hóa chất bảo quản</li><br>  <li>Thích hợp ăn trực tiếp và làm nước ép</li>\r\n  <li>Trồng tại các nông trại hữu cơ</li><br></ul>",
                             EntryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ExpiryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FoodName = "Melon",
+                            FoodName = "Watermelon",
                             Organic = true,
                             Origin = "Tỉnh Long An",
                             Price = 35400m,
@@ -1238,7 +1238,7 @@ namespace PureFood.Data.Migrations
                         new
                         {
                             ProductId = new Guid("a69cd06b-8762-49cc-9228-1fc88956fb3c"),
-                            CategoryId = new Guid("2d482271-9605-4d43-9ca8-d479d6ef9687"),
+                            CategoryId = new Guid("6b5f6458-3791-4303-8ee7-e20707e4cf3e"),
                             CreatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "<p>Dưa lưới tươi ngon, ngọt mát, giàu dinh dưỡng, sản phẩm sạch từ nông trại.</p><br><ul><br>  <li>Giàu vitamin A và C, tốt cho sức khỏe</li><br>  <li>Chứa nhiều nước, giúp giải khát</li><br>  <li>Không dùng hóa chất bảo quản</li><br>  <li>Thích hợp ăn trực tiếp và làm sinh tố</li><br>  <li>Trồng tại các nông trại xanh</li><br></ul>",
                             EntryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -1259,7 +1259,7 @@ namespace PureFood.Data.Migrations
                         new
                         {
                             ProductId = new Guid("b39c0722-44aa-49e5-8ff9-b9ad9a9594fc"),
-                            CategoryId = new Guid("2d482271-9605-4d43-9ca8-d479d6ef9687"),
+                            CategoryId = new Guid("6b5f6458-3791-4303-8ee7-e20707e4cf3e"),
                             CreatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "<p>Dưa gang tươi mát, ngọt lành, giàu vitamin và khoáng chất.</p>\r\n<ul>\r\n  <li>Giàu nước và vitamin C</li>\r\n  <li>Giúp giải nhiệt, tốt cho hệ tiêu hóa</li>\r\n  <li>Không hóa chất bảo quản</li>\r\n  <li>Thích hợp ăn trực tiếp và làm nước ép</li>\r\n  <li>Trồng tại các nông trại sạch</li>\r\n</ul>",
                             EntryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
