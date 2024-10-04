@@ -51,12 +51,21 @@ namespace PureFood.Data.Service
                 CreatedAt = DateTime.Now,
             };
 
+            var checkemail = await _userManager.FindByEmailAsync(User.Email);
+            if (checkemail != null)
+            {
+                throw new Exception($"Trùng Email");
+
+            }
             var result = await _userManager.CreateAsync(newUserRequest, "123As@");
             newUserRequest = await _userManager.FindByEmailAsync(User.Email);
+
+
             if (!result.Succeeded)
             {
                 var errorMessages = string.Join("; ", result.Errors.Select(e => e.Description));
-                throw new Exception($"Tạo người dùng thất bại: {errorMessages}");
+                    throw new Exception($"Tạo người dùng thất bại: {errorMessages}");
+         //   return null;
             }
             await _userManager.AddToRoleAsync(newUserRequest, User.Role);
             var UserResponse = _mapper.Map<UserReponse>(newUserRequest);
