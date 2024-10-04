@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text.Json.Serialization;
 
 namespace PureFood.Core.Models.Requests
 {
@@ -20,9 +16,9 @@ namespace PureFood.Core.Models.Requests
         public DateTime EntryDate { get; set; }
         public DateTime ExpiryDate { get; set; }
 
-        public DateTime? CreatedAt { get; set; }
-        public DateTime? UpdatedAt { get; set; }
+        [JsonPropertyName("category")]
         public Guid CategoryId { get; set; }
+        [JsonPropertyName("supplier")]
         public Guid SupplierId { get; set; }
     }
 }

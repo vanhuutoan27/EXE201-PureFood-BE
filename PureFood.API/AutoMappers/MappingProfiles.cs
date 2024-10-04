@@ -3,8 +3,6 @@ using PureFood.Core.Domain.Content;
 using PureFood.Core.Domain.Identity;
 using PureFood.Core.Models.content.Requests;
 using PureFood.Core.Models.content.Responses;
-using PureFood.Core.Domain.Identity;
-using Microsoft.OpenApi.Any;
 using PureFood.Core.Models.Requests;
 
 namespace PureFood.API.AutoMappers
@@ -32,7 +30,6 @@ namespace PureFood.API.AutoMappers
                         .ForMember(dest => dest.UserId, opt => opt.MapFrom(src => src.Id))
                         .ForMember(dest => dest.FullName, opt => opt.MapFrom(src => src.FullName))
                         .ForMember(dest => dest.Avatar, opt => opt.MapFrom(src => src.Avatar))
-                        .ForMember(dest => dest.Dob, opt => opt.MapFrom(src => src.Dob))
                         .ForMember(dest => dest.Gender, opt => opt.MapFrom(src => src.Gender)).ReverseMap();
 
             CreateMap<Order, OrderResponse>();

@@ -17,7 +17,7 @@ namespace PureFood.Core.Domain.Content
         public string PaymentMethod { get; set; }
         public decimal TotalAmount { get; set; }
         public string OrderStatus { get; set; }
-        public DateTime CreateAt { get; set; }
+        public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
 
         public ICollection<OrderItem> OrderItems { get; set; }
