@@ -17,5 +17,8 @@ namespace PureFood.Core.Models.Requests
         public string CategoryName { get; set; }
         [JsonPropertyName("supplier")]
         public string SupplierName { get; set; }
+        public DateTime EntryDate { get; set; }
+        public DateTime ExpiryDate { get; set; }
+        public List<string>? Images { get; set; } = new List<string>();
     }
 }

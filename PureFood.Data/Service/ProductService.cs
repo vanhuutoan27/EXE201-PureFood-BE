@@ -52,32 +52,44 @@ namespace PureFood.Data.Service
 
             try
             {
-                var createProduct = _mapper.Map<Product>(requestProduct);
                 var newProduct = new Product()
                 {
                     ProductId = Guid.NewGuid(),
-                    ProductName = createProduct.ProductName,
+                    ProductName = requestProduct.ProductName,
                     Slug = resultSlug,
-                    Description = createProduct.Description,
-                    Price = createProduct.Price,
-                    Stock = createProduct.Stock,
-                    Weight = createProduct.Weight,
-                    Unit = createProduct.Unit,
-                    Origin = createProduct.Origin,
-                    Organic = createProduct.Organic,
+                    Description = requestProduct.Description,
+                    Price = requestProduct.Price,
+                    Stock = requestProduct.Stock,
+                    Weight = requestProduct.Weight,
+                    Unit = requestProduct.Unit,
+                    Origin = requestProduct.Origin,
+                    Organic = requestProduct.Organic,
                     Status = false,
-                    EntryDate = createProduct.EntryDate,
-                    ExpiryDate = createProduct.ExpiryDate,
+                    EntryDate = requestProduct.EntryDate,
+                    ExpiryDate = requestProduct.ExpiryDate,
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
-                    FoodName = createProduct.FoodName,
+                    FoodName = requestProduct.FoodName,
                     CategoryId = category.CategoryId,
                     SupplierId = supplier.SupplierId,
 
                 };
+                // image
+                foreach(var imageUrl in requestProduct.Images)
+                {
+                    var image = new Image
+                    {
+                        ImageId = Guid.NewGuid(),
+                        ProductId = newProduct.ProductId,
+                        Url = imageUrl,
+                        CreatedAt = DateTime.Now,
+                        UpdatedAt = DateTime.Now,
+                    };
+                    _repositoryManager.ImageRepository.Add(image);
+                }
                 _repositoryManager.ProductRepository.Add(newProduct);
                 await _repositoryManager.SaveAsync();
-                var result = _mapper.Map<CreateProductRequest>(requestProduct);
+                var result = _mapper.Map<CreateProductRequest>(newProduct);
                 return result;
             }
             catch (Exception ex)
