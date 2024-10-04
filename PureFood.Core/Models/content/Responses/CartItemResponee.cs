@@ -21,7 +21,7 @@ namespace PureFood.Core.Models.content.Responses
         public string? Unit { get; set; }
         public string? Origin { get; set; }
         public bool? Organic { get; set; }
-        public List<string> Images { get; set; }
+        public List<string> Image { get; set; }
         public bool? Status { get; set; }
     }
 }

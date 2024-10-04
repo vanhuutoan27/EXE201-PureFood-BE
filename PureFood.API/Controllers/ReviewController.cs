@@ -73,7 +73,7 @@ namespace PureFood.API.Controllers
         }
 
         [HttpGet]
-        [Route("products{productId:guid}")]
+        [Route("product/{productId:guid}")]
         public async Task<ActionResult<ResultModel>> GetReviewsByProduct(Guid productId)
         {
 

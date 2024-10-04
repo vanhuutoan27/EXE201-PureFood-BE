@@ -160,7 +160,7 @@ namespace PureFood.Data.Configurations
                     ProductName = "Hành tây",
                     FoodName = "Onion",
                     Slug = "hanh-tay-500-gr-xowt5w",
-                    Description = "<p>Hành tây tươi, giòn ngọt, giàu vitamin và khoáng chất, thích hợp cho nhiều món ăn.</p><br><ul><br>  <li>Giàu vitamin C và chất chống oxy hóa</li>\r\n  <li>Có tác dụng kháng viêm, tốt cho sức khỏe</li><br>  <li>Không thuốc trừ sâu</li><br>  <li>Thích hợp nấu canh, xào và làm salad</li><br>  <li>Trồng tại các nông trại hữu cơ</li><br></ul>",
+                    Description = "<p>Hành tây tươi, giòn ngọt, giàu vitamin và khoáng chất, thích hợp cho nhiều món ăn.</p><br><ul><br>  <li>Giàu vitamin C và chất chống oxy hóa</li>  <li>Có tác dụng kháng viêm, tốt cho sức khỏe</li><br>  <li>Không thuốc trừ sâu</li><br>  <li>Thích hợp nấu canh, xào và làm salad</li><br>  <li>Trồng tại các nông trại hữu cơ</li><br></ul>",
                     Price = 8750,
                     Stock = 100,
                     Weight = 500,
@@ -200,7 +200,7 @@ namespace PureFood.Data.Configurations
                     ProductName = "Khoai môn",
                     FoodName = "Taro",
                     Slug = "khoai-mon-500-gr-8q8nq9",
-                    Description = "<p>Khoai môn tươi ngon, giàu dinh dưỡng, sản phẩm sạch từ nông trại.</p><br><ul>\r\n  <li>Giàu chất xơ và vitamin B6</li><br>  <li>Tốt cho hệ tiêu hóa và tim mạch</li><br>  <li>Không dùng hóa chất bảo vệ thực vật</li><br>  <li>Thích hợp cho các món nấu, chiên, và hầm</li><br>  <li>Được trồng tại các nông trại hữu cơ</li><br></ul>",
+                    Description = "<p>Khoai môn tươi ngon, giàu dinh dưỡng, sản phẩm sạch từ nông trại.</p><br><ul>  <li>Giàu chất xơ và vitamin B6</li><br>  <li>Tốt cho hệ tiêu hóa và tim mạch</li><br>  <li>Không dùng hóa chất bảo vệ thực vật</li><br>  <li>Thích hợp cho các món nấu, chiên, và hầm</li><br>  <li>Được trồng tại các nông trại hữu cơ</li><br></ul>",
                     Price = 26000,
                     Stock = 100,
                     Weight = 500,
@@ -240,7 +240,7 @@ namespace PureFood.Data.Configurations
                     ProductName = "Khoai lang",
                     FoodName = "Sweet potato",
                     Slug = "khoai-lang-1-kg-hu8kgx",
-                    Description = "<p>Khoai lang ngọt lành, giàu dinh dưỡng, sản phẩm sạch từ nông trại.</p><br><ul>\r\n  <li>Giàu vitamin A và chất xơ</li>\r\n  <li>Tốt cho hệ tiêu hóa và sức khỏe mắt</li>\r\n  <li>Không dùng hóa chất bảo vệ thực vật</li><br>  <li>Thích hợp nướng, luộc và làm súp</li><br>  <li>Được trồng tại nông trại hữu cơ</li><br></ul>",
+                    Description = "<p>Khoai lang ngọt lành, giàu dinh dưỡng, sản phẩm sạch từ nông trại.</p><br><ul>  <li>Giàu vitamin A và chất xơ</li>  <li>Tốt cho hệ tiêu hóa và sức khỏe mắt</li>  <li>Không dùng hóa chất bảo vệ thực vật</li><br>  <li>Thích hợp nướng, luộc và làm súp</li><br>  <li>Được trồng tại nông trại hữu cơ</li><br></ul>",
                     Price = 34000,
                     Stock = 100,
                     Weight = 1,
@@ -300,7 +300,7 @@ namespace PureFood.Data.Configurations
                     ProductName = "Củ sắn",
                     FoodName = "Jicama",
                     Slug = "cu-san-500-gr-uv72km",
-                    Description = "<p>Củ sắn tươi, ngọt lành, giàu dinh dưỡng, sản phẩm sạch từ nông trại.</p>\r\n<ul>\r\n  <li>Giàu vitamin C và chất xơ</li><br>  <li>Tốt cho hệ tiêu hóa</li><br>  <li>Không thuốc bảo vệ thực vật</li><br>  <li>Thích hợp nấu canh, xào và làm salad</li><br>  <li>Được trồng tại nông trại hữu cơ</li><br></ul>",
+                    Description = "<p>Củ sắn tươi, ngọt lành, giàu dinh dưỡng, sản phẩm sạch từ nông trại.</p><ul>  <li>Giàu vitamin C và chất xơ</li><br>  <li>Tốt cho hệ tiêu hóa</li><br>  <li>Không thuốc bảo vệ thực vật</li><br>  <li>Thích hợp nấu canh, xào và làm salad</li><br>  <li>Được trồng tại nông trại hữu cơ</li><br></ul>",
                     Price = 11500,
                     Stock = 100,
                     Weight = 500,
@@ -360,7 +360,7 @@ namespace PureFood.Data.Configurations
                     ProductName = "Dưa hấu",
                     FoodName = "Watermelon",
                     Slug = "dua-hau-2-kg-im862u",
-                    Description = "<p>Dưa hấu ngọt mát, tươi ngon, sản phẩm sạch từ nông trại.</p><br><ul><br>  <li>Giàu nước, giúp giải khát hiệu quả</li><br>  <li>Chứa nhiều vitamin A và C</li><br> <li>Không hóa chất bảo quản</li><br>  <li>Thích hợp ăn trực tiếp và làm nước ép</li>\r\n  <li>Trồng tại các nông trại hữu cơ</li><br></ul>",
+                    Description = "<p>Dưa hấu ngọt mát, tươi ngon, sản phẩm sạch từ nông trại.</p><br><ul><br>  <li>Giàu nước, giúp giải khát hiệu quả</li><br>  <li>Chứa nhiều vitamin A và C</li><br> <li>Không hóa chất bảo quản</li><br>  <li>Thích hợp ăn trực tiếp và làm nước ép</li>  <li>Trồng tại các nông trại hữu cơ</li><br></ul>",
                     Price = 35400,
                     Stock = 100,
                     Weight = 2,
@@ -400,7 +400,7 @@ namespace PureFood.Data.Configurations
                     ProductName = "Dưa gang",
                     FoodName = "Winter melon",
                     Slug = "dua-gang-1-kg-t0055v",
-                    Description = "<p>Dưa gang tươi mát, ngọt lành, giàu vitamin và khoáng chất.</p>\r\n<ul>\r\n  <li>Giàu nước và vitamin C</li>\r\n  <li>Giúp giải nhiệt, tốt cho hệ tiêu hóa</li>\r\n  <li>Không hóa chất bảo quản</li>\r\n  <li>Thích hợp ăn trực tiếp và làm nước ép</li>\r\n  <li>Trồng tại các nông trại sạch</li>\r\n</ul>",
+                    Description = "<p>Dưa gang tươi mát, ngọt lành, giàu vitamin và khoáng chất.</p><ul>  <li>Giàu nước và vitamin C</li>  <li>Giúp giải nhiệt, tốt cho hệ tiêu hóa</li>  <li>Không hóa chất bảo quản</li>  <li>Thích hợp ăn trực tiếp và làm nước ép</li>  <li>Trồng tại các nông trại sạch</li></ul>",
                     Price = 9000,
                     Stock = 100,
                     Weight = 1,
@@ -411,6 +411,7 @@ namespace PureFood.Data.Configurations
                     CreatedAt = DateTime.Parse("2024-10-02"),
                     UpdatedAt = DateTime.Parse("2024-10-02"),
                 },
+                
                 // product 21
                 new Product()
                 {
@@ -420,7 +421,7 @@ namespace PureFood.Data.Configurations
                     ProductName = "Chuối già Nam Mỹ",
                     FoodName = "Banana",
                     Slug = "chuoi-gia-nam-my-1-kg-2ukdtl",
-                    Description = "\"<p>Chuối già Nam Mỹ tươi ngon, giàu dinh dưỡng, sản phẩm nhập khẩu chất lượng cao.</p>\r\n<ul>\r\n  <li>Giàu kali, tốt cho hệ tim mạch</li>\r\n  <li>Chứa nhiều chất xơ, tốt cho hệ tiêu hóa</li>\r\n  <li>Không hóa chất bảo quản</li>\r\n  <li>Thích hợp ăn trực tiếp, làm sinh tố và bánh</li>\r\n  <li>Nhập khẩu từ các trang trại sạch tại Nam Mỹ</li>\r\n</ul>\"",
+                    Description = "<p>Chuối già Nam Mỹ tươi ngon, giàu dinh dưỡng, sản phẩm nhập khẩu chất lượng cao.</p><ul>  <li>Giàu kali, tốt cho hệ tim mạch</li>  <li>Chứa nhiều chất xơ, tốt cho hệ tiêu hóa</li>  <li>Không hóa chất bảo quản</li>  <li>Thích hợp ăn trực tiếp, làm sinh tố và bánh</li>  <li>Nhập khẩu từ các trang trại sạch tại Nam Mỹ</li></ul>",
                     Price = 22540,
                     Stock = 100,
                     Weight = 1,
@@ -433,6 +434,7 @@ namespace PureFood.Data.Configurations
                     CreatedAt = DateTime.Parse("2024-10-02"),
                     UpdatedAt = DateTime.Parse("2024-10-02"),
                 },
+
                 // product 22
                 new Product()
                 {
@@ -442,7 +444,7 @@ namespace PureFood.Data.Configurations
                     ProductName = "Xoài tứ quý",
                     FoodName = "Mango",
                     Slug = "xoai-tu-quy-1-kg-4lsic0",
-                    Description = "\"<p>Xoài tứ quý tươi ngon, ngọt thơm, giàu vitamin và khoáng chất.</p>\r\n<ul>\r\n  <li>Giàu vitamin C và chất chống oxy hóa</li>\r\n  <li>Hương vị ngọt thơm, thịt quả vàng ươm</li>\r\n  <li>Không thuốc bảo vệ thực vật</li>\r\n  <li>Thích hợp ăn trực tiếp, làm sinh tố và salad</li>\r\n  <li>Trồng tại các nông trại hữu cơ</li>\r\n</ul>\r\n\"",
+                    Description = "<p>Xoài tứ quý tươi ngon, ngọt thơm, giàu vitamin và khoáng chất.</p><ul>  <li>Giàu vitamin C và chất chống oxy hóa</li>  <li>Hương vị ngọt thơm, thịt quả vàng ươm</li>  <li>Không thuốc bảo vệ thực vật</li>  <li>Thích hợp ăn trực tiếp, làm sinh tố và salad</li>  <li>Trồng tại các nông trại hữu cơ</li></ul>",
                     Price = 37400,
                     Stock = 100,
                     Weight = 1,
@@ -455,6 +457,7 @@ namespace PureFood.Data.Configurations
                     CreatedAt = DateTime.Parse("2024-10-02"),
                     UpdatedAt = DateTime.Parse("2024-10-02"),
                 },
+
                 // product 23
                 new Product()
                 {
@@ -464,7 +467,7 @@ namespace PureFood.Data.Configurations
                     ProductName = "Táo Gala mini nhập khẩu",
                     FoodName = "Apple",
                     Slug = "tao-gala-mini-nhap-khau-1-kg-1dyi04",
-                    Description = "\"<p>Táo Gala mini tươi ngon, giòn ngọt, sản phẩm nhập khẩu chất lượng cao.</p>\r\n<ul>\r\n  <li>Giàu chất chống oxy hóa và vitamin C</li>\r\n  <li>Hương vị ngọt thơm, giòn tan</li>\r\n  <li>Không hóa chất bảo quản</li>\r\n  <li>Thích hợp ăn trực tiếp, làm salad và nước ép</li>\r\n  <li>Nhập khẩu từ các trang trại hữu cơ</li>\r\n</ul>\"",
+                    Description = "<p>Táo Gala mini tươi ngon, giòn ngọt, sản phẩm nhập khẩu chất lượng cao.</p><ul>  <li>Giàu chất chống oxy hóa và vitamin C</li>  <li>Hương vị ngọt thơm, giòn tan</li>  <li>Không hóa chất bảo quản</li>  <li>Thích hợp ăn trực tiếp, làm salad và nước ép</li>  <li>Nhập khẩu từ các trang trại hữu cơ</li></ul>",
                     Price = 44000,
                     Stock = 100,
                     Weight = 1,
@@ -477,6 +480,7 @@ namespace PureFood.Data.Configurations
                     CreatedAt = DateTime.Parse("2024-10-02"),
                     UpdatedAt = DateTime.Parse("2024-10-02"),
                 },
+
                 // product 24
                 new Product()
                 {
@@ -486,7 +490,7 @@ namespace PureFood.Data.Configurations
                     ProductName = "Chuối cau",
                     FoodName = "Banana",
                     Slug = "chuoi-cau-1-kg-oa64o3",
-                    Description = "\"<p>Chuối cau tươi ngon, ngọt lành, giàu dinh dưỡng, sản phẩm sạch từ nông trại.</p>\r\n<ul>\r\n  <li>Giàu kali và chất xơ, tốt cho hệ tiêu hóa</li>\r\n  <li>Chứa nhiều vitamin C và B6</li>\r\n  <li>Không hóa chất bảo quản</li>\r\n  <li>Thích hợp ăn trực tiếp, làm sinh tố và món tráng miệng</li>\r\n  <li>Trồng tại các nông trại hữu cơ</li>\r\n</ul>\r\n\"",
+                    Description = "<p>Chuối cau tươi ngon, ngọt lành, giàu dinh dưỡng, sản phẩm sạch từ nông trại.</p><ul>  <li>Giàu kali và chất xơ, tốt cho hệ tiêu hóa</li>  <li>Chứa nhiều vitamin C và B6</li>  <li>Không hóa chất bảo quản</li>  <li>Thích hợp ăn trực tiếp, làm sinh tố và món tráng miệng</li>  <li>Trồng tại các nông trại hữu cơ</li></ul>",
                     Price = 24600,
                     Stock = 100,
                     Weight = 1,
@@ -499,6 +503,7 @@ namespace PureFood.Data.Configurations
                     CreatedAt = DateTime.Parse("2024-10-02"),
                     UpdatedAt = DateTime.Parse("2024-10-02"),
                 },
+
                 // product 25
                 new Product()
                 {
@@ -508,7 +513,7 @@ namespace PureFood.Data.Configurations
                     ProductName = "Dừa xiêm",
                     FoodName = "Coconut",
                     Slug = "dua-xiem-1-kg-m5hs6q",
-                    Description = "\"<p>Dừa xiêm tươi mát, ngọt lành, giàu nước và khoáng chất, sản phẩm sạch từ nông trại.</p>\r\n<ul>\r\n  <li>Giàu nước và điện giải, giúp giải nhiệt</li>\r\n  <li>Chứa nhiều khoáng chất có lợi cho sức khỏe</li>\r\n  <li>Không hóa chất bảo quản</li>\r\n  <li>Thích hợp uống trực tiếp, làm nước giải khát</li>\r\n  <li>Trồng tại các nông trại hữu cơ</li>\r\n</ul>\r\n\"",
+                    Description = "<p>Dừa xiêm tươi mát, ngọt lành, giàu nước và khoáng chất, sản phẩm sạch từ nông trại.</p><ul>  <li>Giàu nước và điện giải, giúp giải nhiệt</li>  <li>Chứa nhiều khoáng chất có lợi cho sức khỏe</li>  <li>Không hóa chất bảo quản</li>  <li>Thích hợp uống trực tiếp, làm nước giải khát</li>  <li>Trồng tại các nông trại hữu cơ</li></ul>",
                     Price = 32000,
                     Stock = 100,
                     Weight = 1,
@@ -521,6 +526,7 @@ namespace PureFood.Data.Configurations
                     CreatedAt = DateTime.Parse("2024-10-02"),
                     UpdatedAt = DateTime.Parse("2024-10-02"),
                 },
+
                 // product 26
                 new Product()
                 {
@@ -530,7 +536,7 @@ namespace PureFood.Data.Configurations
                     ProductName = "Lựu ngọt",
                     FoodName = "Pomegranate",
                     Slug = "luu-ngot-1-kg-ft8zwd",
-                    Description = "\"<p>Lựu ngọt tươi ngon, giàu dinh dưỡng, sản phẩm sạch từ nông trại.</p>\r\n<ul>\r\n  <li>Giàu vitamin C và chất chống oxy hóa</li>\r\n  <li>Tốt cho sức khỏe tim mạch và hệ miễn dịch</li>\r\n  <li>Không thuốc bảo vệ thực vật</li>\r\n  <li>Thích hợp ăn trực tiếp, làm nước ép và salad</li>\r\n  <li>Trồng tại các nông trại hữu cơ</li>\r\n</ul>\r\n\"",
+                    Description = "<p>Lựu ngọt tươi ngon, giàu dinh dưỡng, sản phẩm sạch từ nông trại.</p><ul>  <li>Giàu vitamin C và chất chống oxy hóa</li>  <li>Tốt cho sức khỏe tim mạch và hệ miễn dịch</li>  <li>Không thuốc bảo vệ thực vật</li>  <li>Thích hợp ăn trực tiếp, làm nước ép và salad</li>  <li>Trồng tại các nông trại hữu cơ</li></ul>",
                     Price = 53000,
                     Stock = 100,
                     Weight = 1,
@@ -543,6 +549,7 @@ namespace PureFood.Data.Configurations
                     CreatedAt = DateTime.Parse("2024-10-02"),
                     UpdatedAt = DateTime.Parse("2024-10-02"),
                 },
+
                 // product 27
                 new Product()
                 {
@@ -552,7 +559,7 @@ namespace PureFood.Data.Configurations
                     ProductName = "Kiwi xanh",
                     FoodName = "Green kiwi",
                     Slug = "kiwi-xanh-250-gr-6kodf3",
-                    Description = "\"<p>Kiwi xanh tươi ngon, giàu vitamin và chất xơ, sản phẩm nhập khẩu chất lượng cao.</p>\r\n<ul>\r\n  <li>Giàu vitamin C và chất xơ, tốt cho hệ miễn dịch</li>\r\n  <li>Chứa nhiều chất chống oxy hóa</li>\r\n  <li>Không hóa chất bảo quản</li>\r\n  <li>Thích hợp ăn trực tiếp, làm salad và sinh tố</li>\r\n  <li>Nhập khẩu từ các trang trại hữu cơ</li>\r\n</ul>\r\n\"",
+                    Description = "<p>Kiwi xanh tươi ngon, giàu vitamin và chất xơ, sản phẩm nhập khẩu chất lượng cao.</p><ul>  <li>Giàu vitamin C và chất xơ, tốt cho hệ miễn dịch</li>  <li>Chứa nhiều chất chống oxy hóa</li>  <li>Không hóa chất bảo quản</li>  <li>Thích hợp ăn trực tiếp, làm salad và sinh tố</li>  <li>Nhập khẩu từ các trang trại hữu cơ</li></ul>",
                     Price = 39000,
                     Stock = 100,
                     Weight = 250,
@@ -565,6 +572,7 @@ namespace PureFood.Data.Configurations
                     CreatedAt = DateTime.Parse("2024-10-02"),
                     UpdatedAt = DateTime.Parse("2024-10-02"),
                 },
+
                 // product 28
                 new Product()
                 {
@@ -574,7 +582,7 @@ namespace PureFood.Data.Configurations
                     ProductName = "Cam sành",
                     FoodName = "Orange",
                     Slug = "cam-sanh-1-kg-3tqshu",
-                    Description = "\"<p>Cam sành tươi ngon, mọng nước, giàu vitamin C, sản phẩm sạch từ nông trại.</p>\r\n<ul>\r\n  <li>Giàu vitamin C, tốt cho sức khỏe tổng thể</li>\r\n  <li>Hương vị ngọt mát, nhiều nước</li>\r\n  <li>Không thuốc bảo vệ thực vật</li>\r\n  <li>Thích hợp ăn trực tiếp và làm nước ép</li>\r\n  <li>Trồng tại các nông trại hữu cơ</li>\r\n</ul>\r\n\"",
+                    Description = "<p>Cam sành tươi ngon, mọng nước, giàu vitamin C, sản phẩm sạch từ nông trại.</p><ul>  <li>Giàu vitamin C, tốt cho sức khỏe tổng thể</li>  <li>Hương vị ngọt mát, nhiều nước</li>  <li>Không thuốc bảo vệ thực vật</li>  <li>Thích hợp ăn trực tiếp và làm nước ép</li>  <li>Trồng tại các nông trại hữu cơ</li></ul>",
                     Price = 17900,
                     Stock = 100,
                     Weight = 1,
@@ -587,6 +595,7 @@ namespace PureFood.Data.Configurations
                     CreatedAt = DateTime.Parse("2024-10-02"),
                     UpdatedAt = DateTime.Parse("2024-10-02"),
                 },
+
                 // product 29
                 new Product()
                 {
@@ -596,7 +605,7 @@ namespace PureFood.Data.Configurations
                     ProductName = "Cam vàng",
                     FoodName = "Orange",
                     Slug = "cam-vang-1-kg-gwctdn",
-                    Description = "\"<p>Cam vàng ngọt thơm, giàu vitamin và khoáng chất, sản phẩm sạch từ nông trại.</p>\r\n<ul>\r\n  <li>Giàu vitamin C, tốt cho hệ miễn dịch</li>\r\n  <li>Chứa nhiều chất chống oxy hóa</li>\r\n  <li>Không dùng hóa chất bảo quản</li>\r\n  <li>Thích hợp làm nước ép, ăn trực tiếp và salad</li>\r\n  <li>Trồng tại các nông trại xanh</li>\r\n</ul>\r\n\"",
+                    Description = "<p>Cam vàng ngọt thơm, giàu vitamin và khoáng chất, sản phẩm sạch từ nông trại.</p><ul>  <li>Giàu vitamin C, tốt cho hệ miễn dịch</li>  <li>Chứa nhiều chất chống oxy hóa</li>  <li>Không dùng hóa chất bảo quản</li>  <li>Thích hợp làm nước ép, ăn trực tiếp và salad</li>  <li>Trồng tại các nông trại xanh</li></ul>",
                     Price = 65000,
                     Stock = 100,
                     Weight = 1,
@@ -609,6 +618,7 @@ namespace PureFood.Data.Configurations
                     CreatedAt = DateTime.Parse("2024-10-02"),
                     UpdatedAt = DateTime.Parse("2024-10-02"),
                 },
+                
                 // product 30
                 new Product()
                 {
@@ -618,7 +628,7 @@ namespace PureFood.Data.Configurations
                     ProductName = "Ổi nữ hoàng",
                     FoodName = "Guava",
                     Slug = "oi-nu-hoang-1-kg-0mbfz5",
-                    Description = "\"<p>Ổi nữ hoàng tươi ngon, giòn ngọt, giàu dinh dưỡng, sản phẩm sạch từ nông trại.</p>\r\n<ul>\r\n  <li>Giàu vitamin C và chất chống oxy hóa</li>\r\n  <li>Hương vị ngọt mát, thịt quả giòn</li>\r\n  <li>Không dùng thuốc bảo vệ thực vật</li>\r\n  <li>Thích hợp ăn trực tiếp và làm sinh tố</li>\r\n  <li>Trồng tại các nông trại hữu cơ</li>\r\n</ul>\r\n\"",
+                    Description = "<p>Ổi nữ hoàng tươi ngon, giòn ngọt, giàu dinh dưỡng, sản phẩm sạch từ nông trại.</p><ul>  <li>Giàu vitamin C và chất chống oxy hóa</li>  <li>Hương vị ngọt mát, thịt quả giòn</li>  <li>Không dùng thuốc bảo vệ thực vật</li>  <li>Thích hợp ăn trực tiếp và làm sinh tố</li>  <li>Trồng tại các nông trại hữu cơ</li></ul>",
                     Price = 23300,
                     Stock = 100,
                     Weight = 1,

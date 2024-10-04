@@ -44,18 +44,17 @@ namespace PureFood.Data.Service
                 {
                     CartItemId = item.CartItemId,
                     ProductId = item.ProductId,
-                    Quantity = item.Quantity,
                     ProductName = item.Product?.ProductName,
+                    Category = item.Product?.Category.CategoryName,
+                    Slug = item.Product?.Slug,
+                    Quantity = item.Quantity,
                     Price = item.Product?.Price ?? 0,
                     Weight = item.Product?.Weight ?? 0,
                     Unit = item.Product?.Unit,
                     Origin = item.Product?.Origin,
-                    Status = item.Product?.Status,
                     Organic = item.Product?.Organic,
-                    Category = item.Product?.Category.CategoryName,
-                    Images = new List<string> { item.Product?.Images.Select(u => u.Url).FirstOrDefault() ?? string.Empty },
-                    Slug = item.Product?.Slug
-                    
+                    Image = new List<string> { item.Product?.Images.Select(u => u.Url).FirstOrDefault() ?? string.Empty },
+                    Status = item.Product?.Status
                 });
             }
 
