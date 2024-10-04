@@ -39,7 +39,7 @@ namespace PureFood.API.Controllers
                 _resultModel = new ResultModel
                 {
                     Success = false,
-                    Message = "Không tìm thấy người dùng.",
+                    Message = "No users found.",
                     Status = (int)HttpStatusCode.NotFound
                 };
             }
@@ -48,7 +48,7 @@ namespace PureFood.API.Controllers
                 Success = true,
                 Status = (int)HttpStatusCode.OK,
                 Data = listusers,
-                Message = "Lấy thông tin người dùng thành công."
+                Message = "Users retrieved successfully."
             };
 
             return Ok(_resultModel);
@@ -63,7 +63,7 @@ namespace PureFood.API.Controllers
                 _resultModel = new ResultModel
                 {
                     Success = false,
-                    Message = "Không tìm thấy người dùng.",
+                    Message = "User not found.",
                     Status = (int)System.Net.HttpStatusCode.NotFound
                 };
             }
@@ -74,7 +74,7 @@ namespace PureFood.API.Controllers
                     Success = true,
                     Status = (int)System.Net.HttpStatusCode.OK,
                     Data = user,
-                    Message = "Lấy thông tin người dùng thành công."
+                    Message = "User retrieved successfully."
                 };
             }
             return Ok(_resultModel);
@@ -90,7 +90,7 @@ namespace PureFood.API.Controllers
                 _resultModel = new ResultModel
                 {
                     Success = false,
-                    Message = "Không tìm thấy người dùng.",
+                    Message = "User not found.",
                     Status = (int)System.Net.HttpStatusCode.NotFound
                 };
             }
@@ -101,7 +101,7 @@ namespace PureFood.API.Controllers
                     Success = true,
                     Status = (int)System.Net.HttpStatusCode.OK,
                     Data = user,
-                    Message = "Tìm người dùng thành công."
+                    Message = "User found successfully."
                 };
             }
             return Ok(_resultModel);
@@ -117,7 +117,7 @@ namespace PureFood.API.Controllers
                 {
                     Success = false,
                     Status = (int)System.Net.HttpStatusCode.BadRequest,
-                    Message = "Yêu cầu không được để trống."
+                    Message = "Request cannot be null."
                 });
             }
 
@@ -128,7 +128,7 @@ namespace PureFood.API.Controllers
                 {
                     Success = false,
                     Status = (int)System.Net.HttpStatusCode.BadRequest,
-                    Message = "Dữ liệu không hợp lệ."
+                    Message = "Invalid data provided."
                 });
             }
 
@@ -140,28 +140,43 @@ namespace PureFood.API.Controllers
                 {
                     Status = (int)System.Net.HttpStatusCode.BadRequest,
                     Success = false,
-                    Message = "Số điện thoại đã tồn tại."
+                    Message = "Your Phone Number Existed."
                 });
             }
 
             // Thêm user mới
-            var result = await _serviceManager.UserService.AddUser(request);
-            if (result == null)
+            try
             {
-                return NotFound(new ResultModel
-                {
-                    Success = false,
-                    Status = (int)System.Net.HttpStatusCode.NotFound,
-                    Message = "Thêm người dùng thất bại."
-                });
+                var result = await _serviceManager.UserService.AddUser(request);
             }
+            catch (Exception ex)
+            {
+                // Chỉ trả về thông báo lỗi mà không cần quăng toàn bộ exception
+                return BadRequest(new ResultModel { 
+
+                Status = (int)System.Net.HttpStatusCode.OK,
+                Success = true,
+                Message = ex.Message
+
+                 });
+            }
+            // if (result == null)
+            // {
+            //     return NotFound(new ResultModel
+            //     {
+            //         Success = false,
+            //         Status = (int)System.Net.HttpStatusCode.NotFound,
+            //         Message = "Failed to add user."
+            //     });
+            // }
+
 
             // Trả về kết quả thành công
             return Ok(new ResultModel
             {
                 Status = (int)System.Net.HttpStatusCode.OK,
                 Success = true,
-                Message = "Thêm người dùng thành công."
+                Message = "User added successfully."
             });
         }
 
@@ -177,7 +192,7 @@ namespace PureFood.API.Controllers
                 {
                     Success = false,
                     Status = (int)System.Net.HttpStatusCode.NotFound,
-                    Message = "Cập nhật người dùng thất bại."
+                    Message = "Failed to update user."
                 });
             }
             // update success
@@ -185,7 +200,7 @@ namespace PureFood.API.Controllers
             {
                 Success = true,
                 Status = (int)System.Net.HttpStatusCode.OK,
-                Message = "Cập nhật người dùng thành công."
+                Message = "User updated successfully."
             });
         }
 
@@ -199,14 +214,14 @@ namespace PureFood.API.Controllers
                 {
                     Success = false,
                     Status = (int)System.Net.HttpStatusCode.NotFound,
-                    Message = "Cập nhật thông tin thất bại."
+                    Message = "Failed to update."
                 });
             }
             return Ok(_resultModel = new ResultModel
             {
                 Success = true,
                 Status = (int)System.Net.HttpStatusCode.OK,
-                Message = "Cập nhật thông tin thành công."
+                Message = "User information updated successfully."
             });
         }
 
@@ -222,7 +237,7 @@ namespace PureFood.API.Controllers
                 {
                     Success = true,
                     Status = (int)System.Net.HttpStatusCode.OK,
-                    Message = "Đổi mật khẩu thành công."
+                    Message = "Change password user successfully."
                 });
             }
             else
@@ -231,7 +246,7 @@ namespace PureFood.API.Controllers
                 {
                     Success = false,
                     Status = (int)System.Net.HttpStatusCode.NotFound,
-                    Message = "Đổi mật khẩu thất bại."
+                    Message = "Failed to change password user."
                 });
             }
         }
@@ -246,14 +261,14 @@ namespace PureFood.API.Controllers
                 {
                     Success = false,
                     Status = (int)System.Net.HttpStatusCode.InternalServerError,
-                    Message = "Đổi ảnh đại diện thất bại."
+                    Message = "Failed to change avatar user."
                 });
             }
             return Ok(_resultModel = new ResultModel
             {
                 Success = true,
                 Status = (int)System.Net.HttpStatusCode.OK,
-                Message = "Đổi ảnh đại diện thành công."
+                Message = "Change avatar user successfully."
             });
         }
 
@@ -270,7 +285,7 @@ namespace PureFood.API.Controllers
                 {
                     Success = false,
                     Status = (int)System.Net.HttpStatusCode.NotFound,
-                    Message = "Cập nhật trạng thái thất bại."
+                    Message = "Failed to update user."
                 });
             }
             // update success
@@ -278,7 +293,7 @@ namespace PureFood.API.Controllers
             {
                 Success = true,
                 Status = (int)System.Net.HttpStatusCode.OK,
-                Message = "Cập nhật trạng thái thành công."
+                Message = "User updated successfully."
             });
 
         }
