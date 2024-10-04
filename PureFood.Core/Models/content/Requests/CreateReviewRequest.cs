@@ -5,16 +5,17 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json.Serialization;
 
 namespace PureFood.Core.Models.content.Requests
 {
     public class CreateReviewRequest
     {
-        // public Guid ReviewId { get; set; }
+        [JsonPropertyName("user")]
         public Guid UserId { get; set; }
+        [JsonPropertyName("product")]
         public Guid ProductId { get; set; }
         public int Rating { get; set; }
         public string Comment { get; set; }
-
     }
 }

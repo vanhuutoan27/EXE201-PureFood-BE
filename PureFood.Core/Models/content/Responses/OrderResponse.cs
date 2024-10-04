@@ -19,7 +19,7 @@ namespace PureFood.Core.Models.content.Responses
         public string OrderStatus { get; set; }
         public List<OrderItemResponse> orderSummary { get; set; }
         public decimal TotalAmount { get; set; }
-        public DateTime CreateAt { get; set; }
+        public DateTime createdAt { get; set; }
         public DateTime UpdatedAt { get; set; }
     }
 }

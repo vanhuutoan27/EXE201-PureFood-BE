@@ -110,7 +110,7 @@ namespace PureFood.Data.Service
                     OrderStatus = o.OrderStatus,
                     orderSummary = orderItemList,
                     TotalAmount = o.TotalAmount,
-                    CreateAt = o.CreatedAt,
+                    createdAt = o.CreatedAt,
                     UpdatedAt = o.UpdatedAt,
 
                 });
@@ -142,7 +142,7 @@ namespace PureFood.Data.Service
                 Province = result.Province,
                 PaymentMethod = result.PaymentMethod,
                 OrderStatus = result.OrderStatus,
-                CreateAt = result.CreatedAt,
+                createdAt = result.CreatedAt,
                 UpdatedAt = result.UpdatedAt,
                 orderSummary = result.OrderItems?.Select(oi => new OrderItemResponse
                 {

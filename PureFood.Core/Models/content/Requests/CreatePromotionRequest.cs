@@ -14,10 +14,8 @@ namespace PureFood.Core.Models.content.Requests
         public string? Description { get; set; }
         public string DiscountCode { get; set; }
         public string DiscountPercentage { get; set; }
-
-        public bool Status { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-
+        public bool Status { get; set; }
     }
 }

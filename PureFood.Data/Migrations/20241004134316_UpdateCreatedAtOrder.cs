@@ -11,7 +11,7 @@ namespace PureFood.Data.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.RenameColumn(
-                name: "CreateAt",
+                name: "createdAt",
                 table: "Orders",
                 newName: "CreatedAt");
         }
@@ -22,7 +22,7 @@ namespace PureFood.Data.Migrations
             migrationBuilder.RenameColumn(
                 name: "CreatedAt",
                 table: "Orders",
-                newName: "CreateAt");
+                newName: "createdAt");
         }
     }
 }
