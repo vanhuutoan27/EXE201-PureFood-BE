@@ -30,6 +30,8 @@ namespace PureFood.Data.Configurations
                     Status = true,
                     CreatedAt = DateTime.Parse("2024-10-02"),
                     UpdatedAt = DateTime.Parse("2024-10-02"),
+                    EntryDate = new DateTime(2024, 10, 19), // 19th October 2024
+                    ExpiryDate = new DateTime(2024, 11, 15) // 15th November 2024
                 },
 
                 new Product()
@@ -50,6 +52,8 @@ namespace PureFood.Data.Configurations
                     Status = true,
                     CreatedAt = DateTime.Parse("2024-10-02"),
                     UpdatedAt = DateTime.Parse("2024-10-02"),
+                     EntryDate = new DateTime(2024, 10, 20), // 20th October 2024
+                     ExpiryDate = new DateTime(2024, 11, 16) // 16th November 2024
                 },
 
                 new Product()
@@ -70,6 +74,8 @@ namespace PureFood.Data.Configurations
                     Status = true,
                     CreatedAt = DateTime.Parse("2024-10-02"),
                     UpdatedAt = DateTime.Parse("2024-10-02"),
+                    EntryDate = new DateTime(2024, 10, 21), // 21st October 2024
+                     ExpiryDate = new DateTime(2024, 11, 17) // 17th November 2024
                 },
 
                 new Product()
@@ -90,6 +96,8 @@ namespace PureFood.Data.Configurations
                     Status = true,
                     CreatedAt = DateTime.Parse("2024-10-02"),
                     UpdatedAt = DateTime.Parse("2024-10-02"),
+                      EntryDate = new DateTime(2024, 10, 22), // 22nd October 2024
+                     ExpiryDate = new DateTime(2024, 11, 18)
                 },
 
                 new Product()
@@ -110,6 +118,8 @@ namespace PureFood.Data.Configurations
                     Status = true,
                     CreatedAt = DateTime.Parse("2024-10-02"),
                     UpdatedAt = DateTime.Parse("2024-10-02"),
+                     EntryDate = new DateTime(2024, 10, 23), // 23rd October 2024
+                    ExpiryDate = new DateTime(2024, 11, 19) // 19th November 2024
                 },
 
                 new Product()
@@ -130,6 +140,8 @@ namespace PureFood.Data.Configurations
                     Status = true,
                     CreatedAt = DateTime.Parse("2024-10-02"),
                     UpdatedAt = DateTime.Parse("2024-10-02"),
+                      EntryDate = new DateTime(2024, 10, 24), // 24th October 2024
+                     ExpiryDate = new DateTime(2024, 11, 20) // 20th November 2024
                 },
 
                 new Product()
@@ -150,6 +162,8 @@ namespace PureFood.Data.Configurations
                     Status = true,
                     CreatedAt = DateTime.Parse("2024-10-02"),
                     UpdatedAt = DateTime.Parse("2024-10-02"),
+                     EntryDate = new DateTime(2024, 10, 25), // 25th October 2024
+                     ExpiryDate = new DateTime(2024, 11, 21) // 21st November 2024
                 },
 
                 new Product()
@@ -170,6 +184,8 @@ namespace PureFood.Data.Configurations
                     Status = true,
                     CreatedAt = DateTime.Parse("2024-10-02"),
                     UpdatedAt = DateTime.Parse("2024-10-02"),
+                     EntryDate = new DateTime(2024, 10, 26), // 26th October 2024
+                     ExpiryDate = new DateTime(2024, 11, 22) // 22nd November 2024
                 },
 
                 new Product()
@@ -190,6 +206,8 @@ namespace PureFood.Data.Configurations
                     Status = true,
                     CreatedAt = DateTime.Parse("2024-10-02"),
                     UpdatedAt = DateTime.Parse("2024-10-02"),
+                        EntryDate = new DateTime(2024, 10, 27), // 27th October 2024
+                    ExpiryDate = new DateTime(2024, 11, 23) // 23rd November 2024
                 },
 
                 new Product()
@@ -210,6 +228,8 @@ namespace PureFood.Data.Configurations
                     Status = true,
                     CreatedAt = DateTime.Parse("2024-10-02"),
                     UpdatedAt = DateTime.Parse("2024-10-02"),
+                      EntryDate = new DateTime(2024, 10, 28), // 28th October 2024
+                    ExpiryDate = new DateTime(2024, 11, 24) // 24th November 2024
                 },
 
                 new Product()
@@ -230,6 +250,8 @@ namespace PureFood.Data.Configurations
                     Status = true,
                     CreatedAt = DateTime.Parse("2024-10-02"),
                     UpdatedAt = DateTime.Parse("2024-10-02"),
+                     EntryDate = new DateTime(2024, 10, 29), // 29th October 2024
+            ExpiryDate = new DateTime(2024, 11, 25) // 25th November 2024
                 },
 
                 new Product()
@@ -250,6 +272,8 @@ namespace PureFood.Data.Configurations
                     Status = true,
                     CreatedAt = DateTime.Parse("2024-10-02"),
                     UpdatedAt = DateTime.Parse("2024-10-02"),
+                     EntryDate = new DateTime(2024, 10, 30), // 30th October 2024
+            ExpiryDate = new DateTime(2024, 11, 26) // 26th November 2024
                 },
 
                 new Product()
@@ -270,6 +294,8 @@ namespace PureFood.Data.Configurations
                     Status = true,
                     CreatedAt = DateTime.Parse("2024-10-02"),
                     UpdatedAt = DateTime.Parse("2024-10-02"),
+                      EntryDate = new DateTime(2024, 10, 31), // 31st October 2024
+            ExpiryDate = new DateTime(2024, 11, 27) // 27th November 2024
                 },
 
                 new Product()
@@ -290,6 +316,8 @@ namespace PureFood.Data.Configurations
                     Status = true,
                     CreatedAt = DateTime.Parse("2024-10-02"),
                     UpdatedAt = DateTime.Parse("2024-10-02"),
+                     EntryDate = new DateTime(2024, 11, 1), // 1st November 2024
+            ExpiryDate = new DateTime(2024, 11, 28) // 28th November 2024
                 },
 
                 new Product()
@@ -310,6 +338,8 @@ namespace PureFood.Data.Configurations
                     Status = true,
                     CreatedAt = DateTime.Parse("2024-10-02"),
                     UpdatedAt = DateTime.Parse("2024-10-02"),
+                     EntryDate = new DateTime(2024, 11, 2), // 2nd November 2024
+            ExpiryDate = new DateTime(2024, 11, 29) // 29th November 2024
                 },
 
                 new Product()
@@ -330,6 +360,8 @@ namespace PureFood.Data.Configurations
                     Status = true,
                     CreatedAt = DateTime.Parse("2024-10-02"),
                     UpdatedAt = DateTime.Parse("2024-10-02"),
+                       EntryDate = new DateTime(2024, 11, 3), // 3rd November 2024
+            ExpiryDate = new DateTime(2024, 11, 30) // 30th November 2024
                 },
 
                 new Product()
@@ -350,6 +382,8 @@ namespace PureFood.Data.Configurations
                     Status = true,
                     CreatedAt = DateTime.Parse("2024-10-02"),
                     UpdatedAt = DateTime.Parse("2024-10-02"),
+                      EntryDate = new DateTime(2024, 11, 4), // 4th November 2024
+            ExpiryDate = new DateTime(2024, 12, 1) // 1st December 2024
                 },
 
                 new Product()
@@ -370,6 +404,8 @@ namespace PureFood.Data.Configurations
                     Status = true,
                     CreatedAt = DateTime.Parse("2024-10-02"),
                     UpdatedAt = DateTime.Parse("2024-10-02"),
+                          EntryDate = new DateTime(2024, 11, 5), // 5th November 2024
+            ExpiryDate = new DateTime(2024, 12, 2) // 2nd December 2024
                 },
 
                 new Product()
@@ -390,6 +426,8 @@ namespace PureFood.Data.Configurations
                     Status = true,
                     CreatedAt = DateTime.Parse("2024-10-02"),
                     UpdatedAt = DateTime.Parse("2024-10-02"),
+                      EntryDate = new DateTime(2024, 11, 6), // 6th November 2024
+            ExpiryDate = new DateTime(2024, 12, 3) // 3rd December 2024
                 },
 
                 new Product()
@@ -410,6 +448,8 @@ namespace PureFood.Data.Configurations
                     Status = true,
                     CreatedAt = DateTime.Parse("2024-10-02"),
                     UpdatedAt = DateTime.Parse("2024-10-02"),
+                      EntryDate = new DateTime(2024, 11, 7), // 7th November 2024
+            ExpiryDate = new DateTime(2024, 12, 4) // 4th December 2024
                 },
                 
                 // product 21
