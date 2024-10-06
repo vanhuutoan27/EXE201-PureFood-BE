@@ -18,6 +18,26 @@ namespace PureFood.Data.Service
             _mapper = mapper;
         }
 
+        public async Task<bool> ChangeStatusPromotion(Guid id)
+        {
+            var promotion = await _repositoryManager.PromotionRepository.GetByIdAsync(id);
+            if (promotion == null)
+            {
+                return false;
+            }
+            if (promotion.Status)
+            {
+                promotion.Status = false;
+            }
+            else
+            {
+                promotion.Status = true;
+            }
+            _repositoryManager.PromotionRepository.Update(promotion);
+            await _repositoryManager.SaveAsync();
+            return true;
+        }
+
         public async Task<bool> createPromotion(CreatePromotionRequest request)
         {
             try

@@ -146,5 +146,27 @@ namespace PureFood.API.Controllers
             };
             return Ok(_resultModel);
         }
+
+        [HttpPatch("{promotionId:guid}")]
+        public async Task<ActionResult<ResultModel>> ChangeStatus(Guid promotionId)
+        {
+            var result = await _serviceManager.PromotionService.ChangeStatusPromotion(promotionId);
+            if (!result)
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.NotFound,
+                    Message = "Không tìm thấy mã khuyến mãi"
+                };
+            }
+            return new ResultModel
+            {
+                Success = true,
+                Status = (int)HttpStatusCode.OK,
+                Message = "Đổi trạng thái mã khuyến mãi thành công."
+            };
+        }
+
     }
 }

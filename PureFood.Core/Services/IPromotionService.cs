@@ -1,10 +1,5 @@
 ﻿using PureFood.Core.Models.content.Requests;
 using PureFood.Core.Models.content.Responses;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PureFood.Core.Services
 {
@@ -21,5 +16,6 @@ namespace PureFood.Core.Services
         Task<bool> updatePromotion(Guid id, CreatePromotionRequest request);
 
         Task<bool> deletePromotion(Guid id);
+        Task<bool> ChangeStatusPromotion(Guid id);
     }
 }
