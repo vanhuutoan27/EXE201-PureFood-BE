@@ -40,9 +40,9 @@ namespace PureFood.API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<ResultModel>> GetAllResultModel(int page = 1, int limit = 10)
+        public async Task<ActionResult<ResultModel>> GetAllResultModel(int page = 1, int limit = 10, string orderStatus = null)
         {
-            var result = await _serviceManager.OrderService.GetAllOrder(page, limit);
+            var result = await _serviceManager.OrderService.GetAllOrder(page, limit, orderStatus);
             return new ResultModel
             {
                 Success = true,

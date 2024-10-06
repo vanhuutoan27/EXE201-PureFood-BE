@@ -77,10 +77,10 @@ namespace PureFood.Data.Service
             return true;
         }
 
-        public async Task<PageResult<OrderResponse>> GetAllOrder(int page, int limit)
+        public async Task<PageResult<OrderResponse>> GetAllOrder(int page, int limit, string orderStatus)
         {
-            var orderList = await _repositoryManager.OrderRepository.GetAllOrders(page, limit);
-
+            var orderList = await _repositoryManager.OrderRepository.GetAllOrders(page, limit, orderStatus);
+            if (orderList == null) { throw new Exception("Không tìm thấy hóa đơn"); }
             var orderResponse = new List<OrderResponse>();
 
             foreach (var o in orderList.Items)

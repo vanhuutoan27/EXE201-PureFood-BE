@@ -4,6 +4,7 @@ using Microsoft.OpenApi.Models;
 using PureFood.API;
 using PureFood.API.AutoMappers;
 using PureFood.API.Extensions;
+using PureFood.API.GlobalExceptions;
 using PureFood.API.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -57,7 +58,7 @@ var mapperConfig = new MapperConfiguration(mc =>
 });
 builder.Services.AddAutoMapper(cfg => cfg.Internal().MethodMappingEnabled = false, typeof(Program).Assembly);
 builder.Services.ConfigureSqlContext(configuration);
-//builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 
 
 
@@ -75,6 +76,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 app.UseCors("CorsPolicy");
+app.UseExceptionHandler(opt => { });
+
 app.UseHttpsRedirection();
 app.UseAuthentication();
 
