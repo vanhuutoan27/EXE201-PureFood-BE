@@ -21,6 +21,7 @@ namespace PureFood.Core.Domain.Content
         public DateTime UpdatedAt { get; set; }
 
         public ICollection<OrderItem> OrderItems { get; set; }
+        public ICollection<Payment> Payments { get; set; }
 
     }
 }

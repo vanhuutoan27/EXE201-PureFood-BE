@@ -14,6 +14,6 @@ namespace PureFood.Core.SeedWorks
         IUserService UserService { get; }
         IPromotionService PromotionService { get; }
         IOrderService OrderService { get; }
-
+        IPaymentService PaymentService{get;}
     }
 }

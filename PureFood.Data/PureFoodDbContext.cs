@@ -22,7 +22,7 @@ namespace PureFood.Data
         public DbSet<Supplier> Suppliers { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
-
+        public DbSet<Payment> Payments { get; set; }
         public DbSet<Promotion> Promotions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)

@@ -15,6 +15,7 @@ namespace PureFood.Core.SeedWorks
         IOrderRepository OrderRepository { get; }
         IPromotionRepository PromotionRepository { get; }
         IOrderItemRepository OrderItemRepository { get; }
+        IPaymentRepository PaymentRepository {get;}
         Task SaveAsync();
     }
 }
