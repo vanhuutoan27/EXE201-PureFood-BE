@@ -99,7 +99,7 @@ namespace PureFood.API.Controllers
 
             _resultModel = new ResultModel
             {
-                Data = payment, 
+                Data = null, 
                 Message = "Phương thức thanh toán thêm thành công.",
                 Status = (int)HttpStatusCode.OK,
                 Success = true
