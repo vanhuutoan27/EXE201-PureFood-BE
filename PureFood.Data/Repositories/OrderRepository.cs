@@ -49,6 +49,25 @@ namespace PureFood.Data.Repositories
             };
         }
 
+        public async Task<PageResult<Order>> GetAllOrdersByUserId(Guid userId, int page, int limit)
+        {
+            IQueryable<Order> query = _context.Orders.Where(o => o.UserId == userId).Include(o => o.OrderItems).ThenInclude(oi => oi.Product).ThenInclude(p => p.Images).AsQueryable();
+
+            int totalItems = await query.CountAsync();
+
+
+            if (page > 0 && limit > 0)
+            {
+                query = query.Skip((page - 1) * limit).Take(limit);
+            }
+
+            return new PageResult<Order>
+            {
+                TotalItems = totalItems,
+                Items = query.ToList()
+            };
+        }
+
         public async Task<Order> GetOrderById(Guid id)
         {
             return await _context.Orders.Include(o => o.OrderItems).ThenInclude(oi => oi.Product).ThenInclude(p => p.Images)

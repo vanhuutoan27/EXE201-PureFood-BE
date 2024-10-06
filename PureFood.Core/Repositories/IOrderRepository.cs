@@ -8,5 +8,6 @@ namespace PureFood.Core.Repositories
     {
         public Task<PageResult<Order>> GetAllOrders(int page, int limit, string orderStatus);
         public Task<Order> GetOrderById(Guid id);
+        public Task<PageResult<Order>> GetAllOrdersByUserId(Guid userId, int page, int limit);
     }
 }

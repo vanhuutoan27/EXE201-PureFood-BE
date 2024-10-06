@@ -80,7 +80,7 @@ namespace PureFood.Data.Service
         public async Task<PageResult<OrderResponse>> GetAllOrder(int page, int limit, string orderStatus)
         {
             var orderList = await _repositoryManager.OrderRepository.GetAllOrders(page, limit, orderStatus);
-            if (orderList == null) { throw new Exception("Không tìm thấy hóa đơn"); }
+            //if (orderList == null) { throw new Exception("Không tìm thấy hóa đơn"); }
             var orderResponse = new List<OrderResponse>();
 
             foreach (var o in orderList.Items)
@@ -122,6 +122,50 @@ namespace PureFood.Data.Service
                 CurrentPage = page,
                 TotalItems = orderList.TotalItems,
                 TotalPages = (int)Math.Ceiling(orderList.TotalItems / (double)limit),
+                Items = orderResponse
+            };
+        }
+
+        public async Task<PageResult<OrderResponse>> GetAllOrderByUserId(Guid userId, int page, int limit)
+        {
+            var result = await _repositoryManager.OrderRepository.GetAllOrdersByUserId(userId, page, limit);
+            var orderResponse = result.Items.Select(o =>
+            {
+                var orderItemList = o.OrderItems.Select(item => new OrderItemResponse
+                {
+                    ProductId = item.ProductId,
+                    ProductName = item.Product.ProductName,
+                    Quantity = item.Quantity,
+                    Price = item.Product.Price,
+                    Image = item.Product?.Images?.Select(i => i.Url).FirstOrDefault()
+                }).ToList();
+
+                return new OrderResponse
+                {
+                    OrderId = o.OrderId,
+                    UserId = o.UserId,
+                    FullName = o.FullName,
+                    PhoneNumber = o.PhoneNumber,
+                    Email = o.Email,
+                    Address = o.Address,
+                    Commune = o.Commune,
+                    District = o.District,
+                    Province = o.Province,
+                    PaymentMethod = o.PaymentMethod,
+                    OrderStatus = o.OrderStatus,
+                    orderSummary = orderItemList,
+                    TotalAmount = o.TotalAmount,
+                    createdAt = o.CreatedAt,
+                    UpdatedAt = o.UpdatedAt
+                };
+            }).ToList();
+
+
+            return new PageResult<OrderResponse>
+            {
+                CurrentPage = page,
+                TotalItems = result.TotalItems,
+                TotalPages = (int)Math.Ceiling(result.TotalItems / (double)limit),
                 Items = orderResponse
             };
         }

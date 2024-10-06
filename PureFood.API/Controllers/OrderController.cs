@@ -65,6 +65,19 @@ namespace PureFood.API.Controllers
                 Data = result
             };
         }
+        [HttpGet("user/{userId:guid}")]
+        public async Task<ActionResult<ResultModel>> GetOrderByUserId(Guid userId, int page = 1, int limit = 10)
+        {
+            var result = await _serviceManager.OrderService.GetAllOrderByUserId(userId, page, limit);
+
+            return new ResultModel
+            {
+                Success = true,
+                Status = 200,
+                Message = "Order retrieved successfully.",
+                Data = result
+            };
+        }
 
         [HttpPatch("{orderId}/status")]
         public async Task<ActionResult<ResultModel>> UpdateOrderStatus(Guid orderId, [FromBody] UpdateOrderRequest request)
