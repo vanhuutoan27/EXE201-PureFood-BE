@@ -14,6 +14,8 @@ namespace PureFood.Core.Models.content.Requests
         public string District { get; set; }
         public string Province { get; set; }
         public string PaymentMethod { get; set; }
+        public decimal totalAmount { get; set; }
+        public string? DiscountCode { get; set; }
         // public string OrderStatus { get; set; }
         public List<CreateOrderItemRequest> orderSummary { get; set; }
         public decimal totalAmount { get; set; }

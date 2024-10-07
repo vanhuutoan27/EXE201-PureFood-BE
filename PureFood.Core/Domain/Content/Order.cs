@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PureFood.Core.Domain.Content
 {
@@ -19,7 +20,10 @@ namespace PureFood.Core.Domain.Content
         public string OrderStatus { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
+        public Guid? PromotionId { get; set; }
 
+        [ForeignKey(nameof(PromotionId))]
+        public Promotion Promotion { get; set; }
         public ICollection<OrderItem> OrderItems { get; set; }
         public ICollection<Payment> Payments { get; set; }
 

@@ -14,7 +14,10 @@ namespace PureFood.Core.Domain.Content
         public string PromotionName { get; set; }
         public string? Description { get; set; }
         public string DiscountCode { get; set; }
-        public string DiscountPercentage { get; set; }
+        public decimal DiscountPercentage { get; set; }
+
+        public decimal? Quantity { get; set; }
+        public decimal? Stock { get; set; }
 
         public bool Status { get; set; }
         public DateTime StartDate { get; set; }
@@ -24,6 +27,8 @@ namespace PureFood.Core.Domain.Content
         public DateTime? UpdatedAt { get; set; }
         public DateTime? CreatedBy { get; set; }
         public DateTime? UpdatedBy { get; set; }
+
+        public ICollection<Order> Orders { get; set; }
 
     }
 }

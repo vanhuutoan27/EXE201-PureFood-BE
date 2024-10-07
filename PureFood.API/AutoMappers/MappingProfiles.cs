@@ -33,6 +33,7 @@ namespace PureFood.API.AutoMappers
                         .ForMember(dest => dest.Gender, opt => opt.MapFrom(src => src.Gender)).ReverseMap();
 
             CreateMap<Order, OrderResponse>();
+            CreateMap<Promotion, PromotionReponse>().ReverseMap();
                 CreateMap<Payment, PaymentRespone>()
         .ForMember(dest => dest.OrderId, opt => opt.MapFrom(src => src.Order != null ? src.Order.OrderId : Guid.Empty))
         .ForMember(dest => dest.CustomerId, opt => opt.MapFrom(src => src.Order != null ? src.Order.UserId : Guid.Empty))

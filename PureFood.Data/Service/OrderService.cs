@@ -30,40 +30,72 @@ namespace PureFood.Data.Service
 
         public async Task<OrderResponse> CreateOrder(CreateOrderRequest request)
         {
-            var order = new Order
+            try
             {
-                UserId = request.UserId,
-                FullName = request.FullName,
-                PhoneNumber = request.PhoneNumber,
-                Email = request.Email,
-                Address = request.Address,
-                Commune = request.Commune,
-                District = request.District,
-                Province = request.Province,
-                PaymentMethod = request.PaymentMethod,
-                OrderStatus = "Pending",
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now,
-                TotalAmount = request.totalAmount
-            };
-            _repositoryManager.OrderRepository.Add(order);
-
-            //add OrderItem
-            foreach (var i in request.orderSummary)
-            {
-                var orderItem = new OrderItem
+                decimal discount = 0;
+                // lay ma giam gia
+                var promotion = await _repositoryManager.PromotionRepository.GetPromotionByDiscountCode(request.DiscountCode);
+                if (!string.IsNullOrEmpty(request.DiscountCode))
                 {
-                    ProductId = i.ProductId,
-                    OrderId = order.OrderId,
-                    Quantity = i.Quantity,
+                    if (promotion == null)
+                    {
+                        throw new Exception("Mã giảm giá không hợp lệ hoặc đã hết hạn.");
+                    }
+                    if (promotion.Stock <= 0)
+                    {
+                        throw new Exception("Mã giảm giá không còn nữa");
+                    }
+                    // tinh toan giam gia
+                    discount = (request.totalAmount * promotion.DiscountPercentage) / 100;
+
+                    // giam Stock di 1
+                    promotion.Stock -= 1;
+                    _repositoryManager.PromotionRepository.Update(promotion);
+
+                }
+
+                var order = new Order
+                {
+                    UserId = request.UserId,
+                    FullName = request.FullName,
+                    PhoneNumber = request.PhoneNumber,
+                    Email = request.Email,
+                    Address = request.Address,
+                    Commune = request.Commune,
+                    District = request.District,
+                    Province = request.Province,
+                    PaymentMethod = request.PaymentMethod,
+                    OrderStatus = "Pending",
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                    TotalAmount = request.totalAmount - discount,
+                    PromotionId = promotion?.PromotionId
                 };
-                _repositoryManager.OrderItemRepository.Add(orderItem);
+                _repositoryManager.OrderRepository.Add(order);
+
+                //add OrderItem
+                foreach (var i in request.orderSummary)
+                {
+                    var orderItem = new OrderItem
+                    {
+                        ProductId = i.ProductId,
+                        OrderId = order.OrderId,
+                        Quantity = i.Quantity,
+                    };
+                    _repositoryManager.OrderItemRepository.Add(orderItem);
+
+                }
+                await _repositoryManager.SaveAsync();
+
+                return _mapper.Map<OrderResponse>(order);
 
             }
-            await _repositoryManager.SaveAsync();
-
-            return _mapper.Map<OrderResponse>(order);
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi tạo đơn hàng!" + ex.Message);
+            }
         }
+
 
         public async Task<bool> DeleteOrder(Guid orderId)
         {

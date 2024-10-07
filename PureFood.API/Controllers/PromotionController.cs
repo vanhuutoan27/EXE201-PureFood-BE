@@ -60,7 +60,6 @@ namespace PureFood.API.Controllers
                     Status = (int)HttpStatusCode.NotFound,
                     Data = null,
                     Message = "ID không tồn tại."
-
                 };
             }
             else
@@ -71,10 +70,7 @@ namespace PureFood.API.Controllers
                     Data = getPromotion,
                     Message = "Lấy khuyến mãi thành công."
                 };
-
             return Ok(_resultModel);
-
-
         }
 
 
@@ -102,7 +98,7 @@ namespace PureFood.API.Controllers
         }
         [HttpPut]
         [Route("{promotionId:guid}")]
-        public async Task<ActionResult<ResultModel>> UdpdatePromotion(Guid promotionId, CreatePromotionRequest request)
+        public async Task<ActionResult<ResultModel>> UpdatePromotion(Guid promotionId, UpdatePromotionRequest request)
         {
             var getPromotion = await _serviceManager.PromotionService.updatePromotion(promotionId, request);
             if (getPromotion == null)
@@ -122,6 +118,26 @@ namespace PureFood.API.Controllers
                 Message = "Cập nhật khuyến mãi thành công."
             };
             return Ok(_resultModel);
+        }
+        [HttpPatch("{promotionId}")]
+        public async Task<ActionResult<ResultModel>> ChangeStatusPromotion(Guid promotionId)
+        {
+            var updatePromotion = await _serviceManager.PromotionService.ChangeStatus(promotionId);
+            if(!updatePromotion)
+            {
+                return NotFound(_resultModel = new ResultModel
+                {
+                    Success = false,
+                    Status= (int)HttpStatusCode.NotFound,
+                    Message = "Không tìm thấy khuyến mãi."
+                });
+            }
+            return Ok(_resultModel = new ResultModel
+            {
+                Success = true,
+                Status = (int)HttpStatusCode.OK,
+                Message = "Cập nhật trạng thái thành công."
+            });
         }
         [HttpDelete]
         [Route("{promotionId:guid}")]

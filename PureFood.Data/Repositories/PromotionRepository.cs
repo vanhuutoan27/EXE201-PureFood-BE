@@ -33,5 +33,15 @@ namespace PureFood.Data.Repositories
             return await query.ToListAsync();
         }
 
+        public IEnumerable<Promotion> GetExpiredPromotions()
+        {
+            return _context.Promotions.Where(p => p.Status == true && p.EndDate < DateTime.Now).ToList();
+        }
+
+        public async Task<Promotion> GetPromotionByDiscountCode(string discountCode)
+        {
+            return await _context.Promotions
+                .Where(p => p.DiscountCode.ToLower() == discountCode.ToLower().Trim() && p.Status == true && p.EndDate > DateTime.Now).FirstOrDefaultAsync();
+        }
     }
 }

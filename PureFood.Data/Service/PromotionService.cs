@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using PureFood.Core.Domain.Content;
 using PureFood.Core.Models.content.Requests;
 using PureFood.Core.Models.content.Responses;
@@ -44,7 +46,6 @@ namespace PureFood.Data.Service
             {
                 var newPromotion = new Promotion
                 {
-
                     CreatedAt = DateTime.Now,
                     Description = request.Description,
                     DiscountCode = request.DiscountCode,
@@ -52,9 +53,10 @@ namespace PureFood.Data.Service
                     EndDate = request.EndDate,
                     PromotionId = Guid.NewGuid(),
                     PromotionName = request.PromotionName,
-                    StartDate = request.StartDate,
-                    Status = request.Status,
-
+                    Quantity = request.Quantity,
+                    Stock = request.Quantity,
+                    StartDate = request.StartDate,                    
+                    Status = false,
                 };
                 _repositoryManager.PromotionRepository.Add(newPromotion);
                 await _repositoryManager.SaveAsync();
@@ -107,7 +109,7 @@ namespace PureFood.Data.Service
             return _mapper.Map<PromotionReponse>(supplierRepository);
         }
 
-        public async Task<bool> updatePromotion(Guid id, CreatePromotionRequest request)
+        public async Task<bool> updatePromotion(Guid id, UpdatePromotionRequest request)
         {
             var getPromotion = await _repositoryManager.PromotionRepository.GetByIdAsync(id);
 
@@ -124,8 +126,7 @@ namespace PureFood.Data.Service
                 getPromotion.DiscountCode = request.DiscountCode;
                 getPromotion.DiscountPercentage = request.DiscountPercentage;
                 getPromotion.PromotionName = request.PromotionName;
-                getPromotion.Status = request.Status;
-
+                getPromotion.Quantity = request.Quantity;
 
                 _repositoryManager.PromotionRepository.Update(getPromotion);
                 await _repositoryManager.SaveAsync();
@@ -137,5 +138,28 @@ namespace PureFood.Data.Service
 
             }
         }
+
+        //public async Task<bool> ValidatePromotion(string discountCode)
+        //{
+        //    var promotion = await _repositoryManager.PromotionRepository.GetPromotionByDiscountCode(discountCode);
+        //    if(promotion == null)
+        //    {
+        //        throw new Exception("Mã giảm giá không tìm thấy.");
+        //    }
+        //    // kiem tra voucher xem con su dung duoc khong
+        //    if(promotion.Status == false)
+        //    {
+        //        throw new Exception("Mã giảm giá đã hết hạn.");
+        //    }
+        //    if(promotion.EndDate < DateTime.Now)
+        //    {
+        //        throw new Exception("Mã giảm giá đã hết hạn.");
+        //    }
+        //    if(promotion.Stock <= 0)
+        //    {
+        //        throw new Exception("Mã giảm giá không có sẵn.");
+        //    }
+        //    return true;
+        //}       
     }
 }
