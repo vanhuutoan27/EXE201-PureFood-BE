@@ -16,6 +16,8 @@ namespace PureFood.Core.Models.content.Responses
         public string Province { get; set; }
         public string PaymentMethod { get; set; }
         //public decimal totalAmount { get; set; }
+        [JsonPropertyName("voucher")]
+        public string? DiscountCode { get; set; }
         public string OrderStatus { get; set; }
         public List<OrderItemResponse> orderSummary { get; set; }
         public decimal TotalAmount { get; set; }

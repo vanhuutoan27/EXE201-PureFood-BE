@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
 using PureFood.Core.Domain.Identity;
 using PureFood.Core.SeedWorks;
 using PureFood.Core.Services;
@@ -20,8 +21,9 @@ namespace PureFood.Data.SeedWork
         private readonly Lazy<IPromotionService> _promotionService;
         private readonly Lazy<IOrderService> _orderService;
         private readonly Lazy<IPaymentService> _paymentService;
+        private readonly Lazy<IVnPayService> _vnPayService;
 
-        public ServiceManager(IRepositoryManager repositoryManager, IMapper mapper, UserManager<AppUser> userManager)
+        public ServiceManager(IRepositoryManager repositoryManager, IMapper mapper, UserManager<AppUser> userManager, IConfiguration configuration)
         {
             _cartItemService = new Lazy<ICartItemService>(() => new CartItemService(repositoryManager, mapper));
             _cartService = new Lazy<ICartService>(() => new CartService(repositoryManager, mapper));
@@ -33,7 +35,8 @@ namespace PureFood.Data.SeedWork
             _userService = new Lazy<IUserService>(() => new UserService(userManager, repositoryManager, mapper));
             _promotionService = new Lazy<IPromotionService>(() => new PromotionService(repositoryManager, mapper));
             _orderService = new Lazy<IOrderService>(() => new OrderService(repositoryManager, mapper));
-            _paymentService = new Lazy<IPaymentService>(() => new PaymentService(repositoryManager , mapper ));
+            _paymentService = new Lazy<IPaymentService>(() => new PaymentService(repositoryManager, mapper));
+            _vnPayService = new Lazy<IVnPayService>(() => new VnPayService(configuration));
 
         }
         public ICartItemService CartItemService => _cartItemService.Value;
@@ -57,5 +60,7 @@ namespace PureFood.Data.SeedWork
         public IOrderService OrderService => _orderService.Value;
 
         public IPaymentService PaymentService => _paymentService.Value;
+
+        public IVnPayService VnPayService => _vnPayService.Value;
     }
 }
