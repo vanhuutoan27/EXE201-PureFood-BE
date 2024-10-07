@@ -11,6 +11,11 @@ namespace PureFood.Data.Repositories
         {
         }
 
+        public async Task<int> CountUserReviewsForProduct(Guid userId, Guid productId)
+        {
+            return await _context.Reviews.Where( x => x.UserId == userId &&  x.ProductId == productId ).CountAsync();
+        }
+
         public async Task<IEnumerable<Review>> GetAllReviewAsync(int page, int limit)
         {
             IQueryable<Review> query = _context.Reviews.Include(r => r.User).AsQueryable();

@@ -45,6 +45,12 @@ namespace PureFood.Data.Service
 
         public async Task<bool> createReview(CreateReviewRequest review)
         {
+            // kiem tra so lan Review cua nguoi dung cho 1 product
+            var reviewCount = await _repositoryManager.ReviewRepository.CountUserReviewsForProduct(review.UserId, review.ProductId);
+            if(reviewCount >= 3)
+            {
+                throw new Exception("Bạn đã hết lượt đánh giá cho sản phẩm này.");
+            }
             var getProduct = await _repositoryManager.ReviewRepository.GetReviewByProductId(review.ProductId);
             if (getProduct == null) {
                 throw new Exception("Không tìm thấy sản phẩm.");
@@ -71,9 +77,6 @@ namespace PureFood.Data.Service
 
             }
             return true;
-
-
-
         }
 
         public async Task<bool> deleteReview(Guid id)
