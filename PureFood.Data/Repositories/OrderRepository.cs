@@ -2,6 +2,7 @@
 using PureFood.Core.Domain.Content;
 using PureFood.Core.Models.content;
 using PureFood.Core.Repositories;
+using PureFood.Core.SeedWorks.Enums;
 using PureFood.Data.SeedWork;
 
 namespace PureFood.Data.Repositories
@@ -21,11 +22,11 @@ namespace PureFood.Data.Repositories
             {
                 if (orderStatus.ToLower() == "new")
                 {
-                    query = query.Where(o => o.OrderStatus == "Pending" || o.OrderStatus == "Processing");
+                    query = query.Where(o => o.Status == OrderStatus.Pending || o.Status == OrderStatus.Processing);
                 }
                 else if (orderStatus.ToLower() == "processing")
                 {
-                    query = query.Where(o => o.OrderStatus == "Shipping" || o.OrderStatus == "Completed" || o.OrderStatus == "Cancelled");
+                    query = query.Where(o => o.Status == OrderStatus.Shipping || o.Status == OrderStatus.Completed || o.Status == OrderStatus.Cancelled);
                 }
                 else
                 {

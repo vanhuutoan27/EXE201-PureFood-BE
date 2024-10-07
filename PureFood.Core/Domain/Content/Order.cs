@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using PureFood.Core.SeedWorks.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace PureFood.Core.Domain.Content
 {
@@ -16,7 +17,7 @@ namespace PureFood.Core.Domain.Content
         public string Province { get; set; }
         public string PaymentMethod { get; set; }
         public decimal TotalAmount { get; set; }
-        public string OrderStatus { get; set; }
+        public OrderStatus Status { get; set; } = OrderStatus.Pending;
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
 

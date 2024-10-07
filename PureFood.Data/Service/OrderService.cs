@@ -3,6 +3,7 @@ using PureFood.Core.Domain.Content;
 using PureFood.Core.Models.content.Requests;
 using PureFood.Core.Models.content.Responses;
 using PureFood.Core.SeedWorks;
+using PureFood.Core.SeedWorks.Enums;
 using PureFood.Core.Services;
 
 namespace PureFood.Data.Service
@@ -17,14 +18,53 @@ namespace PureFood.Data.Service
             _mapper = mapper;
         }
 
-        public async Task<bool> ChangeStatusOrder(Guid orderId, UpdateOrderRequest request)
+        public async Task<bool> ChangeStatusOrder(Guid orderId)
         {
             var order = await _repositoryManager.OrderRepository.GetByIdAsync(orderId);
-            if (order == null) { return false; }
-            order.OrderStatus = request.OrderStatus;
+            if (order == null)
+            {
+                return false;
+            }
+            // thay doi status khi goi toi
+            switch(order.Status)
+            {
+                case OrderStatus.Pending:
+                    order.Status = OrderStatus.Processing;
+                    break;
+                case OrderStatus.Processing:
+                    order.Status = OrderStatus.Shipping;
+                    break;
+                case OrderStatus.Shipping:
+                    order.Status = OrderStatus.Completed;
+                    break;
+                case OrderStatus.Completed:
+                    throw new Exception("Không thể cập nhật trạng thái.");
+                default:
+                    throw new Exception("Trạng thái không hợp lệ.");
+            }
             _repositoryManager.OrderRepository.Update(order);
             await _repositoryManager.SaveAsync();
 
+            return true;
+        }
+
+        public async Task<bool> ChangeStatusOrderToCancel(Guid orderId)
+        {
+            var order = await _repositoryManager.OrderRepository.GetByIdAsync(orderId);
+            if(order == null)
+            {
+                return false;
+            }
+            if(order.Status == OrderStatus.Pending || order.Status == OrderStatus.Processing)
+            {
+                order.Status = OrderStatus.Cancelled;
+            } else
+            {
+                throw new Exception("Không thể hủy đơn hàng.");
+            }
+            order.UpdatedAt = DateTime.Now;
+            _repositoryManager.OrderRepository.Update(order);
+            await _repositoryManager.SaveAsync();
             return true;
         }
 
@@ -41,7 +81,7 @@ namespace PureFood.Data.Service
                 District = request.District,
                 Province = request.Province,
                 PaymentMethod = request.PaymentMethod,
-                OrderStatus = "Pending",
+                Status = OrderStatus.Pending,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
                 TotalAmount = request.totalAmount
@@ -107,7 +147,7 @@ namespace PureFood.Data.Service
                     District = o.District,
                     Province = o.Province,
                     PaymentMethod = o.PaymentMethod,
-                    OrderStatus = o.OrderStatus,
+                    OrderStatus = o.Status.ToString(),
                     orderSummary = orderItemList,
                     TotalAmount = o.TotalAmount,
                     createdAt = o.CreatedAt,
@@ -152,7 +192,7 @@ namespace PureFood.Data.Service
                     District = o.District,
                     Province = o.Province,
                     PaymentMethod = o.PaymentMethod,
-                    OrderStatus = o.OrderStatus,
+                    OrderStatus = o.Status.ToString(),
                     orderSummary = orderItemList,
                     TotalAmount = o.TotalAmount,
                     createdAt = o.CreatedAt,
@@ -185,7 +225,7 @@ namespace PureFood.Data.Service
                 District = result.District,
                 Province = result.Province,
                 PaymentMethod = result.PaymentMethod,
-                OrderStatus = result.OrderStatus,
+                OrderStatus = result.Status.ToString(),
                 createdAt = result.CreatedAt,
                 UpdatedAt = result.UpdatedAt,
                 orderSummary = result.OrderItems?.Select(oi => new OrderItemResponse

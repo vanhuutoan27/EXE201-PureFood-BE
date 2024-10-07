@@ -16,9 +16,7 @@ namespace PureFood.Core.Models.Requests
         public DateTime EntryDate { get; set; }
         public DateTime ExpiryDate { get; set; }
 
-        [JsonPropertyName("category")]
-        public Guid CategoryId { get; set; }
-        [JsonPropertyName("supplier")]
-        public Guid SupplierId { get; set; }
+        public string Category { get; set; }
+        public string Supplier { get; set; }
     }
 }

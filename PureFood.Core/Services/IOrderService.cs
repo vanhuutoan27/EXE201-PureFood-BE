@@ -8,7 +8,8 @@ namespace PureFood.Core.Services
         Task<OrderResponse> CreateOrder(CreateOrderRequest request);
         Task<PageResult<OrderResponse>> GetAllOrder(int page, int limit, string orderStatus);
         Task<OrderResponse> GetOrderById(Guid OrderId);
-        Task<bool> ChangeStatusOrder(Guid orderId, UpdateOrderRequest request);
+        Task<bool> ChangeStatusOrder(Guid orderId);
+        Task<bool> ChangeStatusOrderToCancel(Guid orderId);
         Task<bool> DeleteOrder(Guid orderId);
         Task<PageResult<OrderResponse>> GetAllOrderByUserId(Guid userId, int page, int limit);
 
