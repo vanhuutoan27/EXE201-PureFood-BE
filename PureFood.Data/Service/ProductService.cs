@@ -75,7 +75,7 @@ namespace PureFood.Data.Service
 
                 };
                 // image
-                foreach(var imageUrl in requestProduct.Images)
+                foreach (var imageUrl in requestProduct.Images)
                 {
                     var image = new Image
                     {
@@ -151,6 +151,12 @@ namespace PureFood.Data.Service
         {
             try
             {
+
+                var category = await _repositoryManager.CategoryRepository.GetCategoryByName(updateProductRequest.CategoryId);
+                if (category == null) { throw new Exception("Không tìm thấy tên category"); }
+                var supplier = await _repositoryManager.SupplierRepository.GetSupplierByName(updateProductRequest.SupplierId);
+                if (supplier == null) { throw new Exception("Không tìm thấy tên supplier"); }
+
                 var product = await _repositoryManager.ProductRepository.GetByIdAsync(productId);
                 product.ProductName = updateProductRequest.ProductName;
                 product.Description = updateProductRequest.Description;
@@ -162,8 +168,8 @@ namespace PureFood.Data.Service
                 product.Organic = updateProductRequest.Organic;
                 product.EntryDate = updateProductRequest.EntryDate;
                 product.ExpiryDate = updateProductRequest.ExpiryDate;
-                product.CategoryId = updateProductRequest.CategoryId;
-                product.SupplierId = updateProductRequest.SupplierId;
+                product.CategoryId = category.CategoryId;
+                product.SupplierId = supplier.SupplierId;
                 product.UpdatedAt = DateTime.Now;
 
                 _repositoryManager.ProductRepository.Update(product);

@@ -119,26 +119,7 @@ namespace PureFood.API.Controllers
             };
             return Ok(_resultModel);
         }
-        [HttpPatch("{promotionId}")]
-        public async Task<ActionResult<ResultModel>> ChangeStatusPromotion(Guid promotionId)
-        {
-            var updatePromotion = await _serviceManager.PromotionService.ChangeStatus(promotionId);
-            if(!updatePromotion)
-            {
-                return NotFound(_resultModel = new ResultModel
-                {
-                    Success = false,
-                    Status= (int)HttpStatusCode.NotFound,
-                    Message = "Không tìm thấy khuyến mãi."
-                });
-            }
-            return Ok(_resultModel = new ResultModel
-            {
-                Success = true,
-                Status = (int)HttpStatusCode.OK,
-                Message = "Cập nhật trạng thái thành công."
-            });
-        }
+
         [HttpDelete]
         [Route("{promotionId:guid}")]
         public async Task<ActionResult<ResultModel>> Delete(Guid promotionId)

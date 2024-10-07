@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PureFood.Core.Models;
 using PureFood.Core.Models.content;
 using PureFood.Core.Models.content.Requests;
 using PureFood.Core.SeedWorks;
@@ -142,5 +141,28 @@ namespace PureFood.API.Controllers
             };
             return Ok(_resultModel);
         }
+
+        [HttpPatch("{supplierId:guid}")]
+        public async Task<ActionResult<ResultModel>> ChangeStatus(Guid supplierId)
+        {
+            var result = await _serviceManager.SupplierService.changestatus(supplierId);
+            if (!result)
+            {
+                _resultModel = new ResultModel
+                {
+                    Success = false,
+                    Status = (int)HttpStatusCode.NotFound,
+                    Message = "Không tìm thấy nhà cung cấp."
+
+                };
+            }
+            return new ResultModel
+            {
+                Success = true,
+                Status = (int)HttpStatusCode.OK,
+                Message = "Thay đổi trạng thái thành công."
+            };
+        }
     }
 }
+

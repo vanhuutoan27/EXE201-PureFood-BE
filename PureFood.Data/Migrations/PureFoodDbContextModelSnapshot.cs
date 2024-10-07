@@ -1822,6 +1822,8 @@ namespace PureFood.Data.Migrations
 
                     b.HasIndex("ProductId");
 
+                    b.HasIndex("UserId");
+
                     b.ToTable("Reviews");
                 });
 
@@ -1848,6 +1850,9 @@ namespace PureFood.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
                     b.Property<string>("SupplierName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -1870,6 +1875,7 @@ namespace PureFood.Data.Migrations
                             CreatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Chúng tôi cung cấp rau củ quả sạch, tươi ngon từ nông trại đến bàn ăn, đảm bảo an toàn sức khỏe cho gia đình bạn.",
                             PhoneNumber = "0937056922",
+                            Status = false,
                             SupplierName = "PureFood",
                             UpdatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -1880,6 +1886,7 @@ namespace PureFood.Data.Migrations
                             CreatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Moncati cung cấp rau củ quả sạch, tươi ngon từ nông trại địa phương, cam kết mang đến sản phẩm an toàn và chất lượng cho sức khỏe gia đình bạn.",
                             PhoneNumber = "0792766979",
+                            Status = false,
                             SupplierName = "Moncati",
                             UpdatedAt = new DateTime(2024, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
@@ -2133,7 +2140,15 @@ namespace PureFood.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("PureFood.Core.Domain.Identity.AppUser", "User")
+                        .WithMany("Reviews")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Product");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("PureFood.Core.Domain.Content.Cart", b =>
@@ -2178,6 +2193,8 @@ namespace PureFood.Data.Migrations
                 {
                     b.Navigation("Cart")
                         .IsRequired();
+
+                    b.Navigation("Reviews");
                 });
 #pragma warning restore 612, 618
         }

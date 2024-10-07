@@ -5,7 +5,7 @@ namespace PureFood.Core.Services
 {
     public interface ISupplierService
     {
-        Task<PageResult< SupplierReponse>> getAll(int page, int limit);
+        Task<PageResult<SupplierReponse>> getAll(int page, int limit);
 
         Task<SupplierReponse> getSupplierById(Guid reviewid);
 
@@ -15,6 +15,8 @@ namespace PureFood.Core.Services
         Task<bool> updateSupplier(Guid id, CreateSupplierRequest review);
 
         Task<bool> deleteSupplier(Guid id);
+        Task<bool> changestatus(Guid id);
+
 
     }
 }

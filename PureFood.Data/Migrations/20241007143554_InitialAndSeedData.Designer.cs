@@ -12,8 +12,8 @@ using PureFood.Data;
 namespace PureFood.Data.Migrations
 {
     [DbContext(typeof(PureFoodDbContext))]
-    [Migration("20241006174444_Init")]
-    partial class Init
+    [Migration("20241007143554_InitialAndSeedData")]
+    partial class InitialAndSeedData
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -950,6 +950,9 @@ namespace PureFood.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid?>("PromotionId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Province")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -964,6 +967,8 @@ namespace PureFood.Data.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("OrderId");
+
+                    b.HasIndex("PromotionId");
 
                     b.ToTable("Orders");
                 });
@@ -1749,9 +1754,8 @@ namespace PureFood.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("DiscountPercentage")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<decimal>("DiscountPercentage")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
@@ -1760,11 +1764,17 @@ namespace PureFood.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<decimal?>("Quantity")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
+
+                    b.Property<decimal?>("Stock")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
@@ -1814,6 +1824,8 @@ namespace PureFood.Data.Migrations
                     b.HasKey("ReviewId");
 
                     b.HasIndex("ProductId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Reviews");
                 });
@@ -2062,6 +2074,15 @@ namespace PureFood.Data.Migrations
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("PureFood.Core.Domain.Content.Order", b =>
+                {
+                    b.HasOne("PureFood.Core.Domain.Content.Promotion", "Promotion")
+                        .WithMany("Orders")
+                        .HasForeignKey("PromotionId");
+
+                    b.Navigation("Promotion");
+                });
+
             modelBuilder.Entity("PureFood.Core.Domain.Content.OrderItem", b =>
                 {
                     b.HasOne("PureFood.Core.Domain.Content.Order", "Order")
@@ -2117,7 +2138,15 @@ namespace PureFood.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("PureFood.Core.Domain.Identity.AppUser", "User")
+                        .WithMany("Reviews")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Product");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("PureFood.Core.Domain.Content.Cart", b =>
@@ -2148,6 +2177,11 @@ namespace PureFood.Data.Migrations
                     b.Navigation("Reviews");
                 });
 
+            modelBuilder.Entity("PureFood.Core.Domain.Content.Promotion", b =>
+                {
+                    b.Navigation("Orders");
+                });
+
             modelBuilder.Entity("PureFood.Core.Domain.Content.Supplier", b =>
                 {
                     b.Navigation("Products");
@@ -2157,6 +2191,8 @@ namespace PureFood.Data.Migrations
                 {
                     b.Navigation("Cart")
                         .IsRequired();
+
+                    b.Navigation("Reviews");
                 });
 #pragma warning restore 612, 618
         }

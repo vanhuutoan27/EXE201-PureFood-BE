@@ -1,12 +1,10 @@
 ﻿using AutoMapper;
-using Azure;
 using Microsoft.EntityFrameworkCore;
 using PureFood.Core.Domain.Content;
 using PureFood.Core.Models.content.Requests;
 using PureFood.Core.Models.content.Responses;
 using PureFood.Core.SeedWorks;
 using PureFood.Core.Services;
-using System.Collections.Generic;
 
 namespace PureFood.Data.Service
 {
@@ -20,29 +18,46 @@ namespace PureFood.Data.Service
             _mapper = mapper;
         }
 
+        public async Task<bool> changestatus(Guid id)
+        {
+            var supplier = await _repositoryManager.SupplierRepository.GetByIdAsync(id);
+            if (supplier == null) return false;
+            if (supplier.Status)
+            {
+                supplier.Status = false;
+            }
+            else
+            {
+                supplier.Status = true;
+            }
+            _repositoryManager.SupplierRepository.Update(supplier);
+            await _repositoryManager.SaveAsync();
+            return true;
+        }
+
         public async Task<bool> createSupplier(CreateSupplierRequest review)
         {
-         /*   var getProduct = await _repositoryManager.ReviewRepository.GetReviewByProductId(review.ProductId);
-            if (getProduct == null)
-            {
-                throw new Exception("Not found product");
-            }*/
-          /*  var getUser = await _repositoryManager.SuppliewReRepository.GetByIdAsync(review.);
-            if (getUser == null)
-            {
-                throw new Exception("Not Found User");
-            }*/
+            /*   var getProduct = await _repositoryManager.ReviewRepository.GetReviewByProductId(review.ProductId);
+               if (getProduct == null)
+               {
+                   throw new Exception("Not found product");
+               }*/
+            /*  var getUser = await _repositoryManager.SuppliewReRepository.GetByIdAsync(review.);
+              if (getUser == null)
+              {
+                  throw new Exception("Not Found User");
+              }*/
             try
             {
                 var newReview = new Supplier
                 {
                     SupplierId = Guid.NewGuid(),
-                    Address= review.Address,
-                    CreatedAt= DateTime.UtcNow,
-                    Description= review.Description,
-                    PhoneNumber= review.PhoneNumber,
-                    SupplierName= review.SupplierName, 
-                    
+                    Address = review.Address,
+                    CreatedAt = DateTime.UtcNow,
+                    Description = review.Description,
+                    PhoneNumber = review.PhoneNumber,
+                    SupplierName = review.SupplierName,
+                    Status = false
                 };
                 _repositoryManager.SupplierRepository.Add(newReview);
                 await _repositoryManager.SaveAsync();
@@ -74,7 +89,7 @@ namespace PureFood.Data.Service
             return true;
         }
 
-        public async Task<PageResult< SupplierReponse>> getAll(int page, int limit)
+        public async Task<PageResult<SupplierReponse>> getAll(int page, int limit)
         {
             var supplierRepository = await _repositoryManager.SupplierRepository.GetAllSupplierAsync(page, limit);
             var totalItems = supplierRepository.Count();
@@ -93,7 +108,7 @@ namespace PureFood.Data.Service
         public async Task<SupplierReponse> getSupplierById(Guid reviewid)
         {
             var supplierRepository = await _repositoryManager.SupplierRepository.GetByIdAsync(reviewid);
-            return  _mapper.Map<SupplierReponse>(supplierRepository);
+            return _mapper.Map<SupplierReponse>(supplierRepository);
         }
 
         public async Task<bool> updateSupplier(Guid id, CreateSupplierRequest review)

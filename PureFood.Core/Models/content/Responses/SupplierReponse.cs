@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PureFood.Core.Models.content.Responses
+﻿namespace PureFood.Core.Models.content.Responses
 {
     public class SupplierReponse
     {
@@ -13,7 +7,9 @@ namespace PureFood.Core.Models.content.Responses
         public string Description { get; set; }
         public string Address { get; set; }
         public string PhoneNumber { get; set; }
-        public DateTime? CreatedAt { get; set; }
+        public bool Status { get; set; }
+        public DateTime? CreatedAt
+        { get; set; }
         public DateTime? UpdatedAt { get; set; }
         public Guid? CreatedBy { get; set; }
         public Guid? UpdatedBy { get; set; }

@@ -21,7 +21,10 @@ namespace PureFood.API.AutoMappers
             CreateMap<CartItem, CreateCartItemsRequest>().ReverseMap();
             CreateMap<Category, CreateCategoryRequest>().ReverseMap();
             CreateMap<Category, CategoryReponses>().ReverseMap();
-            CreateMap<Review, ReviewReponse>().ReverseMap();
+            CreateMap<Review, ReviewReponse>()
+                .ForMember(dest => dest.Author, opt => opt.MapFrom(src => src.User.FullName)).ReverseMap();
+
+            ;
             CreateMap<Review, CreateReviewRequest>().ReverseMap();
             CreateMap<Supplier, SupplierReponse>().ReverseMap();
             CreateMap<Supplier, CreateSupplierRequest>().ReverseMap();
@@ -34,12 +37,12 @@ namespace PureFood.API.AutoMappers
 
             CreateMap<Order, OrderResponse>();
             CreateMap<Promotion, PromotionReponse>().ReverseMap();
-                CreateMap<Payment, PaymentRespone>()
-        .ForMember(dest => dest.OrderId, opt => opt.MapFrom(src => src.Order != null ? src.Order.OrderId : Guid.Empty))
-        .ForMember(dest => dest.CustomerId, opt => opt.MapFrom(src => src.Order != null ? src.Order.UserId : Guid.Empty))
-         .ForMember(dest => dest.CreatedAt, opt => opt.MapFrom(src => src.CreatedAt ?? DateTime.Now))  // Gán giá trị nếu null
-    .ForMember(dest => dest.UpdatedAt, opt => opt.MapFrom(src => src.UpdatedAt ?? DateTime.Now)) // Gán giá trị nếu null
-         .ReverseMap();
+            CreateMap<Payment, PaymentRespone>()
+    .ForMember(dest => dest.OrderId, opt => opt.MapFrom(src => src.Order != null ? src.Order.OrderId : Guid.Empty))
+    .ForMember(dest => dest.CustomerId, opt => opt.MapFrom(src => src.Order != null ? src.Order.UserId : Guid.Empty))
+     .ForMember(dest => dest.CreatedAt, opt => opt.MapFrom(src => src.CreatedAt ?? DateTime.Now))  // Gán giá trị nếu null
+.ForMember(dest => dest.UpdatedAt, opt => opt.MapFrom(src => src.UpdatedAt ?? DateTime.Now)) // Gán giá trị nếu null
+     .ReverseMap();
             CreateMap<Payment, CreatePaymentRequest>().ReverseMap();
         }
     }
