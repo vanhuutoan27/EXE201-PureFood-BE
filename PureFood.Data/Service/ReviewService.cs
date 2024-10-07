@@ -51,6 +51,12 @@ namespace PureFood.Data.Service
             {
                 throw new Exception("Bạn đã hết lượt đánh giá cho sản phẩm này.");
             }
+            // kiem tra review trung lap
+            var isDupplicate = await _repositoryManager.ReviewRepository.DupplicateReview(review.UserId, review.ProductId, review.Comment);
+            if (isDupplicate)
+            {
+                throw new Exception("Nội dung đánh giá bị trùng lặp.");
+            }
             var getProduct = await _repositoryManager.ReviewRepository.GetReviewByProductId(review.ProductId);
             if (getProduct == null) {
                 throw new Exception("Không tìm thấy sản phẩm.");
