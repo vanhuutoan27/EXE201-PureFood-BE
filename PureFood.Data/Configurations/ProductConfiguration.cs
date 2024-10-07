@@ -203,7 +203,7 @@ namespace PureFood.Data.Configurations
                     Origin = "Tỉnh Kiên Giang",
                     Organic = true,
                     EntryDate = new DateTime(2024, 10, 27), // 27th October 2024
-                    ExpiryDate = new DateTime(2024, 11, 23) ,// 23rd November 2024
+                    ExpiryDate = new DateTime(2024, 11, 23), // 23rd November 2024
                     Status = true,
                     CreatedAt = DateTime.Parse("2024-10-02"),
                     UpdatedAt = DateTime.Parse("2024-10-02"),
@@ -225,7 +225,7 @@ namespace PureFood.Data.Configurations
                     Origin = "Thành phố Bạc Liêu",
                     Organic = true,
                     EntryDate = new DateTime(2024, 10, 28), // 28th October 2024
-                    ExpiryDate = new DateTime(2024, 11, 24) ,// 24th November 2024
+                    ExpiryDate = new DateTime(2024, 11, 24), // 24th November 2024
                     Status = true,
                     CreatedAt = DateTime.Parse("2024-10-02"),
                     UpdatedAt = DateTime.Parse("2024-10-02"),
@@ -314,7 +314,7 @@ namespace PureFood.Data.Configurations
                     Organic = true,
                     Status = true,
                     EntryDate = new DateTime(2024, 11, 1), // 1st November 2024
-                    ExpiryDate = new DateTime(2024, 11, 28) ,// 28th November 2024
+                    ExpiryDate = new DateTime(2024, 11, 28), // 28th November 2024
                     CreatedAt = DateTime.Parse("2024-10-02"),
                     UpdatedAt = DateTime.Parse("2024-10-02"),
                 },
@@ -423,7 +423,7 @@ namespace PureFood.Data.Configurations
                     Origin = "Tỉnh Tiền Giang",
                     Organic = true,
                     EntryDate = new DateTime(2024, 11, 6), // 6th November 2024
-                    ExpiryDate = new DateTime(2024, 12, 3) ,// 3rd December 2024
+                    ExpiryDate = new DateTime(2024, 12, 3), // 3rd December 2024
                     Status = true,
                     CreatedAt = DateTime.Parse("2024-10-02"),
                     UpdatedAt = DateTime.Parse("2024-10-02"),
