@@ -5,10 +5,12 @@ using PureFood.API;
 using PureFood.API.AutoMappers;
 using PureFood.API.Extensions;
 using PureFood.API.Services;
+using PureFood.Data.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 // Add services to the container.
+builder.Services.AddHostedService<PromotionBackGroundService>();
 builder.Services.ConfigureIdentity();
 builder.Services.ConfigureCors();
 builder.Services.ConfigureRepositoryManager();

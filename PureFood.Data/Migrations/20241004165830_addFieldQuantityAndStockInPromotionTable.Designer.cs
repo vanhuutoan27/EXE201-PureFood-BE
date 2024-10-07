@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PureFood.Data;
 
@@ -11,9 +12,11 @@ using PureFood.Data;
 namespace PureFood.Data.Migrations
 {
     [DbContext(typeof(PureFoodDbContext))]
-    partial class PureFoodDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241004165830_addFieldQuantityAndStockInPromotionTable")]
+    partial class addFieldQuantityAndStockInPromotionTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -947,9 +950,6 @@ namespace PureFood.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("PromotionId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("Province")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -964,8 +964,6 @@ namespace PureFood.Data.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("OrderId");
-
-                    b.HasIndex("PromotionId");
 
                     b.ToTable("Orders");
                 });
@@ -1723,8 +1721,9 @@ namespace PureFood.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("DiscountPercentage")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<string>("DiscountPercentage")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
@@ -2041,15 +2040,6 @@ namespace PureFood.Data.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("PureFood.Core.Domain.Content.Order", b =>
-                {
-                    b.HasOne("PureFood.Core.Domain.Content.Promotion", "Promotion")
-                        .WithMany("Orders")
-                        .HasForeignKey("PromotionId");
-
-                    b.Navigation("Promotion");
-                });
-
             modelBuilder.Entity("PureFood.Core.Domain.Content.OrderItem", b =>
                 {
                     b.HasOne("PureFood.Core.Domain.Content.Order", "Order")
@@ -2123,11 +2113,6 @@ namespace PureFood.Data.Migrations
                     b.Navigation("OrderItems");
 
                     b.Navigation("Reviews");
-                });
-
-            modelBuilder.Entity("PureFood.Core.Domain.Content.Promotion", b =>
-                {
-                    b.Navigation("Orders");
                 });
 
             modelBuilder.Entity("PureFood.Core.Domain.Content.Supplier", b =>

@@ -20,23 +20,34 @@ namespace PureFood.API.Controllers
         [HttpPost]
         public async Task<ActionResult<ResultModel>> CreateOrder([FromBody] CreateOrderRequest request)
         {
-            var result = await _serviceManager.OrderService.CreateOrder(request);
-            if (result == null)
+            try
+            {
+                var result = await _serviceManager.OrderService.CreateOrder(request);
+                if (result == null)
+                {
+                    return new ResultModel
+                    {
+                        Success = false,
+                        Status = (int)HttpStatusCode.BadRequest,
+                        Message = "Tạo đơn hàng thất bại.",
+                    };
+                }
+                return new ResultModel
+                {
+                    Success = true,
+                    Status = 200,
+                    Message = "Tạo đơn hàng thành công."
+                };
+            }
+            catch (Exception ex)
             {
                 return new ResultModel
                 {
-                    Message = "Create order fail.",
-                    Status = (int)HttpStatusCode.InternalServerError,
-                    Success = false
-
+                    Success = false,
+                    Status = 500,
+                    Message = ex.Message
                 };
             }
-            return new ResultModel
-            {
-                Success = true,
-                Status = 200,
-                Message = "Create order successfully."
-            };
         }
 
         [HttpGet]

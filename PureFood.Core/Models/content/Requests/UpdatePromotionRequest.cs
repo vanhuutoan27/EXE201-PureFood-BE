@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PureFood.Core.Models.content.Requests
 {
-    public class CreatePromotionRequest
+    public class UpdatePromotionRequest
     {
         public string PromotionName { get; set; }
         public string? Description { get; set; }
@@ -15,6 +15,5 @@ namespace PureFood.Core.Models.content.Requests
         public decimal? Quantity { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-
     }
 }

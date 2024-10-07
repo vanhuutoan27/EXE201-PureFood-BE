@@ -12,14 +12,11 @@ namespace PureFood.Core.Services
     {
 
         Task<PageResult<PromotionReponse>> getAll(int page, int limit);
-
         Task<PromotionReponse> getPromotionById(Guid promotionId);
-
-
+        Task<bool> ChangeStatus(Guid promotionId);
         Task<bool> createPromotion(CreatePromotionRequest request);
-
-        Task<bool> updatePromotion(Guid id, CreatePromotionRequest request);
-
+        Task<bool> updatePromotion(Guid id, UpdatePromotionRequest request);
         Task<bool> deletePromotion(Guid id);
+        //Task<bool> ValidatePromotion(string discountCode);
     }
 }
