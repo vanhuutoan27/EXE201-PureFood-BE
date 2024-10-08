@@ -36,7 +36,8 @@ namespace PureFood.API.Controllers
                 {
                     Success = true,
                     Status = 200,
-                    Message = "Tạo đơn hàng thành công."
+                    Message = "Tạo đơn hàng thành công.",
+                    Data = result.OrderId
                 };
             }
             catch (Exception ex)

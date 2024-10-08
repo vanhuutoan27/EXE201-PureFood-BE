@@ -179,7 +179,7 @@ namespace PureFood.Data.Service
                     District = o.District,
                     Province = o.Province,
                     PaymentMethod = o.PaymentMethod,
-                    DiscountCode = o.Promotion?.PromotionName,
+                    DiscountCode = o.Promotion?.DiscountCode,
                     OrderStatus = o.OrderStatus,
                     orderSummary = orderItemList,
                     TotalAmount = o.TotalAmount,
@@ -228,6 +228,7 @@ namespace PureFood.Data.Service
                     OrderStatus = o.OrderStatus,
                     orderSummary = orderItemList,
                     TotalAmount = o.TotalAmount,
+                    DiscountCode = o.Promotion?.DiscountCode,
                     createdAt = o.CreatedAt,
                     UpdatedAt = o.UpdatedAt
                 };
@@ -270,6 +271,7 @@ namespace PureFood.Data.Service
                     Image = oi.Product?.Images?.OrderBy(i => i.ImageId).Select(i => i.Url).FirstOrDefault()
                 }).ToList(),
                 TotalAmount = result.TotalAmount,
+                DiscountCode = result.Promotion?.DiscountCode,
 
 
             };
