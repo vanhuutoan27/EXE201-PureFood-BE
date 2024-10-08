@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using PureFood.Core.Domain.Content;
 using PureFood.Core.Models.content.Responses;
@@ -18,19 +14,19 @@ namespace PureFood.Data.Repositories
 
         public async Task<PageResult<Payment>> GetAllPayment(int page, int limit)
         {
-           
-            IQueryable<Payment> query = _context.Payments.Include(o => o.Order);
 
-           
+            IQueryable<Payment> query = _context.Payments.Include(o => o.Order).ThenInclude(o => o.User);
+
+
             int totalItems = await query.CountAsync();
 
-            
+
             if (page > 0 && limit > 0)
             {
                 query = query.Skip((page - 1) * limit).Take(limit);
             }
 
-            
+
             var payments = await query.ToListAsync();
 
             return new PageResult<Payment>
@@ -44,8 +40,8 @@ namespace PureFood.Data.Repositories
 
         public async Task<Payment> GetById(Guid paymentId)
         {
-           var id = await _context.Payments.Include(o => o.Order).FirstOrDefaultAsync(p => p.PaymentId == paymentId);
-           return id;
+            var id = await _context.Payments.Include(o => o.Order).FirstOrDefaultAsync(p => p.PaymentId == paymentId);
+            return id;
         }
 
         public async Task<Payment> GetbyOderId(Guid orderId)

@@ -42,6 +42,7 @@ namespace PureFood.API.AutoMappers
     .ForMember(dest => dest.CustomerId, opt => opt.MapFrom(src => src.Order != null ? src.Order.UserId : Guid.Empty))
      .ForMember(dest => dest.CreatedAt, opt => opt.MapFrom(src => src.CreatedAt ?? DateTime.Now))  // Gán giá trị nếu null
 .ForMember(dest => dest.UpdatedAt, opt => opt.MapFrom(src => src.UpdatedAt ?? DateTime.Now)) // Gán giá trị nếu null
+.ForMember(dest => dest.CustomerName, opt => opt.MapFrom(src => src.Order.User.FullName))
      .ReverseMap();
             CreateMap<Payment, CreatePaymentRequest>().ReverseMap();
         }

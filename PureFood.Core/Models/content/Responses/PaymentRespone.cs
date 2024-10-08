@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 namespace PureFood.Core.Models.content.Responses
 {
@@ -14,6 +10,7 @@ namespace PureFood.Core.Models.content.Responses
         [JsonPropertyName("customer")]
         public Guid? CustomerId { get; set; }
         public decimal Amount { get; set; }
+        public string CustomerName { get; set; }
         public DateTime? CreatedAt { get; set; } = DateTime.Now;
         public DateTime? UpdatedAt { get; set; } = DateTime.Now;
     }

@@ -25,6 +25,7 @@ namespace PureFood.Core.Domain.Identity
         public Cart Cart { get; set; }
 
         public ICollection<Review> Reviews { get; set; }
+        public ICollection<Order> Orders { get; set; }
 
     }
 }

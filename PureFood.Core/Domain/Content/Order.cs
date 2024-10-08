@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using PureFood.Core.Domain.Identity;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PureFood.Core.Domain.Content
@@ -24,6 +25,8 @@ namespace PureFood.Core.Domain.Content
 
         [ForeignKey(nameof(PromotionId))]
         public Promotion Promotion { get; set; }
+        [ForeignKey(nameof(UserId))]
+        public AppUser User { get; set; }
         public ICollection<OrderItem> OrderItems { get; set; }
         public ICollection<Payment> Payments { get; set; }
 

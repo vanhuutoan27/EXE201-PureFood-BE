@@ -27,6 +27,7 @@ namespace PureFood.Data.Service
                 PaymentId = Guid.NewGuid(),
                 OrderId = request.OrderId,
                 Amount = request.Amount,
+                PaymentStatus = request.PaymentStatus,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
             };
