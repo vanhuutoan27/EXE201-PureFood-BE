@@ -6,7 +6,6 @@ namespace PureFood.Core.Models.Requests
     {
         [JsonPropertyName("order")]
         public Guid OrderId { get; set; }
-        public string PaymentStatus { get; set; }
         public decimal Amount { get; set; }
     }
 }

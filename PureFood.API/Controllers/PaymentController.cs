@@ -1,13 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Security.Cryptography.X509Certificates;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using PureFood.Core.Models.content;
 using PureFood.Core.Models.Requests;
 using PureFood.Core.SeedWorks;
+using System.Net;
 
 namespace PureFood.API.Controllers
 {
@@ -79,7 +74,7 @@ namespace PureFood.API.Controllers
                 Message = "Lấy danh sách thanh toán thành công."
             });
         }
-        
+
         [HttpPost]
         public async Task<IActionResult> AddPayment(CreatePaymentRequest request)
         {
@@ -99,7 +94,7 @@ namespace PureFood.API.Controllers
 
             _resultModel = new ResultModel
             {
-                Data = null, 
+                Data = null,
                 Message = "Phương thức thanh toán thêm thành công.",
                 Status = (int)HttpStatusCode.OK,
                 Success = true
