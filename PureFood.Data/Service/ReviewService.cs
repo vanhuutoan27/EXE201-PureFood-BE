@@ -47,7 +47,7 @@ namespace PureFood.Data.Service
         {
             // kiem tra so lan Review cua nguoi dung cho 1 product
             var reviewCount = await _repositoryManager.ReviewRepository.CountUserReviewsForProduct(review.UserId, review.ProductId);
-            if(reviewCount >= 3)
+            if (reviewCount >= 3)
             {
                 throw new Exception("Bạn đã hết lượt đánh giá cho sản phẩm này.");
             }

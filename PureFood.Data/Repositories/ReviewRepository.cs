@@ -13,7 +13,7 @@ namespace PureFood.Data.Repositories
 
         public async Task<int> CountUserReviewsForProduct(Guid userId, Guid productId)
         {
-            return await _context.Reviews.Where( x => x.UserId == userId &&  x.ProductId == productId ).CountAsync();
+            return await _context.Reviews.Where(x => x.UserId == userId && x.ProductId == productId).CountAsync();
         }
 
         public async Task<bool> DupplicateReview(Guid userId, Guid productId, string comment)

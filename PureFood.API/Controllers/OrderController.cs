@@ -91,23 +91,43 @@ namespace PureFood.API.Controllers
         }
 
         [HttpPatch("{orderId}/status")]
-        public async Task<ActionResult<ResultModel>> UpdateOrderStatus(Guid orderId, [FromBody] UpdateOrderRequest request)
+        public async Task<ActionResult<ResultModel>> UpdateOrderStatus(Guid orderId)
         {
-            var result = await _serviceManager.OrderService.ChangeStatusOrder(orderId, request);
+            var result = await _serviceManager.OrderService.ChangeStatusOrder(orderId);
             if (!result)
             {
                 return new ResultModel
                 {
                     Success = false,
                     Status = 400,
-                    Message = "Updated fail.",
+                    Message = "Cập nhật trạng thái thất bại.",
                 };
             }
             return new ResultModel
             {
                 Success = true,
                 Status = 200,
-                Message = "Updated successfully.",
+                Message = "Cập nhật trạng thái thành công.",
+            };
+        }
+        [HttpPatch("{orderId}/cancel")]
+        public async Task<ActionResult<ResultModel>> UpdateStatusOrderToCancel(Guid orderId)
+        {
+            var updateStatusOrder = await _serviceManager.OrderService.ChangeStatusOrderToCancel(orderId);
+            if (!updateStatusOrder)
+            {
+                return new ResultModel
+                {
+                    Success = false,
+                    Status = 400,
+                    Message = "Không tìm thấy đơn hàng.",
+                };
+            }
+            return new ResultModel
+            {
+                Success = true,
+                Status = (int)HttpStatusCode.NoContent,
+                Message = "Hủy đơn hàng thành công"
             };
         }
         [HttpDelete("{orderId}")]

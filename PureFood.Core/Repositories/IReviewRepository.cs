@@ -9,10 +9,10 @@ namespace PureFood.Core.Repositories
 
         Task<IEnumerable<Review>> GetReviewByProductId(Guid productId);
 
-        Task<IEnumerable<Review>> GetReviewByUserId(Guid userId);   
+        Task<IEnumerable<Review>> GetReviewByUserId(Guid userId);
         Task<int> CountUserReviewsForProduct(Guid userId, Guid productId);
         Task<bool> DupplicateReview(Guid userId, Guid productId, string comment);
-      //  Task<IEnumerable<Review>> GetReviewByUserId(Guid userId);
+        //  Task<IEnumerable<Review>> GetReviewByUserId(Guid userId);
 
     }
 }

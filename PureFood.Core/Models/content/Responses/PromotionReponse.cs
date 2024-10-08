@@ -13,7 +13,9 @@ namespace PureFood.Core.Models.content.Responses
         public string PromotionName { get; set; }
         public string? Description { get; set; }
         public string DiscountCode { get; set; }
-        public string DiscountPercentage { get; set; }
+        public decimal DiscountPercentage { get; set; }
+        public decimal? Quantity { get; set; }
+        public decimal? Stock { get; set; }
         public bool Status { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
