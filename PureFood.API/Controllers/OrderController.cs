@@ -29,14 +29,14 @@ namespace PureFood.API.Controllers
                     {
                         Success = false,
                         Status = (int)HttpStatusCode.BadRequest,
-                        Message = "Tạo đơn hàng thất bại.",
+                        Message = "Đặt hàng thất bại.",
                     };
                 }
                 return new ResultModel
                 {
                     Success = true,
                     Status = 200,
-                    Message = "Tạo đơn hàng thành công.",
+                    Message = "Đặt hàng thành công.",
                     Data = result.OrderId
                 };
             }
