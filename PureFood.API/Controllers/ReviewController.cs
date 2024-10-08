@@ -27,8 +27,8 @@ namespace PureFood.API.Controllers
             {
                 _resultModel = new ResultModel
                 {
-                    Success = false,
-                    Status = (int)HttpStatusCode.NotFound,
+                    Success = true,
+                    Status = (int)HttpStatusCode.OK,
                     Message = "Không tìm thấy đánh giá."
                 };
                 return NotFound(_resultModel);
@@ -83,8 +83,8 @@ namespace PureFood.API.Controllers
             {
                 _resultModel = new ResultModel
                 {
-                    Success = false,
-                    Status = (int)HttpStatusCode.NotFound,
+                    Success = true,
+                    Status = (int)HttpStatusCode.OK,
                     Data = null,
                     Message = "Không tìm thấy đánh giá."
                 };
@@ -110,8 +110,8 @@ namespace PureFood.API.Controllers
             {
                 _resultModel = new ResultModel
                 {
-                    Success = false,
-                    Status = (int)HttpStatusCode.NotFound,
+                    Success = true,
+                    Status = (int)HttpStatusCode.OK,
                     Data = null,
                     Message = "Không tìm thấy đánh giá."
                 };
