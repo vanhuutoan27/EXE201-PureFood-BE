@@ -1,9 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
-using Azure;
 using PureFood.Core.Domain.Content;
 using PureFood.Core.Models.content.Responses;
 using PureFood.Core.Models.Requests;
@@ -25,12 +20,15 @@ namespace PureFood.Data.Service
 
         public async Task<CreatePaymentRequest> CreatePayment(CreatePaymentRequest request)
         {
+            var order = await _repositoryManager.PaymentRepository.GetbyOderId(request.OrderId);
+            if (order != null) { throw new Exception("Hóa đơn đã được thanh toán."); }
             var model = new Payment
             {
                 PaymentId = Guid.NewGuid(),
                 OrderId = request.OrderId,
                 Amount = request.Amount,
-                CustomerId = request.CustomerId
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now,
             };
             _repositoryManager.PaymentRepository.Add(model);
             await _repositoryManager.SaveAsync();

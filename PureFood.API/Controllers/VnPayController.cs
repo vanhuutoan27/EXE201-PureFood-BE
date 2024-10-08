@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PureFood.Core.Models.content;
 using PureFood.Core.Models.content.Requests;
+using PureFood.Core.Models.Requests;
 using PureFood.Core.SeedWorks;
 
 namespace PureFood.API.Controllers
@@ -24,50 +25,50 @@ namespace PureFood.API.Controllers
             return Ok(paymentUrl);
         }
 
-        //[HttpGet("payment-callback")]
-        //public async Task<IActionResult> PaymentCallback()
-        //{
-        //    //var response = _serviceManager.VnPayService.PaymentExecute(Request.Query);
-        //    //var paymentResponseModel = response;
+        [HttpGet("payment-callback")]
+        public async Task<IActionResult> PaymentCallback()
+        {
+            var response = _serviceManager.VnPayService.PaymentExecute(Request.Query);
+            var paymentResponseModel = response;
 
-        //    //// Parse order description để lấy rentalId từ chuỗi trả về
-        //    //var parts = paymentResponseModel.OrderDescription?.Split(' ') ?? new string[0];
-        //    //Guid orderId = Guid.Empty;
+            // Parse order description để lấy rentalId từ chuỗi trả về
+            var parts = paymentResponseModel.OrderDescription?.Split(' ') ?? new string[0];
+            Guid orderId = Guid.Empty;
 
-        //    //if (parts.Length > 1)
-        //    //{
-        //    //    Guid.TryParse(parts[1], out orderId);
-        //    //}
+            if (parts.Length > 1)
+            {
+                Guid.TryParse(parts[1], out orderId);
+            }
 
-        //    //// Nếu thanh toán thành công
-        //    //if (response.Success)
-        //    //{
-        //    //    var paymentRequest = new CreatePaymentRequest
-        //    //    {
-        //    //        PaymentStatus = "FullyPaid",
-        //    //        Amount = paymentResponseModel.AmountOfRental,
-        //    //        OrderId = rentalId,
-        //    //    };
-        //    //    await _serviceManager.paymentService.AddPayment(paymentRequest);
+            // Nếu thanh toán thành công
+            if (response.Success)
+            {
+                var paymentRequest = new CreatePaymentRequest
+                {
+                    PaymentStatus = "FullyPaid",
+                    Amount = paymentResponseModel.AmountOfRental,
+                    OrderId = orderId,
+                };
+                await _serviceManager.PaymentService.CreatePayment(paymentRequest);
 
-        //    //    // Redirect người dùng đến trang thanh toán thành công trên frontend
-        //    //    return Redirect($"http://localhost:1024/payment-status?status=success&rentalId={rentalId}");
-        //    //}
-        //    //else
-        //    //{
-        //    //    var paymentRequest = new CreatePaymentRequest
-        //    //    {
-        //    //        PaymentStatus = PaymentStatus.Deleted,
-        //    //        Amount = paymentResponseModel.AmountOfRental,
-        //    //        RentalId = rentalId,
-        //    //    };
+                // Redirect người dùng đến trang thanh toán thành công trên frontend
+                return Redirect($"http://localhost:4011/payment-status?status=success&orderId={orderId}");
+            }
+            else
+            {
+                var paymentRequest = new CreatePaymentRequest
+                {
+                    PaymentStatus = "Deleted",
+                    Amount = paymentResponseModel.AmountOfRental,
+                    OrderId = orderId,
+                };
 
-        //    //    await _serviceManager.paymentService.AddPayment(paymentRequest);
+                await _serviceManager.PaymentService.CreatePayment(paymentRequest);
 
-        //    //    // Redirect người dùng đến trang thanh toán thất bại trên frontend
-        //    //    return Redirect($"http://localhost:1024/payment-status?status=failed&rentalId={rentalId}");
-        //    //}
-        //}
+                // Redirect người dùng đến trang thanh toán thất bại trên frontend
+                return Redirect($"http://localhost:4011/payment-status?status=failed&orderId={orderId}");
+            }
+        }
 
     }
 }

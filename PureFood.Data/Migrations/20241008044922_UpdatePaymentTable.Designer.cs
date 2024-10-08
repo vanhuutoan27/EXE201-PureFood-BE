@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PureFood.Data;
 
@@ -11,9 +12,11 @@ using PureFood.Data;
 namespace PureFood.Data.Migrations
 {
     [DbContext(typeof(PureFoodDbContext))]
-    partial class PureFoodDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241008044922_UpdatePaymentTable")]
+    partial class UpdatePaymentTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1008,10 +1011,6 @@ namespace PureFood.Data.Migrations
 
                     b.Property<Guid?>("OrderId")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("PaymentStatus")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
