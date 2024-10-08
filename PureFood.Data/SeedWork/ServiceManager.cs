@@ -23,7 +23,7 @@ namespace PureFood.Data.SeedWork
         private readonly Lazy<IPaymentService> _paymentService;
         private readonly Lazy<IVnPayService> _vnPayService;
 
-        public ServiceManager(IRepositoryManager repositoryManager, IMapper mapper, UserManager<AppUser> userManager, IConfiguration configuration)
+        public ServiceManager(IRepositoryManager repositoryManager, IMapper mapper, UserManager<AppUser> userManager, IConfiguration configuration, ICartService cartService)
         {
             _cartItemService = new Lazy<ICartItemService>(() => new CartItemService(repositoryManager, mapper));
             _cartService = new Lazy<ICartService>(() => new CartService(repositoryManager, mapper));
@@ -34,7 +34,7 @@ namespace PureFood.Data.SeedWork
             _supplierService = new Lazy<ISupplierService>(() => new SupplierService(repositoryManager, mapper));
             _userService = new Lazy<IUserService>(() => new UserService(userManager, repositoryManager, mapper));
             _promotionService = new Lazy<IPromotionService>(() => new PromotionService(repositoryManager, mapper));
-            _orderService = new Lazy<IOrderService>(() => new OrderService(repositoryManager, mapper));
+            _orderService = new Lazy<IOrderService>(() => new OrderService(repositoryManager, mapper, cartService));
             _paymentService = new Lazy<IPaymentService>(() => new PaymentService(repositoryManager, mapper));
             _vnPayService = new Lazy<IVnPayService>(() => new VnPayService(configuration));
 

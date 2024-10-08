@@ -11,10 +11,13 @@ namespace PureFood.Data.Service
     {
         private readonly IRepositoryManager _repositoryManager;
         private readonly IMapper _mapper;
-        public OrderService(IRepositoryManager repositoryManager, IMapper mapper)
+        private readonly ICartService cartService;
+
+        public OrderService(IRepositoryManager repositoryManager, IMapper mapper, ICartService cartService)
         {
             _repositoryManager = repositoryManager;
             _mapper = mapper;
+            this.cartService = cartService;
         }
 
         public async Task<bool> ChangeStatusOrder(Guid orderId)
@@ -125,6 +128,11 @@ namespace PureFood.Data.Service
                     _repositoryManager.OrderItemRepository.Add(orderItem);
 
                 }
+
+                //Remove cart when create success
+                var removedCart = await cartService.DeleteCartByUserId(order.UserId);
+
+
                 await _repositoryManager.SaveAsync();
 
                 return _mapper.Map<OrderResponse>(order);

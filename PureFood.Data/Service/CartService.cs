@@ -63,6 +63,7 @@ namespace PureFood.Data.Service
             var result = _mapper.Map<CreateCartRequest>(model);
             return result;
         }
+
         public async Task<PageResult<CartResponse>> GetAllCartsByUser(Guid user, int itemPage, int itemLimit)
         {
             if (user == Guid.Empty)
@@ -122,6 +123,16 @@ namespace PureFood.Data.Service
                 Items = cartResponses
             };
         }
+
+        public async Task<bool> DeleteCartByUserId(Guid userId)
+        {
+            var cart = await _repositoryManager.CartRepository.GetCartByUser(userId);
+            if (cart == null) { return false; }
+            _repositoryManager.CartRepository.Remove(cart);
+            await _repositoryManager.SaveAsync();
+            return true;
+        }
+
 
 
     }

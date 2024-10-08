@@ -6,6 +6,7 @@ using PureFood.API.AutoMappers;
 using PureFood.API.Extensions;
 using PureFood.API.GlobalExceptions;
 using PureFood.API.Services;
+using PureFood.Core.Services;
 using PureFood.Data.Service;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,8 +19,10 @@ builder.Services.ConfigureRepositoryManager();
 builder.Services.ConfigureServiceManager();
 builder.Services.ConfigureJwtSetting(builder.Configuration);
 builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddScoped<ICartService, CartService>();
 builder.Services.ConfigureTokenAndManagerIdentity();
 builder.Services.AddCustomJwtAuthentication(configuration);
+
 builder.Services.AddSwaggerGen(option =>
 {
 
