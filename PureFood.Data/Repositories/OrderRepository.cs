@@ -51,7 +51,9 @@ namespace PureFood.Data.Repositories
 
         public async Task<PageResult<Order>> GetAllOrdersByUserId(Guid userId, int page, int limit)
         {
-            IQueryable<Order> query = _context.Orders.Where(o => o.UserId == userId).Include(o => o.OrderItems).ThenInclude(oi => oi.Product).ThenInclude(p => p.Images).AsQueryable();
+            IQueryable<Order> query = _context.Orders.Where(o => o.UserId == userId)
+                .Include(o => o.Promotion)
+                .Include(o => o.OrderItems).ThenInclude(oi => oi.Product).ThenInclude(p => p.Images).AsQueryable();
 
             int totalItems = await query.CountAsync();
 
@@ -70,7 +72,9 @@ namespace PureFood.Data.Repositories
 
         public async Task<Order> GetOrderById(Guid id)
         {
-            return await _context.Orders.Include(o => o.OrderItems).ThenInclude(oi => oi.Product).ThenInclude(p => p.Images)
+            return await _context.Orders
+                .Include(o => o.Promotion)
+                .Include(o => o.OrderItems).ThenInclude(oi => oi.Product).ThenInclude(p => p.Images)
                 .FirstOrDefaultAsync(o => o.OrderId == id);
         }
     }
