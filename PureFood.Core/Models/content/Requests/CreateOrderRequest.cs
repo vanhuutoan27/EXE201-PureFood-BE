@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.ComponentModel;
+using System.Text.Json.Serialization;
 
 namespace PureFood.Core.Models.content.Requests
 {
@@ -16,7 +17,8 @@ namespace PureFood.Core.Models.content.Requests
         public string PaymentMethod { get; set; }
         public decimal totalAmount { get; set; }
         [JsonPropertyName("voucher")]
-        public string? DiscountCode { get; set; }
+        [DefaultValue(null)]
+        public string? DiscountCode { get; set; } = null;
         // public string OrderStatus { get; set; }
         public List<CreateOrderItemRequest> orderSummary { get; set; }
     }

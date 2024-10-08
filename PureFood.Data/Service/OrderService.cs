@@ -75,11 +75,13 @@ namespace PureFood.Data.Service
         {
             try
             {
+                Promotion promotion = null;
                 decimal discount = 0;
                 // lay ma giam gia
-                var promotion = await _repositoryManager.PromotionRepository.GetPromotionByDiscountCode(request.DiscountCode);
                 if (!string.IsNullOrEmpty(request.DiscountCode))
                 {
+                    promotion = await _repositoryManager.PromotionRepository.GetPromotionByDiscountCode(request.DiscountCode);
+
                     if (promotion == null)
                     {
                         throw new Exception("Mã giảm giá không hợp lệ hoặc đã hết hạn.");
@@ -132,8 +134,8 @@ namespace PureFood.Data.Service
                 //Remove cart when create success
                 var removedCart = await cartService.DeleteCartByUserId(order.UserId);
 
-
                 await _repositoryManager.SaveAsync();
+
 
                 return _mapper.Map<OrderResponse>(order);
 
