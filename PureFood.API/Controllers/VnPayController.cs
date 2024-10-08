@@ -6,7 +6,7 @@ using PureFood.Core.SeedWorks;
 
 namespace PureFood.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
     public class VnPayController : ControllerBase
     {

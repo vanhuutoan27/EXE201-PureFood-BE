@@ -16,9 +16,9 @@ namespace PureFood.Core.Models.content.Responses
         public decimal DiscountPercentage { get; set; }
         public decimal? Quantity { get; set; }
         public decimal? Stock { get; set; }
-        public bool Status { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
+        public bool Status { get; set; }
         public DateTime? CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
         public DateTime? CreatedBy { get; set; }

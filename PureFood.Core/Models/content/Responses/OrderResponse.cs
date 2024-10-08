@@ -18,9 +18,9 @@ namespace PureFood.Core.Models.content.Responses
         //public decimal totalAmount { get; set; }
         [JsonPropertyName("voucher")]
         public string? DiscountCode { get; set; }
-        public string OrderStatus { get; set; }
         public List<OrderItemResponse> orderSummary { get; set; }
         public decimal TotalAmount { get; set; }
+        public string OrderStatus { get; set; }
         public DateTime createdAt { get; set; }
         public DateTime UpdatedAt { get; set; }
     }

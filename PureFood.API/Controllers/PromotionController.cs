@@ -144,7 +144,7 @@ namespace PureFood.API.Controllers
             return Ok(_resultModel);
         }
 
-        [HttpPatch("{promotionId:guid}")]
+        [HttpPatch("{promotionId:guid}/status")]
         public async Task<ActionResult<ResultModel>> ChangeStatus(Guid promotionId)
         {
             var result = await _serviceManager.PromotionService.ChangeStatusPromotion(promotionId);
