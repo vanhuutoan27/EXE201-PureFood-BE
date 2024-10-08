@@ -17,14 +17,54 @@ namespace PureFood.Data.Service
             _mapper = mapper;
         }
 
-        public async Task<bool> ChangeStatusOrder(Guid orderId, UpdateOrderRequest request)
+        public async Task<bool> ChangeStatusOrder(Guid orderId)
         {
             var order = await _repositoryManager.OrderRepository.GetByIdAsync(orderId);
-            if (order == null) { return false; }
-            order.OrderStatus = request.OrderStatus;
+            if (order == null)
+            {
+                return false;
+            }
+            // thay doi status khi goi toi
+            switch (order.OrderStatus)
+            {
+                case "Pending":
+                    order.OrderStatus = "Processing";
+                    break;
+                case "Processing":
+                    order.OrderStatus = "Shipping";
+                    break;
+                case "Shipping":
+                    order.OrderStatus = "Completed";
+                    break;
+                case "Completed":
+                    throw new Exception("Không thể cập nhật trạng thái.");
+                default:
+                    throw new Exception("Trạng thái không hợp lệ.");
+            }
             _repositoryManager.OrderRepository.Update(order);
             await _repositoryManager.SaveAsync();
 
+            return true;
+        }
+
+        public async Task<bool> ChangeStatusOrderToCancel(Guid orderId)
+        {
+            var order = await _repositoryManager.OrderRepository.GetByIdAsync(orderId);
+            if (order == null)
+            {
+                return false;
+            }
+            if (order.OrderStatus == "Pending" || order.OrderStatus == "Processing")
+            {
+                order.OrderStatus = "Cancelled";
+            }
+            else
+            {
+                throw new Exception("Không thể hủy đơn hàng.");
+            }
+            order.UpdatedAt = DateTime.Now;
+            _repositoryManager.OrderRepository.Update(order);
+            await _repositoryManager.SaveAsync();
             return true;
         }
 
@@ -139,6 +179,7 @@ namespace PureFood.Data.Service
                     District = o.District,
                     Province = o.Province,
                     PaymentMethod = o.PaymentMethod,
+                    DiscountCode = o.Promotion?.PromotionName,
                     OrderStatus = o.OrderStatus,
                     orderSummary = orderItemList,
                     TotalAmount = o.TotalAmount,

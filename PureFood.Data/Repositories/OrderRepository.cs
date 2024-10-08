@@ -15,7 +15,7 @@ namespace PureFood.Data.Repositories
 
         public async Task<PageResult<Order>> GetAllOrders(int page, int limit, string orderStatus)
         {
-            IQueryable<Order> query = _context.Orders.Include(o => o.OrderItems).ThenInclude(oi => oi.Product).ThenInclude(p => p.Images).AsQueryable();
+            IQueryable<Order> query = _context.Orders.Include(x => x.Promotion).Include(o => o.OrderItems).ThenInclude(oi => oi.Product).ThenInclude(p => p.Images).AsQueryable();
 
             if (!string.IsNullOrEmpty(orderStatus))
             {
