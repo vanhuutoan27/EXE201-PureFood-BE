@@ -47,6 +47,7 @@ namespace PureFood.Data.Service
                 var newPromotion = new Promotion
                 {
                     CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
                     Description = request.Description,
                     DiscountCode = request.DiscountCode,
                     DiscountPercentage = request.DiscountPercentage,
@@ -55,7 +56,7 @@ namespace PureFood.Data.Service
                     PromotionName = request.PromotionName,
                     Quantity = request.Quantity,
                     Stock = request.Quantity,
-                    StartDate = request.StartDate,                    
+                    StartDate = request.StartDate,
                     Status = false,
                 };
                 _repositoryManager.PromotionRepository.Add(newPromotion);

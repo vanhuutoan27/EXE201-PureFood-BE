@@ -23,7 +23,7 @@ namespace PureFood.Data.Repositories
                 {
                     query = query.Where(o => o.OrderStatus == "Pending" || o.OrderStatus == "Processing");
                 }
-                else if (orderStatus.ToLower() == "processing")
+                else if (orderStatus.ToLower() == "processed")
                 {
                     query = query.Where(o => o.OrderStatus == "Shipping" || o.OrderStatus == "Completed" || o.OrderStatus == "Cancelled");
                 }

@@ -73,9 +73,7 @@ namespace PureFood.API.Controllers
             return Ok(_resultModel);
         }
 
-
         [HttpPost]
-        //[Route("")]
         public async Task<ActionResult<ResultModel>> AddPromotion(CreatePromotionRequest request)
         {
             var promotion = await _serviceManager.PromotionService.createPromotion(request);
