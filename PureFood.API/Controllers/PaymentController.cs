@@ -85,7 +85,7 @@ namespace PureFood.API.Controllers
                 _resultModel = new ResultModel
                 {
                     Data = null,
-                    Message = "Phương thức thanh toán thêm thất bại.",
+                    Message = "Thanh toán thất bại.",
                     Status = (int)HttpStatusCode.BadRequest,
                     Success = false
                 };
@@ -95,7 +95,7 @@ namespace PureFood.API.Controllers
             _resultModel = new ResultModel
             {
                 Data = null,
-                Message = "Phương thức thanh toán thêm thành công.",
+                Message = "Thanh toán thành công.",
                 Status = (int)HttpStatusCode.OK,
                 Success = true
             };
