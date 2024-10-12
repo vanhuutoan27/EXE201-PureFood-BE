@@ -17,7 +17,7 @@ namespace PureFood.Core.Models.content.Requests
         public string PaymentMethod { get; set; }
         public decimal totalAmount { get; set; }
         [JsonPropertyName("voucher")]
-        [DefaultValue(null)]
+        [DefaultValue(null)] //"string"
         public string? DiscountCode { get; set; } = null;
         // public string OrderStatus { get; set; }
         public List<CreateOrderItemRequest> orderSummary { get; set; }

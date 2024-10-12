@@ -2,11 +2,6 @@
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using PureFood.Core.SeedWorks;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PureFood.Data.Service
 {
@@ -42,7 +37,7 @@ namespace PureFood.Data.Service
                     }
                     _logger.LogInformation("Promotion status update completed at: {time}", DateTimeOffset.Now);
                     // kiem tra lai moi 10 giay
-                    await Task.Delay(TimeSpan.FromSeconds(10), stoppingToken);
+                    await Task.Delay(TimeSpan.FromHours(24), stoppingToken);
                 }
                 catch (Exception ex)
                 {
