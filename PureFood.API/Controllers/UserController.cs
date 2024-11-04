@@ -23,7 +23,6 @@ namespace PureFood.API.Controllers
         {
             _serviceManager = service;
             _userManager = userManager;
-
             _resultModel = new ResultModel();
         }
 
@@ -152,13 +151,14 @@ namespace PureFood.API.Controllers
             catch (Exception ex)
             {
                 // Chỉ trả về thông báo lỗi mà không cần quăng toàn bộ exception
-                return BadRequest(new ResultModel { 
+                return BadRequest(new ResultModel
+                {
 
-                Status = (int)System.Net.HttpStatusCode.OK,
-                Success = true,
-                Message = ex.Message
+                    Status = (int)System.Net.HttpStatusCode.OK,
+                    Success = true,
+                    Message = ex.Message
 
-                 });
+                });
             }
             // if (result == null)
             // {

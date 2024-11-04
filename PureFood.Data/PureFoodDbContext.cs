@@ -44,6 +44,8 @@ namespace PureFood.Data
             builder.ApplyConfiguration(new ProductConfiguration());
             builder.ApplyConfiguration(new ImageConfigurration());
             builder.ApplyConfiguration(new RoleConfiguration());
+            builder.ApplyConfiguration(new UserConfiguration());
+            builder.ApplyConfiguration(new UserRoleConfiguration());
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

@@ -64,8 +64,8 @@ namespace PureFood.Data.Service
             if (!result.Succeeded)
             {
                 var errorMessages = string.Join("; ", result.Errors.Select(e => e.Description));
-                    throw new Exception($"Tạo người dùng thất bại: {errorMessages}");
-         //   return null;
+                throw new Exception($"Tạo người dùng thất bại: {errorMessages}");
+                //   return null;
             }
             await _userManager.AddToRoleAsync(newUserRequest, User.Role);
             var UserResponse = _mapper.Map<UserReponse>(newUserRequest);
