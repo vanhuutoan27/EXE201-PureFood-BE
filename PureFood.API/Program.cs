@@ -24,17 +24,17 @@ builder.Services.AddSwaggerGen(option =>
 {
 
 
-    option.AddSecurityDefinition(name: "Bearer", securityScheme: new OpenApiSecurityScheme
-    {
-        Name = "Authorization",
-        Description = "Enter the Bearer Authorization string as following: `Bearer Generated-JWT-Token`",
-        In = ParameterLocation.Header,
-        Type = SecuritySchemeType.ApiKey,
-        BearerFormat = "JWT",
-        Scheme = "Bearer"
-    });
+  option.AddSecurityDefinition(name: "Bearer", securityScheme: new OpenApiSecurityScheme
+  {
+    Name = "Authorization",
+    Description = "Enter the Bearer Authorization string as following: `Bearer Generated-JWT-Token`",
+    In = ParameterLocation.Header,
+    Type = SecuritySchemeType.ApiKey,
+    BearerFormat = "JWT",
+    Scheme = "Bearer"
+  });
 
-    option.AddSecurityRequirement(new OpenApiSecurityRequirement
+  option.AddSecurityRequirement(new OpenApiSecurityRequirement
     {
       {
         new OpenApiSecurityScheme
@@ -55,8 +55,8 @@ builder.Services.AddSwaggerGen(option =>
 });
 var mapperConfig = new MapperConfiguration(mc =>
 {
-    mc.Internal().MethodMappingEnabled = false;
-    mc.AddProfile(new MappingProfiles());
+  mc.Internal().MethodMappingEnabled = false;
+  mc.AddProfile(new MappingProfiles());
 });
 builder.Services.AddAutoMapper(cfg => cfg.Internal().MethodMappingEnabled = false, typeof(Program).Assembly);
 builder.Services.ConfigureSqlContext(configuration);
@@ -72,10 +72,10 @@ builder.Services.AddSwaggerGen();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-// if (app.Environment.IsDevelopment())
+// if (app.Environment.IsDevelopment()) 
 // {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+app.UseSwagger();
+app.UseSwaggerUI();
 //
 app.UseCors("CorsPolicy");
 app.UseExceptionHandler(opt => { });
